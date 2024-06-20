@@ -6,9 +6,10 @@ import styles from './homePage.module.scss';
 
 const HomePage = () => {
     return (
-        <Container variant="default">
+        <>
             <TopHeader />
-        </Container>
+            <Container variant="default" />
+        </>
     );
 };
 
