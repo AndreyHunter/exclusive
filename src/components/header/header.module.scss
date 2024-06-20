@@ -4,6 +4,11 @@
     justify-content: space-between;
 }
 
+.left {
+    display: flex;
+    gap: 160px;
+}
+
 .wrapper {
     display: flex;
     align-items: center;

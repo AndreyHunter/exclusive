@@ -10,8 +10,10 @@ import styles from './header.module.scss';
 const Header = () => {
     return (
         <div className={styles.content}>
-            <Logo />
-            <HeaderNav pages={navBarPages} />
+            <div className={styles.left}>
+                <Logo />
+                <HeaderNav pages={navBarPages} />
+            </div>
             <div className={styles.wrapper}>
                 <Search />
                 <UserActions />
