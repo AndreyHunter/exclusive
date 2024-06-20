@@ -1,0 +1,16 @@
+.list {
+    display: flex;
+    gap: 48px;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-size: 1rem;
+    line-height: 150%;
+}
+
+// .link.active {
+//     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+// }
