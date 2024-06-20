@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import Container from '../container/Container';
+import LanguageSelect from '../languageSelect/LanguageSelect';
 
 import styles from './topHeader.module.scss';
 
@@ -15,10 +16,7 @@ const TopHeader = () => {
                         </div>
                         <Link className={styles.link}>ShopNow</Link>
                     </div>
-                    <select>
-                        <option value="english">English</option>
-                        <option value="ukraine">Ukraine</option>
-                    </select>
+                    <LanguageSelect />
                 </div>
             </Container>
         </section>
