@@ -1,7 +1,13 @@
+import { HomePage } from '../pages';
+
 import styles from './app.module.scss';
 
 const App = () => {
-    return <div className={styles.wrapper}>HELLO</div>;
+    return (
+        <>
+            <HomePage />
+        </>
+    );
 };
 
 export default App;
