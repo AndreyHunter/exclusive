@@ -6,7 +6,33 @@
     // min-height: 50px;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     padding-left: 200px;
     padding-block: 12px;
-    color: white; 
+    color: white;
+
+    @media (max-width: 968px) {
+        padding-left: 110px;
+    }
+
+    @media (max-width: 768px) {
+        padding-left: 0;
+    }
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &_text {
+        font-size: 0.875rem;
+        line-height: 150%;
+    }
+}
+
+.link {
+    font-size: 0.875rem;
+    line-height: 170%;
+    text-decoration-line: underline;
+    color: white;
 }
