@@ -1,0 +1,27 @@
+.search {
+    border-radius: 4px;
+    background: #f5f5f5;
+    padding: 7px 12px 7px 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    span {
+        display: inline-flex;
+        cursor: pointer;
+    }
+
+    input {
+        font-family: 'Poppins';
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-weight: 500;
+        color: rgba(18, 18, 18, 0.8);
+        line-height: 150%;
+        &::placeholder {
+            color: inherit;
+            font-size: 12px;
+        }
+    }
+}

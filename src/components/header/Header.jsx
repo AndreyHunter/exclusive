@@ -1,7 +1,6 @@
 import Logo from '../../ui/logo/Logo';
 import HeaderNav from './headerNav/HeaderNav';
-
-import Container from '../container/Container';
+import Search from '../search/Search';
 
 import navBarPages from '../../constants/navBarPages';
 
@@ -9,12 +8,11 @@ import styles from './header.module.scss';
 
 const Header = () => {
     return (
-        <Container>
-            <div className={styles.content}>
-                <Logo />
-                <HeaderNav pages={navBarPages} />
-            </div>
-        </Container>
+        <div className={styles.content}>
+            <Logo />
+            <HeaderNav pages={navBarPages} />
+            <Search />
+        </div>
     );
 };
 
