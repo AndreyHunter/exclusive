@@ -1,5 +1,6 @@
 import TopHeader from '../../components/topHeader/TopHeader';
 import Header from '../../components/header/Header';
+import CategoryNav from '../../components/categoryNav/CategoryNav';
 
 import Container from '../../components/container/Container';
 
@@ -11,9 +12,14 @@ const HomePage = () => {
             <div style={{ paddingBottom: 45 }}>
                 <TopHeader />
             </div>
-            <Container variant="default">
-                <Header />
-            </Container>
+
+            <Header />
+            <div style={{ paddingTop: 23, borderBottom: '1px solid black', opacity: 0.3 }} />
+            <section>
+                <Container>
+                    <CategoryNav />
+                </Container>
+            </section>
         </>
     );
 };

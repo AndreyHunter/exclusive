@@ -5,20 +5,24 @@ import UserActions from '../userActions/UserActions';
 
 import navBarPages from '../../constants/navBarPages';
 
+import Container from '../container/Container';
+
 import styles from './header.module.scss';
 
 const Header = () => {
     return (
-        <div className={styles.content}>
-            <div className={styles.left}>
-                <Logo />
-                <HeaderNav pages={navBarPages} />
+        <Container>
+            <div className={styles.content}>
+                <div className={styles.left}>
+                    <Logo />
+                    <HeaderNav pages={navBarPages} />
+                </div>
+                <div className={styles.wrapper}>
+                    <Search />
+                    <UserActions />
+                </div>
             </div>
-            <div className={styles.wrapper}>
-                <Search />
-                <UserActions />
-            </div>
-        </div>
+        </Container>
     );
 };
 
