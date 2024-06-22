@@ -1,6 +1,6 @@
 import TopHeader from '../../components/topHeader/TopHeader';
 import Header from '../../components/header/Header';
-import CategoryNav from '../../components/categoryNav/CategoryNav';
+import HeroSection from '../../components/heroSection/HeroSection';
 
 import Container from '../../components/container/Container';
 
@@ -15,11 +15,7 @@ const HomePage = () => {
 
             <Header />
             <div style={{ paddingTop: 23, borderBottom: '0.5px solid black', opacity: 0.3 }} />
-            <section>
-                <Container>
-                    <CategoryNav />
-                </Container>
-            </section>
+            <HeroSection />
         </>
     );
 };

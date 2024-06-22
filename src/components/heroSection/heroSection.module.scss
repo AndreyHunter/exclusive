@@ -1,0 +1,23 @@
+.layout {
+    display: flex;
+}
+
+.wrapper {
+    min-width: 235px;;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.block {
+    padding-top: 40px;
+}
+
+.line {
+    border-right: 0.5px solid black;
+    opacity: 0.3;
+}
+
+.slider_block {
+    width: 100%;
+    padding: 40px 0 0 45px;
+}
