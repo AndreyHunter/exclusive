@@ -14,7 +14,7 @@ const HomePage = () => {
             </div>
 
             <Header />
-            <div style={{ paddingTop: 23, borderBottom: '1px solid black', opacity: 0.3 }} />
+            <div style={{ paddingTop: 23, borderBottom: '0.5px solid black', opacity: 0.3 }} />
             <section>
                 <Container>
                     <CategoryNav />
