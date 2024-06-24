@@ -6,8 +6,8 @@ const mainSlides = [
         link: '/iPhone14',
         backgroundColor: '#000',
         images: {
-            icon: 'src/assets/images/mainSlider/1200px-Apple_gray_logo 1.png',
-            image: 'src/assets/images/mainSlider/hero_endframe__cvklg0xk3w6e_large 2.png',
+            icon: '/src/assets/images/mainSlider/1200px-Apple_gray_logo.png',
+            image: '/src/assets/images/mainSlider/hero_endframe__cvklg0xk3w6e_large 2.png',
         },
     },
     {
@@ -17,8 +17,8 @@ const mainSlides = [
         link: '/MacBookPro',
         backgroundColor: '#000',
         images: {
-            icon: 'src/assets/images/mainSlider/1200px-Apple_gray_logo 1.png',
-            image: 'src/assets/images/mainSlider/daniel-korpai-HyTwtsk8XqA-unsplash.jpg',
+            icon: '/src/assets/images/mainSlider/1200px-Apple_gray_logo.png',
+            image: '/src/assets/images/mainSlider/macbook_pro.jpg',
         },
     },
 

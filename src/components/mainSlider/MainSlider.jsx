@@ -7,6 +7,7 @@ import mainSlides from './mainSlides';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+
 import './mainSlider.scss';
 
 const MainSlider = () => {

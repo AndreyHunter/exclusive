@@ -3,7 +3,7 @@ import ShopNowLink from '../../../ui/shopNowLink/ShopNowLink';
 import styles from './mainSlide.module.scss';
 
 const MainSlide = ({ slide }) => {
-    const bg = slide.backgroundColor || slide.backgroundImage;
+    const bg = slide.backgroundColor || `url(${slide.backgroundImage})`;
 
     return (
         <div className={styles.slide} style={{ background: bg }}>
