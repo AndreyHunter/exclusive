@@ -23,11 +23,7 @@ const ProductCard = ({ product }) => {
         <li className={styles.card}>
             <div className={styles.header}>
                 <Link>
-                    <img
-                        src="src/assets/images/products/ak-900-wired-keyboard.png"
-                        alt={product?.name}
-                        className={styles.image}
-                    />
+                    <img src={product?.image} alt={product?.name} className={styles.image} />
                 </Link>
                 <DiscountLabel discount={35} className={styles.label} />
                 <div className={styles.buttons}>
@@ -37,8 +33,8 @@ const ProductCard = ({ product }) => {
                 <AddToCardButton className={styles.button} />
             </div>
             <div className={styles.info}>
-                <Link className={styles.title}>AK-900 Wired Keyboard</Link>
-                <ProductPrice price={960} discountedPrice={1160} />
+                <Link className={styles.title}>{product.name}</Link>
+                <ProductPrice price={product.price} discountedPrice={product.discountedPrice} />
                 <ProductRating
                     rating={rating}
                     setRating={handleSetRating}

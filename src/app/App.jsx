@@ -1,7 +1,5 @@
 import { HomePage } from '../pages';
 
-import styles from './app.module.scss';
-
 const App = () => {
     return (
         <>

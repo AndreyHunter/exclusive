@@ -8,7 +8,7 @@ import styles from './heroSection.module.scss';
 const HeroSection = () => {
     return (
         <section>
-            <Container>
+            <Container variant="default">
                 <div className={styles.layout}>
                     <div className={styles.wrapper}>
                         <div className={styles.block}>

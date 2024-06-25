@@ -1,0 +1,11 @@
+.button {
+    display: inline-flex;
+    padding: 16px 48px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--accentColor);
+    color: #fafafa;
+    font-weight: 500;
+    cursor: pointer;
+}

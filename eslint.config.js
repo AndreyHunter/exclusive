@@ -38,19 +38,20 @@ export default [
             'no-empty': ['error', { allowEmptyCatch: true }],
             'no-unreachable': 'error',
             'prefer-const': 'error',
+            'no-unused-vars': 'off',
 
             // Code style
-            'semi': ['error', 'always'],
-            'indent': ['error', 4],
-            'quotes': ['error', 'single'],
+            semi: ['error', 'always'],
+            indent: ['error', 4],
+            quotes: ['error', 'single'],
             'comma-dangle': ['error', 'always-multiline'],
 
             'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
             'react/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never' }],
             'react/function-component-definition': ['warn', { namedComponents: 'arrow-function' }],
             'react/self-closing-comp': ['error', { component: true, html: true }],
-			'max-lines': ['warn', { max: 100 }],
-			
+            'max-lines': ['warn', { max: 100 }],
+
             // 'prettier/prettier': 'error',
         },
     },
