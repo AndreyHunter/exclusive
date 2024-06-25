@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.price {
+    color: var(--accentColor);
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.discountedPrice {
+    color: black;
+    opacity: 0.5;
+    font-weight: 500;
+    line-height: 150%;
+    text-decoration-line: line-through;
+}

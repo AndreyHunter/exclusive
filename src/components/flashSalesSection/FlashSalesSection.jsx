@@ -1,5 +1,6 @@
 import SectionLabel from '../../ui/sectionLabel/SectionLabel';
 import SectionTitle from '../../ui/sectionTitle/SectionTitle';
+import ProductCard from '../../components/productCard/ProductCard';
 
 import Container from '../container/Container';
 
@@ -15,6 +16,9 @@ const FlashSalesSection = () => {
                         <SectionTitle title="Flash Sales" />
                     </div>
                 </div>
+                <ul>
+                    <ProductCard />
+                </ul>
             </section>
         </Container>
     );

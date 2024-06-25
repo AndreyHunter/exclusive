@@ -1,0 +1,13 @@
+.wrapper {
+    width: 55px;
+    display: inline-flex;
+    padding: 4px 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: var(--accentColor);
+    font-size: 0.875rem;
+    line-height: 150%;
+    color: white;
+    cursor: pointer;
+}
