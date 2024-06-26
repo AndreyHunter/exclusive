@@ -11,8 +11,8 @@ import styles from './producsCard.module.scss';
 import { useState } from 'react';
 
 const ProductCard = ({ product }) => {
-    const [rating, setRating] = useState(0);
-    const [reviewsCount, setReviewsCount] = useState(0);
+    const [rating, setRating] = useState(product.rating);
+    const [reviewsCount, setReviewsCount] = useState(product.reviewsCount);
 
     const handleSetRating = (rating) => {
         setRating(rating);

@@ -3,6 +3,7 @@ import Header from '../../components/header/Header';
 import HeroSection from '../../components/heroSection/HeroSection';
 import FlashSalesSection from '../../components/flashSalesSection/FlashSalesSection';
 import CategoriesSection from '../../components/categoriesSection/CategoriesSection';
+import BestSellersSection from '../../components/bestSellersSection/BestSellersSection';
 import Separator from '../../ui/separator/Separator';
 
 import Container from '../../components/container/Container';
@@ -24,6 +25,7 @@ const HomePage = () => {
             <Separator />
             <CategoriesSection className={styles.categories} />
             <Separator />
+            <BestSellersSection className={styles.bestSellers} />
         </>
     );
 };

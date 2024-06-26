@@ -19,7 +19,8 @@ const ProductSlider = () => {
                     nextEl: '.swiper-button-next-custom',
                 }}
                 slidesPerView={4}
-                freeMode={true}>
+                freeMode={true}
+                spaceBetween={30}>
                 {products &&
                     products.map((product) => (
                         <SwiperSlide key={product.id}>

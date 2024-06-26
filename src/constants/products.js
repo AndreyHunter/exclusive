@@ -7,6 +7,7 @@ const products = [
         discountedPrice: 120,
         rating: 5,
         reviewsCount: 88,
+        bestSelling: false,
     },
     {
         id: 2,
@@ -16,6 +17,7 @@ const products = [
         discountedPrice: 960,
         rating: 4,
         reviewsCount: 75,
+        bestSelling: false,
     },
     {
         id: 3,
@@ -25,15 +27,61 @@ const products = [
         discountedPrice: 370,
         rating: 5,
         reviewsCount: 99,
+        bestSelling: false,
     },
     {
         id: 4,
         name: 'S-Series Comfort Chair',
-        image: 'src/assets/images/products/s-series comfort-chair.png',
+        image: 'src/assets/images/products/s-series-comfort-chair.png',
         price: 400,
         discountedPrice: 375,
         rating: 4.5,
         reviewsCount: 74,
+        bestSelling: false,
+    },
+
+    {
+        id: 5,
+        name: 'The north coat',
+        image: 'src/assets/images/products/the-north-coat.png',
+        price: 360,
+        discountedPrice: 260,
+        rating: 5,
+        reviewsCount: 65,
+        bestSelling: true,
+    },
+
+    {
+        id: 6,
+        name: 'Gucci duffle bag',
+        image: 'src/assets/images/products/gucci-duffle-bag.png',
+        price: 1160,
+        discountedPrice: 960,
+        rating: 4.6,
+        reviewsCount: 42,
+        bestSelling: true,
+    },
+
+    {
+        id: 7,
+        name: 'RGB liquid CPU Cooler',
+        image: 'src/assets/images/products/rgb-liquid-cpu-cooler.png',
+        price: 170,
+        discountedPrice: 160,
+        rating: 4.8,
+        reviewsCount: 87,
+        bestSelling: true,
+    },
+
+    {
+        id: 8,
+        name: 'Small BookSelf',
+        image: 'src/assets/images/products/small-book-self.png',
+        price: 360,
+        discountedPrice: null,
+        rating: 5,
+        reviewsCount: 24,
+        bestSelling: true,
     },
 ];
 
