@@ -9,20 +9,22 @@ import Container from '../container/Container';
 
 import styles from './header.module.scss';
 
-const Header = () => {
+const Header = ({ ...props }) => {
     return (
-        <Container>
-            <div className={styles.content}>
-                <div className={styles.left}>
-                    <Logo />
-                    <HeaderNav pages={navBarPages} />
+        <header {...props}>
+            <Container>
+                <div className={styles.content}>
+                    <div className={styles.left}>
+                        <Logo />
+                        <HeaderNav pages={navBarPages} />
+                    </div>
+                    <div className={styles.wrapper}>
+                        <Search />
+                        <UserActions />
+                    </div>
                 </div>
-                <div className={styles.wrapper}>
-                    <Search />
-                    <UserActions />
-                </div>
-            </div>
-        </Container>
+            </Container>
+        </header>
     );
 };
 

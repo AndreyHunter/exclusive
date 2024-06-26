@@ -5,9 +5,9 @@ import Container from '../container/Container';
 
 import styles from './heroSection.module.scss';
 
-const HeroSection = () => {
+const HeroSection = ({ ...props }) => {
     return (
-        <section>
+        <section {...props}>
             <Container variant="default">
                 <div className={styles.layout}>
                     <div className={styles.wrapper}>

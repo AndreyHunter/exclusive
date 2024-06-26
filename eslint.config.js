@@ -49,7 +49,7 @@ export default [
             'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
             'react/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never' }],
             'react/function-component-definition': ['warn', { namedComponents: 'arrow-function' }],
-            'react/self-closing-comp': ['error', { component: true, html: true }],
+            'react/self-closing-comp': ['error', { component: false, html: false }],
             'max-lines': ['warn', { max: 100 }],
 
             // 'prettier/prettier': 'error',

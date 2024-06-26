@@ -5,9 +5,9 @@ import LanguageSelect from '../languageSelect/LanguageSelect';
 
 import styles from './topHeader.module.scss';
 
-const TopHeader = () => {
+const TopHeader = ({ className, ...props }) => {
     return (
-        <section className={styles.bg}>
+        <section className={`${styles.bg} ${className}`} {...props}>
             <Container variant="default">
                 <div className={styles.content}>
                     <div className={styles.message}>
