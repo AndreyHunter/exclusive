@@ -1,11 +1,18 @@
 .wrapper {
     display: flex;
-    align-items: center;
-    gap: 9px;
+    align-items: flex-start;
 
     a {
         color: white;
         font-weight: 500;
         line-height: 150%;
     }
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
 }

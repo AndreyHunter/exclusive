@@ -6,6 +6,7 @@ import CategoriesSection from '../../components/categoriesSection/CategoriesSect
 import BestSellersSection from '../../components/bestSellersSection/BestSellersSection';
 import PromotionSection from '../../components/promotionSection/PromotionSection';
 import OurProductsSection from '../../components/ourProductsSection/OurProductsSection';
+import NewArrivalSection from '../../components/newArrivalSection/NewArrivalSection';
 import Separator from '../../ui/separator/Separator';
 
 import Container from '../../components/container/Container';
@@ -30,6 +31,7 @@ const HomePage = () => {
             <BestSellersSection className={styles.bestSellers} />
             <PromotionSection className={styles.promotion} />
             <OurProductsSection className={styles.ourProducts} />
+            <NewArrivalSection className={styles.newArrival} />
         </>
     );
 };

@@ -1,0 +1,99 @@
+.block {
+    padding-bottom: 60px;
+}
+
+.grid {
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+}
+
+.large {
+    border-radius: 12px;
+    grid-row: span 2;
+    background-color: #0d0d0d;
+    background-image: url('src/assets/images/newArrival/ps5-slim.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    position: relative;
+
+    &_info {
+        position: absolute;
+        bottom: 32px;
+        left: 32px;
+    }
+}
+
+.row {
+    min-height: 600px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+}
+
+.full,
+.half {
+    border-radius: 12px;
+    background-color: #0d0d0d;
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 5;
+
+    &_block {
+        position: absolute;
+        bottom: 24px;
+        left: 24px;
+        z-index: 5;
+    }
+}
+
+.ellipse {
+    width: 238px;
+    height: 238px;
+    background-color: rgba(255, 248, 248, 0.4);
+    filter: blur(150px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.full {
+    grid-column: span 2;
+    background-image: url('src/assets/images/newArrival/attractive-woman-wearing-hat-posing-black.png');
+    background-position: bottom right;
+}
+
+.half:nth-child(2) {
+    background-image: url('src/assets/images/newArrival/amazon-echo.png');
+    background-size: 70%;
+}
+
+.half:nth-child(3) {
+    background-image: url('src/assets/images/newArrival/gucci-intrnse-oud-edp.png');
+}
+
+.title {
+    color: #fafafa;
+    font-family: 'Inter';
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.desc {
+    width: 240px;
+    color: white;
+    font-size: 0.875rem;
+    line-height: 150%;
+}
+
+.link {
+    color: #fff;
+    font-weight: 500;
+    line-height: 150%;
+}

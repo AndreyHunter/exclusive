@@ -13,7 +13,7 @@ const MainSlide = ({ slide }) => {
                     <div className={styles.name}>{slide.productName}</div>
                 </div>
                 <div className={styles.title}>{slide.title}</div>
-                <ShopNowLink arrow link={slide.link} />
+                <ShopNowLink arrow direction='row' link={slide.link} />
             </div>
             {slide.images?.image && (
                 <img src={slide.images.image} alt={slide.name} className={styles.image} />
