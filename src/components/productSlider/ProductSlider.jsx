@@ -22,11 +22,13 @@ const ProductSlider = () => {
                 freeMode={true}
                 spaceBetween={30}>
                 {products &&
-                    products.map((product) => (
-                        <SwiperSlide key={product.id}>
-                            <ProductCard product={product} />
-                        </SwiperSlide>
-                    ))}
+                    products
+                        .filter((product) => product.flashSales)
+                        .map((product) => (
+                            <SwiperSlide key={product.id}>
+                                <ProductCard product={product} />
+                            </SwiperSlide>
+                        ))}
             </Swiper>
             <div className="product-slider-buttons">
                 <button className="swiper-button-prev-custom">

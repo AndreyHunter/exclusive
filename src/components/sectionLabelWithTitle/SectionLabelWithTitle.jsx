@@ -3,9 +3,9 @@ import SectionTitle from '../../ui/sectionTitle/SectionTitle';
 
 import styles from './sectionLabelWithTitle.module.scss';
 
-const sectionLabelWithTitle = ({ label, title, ...props }) => {
+const sectionLabelWithTitle = ({ label, title, className, ...props }) => {
     return (
-        <div className={styles.titleBox} {...props}>
+        <div className={`${styles.titleBox} ${className}`} {...props}>
             <SectionLabel label={label} />
             <SectionTitle title={title} />
         </div>

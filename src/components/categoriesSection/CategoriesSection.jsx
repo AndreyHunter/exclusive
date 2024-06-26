@@ -12,7 +12,7 @@ const CategoriesSection = ({ ...props }) => {
                 <SectionLabelWithTitle
                     label="Categories"
                     title="Browse By Category"
-                    style={{ paddingBottom: 60 }}
+                    className={styles.block}
                 />
                 <CategoryList />
             </Container>

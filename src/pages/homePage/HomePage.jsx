@@ -5,6 +5,7 @@ import FlashSalesSection from '../../components/flashSalesSection/FlashSalesSect
 import CategoriesSection from '../../components/categoriesSection/CategoriesSection';
 import BestSellersSection from '../../components/bestSellersSection/BestSellersSection';
 import PromotionSection from '../../components/promotionSection/PromotionSection';
+import OurProductsSection from '../../components/ourProductsSection/OurProductsSection';
 import Separator from '../../ui/separator/Separator';
 
 import Container from '../../components/container/Container';
@@ -28,6 +29,7 @@ const HomePage = () => {
             <Separator />
             <BestSellersSection className={styles.bestSellers} />
             <PromotionSection className={styles.promotion} />
+            <OurProductsSection className={styles.ourProducts} />
         </>
     );
 };

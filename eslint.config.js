@@ -50,7 +50,7 @@ export default [
             'react/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never' }],
             'react/function-component-definition': ['warn', { namedComponents: 'arrow-function' }],
             'react/self-closing-comp': ['error', { component: false, html: false }],
-            'max-lines': ['warn', { max: 100 }],
+            'max-lines': ['warn', { max: 300 }],
 
             // 'prettier/prettier': 'error',
         },
