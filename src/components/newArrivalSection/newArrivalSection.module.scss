@@ -13,7 +13,7 @@
     border-radius: 12px;
     grid-row: span 2;
     background-color: #0d0d0d;
-    background-image: url('src/assets/images/newArrival/ps5-slim.png');
+    background-image: url('/src/assets/images/newArrival/ps5-slim.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: bottom;
@@ -65,17 +65,17 @@
 
 .full {
     grid-column: span 2;
-    background-image: url('src/assets/images/newArrival/attractive-woman-wearing-hat-posing-black.png');
+    background-image: url('/src/assets/images/newArrival/attractive-woman-wearing-hat-posing-black.png');
     background-position: bottom right;
 }
 
 .half:nth-child(2) {
-    background-image: url('src/assets/images/newArrival/amazon-echo.png');
+    background-image: url('/src/assets/images/newArrival/amazon-echo.png');
     background-size: 70%;
 }
 
 .half:nth-child(3) {
-    background-image: url('src/assets/images/newArrival/gucci-intrnse-oud-edp.png');
+    background-image: url('/src/assets/images/newArrival/gucci-intrnse-oud-edp.png');
 }
 
 .title {
