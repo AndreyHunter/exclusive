@@ -8,9 +8,8 @@ import PromotionSection from '../../components/promotionSection/PromotionSection
 import OurProductsSection from '../../components/ourProductsSection/OurProductsSection';
 import NewArrivalSection from '../../components/newArrivalSection/NewArrivalSection';
 import AdvantagesSection from '../../components/advantagesSection/AdvantagesSection';
+import Footer from '../../components/footer/Footer';
 import Separator from '../../ui/separator/Separator';
-
-import Container from '../../components/container/Container';
 
 import styles from './homePage.module.scss';
 
@@ -34,6 +33,7 @@ const HomePage = () => {
             <OurProductsSection className={styles.ourProducts} />
             <NewArrivalSection className={styles.newArrival} />
             <AdvantagesSection className={styles.advantages} />
+            <Footer />
         </>
     );
 };

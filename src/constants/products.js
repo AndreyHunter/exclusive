@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         name: 'HAVIT HV-G92 Gamepad',
-        image: 'src/assets/images/products/havit-hv-g92-gamepad.png',
+        image: '/src/assets/images/products/havit-hv-g92-gamepad.png',
         price: 160,
         discountedPrice: 120,
         rating: 5,
@@ -13,7 +13,7 @@ const products = [
     {
         id: 2,
         name: 'AK-900 Wired Keyboard',
-        image: 'src/assets/images/products/ak-900-wired-keyboard.png',
+        image: '/src/assets/images/products/ak-900-wired-keyboard.png',
         price: 1160,
         discountedPrice: 960,
         rating: 4,
@@ -24,7 +24,7 @@ const products = [
     {
         id: 3,
         name: 'IPS LCD Gaming Monitor',
-        image: 'src/assets/images/products/ips-lcd-gaming-monitor.png',
+        image: '/src/assets/images/products/ips-lcd-gaming-monitor.png',
         price: 400,
         discountedPrice: 370,
         rating: 5,
@@ -35,7 +35,7 @@ const products = [
     {
         id: 4,
         name: 'S-Series Comfort Chair',
-        image: 'src/assets/images/products/s-series-comfort-chair.png',
+        image: '/src/assets/images/products/s-series-comfort-chair.png',
         price: 400,
         discountedPrice: 375,
         rating: 4.5,
@@ -47,7 +47,7 @@ const products = [
     {
         id: 5,
         name: 'The north coat',
-        image: 'src/assets/images/products/the-north-coat.png',
+        image: '/src/assets/images/products/the-north-coat.png',
         price: 360,
         discountedPrice: 260,
         rating: 5,
@@ -58,7 +58,7 @@ const products = [
     {
         id: 6,
         name: 'Gucci duffle bag',
-        image: 'src/assets/images/products/gucci-duffle-bag.png',
+        image: '/src/assets/images/products/gucci-duffle-bag.png',
         price: 1160,
         discountedPrice: 960,
         rating: 4.6,
@@ -68,7 +68,7 @@ const products = [
     {
         id: 7,
         name: 'RGB liquid CPU Cooler',
-        image: 'src/assets/images/products/rgb-liquid-cpu-cooler.png',
+        image: '/src/assets/images/products/rgb-liquid-cpu-cooler.png',
         price: 170,
         discountedPrice: 160,
         rating: 4.8,
@@ -79,7 +79,7 @@ const products = [
     {
         id: 8,
         name: 'Small BookSelf',
-        image: 'src/assets/images/products/small-book-self.png',
+        image: '/src/assets/images/products/small-book-self.png',
         price: 360,
         discountedPrice: null,
         rating: 5,
@@ -91,7 +91,7 @@ const products = [
     {
         id: 9,
         name: 'Breed Dry Dog Food',
-        image: 'src/assets/images/products/breed-dry-dog-food.jpg',
+        image: '/src/assets/images/products/breed-dry-dog-food.jpg',
         price: 100,
         discountedPrice: null,
         rating: 3,
@@ -102,7 +102,7 @@ const products = [
     {
         id: 10,
         name: 'CANON EOS DSLR Camera',
-        image: 'src/assets/images/products/canon-eos-dslr-camera.png',
+        image: '/src/assets/images/products/canon-eos-dslr-camera.png',
         price: 360,
         discountedPrice: null,
         rating: 4,
@@ -113,7 +113,7 @@ const products = [
     {
         id: 11,
         name: 'ASUS FHD Gaming Laptop',
-        image: 'src/assets/images/products/asus-fhd-gaming-laptop.png',
+        image: '/src/assets/images/products/asus-fhd-gaming-laptop.png',
         price: 700,
         discountedPrice: null,
         rating: 5,
@@ -124,7 +124,7 @@ const products = [
     {
         id: 12,
         name: 'Curology Product Set',
-        image: 'src/assets/images/products/curology-product-set.png',
+        image: '/src/assets/images/products/curology-product-set.png',
         price: 500,
         discountedPrice: null,
         rating: 4,
@@ -135,7 +135,7 @@ const products = [
     {
         id: 13,
         name: 'Kids Electric Car',
-        image: 'src/assets/images/products/kids-electric-car.png',
+        image: '/src/assets/images/products/kids-electric-car.png',
         price: 960,
         discountedPrice: null,
         rating: 5,
@@ -146,7 +146,7 @@ const products = [
     {
         id: 14,
         name: 'Jr. Zoom Soccer Cleats',
-        image: 'src/assets/images/products/Jr-zoom-soccer-cleats.png',
+        image: '/src/assets/images/products/Jr-zoom-soccer-cleats.png',
         price: 1160,
         discountedPrice: null,
         rating: 5,
@@ -157,7 +157,7 @@ const products = [
     {
         id: 15,
         name: 'GP11 Shooter USB Gamepad',
-        image: 'src/assets/images/products/gp11-shooter-usb-gamepad.png',
+        image: '/src/assets/images/products/gp11-shooter-usb-gamepad.png',
         price: 660,
         discountedPrice: null,
         rating: 4.5,
@@ -168,7 +168,7 @@ const products = [
     {
         id: 16,
         name: 'Jr. Zoom Soccer Cleats',
-        image: 'src/assets/images/products/quilted-satin-jacket.png',
+        image: '/src/assets/images/products/quilted-satin-jacket.png',
         price: 660,
         discountedPrice: null,
         rating: 5,

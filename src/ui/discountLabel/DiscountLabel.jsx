@@ -4,7 +4,7 @@ const DiscountLabel = ({ discount, className, props }) => {
     return (
         <div>
             {discount && (
-                <div className={`${styles.wrapper} ${className}`} {...props}>
+                <div className={`${styles.wrapper || ''} ${className || ''}`} {...props}>
                     -{discount}%
                 </div>
             )}
