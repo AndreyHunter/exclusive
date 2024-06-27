@@ -3,7 +3,7 @@ import ShopNowLink from '../../../ui/shopNowLink/ShopNowLink';
 import styles from './mainSlide.module.scss';
 
 const MainSlide = ({ slide }) => {
-    const bg = slide.backgroundColor || `url(${slide.backgroundImage})`;
+    const bg = slide.backgroundColor;
 
     return (
         <div className={styles.slide} style={{ background: bg }}>
@@ -13,9 +13,9 @@ const MainSlide = ({ slide }) => {
                     <div className={styles.name}>{slide.productName}</div>
                 </div>
                 <div className={styles.title}>{slide.title}</div>
-                <ShopNowLink arrow direction='row' link={slide.link} />
+                <ShopNowLink arrow direction="row" link={slide.link} />
             </div>
-            {slide.images?.image && (
+            {slide.images.image && (
                 <img src={slide.images.image} alt={slide.name} className={styles.image} />
             )}
         </div>

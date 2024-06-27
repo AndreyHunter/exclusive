@@ -11,11 +11,7 @@
     padding-block: 12px;
     color: white;
 
-    @media (max-width: 968px) {
-        padding-left: 110px;
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         padding-left: 0;
     }
 }
@@ -28,6 +24,10 @@
         font-size: 0.875rem;
         line-height: 150%;
     }
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 .link {
@@ -35,4 +35,23 @@
     line-height: 170%;
     text-decoration-line: underline;
     color: white;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @media (max-width: 600px) {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.burger {
+    display: none;
+
+    @media (max-width: 968px) {
+        display: block;
+    }
 }

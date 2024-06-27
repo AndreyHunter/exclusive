@@ -5,10 +5,12 @@ import Container from '../container/Container';
 
 import styles from './heroSection.module.scss';
 
-const HeroSection = ({ ...props }) => {
+const HeroSection = ({ className, ...props }) => {
+    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+
     return (
-        <section {...props}>
-            <Container variant="default">
+        <section className={combinedClassName} {...props}>
+            <Container>
                 <div className={styles.layout}>
                     <div className={styles.wrapper}>
                         <div className={styles.block}>

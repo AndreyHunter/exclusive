@@ -9,17 +9,19 @@ import Container from '../container/Container';
 
 import styles from './header.module.scss';
 
-const Header = ({ ...props }) => {
+const Header = ({ className, ...props }) => {
+    const combinedClassName = `${styles.header || ''} ${className || ''}`;
+
     return (
-        <header {...props}>
+        <header className={combinedClassName} {...props}>
             <Container>
                 <div className={styles.content}>
                     <div className={styles.left}>
                         <Logo />
-                        <HeaderNav pages={navBarPages} />
+                        <HeaderNav pages={navBarPages} className={styles.nav} />
                     </div>
                     <div className={styles.wrapper}>
-                        <Search />
+                        <Search className={styles.search} />
                         <UserActions />
                     </div>
                 </div>

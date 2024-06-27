@@ -1,13 +1,9 @@
-.top_header {
-    padding-bottom: 40px;
-}
-
-.line {
-    padding-top: 23px;
-}
-
 .hero {
     padding-bottom: 120px;
+
+    @media (max-width: 1024px) {
+        padding-top: 20px;
+    }
 }
 
 .flashSales {
