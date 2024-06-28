@@ -1,3 +1,7 @@
+.nav {
+    flex-shrink: 0;
+}
+
 .list {
     display: flex;
     gap: 48px;
@@ -15,3 +19,17 @@
 // .link.active {
 //     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
 // }
+
+.item {
+    @media (max-width: 1024px) {
+        &:nth-child(1) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 868px) {
+        &:nth-child(3) {
+            display: none;
+        }
+    }
+}

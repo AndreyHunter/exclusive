@@ -6,9 +6,11 @@ import Container from '../container/Container';
 
 import styles from './flashSalesSection.module.scss';
 
-const FlashSalesSection = ({ ...props }) => {
+const FlashSalesSection = ({ className, ...props }) => {
+    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+
     return (
-        <section {...props}>
+        <section className={combinedClassName} {...props}>
             <Container>
                 <SectionLabelWithTitle
                     label="Today’s"

@@ -1,39 +1,41 @@
-.top_header {
-    padding-bottom: 40px;
-}
-
-.line {
-    padding-top: 23px;
-}
-
-.hero {
-    padding-bottom: 120px;
-}
-
 .flashSales {
     padding-bottom: 60px;
 }
 
 .categories {
-    padding-block: 80px;
+    padding-top: 60px;
 }
 
 .bestSellers {
-    padding-block: 80px 120px;
+    padding-top: 60px;
 }
 
-.promotion {
-    padding-bottom: 80px;
-}
-
-.ourProducts {
+.section {
     padding-bottom: 120px;
 }
 
-.newArrival {
-    padding-bottom: 120px;
+@media (max-width: 1024px) {
+    .section {
+        padding-bottom: 100px;
+    }
+
+    .hero {
+        padding-top: 20px;
+    }
 }
 
-.advantages {
-    padding-bottom: 120px;
+@media (max-width: 968px) {
+    .section {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding-bottom: 60px;
+    }
+
+    .bestSellers {
+        padding-top: 60px;
+    }
 }

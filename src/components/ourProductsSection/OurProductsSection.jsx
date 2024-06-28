@@ -1,16 +1,18 @@
 import SectionLabelWithTitle from '../../components/sectionLabelWithTitle/SectionLabelWithTitle';
 import Button from '../../ui/button/Button';
+import ProductCard from '../productCard/ProductCard';
 
 import Container from '../container/Container';
 
 import products from '../../constants/products';
 
 import styles from './ourProductsSection.module.scss';
-import ProductCard from '../productCard/ProductCard';
 
 const OurProductsSection = ({ className, ...props }) => {
+    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+
     return (
-        <section className={`${styles.section} ${className}`} {...props}>
+        <section className={combinedClassName} {...props}>
             <Container>
                 <SectionLabelWithTitle
                     label="Our Products"

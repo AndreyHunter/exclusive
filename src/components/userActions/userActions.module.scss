@@ -4,8 +4,8 @@
     gap: 16px;
 
     button {
-        border: none;
-        outline: none;
+        display: flex;
+        align-items: flex-end;
         background-color: transparent;
         cursor: pointer;
     }

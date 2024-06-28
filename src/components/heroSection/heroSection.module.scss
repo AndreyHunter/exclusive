@@ -22,3 +22,13 @@
     padding: 40px 0 0 45px;
     overflow: hidden;
 }
+
+@media (max-width: 968px) {
+    .wrapper {
+        display: none;
+    }
+
+    .slider_block {
+        padding: 0;
+    }
+}

@@ -115,12 +115,15 @@ const Footer = ({ className, ...props }) => {
                     </div>
                 </div>
             </Container>
+
             <FlexBlock gap={16} column center>
                 <Separator style={{ backgroundColor: 'white', opacity: 0.1 }} />
-                <FlexBlock center className={styles.copyright}>
-                    <CopyrightIcon />
-                    <p>Copyright Rimel 2022. All right reserved</p>
-                </FlexBlock>
+                <Container>
+                    <FlexBlock center className={styles.copyright}>
+                        <CopyrightIcon />
+                        <p>Copyright Rimel 2022. All right reserved</p>
+                    </FlexBlock>
+                </Container>
             </FlexBlock>
         </footer>
     );
