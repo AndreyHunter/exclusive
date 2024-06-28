@@ -1,5 +1,5 @@
 import SectionLabelWithTitle from '../sectionLabelWithTitle/SectionLabelWithTitle';
-import CategoryList from '../categoryList/CategoryList';
+import CategorySlider from '../categorySlider/CategorySlider';
 
 import Container from '../container/Container';
 
@@ -14,7 +14,7 @@ const CategoriesSection = ({ ...props }) => {
                     title="Browse By Category"
                     className={styles.block}
                 />
-                <CategoryList />
+                <CategorySlider />
             </Container>
         </section>
     );

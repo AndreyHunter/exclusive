@@ -7,8 +7,10 @@ import Container from '../../components/container/Container';
 import styles from './bestSellersSection.module.scss';
 
 const BestSellersSection = ({ className, ...props }) => {
+    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+
     return (
-        <section className={`${styles.section} ${className}`} {...props}>
+        <section className={combinedClassName} {...props}>
             <Container>
                 <div className={styles.block}>
                     <SectionLabelWithTitle label="This Month" title="Best Selling Products" />

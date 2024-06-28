@@ -7,8 +7,10 @@ import advantages from '../../constants/advantages';
 import styles from './advantagesSection.module.scss';
 
 const AdvantagesSection = ({ className, ...props }) => {
+    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+
     return (
-        <section className={`${styles.section} ${className}`} {...props}>
+        <section className={combinedClassName} {...props}>
             <Container>
                 <ul className={styles.grid}>
                     {advantages &&

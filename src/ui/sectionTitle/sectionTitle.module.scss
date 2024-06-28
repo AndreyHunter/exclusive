@@ -5,4 +5,12 @@
     font-weight: 600;
     line-height: 140%;
     letter-spacing: 1.44px;
+
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
+
+    @media (max-width: 468px) {
+        font-size: 1.6rem;
+    }
 }

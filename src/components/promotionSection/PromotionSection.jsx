@@ -6,8 +6,10 @@ import Container from '../container/Container';
 import styles from './promotionSection.module.scss';
 
 const PromotionSection = ({ className, ...props }) => {
+    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+
     return (
-        <section className={`${styles.section} ${className}`} {...props}>
+        <section className={combinedClassName} {...props}>
             <Container>
                 <div className={styles.wrapper}>
                     <div className={styles.info}>

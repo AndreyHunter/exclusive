@@ -7,8 +7,10 @@ import Container from '../container/Container';
 import styles from './newArrivalSection.module.scss';
 
 const NewArrivalSection = ({ className, ...props }) => {
+    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+
     return (
-        <section className={`${styles.section} ${className}`} {...props}>
+        <section className={combinedClassName} {...props}>
             <Container>
                 <SectionLabelWithTitle
                     label="Featured"

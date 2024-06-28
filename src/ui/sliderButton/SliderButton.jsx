@@ -1,10 +1,11 @@
 import styles from './sliderButton.module.scss';
 
-const SliderButton = ({ direction = 'right', color = 'black' }) => {
+const SliderButton = ({ direction = 'right', color = 'black', className, ...props }) => {
+    const combinedClassName = `${styles.button || ''} ${className || ''}`;
     const rotation = direction === 'right' ? 180 : 0;
 
     return (
-        <div className={styles.button}>
+        <button className={combinedClassName} {...props}>
             <svg
                 style={{ transform: `rotate(${rotation}deg)` }}
                 xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +21,7 @@ const SliderButton = ({ direction = 'right', color = 'black' }) => {
                     strokeLinejoin="round"
                 />
             </svg>
-        </div>
+        </button>
     );
 };
 

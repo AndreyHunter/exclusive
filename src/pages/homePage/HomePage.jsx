@@ -14,16 +14,16 @@ import styles from './homePage.module.scss';
 const HomePage = () => {
     return (
         <>
-            <HeroSection className={styles.hero} />
+            <HeroSection className={`${styles.section} ${styles.hero}`} />
             <FlashSalesSection className={styles.flashSales} />
             <Separator />
             <CategoriesSection className={styles.categories} />
             <Separator />
-            <BestSellersSection className={styles.bestSellers} />
-            <PromotionSection className={styles.promotion} />
-            <OurProductsSection className={styles.ourProducts} />
-            <NewArrivalSection className={styles.newArrival} />
-            <AdvantagesSection className={styles.advantages} />
+            <BestSellersSection className={`${styles.section} ${styles.bestSellers} `} />
+            <PromotionSection className={styles.section} />
+            <OurProductsSection className={styles.section} />
+            <NewArrivalSection className={styles.section} />
+            <AdvantagesSection className={styles.section} />
         </>
     );
 };

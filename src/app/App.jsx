@@ -17,7 +17,9 @@ const App = () => {
             <div className={styles.line}>
                 <Separator />
             </div>
-            <HomePage />
+            <main>
+                <HomePage />
+            </main>
             <Footer />
         </>
     );
