@@ -7,7 +7,6 @@
 }
 
 .grid {
-    min-height: 600px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 30px;
@@ -21,18 +20,23 @@
 .large {
     min-height: 600px;
     border-radius: 12px;
-    grid-row: span 2;
     background-color: #0d0d0d;
     background-image: url('/src/assets/images/newArrival/ps5-slim.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position-y: bottom;
+    background-position: center right;
     position: relative;
 
-    &_info {
+    &_block {
+        width: auto;
         position: absolute;
         bottom: 32px;
         left: 32px;
+
+        @media (max-width: 1024px) {
+            bottom: 24px;
+            left: 24px;
+        }
     }
 
     @media (max-width: 1024px) {
@@ -45,6 +49,20 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     gap: 30px;
+
+    @media (max-width: 568px) {
+        grid-template-rows: 1fr 2fr;
+    }
+}
+
+.col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @media (max-width: 568px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .full,
@@ -58,6 +76,7 @@
     z-index: 5;
 
     &_block {
+        width: auto;
         position: absolute;
         bottom: 24px;
         left: 24px;
@@ -78,22 +97,30 @@
 }
 
 .full {
-    grid-column: span 2;
     background-image: url('/src/assets/images/newArrival/attractive-woman-wearing-hat-posing-black.png');
     background-position: bottom right;
 }
 
-.half:nth-child(2) {
+.half:nth-child(1) {
     background-image: url('/src/assets/images/newArrival/amazon-echo.png');
     background-size: 70%;
 
     @media (max-width: 1024px) {
         background-size: 50%;
     }
+
+    @media (max-width: 568px) {
+        background-size: 27%;
+        background-position-x: 90%;
+    }
 }
 
-.half:nth-child(3) {
+.half:nth-child(2) {
     background-image: url('/src/assets/images/newArrival/gucci-intrnse-oud-edp.png');
+
+    @media (max-width: 568px) {
+        background-position-x: 90%;
+    }
 }
 
 .title {

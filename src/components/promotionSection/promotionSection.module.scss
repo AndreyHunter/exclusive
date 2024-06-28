@@ -58,15 +58,12 @@
 }
 
 .ellipse {
-    width: 504px;
+    max-width: 504px;
+    width: 100%;
     height: 500px;
     border-radius: 504px;
     opacity: 0.3;
     background: #d9d9d9;
     filter: blur(100px);
     position: absolute;
-
-    @media (max-width: 668px) {
-        height: 300px;
-    }
 }

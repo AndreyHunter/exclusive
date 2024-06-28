@@ -19,7 +19,7 @@ const NewArrivalSection = ({ className, ...props }) => {
                 />
                 <div className={styles.grid}>
                     <div className={styles.large}>
-                        <FlexBlock gap={16} className={styles.large_info} column>
+                        <FlexBlock gap={16} className={styles.large_block} column>
                             <div className={styles.title}>PlayStation 5</div>
                             <p className={styles.desc}>
                                 Black and White version of the PS5 coming out on sale.
@@ -37,21 +37,23 @@ const NewArrivalSection = ({ className, ...props }) => {
                                 <ShopNowLink className={styles.link} line />
                             </FlexBlock>
                         </div>
-                        <div className={styles.half}>
-                            <FlexBlock gap={8} className={styles.half_block} column>
-                                <div className={styles.title}>Speakers</div>
-                                <p className={styles.desc}>Amazon wireless speakers</p>
-                                <ShopNowLink className={styles.link} line />
-                            </FlexBlock>
-                            <div className={styles.ellipse}></div>
-                        </div>
-                        <div className={styles.half}>
-                            <FlexBlock gap={8} className={styles.half_block} column>
-                                <div className={styles.title}>Perfume</div>
-                                <p className={styles.desc}>GUCCI INTENSE OUD EDP</p>
-                                <ShopNowLink className={styles.link} line />
-                            </FlexBlock>
-                            <div className={styles.ellipse}></div>
+                        <div className={styles.col}>
+                            <div className={styles.half}>
+                                <FlexBlock gap={8} className={styles.half_block} column>
+                                    <div className={styles.title}>Speakers</div>
+                                    <p className={styles.desc}>Amazon wireless speakers</p>
+                                    <ShopNowLink className={styles.link} line />
+                                </FlexBlock>
+                                <div className={styles.ellipse}></div>
+                            </div>
+                            <div className={styles.half}>
+                                <FlexBlock gap={8} className={styles.half_block} column>
+                                    <div className={styles.title}>Perfume</div>
+                                    <p className={styles.desc}>GUCCI INTENSE OUD EDP</p>
+                                    <ShopNowLink className={styles.link} line />
+                                </FlexBlock>
+                                <div className={styles.ellipse}></div>
+                            </div>
                         </div>
                     </div>
                 </div>
