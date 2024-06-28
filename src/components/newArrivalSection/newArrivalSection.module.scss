@@ -1,5 +1,9 @@
 .block {
     padding-bottom: 60px;
+
+    @media (max-width: 668px) {
+        padding-bottom: 30px;
+    }
 }
 
 .grid {
@@ -7,9 +11,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 30px;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
 
 .large {
+    min-height: 600px;
     border-radius: 12px;
     grid-row: span 2;
     background-color: #0d0d0d;
@@ -24,6 +34,10 @@
         bottom: 32px;
         left: 32px;
     }
+
+    @media (max-width: 1024px) {
+        min-height: 300px;
+    }
 }
 
 .row {
@@ -37,10 +51,10 @@
 .half {
     border-radius: 12px;
     background-color: #0d0d0d;
-    position: relative;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+    position: relative;
     z-index: 5;
 
     &_block {
@@ -72,6 +86,10 @@
 .half:nth-child(2) {
     background-image: url('/src/assets/images/newArrival/amazon-echo.png');
     background-size: 70%;
+
+    @media (max-width: 1024px) {
+        background-size: 50%;
+    }
 }
 
 .half:nth-child(3) {

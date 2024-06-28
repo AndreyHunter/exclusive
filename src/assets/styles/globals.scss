@@ -3,13 +3,13 @@
 }
 
 html {
+    width: 100%;
+    min-height: 100vh;
     scroll-behavior: smooth;
     margin-right: calc(-1 * (100vw - 100%));
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
     background-color: var(--mainBg);
     overflow-x: hidden;
 }
