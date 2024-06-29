@@ -1,9 +1,8 @@
-.bg {
+.section {
     background: black;
 }
 
 .content {
-    // min-height: 50px;
     display: flex;
     justify-content: space-between;
     gap: 10px;
@@ -38,10 +37,6 @@
 }
 
 .flex {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-
     @media (max-width: 600px) {
         width: 100%;
         justify-content: space-between;

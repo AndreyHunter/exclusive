@@ -1,10 +1,9 @@
-const Separator = ({ style = {}, ...props }) => {
-    return (
-        <div
-            style={{ width: '100%', height: 0.5, backgroundColor: 'black', opacity: 0.3, ...style }}
-            {...props}
-        />
-    );
+import styles from './separator.module.scss';
+
+const Separator = ({ className, ...props }) => {
+    const combinedClassName = `${styles.separator} ${className || ''}`;
+
+    return <div className={combinedClassName} {...props} />;
 };
 
 export default Separator;

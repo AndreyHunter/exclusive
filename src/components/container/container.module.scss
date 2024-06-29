@@ -14,3 +14,9 @@
 .default {
     max-width: 1170px;
 }
+
+@media (max-width: 320px) {
+    .container {
+        width: 320px;
+    }
+}

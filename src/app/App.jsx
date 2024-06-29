@@ -2,16 +2,24 @@ import TopHeader from '../components/topHeader/TopHeader';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Separator from '../ui/separator/Separator';
+import MobileMenu from '../components/mobileMenu/MobileMenu';
 
 import { HomePage } from '../pages';
 
 import styles from './app.module.scss';
+import { useState } from 'react';
 
 const App = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleMenuOpen = () => {
+        setIsOpen((prev) => !prev);
+    };
+
     return (
         <>
             <div className={styles.top_header}>
-                <TopHeader />
+                <TopHeader handleMenuOpen={handleMenuOpen} />
             </div>
             <Header />
             <div className={styles.line}>
@@ -21,6 +29,7 @@ const App = () => {
                 <HomePage />
             </main>
             <Footer />
+            <MobileMenu isOpen={isOpen} />
         </>
     );
 };

@@ -3,14 +3,16 @@ import CartIcon from '../../ui/cartIcon/CartIcon';
 
 import styles from './userActions.module.scss';
 
-const UserActions = () => {
+const UserActions = ({ className, color, ...props }) => {
+    const combinedClassName = `${styles.buttons} ${className || ''}`;
+
     return (
-        <div className={styles.buttons}>
+        <div className={combinedClassName} {...props}>
             <button type="button">
-                <WishListIcon />
+                <WishListIcon color={color} />
             </button>
             <button type="button">
-                <CartIcon />
+                <CartIcon color={color} />
             </button>
         </div>
     );

@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
 
-import Container from '../container/Container';
 import LanguageSelect from '../languageSelect/LanguageSelect';
+import BurgerButton from '../../ui/burgerButton/BurgerButton';
+import Container from '../container/Container';
 import FlexBlock from '../flexBlock/FlexBlock';
 
 import styles from './topHeader.module.scss';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
-const TopHeader = ({ className, ...props }) => {
+const TopHeader = ({ handleMenuOpen, className, ...props }) => {
+    const isMobile = useMediaQuery('(max-width: 986px)');
+    const combinedClassName = `${styles.section} ${className || ''}`;
+
     return (
-        <section className={`${styles.bg || ''} ${className || ''}`} {...props}>
+        <section className={combinedClassName} {...props}>
             <Container>
                 <div className={styles.content}>
                     <div className={styles.message}>
@@ -18,10 +23,10 @@ const TopHeader = ({ className, ...props }) => {
                         <Link className={styles.link}>ShopNow</Link>
                     </div>
 
-                    <div className={styles.flex}>
+                    <FlexBlock className={styles.flex} gap={30} alignCenter>
                         <LanguageSelect />
-                        <div className={styles.burger}>HAHHAA</div>
-                    </div>
+                        {isMobile && <BurgerButton onClick={handleMenuOpen} />}
+                    </FlexBlock>
                 </div>
             </Container>
         </section>

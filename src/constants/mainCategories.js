@@ -1,4 +1,4 @@
-const categoriesNav = [
+const categories = [
     {
         id: 1,
         name: 'Woman’s Fashion',
@@ -80,4 +80,4 @@ const categoriesNav = [
     },
 ];
 
-export default categoriesNav;
+export default categories;

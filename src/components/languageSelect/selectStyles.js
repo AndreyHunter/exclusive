@@ -2,6 +2,7 @@ const customStyles = {
     container: (provided) => ({
         ...provided,
         width: 110,
+        zIndex: 110,
     }),
     control: (provided) => ({
         ...provided,

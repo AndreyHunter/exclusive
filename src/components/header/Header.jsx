@@ -3,7 +3,7 @@ import HeaderNav from './headerNav/HeaderNav';
 import Search from '../search/Search';
 import UserActions from '../userActions/UserActions';
 
-import navBarPages from '../../constants/navBarPages';
+import navPages from '../../constants/navPages';
 
 import Container from '../container/Container';
 
@@ -18,7 +18,7 @@ const Header = ({ className, ...props }) => {
                 <div className={styles.content}>
                     <div className={styles.left}>
                         <Logo />
-                        <HeaderNav pages={navBarPages} className={styles.nav} />
+                        <HeaderNav pages={navPages} className={styles.nav} />
                     </div>
                     <div className={styles.wrapper}>
                         <Search className={styles.search} />

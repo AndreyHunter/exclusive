@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import categoriesNav from './categoriesNav';
+import mainCategories from '../../constants/mainCategories';
 import Arrow from '../../ui/Arrow/Arrow';
 
 import styles from './categoryNav.module.scss';
@@ -7,8 +7,8 @@ import styles from './categoryNav.module.scss';
 const CategoryNav = () => {
     return (
         <ul className={styles.list}>
-            {categoriesNav &&
-                categoriesNav.map((category) => (
+            {mainCategories &&
+                mainCategories.map((category) => (
                     <li key={category.id} className={styles.item}>
                         <Link to={`/category${category.path}`} className={styles.link}>
                             {category.name}
