@@ -1,0 +1,17 @@
+.block {
+    padding-bottom: 30px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 80px;
+
+    @media (max-width: 768px) {
+        gap: 30px;
+        > div {
+            width: 100%;
+        }
+    }
+}
+
+.button {
+    padding-top: 60px;
+}

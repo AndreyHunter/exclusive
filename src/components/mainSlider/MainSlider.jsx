@@ -17,7 +17,7 @@ const MainSlider = () => {
             pagination={{ clickable: true }}
             slidesPerView={1}
             spaceBetween={0}
-            autoplay={{ delay: 2000000 }}
+            autoplay={{ delay: 6000 }}
             speed={600}>
             {mainSlides &&
                 mainSlides.map((slide) => (

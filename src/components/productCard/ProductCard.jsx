@@ -8,6 +8,7 @@ import FavoriteIcon from '../../ui/favoriteIcon/FavoriteIcon';
 import CompareIcon from '../../ui/compareIcon/CompareIcon';
 import AddToCardButton from '../../ui/addToCardButton/AddToCardButton';
 import ProductRating from '../../components/productRating/ProductRating';
+import FlexBlock from '../flexBlock/FlexBlock';
 
 import { Numbers } from '../../utils';
 
@@ -24,9 +25,9 @@ const ProductCard = ({ product }) => {
 
     return (
         <li className={styles.card}>
-            <div className={styles.header}>
+            <FlexBlock className={styles.header}>
                 <Link>
-                    <img src={product?.image} alt={product?.name} className={styles.image} />
+                    <img src={product.image} alt={product?.name} className={styles.image} />
                 </Link>
                 <DiscountLabel
                     discount={
@@ -40,8 +41,8 @@ const ProductCard = ({ product }) => {
                     <CardActionButton icon={<CompareIcon />} />
                 </div>
                 <AddToCardButton className={styles.button} />
-            </div>
-            <div className={styles.info}>
+            </FlexBlock>
+            <FlexBlock column gap={8} className={styles.info}>
                 <Link className={styles.title}>{product.name}</Link>
                 <ProductPrice price={product.price} discountedPrice={product.discountedPrice} />
                 <ProductRating
@@ -49,7 +50,7 @@ const ProductCard = ({ product }) => {
                     setRating={handleSetRating}
                     reviewsCount={reviewsCount}
                 />
-            </div>
+            </FlexBlock>
         </li>
     );
 };

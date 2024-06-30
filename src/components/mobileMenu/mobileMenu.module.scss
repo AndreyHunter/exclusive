@@ -1,6 +1,7 @@
 .menu {
     width: 100%;
     min-height: 100vh;
+    height: 100%;
     visibility: hidden;
     opacity: 0;
     background-color: #111111;
@@ -36,11 +37,32 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+
+    @media (max-width: 375px) {
+        max-height: 400px;
+        overflow-y: scroll;
+    }
 }
 
 .list {
     li {
         color: white;
         font-size: 1.2rem;
+        a {
+            color: white;
+        }
+    }
+}
+
+@media (max-width: 468px) {
+    .logo {
+        font-size: 2.2rem;
+    }
+
+    .actions {
+        button {
+            width: 45px;
+            height: 45px;
+        }
     }
 }

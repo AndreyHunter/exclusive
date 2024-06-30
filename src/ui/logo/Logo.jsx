@@ -13,7 +13,7 @@ const Logo = ({ color = 'black', className, ...props }) => {
     const combinedClassName = `${logoClass} ${whiteClass} ${blackClass} ${additionalClass}`;
 
     return (
-        <Link className={combinedClassName} {...props}>
+        <Link to="/" className={combinedClassName} {...props}>
             Exclusive
         </Link>
     );

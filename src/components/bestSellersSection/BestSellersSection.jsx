@@ -22,7 +22,7 @@ const BestSellersSection = ({ className, ...props }) => {
                 </div>
                 <BestSellersList />
                 {isMobile && (
-                    <FlexBlock center className={styles.button}>
+                    <FlexBlock justifyCenter className={styles.button}>
                         <Button title="View All" />
                     </FlexBlock>
                 )}

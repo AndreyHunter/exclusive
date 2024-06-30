@@ -119,7 +119,7 @@ const Footer = ({ className, ...props }) => {
             <FlexBlock gap={16} column center className={styles.copyright_block}>
                 <Separator className={styles.separator} />
                 <Container>
-                    <FlexBlock center className={styles.copyright}>
+                    <FlexBlock center gap={8} className={styles.copyright}>
                         <CopyrightIcon />
                         <p>Copyright Rimel 2022. All right reserved</p>
                     </FlexBlock>

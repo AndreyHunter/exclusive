@@ -1,7 +1,7 @@
 import styles from './flexBlock.module.scss';
 
 const FlexBlock = ({
-    gap = 16,
+    gap,
     column,
     center,
     justifyCenter,

@@ -1,0 +1,91 @@
+.transparent {
+    display: flex;
+    gap: 38px;
+}
+
+.transparent_item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #000;
+    position: relative;
+
+    span {
+        font-size: 0.75rem;
+        font-weight: 500;
+        line-height: 150%;
+    }
+
+    div {
+        font-family: 'Inter';
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 95%;
+        letter-spacing: 1.28px;
+    }
+
+    &:not(:last-child) {
+        &::before,
+        &::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #e07575;
+            position: absolute;
+        }
+
+        &::before {
+            top: 55%;
+            right: -20px;
+        }
+
+        &::after {
+            top: 75%;
+            right: -20px;
+        }
+    }
+}
+
+// default timer
+
+.wrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.item {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    background-color: black;
+    color: white;
+
+    > div {
+        font-weight: 600;
+        line-height: 80%;
+    }
+
+    span {
+        font-size: 0.7rem;
+        font-weight: 500;
+        line-height: 90%;
+    }
+}
+
+.black {
+    background-color: black;
+    color: white;
+}
+
+.white {
+    background-color: white;
+    color: black;
+}

@@ -9,6 +9,7 @@ import mainCategories from '../../constants/mainCategories';
 import navBarPages from '../../constants/navPages';
 
 import styles from './mobileMenu.module.scss';
+import { Link } from 'react-router-dom';
 
 const MobileMenu = ({ isOpen }) => {
     useEffect(() => {
@@ -26,27 +27,31 @@ const MobileMenu = ({ isOpen }) => {
 
     return (
         <section className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
-            <div className={styles.content}>
-                <FlexBlock column gap={30}>
-                    <FlexBlock alignCenter spaceBetween>
-                        <Logo color="white" className={styles.logo} />
-                        <UserActions className={styles.actions} color="white" />
-                    </FlexBlock>
-                    <div className={styles.grid}>
-                        <FlexBlock tagElement="ul" column gap={20} className={styles.list}>
-                            {mainCategories &&
-                                mainCategories.map((category) => (
-                                    <li key={category.id}>{category.name}</li>
-                                ))}
-                        </FlexBlock>
-                        <FlexBlock tagElement="ul" column gap={20} className={styles.list}>
-                            {navBarPages &&
-                                navBarPages.map((page) => <li key={page.id}>{page.name}</li>)}
-                        </FlexBlock>
-                    </div>
-                    <SocialMediaList />
+            <FlexBlock column gap={30} className={styles.content}>
+                <FlexBlock alignCenter spaceBetween>
+                    <Logo color="white" className={styles.logo} />
+                    <UserActions className={styles.actions} color="white" />
                 </FlexBlock>
-            </div>
+                <div className={styles.grid}>
+                    <FlexBlock tagElement="ul" column gap={20} className={styles.list}>
+                        {mainCategories &&
+                            mainCategories.map((category) => (
+                                <li key={category.id}>
+                                    <Link to={`/catalog${category.path}`}>{category.name}</Link>
+                                </li>
+                            ))}
+                    </FlexBlock>
+                    <FlexBlock tagElement="ul" column gap={20} className={styles.list}>
+                        {navBarPages &&
+                            navBarPages.map((page) => (
+                                <li key={page.id}>
+                                    <Link to={page.path}>{page.name}</Link>
+                                </li>
+                            ))}
+                    </FlexBlock>
+                </div>
+                <SocialMediaList />
+            </FlexBlock>
         </section>
     );
 };

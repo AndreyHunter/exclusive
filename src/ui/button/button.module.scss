@@ -8,4 +8,8 @@
     color: #fafafa;
     font-weight: 500;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+        padding: 8px 48px;
+    }
 }

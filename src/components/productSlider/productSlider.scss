@@ -10,3 +10,24 @@
         right: 0;
     }
 }
+
+.custom-pagination {
+    display: none;
+    position: static;
+    text-align: center;
+    padding-top: 30px;
+
+    @media (max-width: 468px) {
+        display: block;
+    }
+}
+
+.custom-pagination .swiper-pagination-bullet {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 46px;
+    background-color: var(--accentColor);
+    border-radius: 50%;
+    border: none;
+}

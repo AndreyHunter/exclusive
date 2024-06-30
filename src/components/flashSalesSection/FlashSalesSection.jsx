@@ -1,7 +1,9 @@
-import SectionLabelWithTitle from '../../components/sectionLabelWithTitle/SectionLabelWithTitle';
+import SectionLabelWithTitle from '../sectionLabelWithTitle/SectionLabelWithTitle';
 import ProductSlider from '../productSlider/ProductSlider';
 import Button from '../../ui/button/Button';
+import Countdown from '../countdown/Countdown';
 
+import FlexBlock from '../flexBlock/FlexBlock';
 import Container from '../container/Container';
 
 import styles from './flashSalesSection.module.scss';
@@ -12,16 +14,15 @@ const FlashSalesSection = ({ className, ...props }) => {
     return (
         <section className={combinedClassName} {...props}>
             <Container>
-                <SectionLabelWithTitle
-                    label="Today’s"
-                    title="Flash Sales"
-                    style={{ paddingBottom: 30 }}
-                />
+                <FlexBlock className={styles.block}>
+                    <SectionLabelWithTitle label="Today’s" title="Flash Sales" />
+                    <Countdown variant='transparent'/>
+                </FlexBlock>
 
                 <ProductSlider />
-                <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 60 }}>
+                <FlexBlock justifyCenter className={styles.button}>
                     <Button title="View All Products" />
-                </div>
+                </FlexBlock>
             </Container>
         </section>
     );
