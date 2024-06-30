@@ -1,3 +1,9 @@
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .top_header {
     padding-bottom: 40px;
 
@@ -6,6 +12,10 @@
     }
 }
 
-.line {
-    padding-top: 23px;
+.header {
+    padding-bottom: 23px;
+}
+
+.footer {
+    margin-top: auto;
 }
