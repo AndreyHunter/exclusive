@@ -7,6 +7,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+		"start": "serve -s dist",
 		"preview": "vite preview",
 		"format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
 	},
@@ -15,6 +16,7 @@
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.23.1",
 		"react-select": "^5.8.0",
+		"serve": "^14.2.3",
 		"swiper": "^11.1.4",
 		"vite-plugin-svgr": "^4.2.0"
 	},
