@@ -17,7 +17,7 @@ import styles from './footer.module.scss';
 
 const Footer = ({ className, ...props }) => {
     return (
-        <footer className={`${styles.footer} ${className}`} {...props}>
+        <footer className={`${styles.root} ${className}`} {...props}>
             <Container>
                 <div className={styles.grid}>
                     <div className={styles.column}>

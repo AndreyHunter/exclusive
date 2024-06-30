@@ -5,10 +5,10 @@ import Arrow from '../../atoms/arrow/Arrow';
 import styles from './categoryNav.module.scss';
 
 const CategoryNav = ({ className, ...props }) => {
-    const combinedClassName = `${styles.nav || ''} ${className || ''}`;
-
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+    
     return (
-        <nav className={combinedClassName} {...props}>
+        <nav className={combinedClasses} {...props}>
             <ul className={styles.list}>
                 {mainCategories &&
                     mainCategories.map((category) => (

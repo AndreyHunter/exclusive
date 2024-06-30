@@ -9,10 +9,10 @@ import products from '../../../../constants/products';
 import styles from './ourProductsSection.module.scss';
 
 const OurProductsSection = ({ className, ...props }) => {
-    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
 
     return (
-        <section className={combinedClassName} {...props}>
+        <section className={combinedClasses} {...props}>
             <Container>
                 <SectionLabelWithTitle
                     label="Our Products"

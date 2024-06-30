@@ -1,10 +1,10 @@
 import styles from './button.module.scss';
 
 const Button = ({ title, className, ...props }) => {
-    const combinedClassName = `${styles.button} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`;
 
     return (
-        <button type="button" className={combinedClassName} {...props}>
+        <button type="button" className={combinedClasses} {...props}>
             {title ? title : 'Button'}
         </button>
     );

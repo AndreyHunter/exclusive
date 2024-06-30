@@ -3,7 +3,7 @@ import styles from './burgerButton.module.scss';
 
 const BurgerButton = ({ onClick, ...props }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const combinedClassName = `${styles.button} ${isOpen ? styles.open : ''}`;
+    const combinedClasses = `${styles.root} ${isOpen ? styles.open : ''}`;
 
     const handleSetOpen = () => {
         setIsOpen((prev) => !prev);
@@ -13,7 +13,7 @@ const BurgerButton = ({ onClick, ...props }) => {
     };
 
     return (
-        <button type="button" className={combinedClassName} onClick={handleSetOpen} {...props}>
+        <button type="button" className={combinedClasses} onClick={handleSetOpen} {...props}>
             <span></span>
             <span></span>
             <span></span>

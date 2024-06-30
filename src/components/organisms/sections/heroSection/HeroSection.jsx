@@ -6,10 +6,10 @@ import Container from '../../../helpers/container/Container';
 import styles from './heroSection.module.scss';
 
 const HeroSection = ({ className, ...props }) => {
-    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
 
     return (
-        <section className={combinedClassName} {...props}>
+        <section className={combinedClasses} {...props}>
             <Container>
                 <div className={styles.layout}>
                     <div className={styles.wrapper}>

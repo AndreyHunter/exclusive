@@ -1,4 +1,4 @@
-.nav {
+.root {
     flex-shrink: 0;
 }
 
@@ -15,10 +15,6 @@
     font-size: 1rem;
     line-height: 150%;
 }
-
-// .link.active {
-//     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-// }
 
 .item {
     @media (max-width: 1024px) {

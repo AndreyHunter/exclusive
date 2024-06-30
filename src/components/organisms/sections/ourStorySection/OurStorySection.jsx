@@ -6,10 +6,10 @@ import aboutImage from '../../../../assets/images/about/portrait-two-african-fem
 import styles from './ourStorySection.module.scss';
 
 const OurStorySection = ({ className }) => {
-    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
 
     return (
-        <section className={combinedClassName}>
+        <section className={combinedClasses}>
             <Container>
                 <div className={styles.grid}>
                     <FlexBlock column className={styles.info}>

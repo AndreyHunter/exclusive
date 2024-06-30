@@ -12,7 +12,7 @@ import FlexBlock from '../../helpers/flexBlock/FlexBlock';
 
 import { Numbers } from '../../../utils';
 
-import styles from './producsCard.module.scss';
+import styles from './productsCard.module.scss';
 
 const ProductCard = ({ product }) => {
     const [rating, setRating] = useState(product.rating);

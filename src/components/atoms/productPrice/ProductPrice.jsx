@@ -1,8 +1,10 @@
 import styles from './productPrice.module.scss';
 
-const ProductPrice = ({ price, discountedPrice }) => {
+const ProductPrice = ({ price, discountedPrice, className }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`;
+
     return (
-        <div className={styles.wrapper}>
+        <div className={combinedClasses}>
             <span className={styles.price}>${discountedPrice || price}</span>
             {discountedPrice && <span className={styles.discountedPrice}>${price}</span>}
         </div>

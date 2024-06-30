@@ -1,8 +1,10 @@
 import styles from './sectionLabel.module.scss';
 
-const SectionLabel = ({ label }) => {
+const SectionLabel = ({ label, className, ...props }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`;
+
     return (
-        <div className={styles.label}>
+        <div className={combinedClasses} {...props}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

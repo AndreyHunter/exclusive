@@ -7,12 +7,12 @@ import Container from '../../../helpers/container/Container';
 import styles from './promotionSection.module.scss';
 
 const PromotionSection = ({ className, ...props }) => {
-    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
 
     const promotionTime = new Date('2024-12-31T23:59:59');
 
     return (
-        <section className={combinedClassName} {...props}>
+        <section className={combinedClasses} {...props}>
             <Container>
                 <div className={styles.wrapper}>
                     <div className={styles.info}>

@@ -10,11 +10,11 @@ import styles from './bestSellersSection.module.scss';
 import FlexBlock from '../../../helpers/flexBlock/FlexBlock';
 
 const BestSellersSection = ({ className, ...props }) => {
-    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
     const isMobile = useMediaQuery('(max-width: 668px)');
 
     return (
-        <section className={combinedClassName} {...props}>
+        <section className={combinedClasses} {...props}>
             <Container>
                 <div className={styles.block}>
                     <SectionLabelWithTitle label="This Month" title="Best Selling Products" />

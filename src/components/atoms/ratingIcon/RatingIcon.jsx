@@ -1,8 +1,7 @@
-import styles from './ratingIcon.module.scss';
-
-const RatingIcon = ({ filled }) => {
+const RatingIcon = ({ filled, ...props }) => {
     return (
         <svg
+            {...props}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="15"

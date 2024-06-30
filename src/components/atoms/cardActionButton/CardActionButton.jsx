@@ -1,8 +1,10 @@
 import styles from './cardActionButton.module.scss';
 
 const CardActionButton = ({ icon, className, props }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`;
+
     return (
-        <button type="button" className={`${styles.action_button} ${className}`} {...props}>
+        <button type="button" className={combinedClasses} {...props}>
             {icon}
         </button>
     );

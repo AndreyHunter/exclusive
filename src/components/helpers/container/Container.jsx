@@ -4,9 +4,14 @@ const Container = ({ variant = 'default', children }) => {
     const isLarge = variant === 'large';
     const isSmall = variant === 'small';
 
-    const clazz = isLarge ? styles.large : isSmall ? styles.small : styles.default;
+    const rootClass = styles.root;
 
-    return <div className={`${styles.container} ${clazz}`}>{children}</div>;
+    const defaultClass = styles.default;
+    const smallClass = styles.small;
+    const largeClass = styles.large;
+    const combinedClasses = `${rootClass} ${isLarge ? largeClass : isSmall ? smallClass : defaultClass}`;
+
+    return <div className={combinedClasses}>{children}</div>;
 };
 
 export default Container;

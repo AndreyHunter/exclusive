@@ -4,9 +4,11 @@ import products from '../../../constants/products';
 
 import styles from './bestSellersList.module.scss';
 
-const BestSellersList = () => {
+const BestSellersList = ({ className }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`;
+
     return (
-        <ul className={styles.list}>
+        <ul className={combinedClasses}>
             {products &&
                 products
                     .filter((product) => product.bestSelling)

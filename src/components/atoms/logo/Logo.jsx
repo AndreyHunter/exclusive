@@ -5,15 +5,15 @@ const Logo = ({ color = 'black', className, ...props }) => {
     const isWhite = color === 'white';
     const isBlack = color === 'black';
 
-    const logoClass = styles.logo;
+    const logoClass = styles.root;
+    const additionalClass = className || '';
     const whiteClass = isWhite ? styles.white : '';
     const blackClass = isBlack ? styles.black : '';
-    const additionalClass = className || '';
 
-    const combinedClassName = `${logoClass} ${whiteClass} ${blackClass} ${additionalClass}`;
+    const combinedClasses = `${logoClass} ${whiteClass} ${blackClass} ${additionalClass}`;
 
     return (
-        <Link to="/" className={combinedClassName} {...props}>
+        <Link to="/" className={combinedClasses} {...props}>
             Exclusive
         </Link>
     );

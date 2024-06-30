@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+
 import Arrow from '../../../assets/icons/arrow.svg?react';
 
 import styles from './scrollToTopButton.module.scss';
 
-const ScrollToTopButton = () => {
+const ScrollToTopButton = ({ className, ...props }) => {
     const [isVisible, setIsVisible] = useState(false);
-    const combinedClass = `${styles.btn} ${isVisible ? styles.visible : ''}`;
-
+    const visibleClassName = isVisible ? styles.visible : '';
+    const combinedClasses = `${styles.root} ${visibleClassName} ${className || ''}`;
+    
     const scrollTo = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -28,7 +30,7 @@ const ScrollToTopButton = () => {
     }, []);
 
     return (
-        <button className={combinedClass} onClick={scrollTo}>
+        <button className={combinedClasses} onClick={scrollTo} {...props}>
             <Arrow />
         </button>
     );

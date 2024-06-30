@@ -6,12 +6,14 @@ import styles from './mobileAppLink.module.scss';
 const MobileAppLink = ({ variant, className, ...props }) => {
     const google = variant === 'google';
     const apple = variant === 'apple';
+
     const title = google ? 'Google play' : apple ? 'App store' : null;
     const message = google ? 'GET IT ON' : apple ? 'Download in the' : null;
-    const combinedClassName = `${styles.wrapper} ${className || ''}`;
+    
+    const combinedClasses = `${styles.root} ${className || ''}`;
 
     return (
-        <div className={combinedClassName} {...props}>
+        <div className={combinedClasses} {...props}>
             <div className={styles.content}>
                 {google && <GooglePlayIcon />}
                 {apple && <AppleIcon />}

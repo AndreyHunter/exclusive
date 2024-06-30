@@ -14,27 +14,27 @@ const FlexBlock = ({
 }) => {
     const Component = tagElement;
 
-    const wrapperStyle = styles.wrapper;
-    const additionalStyle = className || '';
+    const rootClass = styles.root;
+    const additionalClass = className || '';
 
-    const columnStyle = column ? styles.column : '';
-    const centerStyle = center ? styles.center : '';
-    const justifyCenterStyle = justifyCenter ? styles.justifyCenter : '';
-    const alignCenterStyle = alignCenter ? styles.alignCenter : '';
-    const spaceBetweenStyle = spaceBetween ? styles.spaceBetween : '';
+    const columnClass = column ? styles.column : '';
+    const centerClass = center ? styles.center : '';
+    const justifyCenterClass = justifyCenter ? styles.justifyCenter : '';
+    const alignCenterClass = alignCenter ? styles.alignCenter : '';
+    const spaceBetweenClass = spaceBetween ? styles.spaceBetween : '';
 
-    const combinedClassName = [
-        wrapperStyle,
-        additionalStyle,
-        columnStyle,
-        centerStyle,
-        justifyCenterStyle,
-        alignCenterStyle,
-        spaceBetweenStyle,
+    const combinedClasses = [
+        rootClass,
+        additionalClass,
+        columnClass,
+        centerClass,
+        justifyCenterClass,
+        alignCenterClass,
+        spaceBetweenClass,
     ].join(' ');
 
     return (
-        <Component className={combinedClassName} style={{ gap }} {...props}>
+        <Component className={combinedClasses} style={{ gap }} {...props}>
             {children}
         </Component>
     );

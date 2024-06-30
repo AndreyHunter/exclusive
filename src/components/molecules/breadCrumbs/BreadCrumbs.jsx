@@ -4,11 +4,11 @@ import Container from '../../helpers/container/Container';
 import styles from './breadCrumbs.module.scss';
 
 const BreadCrumbs = ({ activePage, className }) => {
-    const combinedClassName = `${styles.wrapper} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`;
 
     return (
         <Container>
-            <div className={combinedClassName}>
+            <div className={combinedClasses}>
                 <ul className={styles.list}>
                     <li className={styles.item}>
                         <Link to="/">Home</Link>

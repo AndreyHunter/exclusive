@@ -10,10 +10,10 @@ import useMediaQuery from '../../../hooks/useMediaQuery';
 
 const TopHeader = ({ handleMenuOpen, className, ...props }) => {
     const isMobile = useMediaQuery('(max-width: 986px)');
-    const combinedClassName = `${styles.section} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`;
 
     return (
-        <section className={combinedClassName} {...props}>
+        <section className={combinedClasses} {...props}>
             <Container>
                 <div className={styles.content}>
                     <div className={styles.message}>

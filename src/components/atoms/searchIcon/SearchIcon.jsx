@@ -1,10 +1,7 @@
-import icon from './searchIcon.svg';
-
-// import styles from './path/to/styles';
-
-const SearchIcon = ({ color = 'black' }) => {
+const SearchIcon = ({ color = 'black', ...props }) => {
     return (
         <svg
+            {...props}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"

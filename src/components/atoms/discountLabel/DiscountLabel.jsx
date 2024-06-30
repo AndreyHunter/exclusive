@@ -1,10 +1,12 @@
 import styles from './discountLabel.module.scss';
 
 const DiscountLabel = ({ discount, className, props }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`;
+
     return (
         <div>
             {discount && (
-                <div className={`${styles.wrapper || ''} ${className || ''}`} {...props}>
+                <div className={combinedClasses} {...props}>
                     -{discount}%
                 </div>
             )}

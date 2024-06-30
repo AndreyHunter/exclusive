@@ -6,10 +6,10 @@ import styles from './headerNav.module.scss';
 
 const HeaderNav = ({ pages, className, ...props }) => {
     const location = useLocation();
-    const combinedClassName = `${styles.nav || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`;
 
     return (
-        <nav className={combinedClassName} {...props}>
+        <nav className={combinedClasses} {...props}>
             <ul className={styles.list}>
                 {pages &&
                     pages.map((page, index) => (

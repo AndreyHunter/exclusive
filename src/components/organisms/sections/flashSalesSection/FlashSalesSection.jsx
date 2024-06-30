@@ -9,10 +9,10 @@ import Container from '../../../helpers/container/Container';
 import styles from './flashSalesSection.module.scss';
 
 const FlashSalesSection = ({ className, ...props }) => {
-    const combinedClassName = `${styles.section || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
 
     return (
-        <section className={combinedClassName} {...props}>
+        <section className={combinedClasses} {...props}>
             <Container>
                 <FlexBlock className={styles.block}>
                     <SectionLabelWithTitle label="Today’s" title="Flash Sales" />

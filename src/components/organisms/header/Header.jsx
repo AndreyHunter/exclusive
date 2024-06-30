@@ -10,10 +10,10 @@ import Container from '../../helpers/container/Container';
 import styles from './header.module.scss';
 
 const Header = ({ className, ...props }) => {
-    const combinedClassName = `${styles.header || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
 
     return (
-        <header className={combinedClassName} {...props}>
+        <header className={combinedClasses} {...props}>
             <Container>
                 <div className={styles.content}>
                     <div className={styles.left}>

@@ -2,20 +2,26 @@ import useCountDown from '../../../hooks/useCountDown';
 
 import styles from './countdown.module.scss';
 
-const Countdown = ({ endDate = new Date('2024-07-30T08:52:00'), variant = 'black', className }) => {
-    const transparentClassName = `${styles.transparent} ${className}`;
-    const defaultClassName = `${styles.wrapper} ${className}`;
-
+const Countdown = ({
+    endDate = new Date('2024-07-30T08:52:00'),
+    variant = 'black',
+    className,
+    ...props
+}) => {
     const isTransparent = variant === 'transparent';
     const isBlack = variant === 'black';
     const isWhite = variant === 'white';
-    const combinedClassName = `${styles.item} ${isBlack ? styles.black : isWhite ? styles.white : ''}`;
+
+    const transparentClass = `${styles.transparent} ${className || ''}`;
+    const defaultClass = `${styles.wrapper} ${className || ''}`;
+
+    const combinedClasses = `${styles.item} ${isBlack ? styles.black : isWhite ? styles.white : ''}`;
 
     const { days, hours, minutes, seconds, finished } = useCountDown(endDate, 1000);
 
     if (isTransparent) {
         return (
-            <div className={transparentClassName}>
+            <div className={transparentClass} {...props}>
                 <div className={styles.transparent_item}>
                     <span>days</span>
                     <div>{days}</div>
@@ -37,20 +43,20 @@ const Countdown = ({ endDate = new Date('2024-07-30T08:52:00'), variant = 'black
     }
 
     return (
-        <div className={defaultClassName}>
-            <div className={combinedClassName}>
+        <div className={defaultClass} {...props}>
+            <div className={combinedClasses}>
                 <div>{days}</div>
                 <span>Days</span>
             </div>
-            <div className={combinedClassName}>
+            <div className={combinedClasses}>
                 <div>{hours}</div>
                 <span>Hours</span>
             </div>
-            <div className={combinedClassName}>
+            <div className={combinedClasses}>
                 <div>{minutes}</div>
                 <span>Minutes</span>
             </div>
-            <div className={combinedClassName}>
+            <div className={combinedClasses}>
                 <div>{seconds}</div>
                 <span>Seconds</span>
             </div>

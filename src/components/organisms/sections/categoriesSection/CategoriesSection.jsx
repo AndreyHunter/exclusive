@@ -5,9 +5,11 @@ import Container from '../../../helpers/container/Container';
 
 import styles from './categoriesSection.module.scss';
 
-const CategoriesSection = ({ ...props }) => {
+const CategoriesSection = ({ className, ...props }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+
     return (
-        <section {...props}>
+        <section className={combinedClasses} {...props}>
             <Container>
                 <SectionLabelWithTitle
                     label="Categories"

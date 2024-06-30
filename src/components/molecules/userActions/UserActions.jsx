@@ -4,10 +4,10 @@ import CartIcon from '../../atoms/cartIcon/CartIcon';
 import styles from './userActions.module.scss';
 
 const UserActions = ({ className, color, ...props }) => {
-    const combinedClassName = `${styles.buttons} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`;
 
     return (
-        <div className={combinedClassName} {...props}>
+        <div className={combinedClasses} {...props}>
             <button type="button">
                 <WishListIcon color={color} />
             </button>
