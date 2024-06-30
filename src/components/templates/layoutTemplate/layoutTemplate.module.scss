@@ -1,0 +1,15 @@
+.top_header {
+    padding-bottom: 40px;
+
+    @media (max-width: 1024px) {
+        padding-bottom: 20px;
+    }
+}
+
+.header {
+    padding-bottom: 23px;
+}
+
+.footer {
+    margin-top: auto;
+}

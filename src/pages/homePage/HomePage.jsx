@@ -1,12 +1,13 @@
-import HeroSection from '../../components/heroSection/HeroSection';
-import FlashSalesSection from '../../components/flashSalesSection/FlashSalesSection';
-import CategoriesSection from '../../components/categoriesSection/CategoriesSection';
-import BestSellersSection from '../../components/bestSellersSection/BestSellersSection';
-import PromotionSection from '../../components/promotionSection/PromotionSection';
-import OurProductsSection from '../../components/ourProductsSection/OurProductsSection';
-import NewArrivalSection from '../../components/newArrivalSection/NewArrivalSection';
-import AdvantagesSection from '../../components/advantagesSection/AdvantagesSection';
-import Separator from '../../ui/separator/Separator';
+import HeroSection from '../../components/organisms/sections/heroSection/HeroSection';
+import FlashSalesSection from '../../components/organisms/sections/flashSalesSection/FlashSalesSection';
+import CategoriesSection from '../../components/organisms/sections/categoriesSection/CategoriesSection';
+import BestSellersSection from '../../components/organisms/sections/bestSellersSection/BestSellersSection';
+import PromotionSection from '../../components/organisms/sections/promotionSection/PromotionSection';
+import OurProductsSection from '../../components/organisms/sections/ourProductsSection/OurProductsSection';
+import NewArrivalSection from '../../components/organisms/sections/newArrivalSection/newArrivalSection';
+import AdvantagesSection from '../../components/organisms/sections/advantagesSection/AdvantagesSection';
+
+import Separator from '../../components/atoms/separator/Separator';
 
 import styles from './homePage.module.scss';
 

@@ -1,16 +1,14 @@
-import BreadCrumbs from '../../components/breadCrumbs/BreadCrumbs';
-import OurStorySection from '../../components/ourStorySection/OurStorySection';
+import BreadCrumbs from '../../components/molecules/breadCrumbs/BreadCrumbs';
+import OurStorySection from '../../components/organisms/sections/ourStorySection/OurStorySection';
 
-import Container from '../../components/container/Container';
+import Container from '../../components/helpers/container/Container';
 
 import styles from './aboutPage.module.scss';
 
 const AboutPage = () => {
     return (
         <>
-            <Container>
-                <BreadCrumbs activePage="About" />
-            </Container>
+            <BreadCrumbs activePage="About" />
             <OurStorySection className={styles.section} />
         </>
     );
