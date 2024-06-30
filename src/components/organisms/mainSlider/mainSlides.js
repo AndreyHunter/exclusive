@@ -1,3 +1,7 @@
+import iphone14Image from '../../../assets/images/mainSlider/iphone14.png';
+import macbookProImage from '../../../assets/images/mainSlider/macbook_pro.jpg';
+import appleLogo from '../../../assets/images/mainSlider/apple_logo.jpg';
+
 const mainSlides = [
     {
         id: 1,
@@ -6,8 +10,8 @@ const mainSlides = [
         link: '/iPhone14',
         backgroundColor: '#000',
         images: {
-            icon: '/src/assets/images/mainSlider/1200px-Apple_gray_logo.png',
-            image: '/src/assets/images/mainSlider/hero_endframe__cvklg0xk3w6e_large 2.png',
+            image: iphone14Image,
+            icon: appleLogo,
         },
     },
     {
@@ -17,8 +21,8 @@ const mainSlides = [
         link: '/MacBookPro',
         backgroundColor: '#000',
         images: {
-            icon: '/src/assets/images/mainSlider/1200px-Apple_gray_logo.png',
-            image: '/src/assets/images/mainSlider/macbook_pro.jpg',
+            image: macbookProImage,
+            icon: appleLogo,
         },
     },
 ];

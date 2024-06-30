@@ -1,3 +1,5 @@
+import qrCodeImage from '../../../assets/images/qr-code.jpg';
+
 import styles from './qrCode.module.scss';
 
 const QrCode = ({ className, ...props }) => {
@@ -5,7 +7,7 @@ const QrCode = ({ className, ...props }) => {
 
     return (
         <div className={combinedClasses} {...props}>
-            <img src="/src/assets/images/qr-code.jpg" alt="qr-code" />
+            <img src={qrCodeImage} alt="qr-code" />
         </div>
     );
 };
