@@ -1,5 +1,13 @@
 .wrapper {
     padding-top: 80px;
+
+    @media (max-width: 968px) {
+        padding-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+        padding-top: 30px;
+    }
 }
 
 .list {

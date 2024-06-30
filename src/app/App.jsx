@@ -9,7 +9,7 @@ import MobileMenu from '../components/mobileMenu/MobileMenu';
 import ScrollToTopButton from '../components/scrollToTopButton/scrollToTopButton';
 import ScrollToTop from '../components/scrollToTop/scrollToTop';
 
-import { HomePage, NotFoundPage } from '../pages';
+import { HomePage, NotFoundPage, AboutPage } from '../pages';
 
 import styles from './app.module.scss';
 
@@ -32,6 +32,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="*" element={<NotFoundPage />} />
+                        <Route path="/about" element={<AboutPage />} />
                     </Routes>
                 </main>
                 <Footer className={styles.footer} />

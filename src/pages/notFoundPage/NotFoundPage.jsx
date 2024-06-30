@@ -12,11 +12,11 @@ const NotFoundPage = () => {
     return (
         <>
             <Container>
-                <BreadCrumbs />
+                <BreadCrumbs activePage="404 Error" />
             </Container>
             <section className={styles.section}>
                 <FlexBlock column gap={40} className={styles.block}>
-                    <h1 className={styles.title}>404 Not Found</h1>
+                    <h2 className={styles.title}>404 Not Found</h2>
                     <p className={styles.message}>
                         Your visited page not found. You may go home page.
                     </p>
