@@ -1,0 +1,27 @@
+.btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: var(--main-transition);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 100px;
+    right: 90px;
+    z-index: 100;
+
+    opacity: 0;
+
+    @media (max-width: 768px) {
+        right: 30px;
+    }
+}
+
+.visible {
+    opacity: 1;
+}

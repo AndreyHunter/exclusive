@@ -3,6 +3,7 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Separator from '../ui/separator/Separator';
 import MobileMenu from '../components/mobileMenu/MobileMenu';
+import ScrollToTopButton from '../components/scrollToTopButton/scrollToTopButton';
 
 import { HomePage } from '../pages';
 
@@ -30,6 +31,7 @@ const App = () => {
             </main>
             <Footer />
             <MobileMenu isOpen={isOpen} />
+            <ScrollToTopButton />
         </>
     );
 };
