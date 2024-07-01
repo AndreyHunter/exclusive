@@ -1,6 +1,8 @@
 import BreadCrumbs from '../../components/molecules/breadCrumbs/BreadCrumbs';
 import OurStorySection from '../../components/organisms/sections/ourStorySection/OurStorySection';
 import OurStatisticList from '../../components/organisms/ourStatisticList/OurStatisticList';
+import PartnersSlider from '../../components/organisms/partnersSlider/PartnersSlider';
+import AdvantagesSection from '../../components/organisms/sections/advantagesSection/AdvantagesSection';
 
 import styles from './aboutPage.module.scss';
 
@@ -10,6 +12,8 @@ const AboutPage = () => {
             <BreadCrumbs activePage="About" />
             <OurStorySection className={styles.section} />
             <OurStatisticList className={styles.section} />
+            <PartnersSlider className={styles.section} />
+            <AdvantagesSection className={styles.section} />
         </>
     );
 };
