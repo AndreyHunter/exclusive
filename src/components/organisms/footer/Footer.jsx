@@ -43,7 +43,7 @@ const Footer = ({ className, ...props }) => {
                             <FooterInfoTitle title="Account" />
                             <ul className={styles.list}>
                                 <li className={styles.item}>
-                                    <Link to="/my-account" className={styles.link}>
+                                    <Link to="/account" className={styles.link}>
                                         My Account
                                     </Link>
                                 </li>

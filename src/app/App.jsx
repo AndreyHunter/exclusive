@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { HomePage, NotFoundPage, AboutPage, ContactsPage } from '../pages';
+import { HomePage, NotFoundPage, AboutPage, ContactsPage, ProfilePage } from '../pages';
 import LayoutTemplate from '../components/templates/layoutTemplate/LayoutTemplate';
 
 import ScrollToTop from '../components/helpers/scrollToTop/scrollToTop';
@@ -23,6 +23,8 @@ const App = () => {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contacts" element={<ContactsPage />} />
+                        <Route path="/account" element={<ProfilePage />} />
+                        <Route path="/account/profile" element={<ProfilePage />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </LayoutTemplate>

@@ -1,0 +1,42 @@
+.root {
+    padding: 40px 80px;
+
+    @media (max-width: 968px) {
+        padding: 30px 15px;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 10px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chancel {
+    cursor: pointer;
+    transition: var(--main-transition);
+    &:active {
+        transform: translateY(1px);
+    }
+}
+
+.buttons {
+    @media (max-width: 368px) {
+        flex-wrap: wrap-reverse;
+        button {
+            width: 100%;
+        }
+    }
+}
