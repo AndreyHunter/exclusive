@@ -12,10 +12,10 @@ const swiperSettings = {
         0: {
             slidesPerView: 1,
         },
-        568: {
+        768: {
             slidesPerView: 2,
         },
-        768: {
+        1024: {
             slidesPerView: 3,
         },
     },
