@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { HomePage, NotFoundPage, AboutPage, ContactsPage, ProfilePage } from '../pages';
 import LayoutTemplate from '../components/templates/layoutTemplate/LayoutTemplate';
+import AccountTemplate from '../components/templates/accountTemplate/AccountTemplate';
 
 import ScrollToTop from '../components/helpers/scrollToTop/scrollToTop';
 
@@ -18,16 +19,23 @@ const App = () => {
     return (
         <div className={styles.app}>
             <ScrollToTop>
-                <LayoutTemplate handleMenuOpen={handleMenuOpen} isOpen={isOpen}>
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <LayoutTemplate handleMenuOpen={handleMenuOpen} isOpen={isOpen} />
+                        }>
+                        <Route index element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contacts" element={<ContactsPage />} />
-                        <Route path="/account" element={<ProfilePage />} />
-                        <Route path="/account/profile" element={<ProfilePage />} />
                         <Route path="*" element={<NotFoundPage />} />
-                    </Routes>
-                </LayoutTemplate>
+
+                        <Route path="/account" element={<AccountTemplate />}>
+                            <Route index element={<ProfilePage />} />
+                            <Route path="profile" element={<ProfilePage />} />
+                        </Route>
+                    </Route>
+                </Routes>
             </ScrollToTop>
         </div>
     );

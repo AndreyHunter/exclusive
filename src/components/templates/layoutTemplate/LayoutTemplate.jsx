@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom';
+
 import TopHeader from '../../organisms/topHeader/TopHeader';
 import Header from '../../organisms/header/Header';
 import Footer from '../../organisms/footer/Footer';
@@ -7,7 +9,7 @@ import ScrollToTopButton from '../../molecules/scrollToTopButton/scrollToTopButt
 
 import styles from './layoutTemplate.module.scss';
 
-const LayoutTemplate = ({ children, handleMenuOpen, isOpen }) => {
+const LayoutTemplate = ({ handleMenuOpen, isOpen }) => {
     return (
         <>
             <div className={styles.top_header}>
@@ -15,7 +17,9 @@ const LayoutTemplate = ({ children, handleMenuOpen, isOpen }) => {
             </div>
             <Header className={styles.header} />
             <Separator />
-            <main>{children}</main>
+            <main>
+                <Outlet />
+            </main>
             <Footer className={styles.footer} />
             <MobileMenu isOpen={isOpen} />
             <ScrollToTopButton />

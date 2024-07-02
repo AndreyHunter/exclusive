@@ -4,12 +4,16 @@ import OurStatisticList from '../../components/organisms/ourStatisticList/OurSta
 import PartnersSlider from '../../components/organisms/partnersSlider/PartnersSlider';
 import AdvantagesSection from '../../components/organisms/sections/advantagesSection/AdvantagesSection';
 
+import Container from '../../components/helpers/container/Container';
+
 import styles from './aboutPage.module.scss';
 
 const AboutPage = () => {
     return (
         <>
-            <BreadCrumbs activePage="About" />
+            <Container>
+                <BreadCrumbs activePage="About" />
+            </Container>
             <OurStorySection className={`${styles.section} ${styles.ourStory}`} />
             <OurStatisticList className={styles.section} />
             <PartnersSlider className={styles.section} />

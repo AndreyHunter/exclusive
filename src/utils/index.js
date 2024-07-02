@@ -1,3 +1,4 @@
+import * as Utils from './others/index';
 import * as Numbers from './numbers/index';
 
-export { Numbers };
+export { Utils, Numbers };

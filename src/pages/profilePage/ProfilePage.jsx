@@ -5,20 +5,6 @@ import AccountNav from '../../components/organisms/accountNav/AccountNav';
 
 import styles from './profilePage.module.scss';
 
-const ProfilePage = () => {
-    return (
-        <>
-            <BreadCrumbs activePage="My Account" />
-            <section className={styles.section}>
-                <Container>
-                    <div className={styles.grid}>
-                        <AccountNav className={styles.nav} />
-                        <EditProfileForm />
-                    </div>
-                </Container>
-            </section>
-        </>
-    );
-};
+const ProfilePage = () => <EditProfileForm />;
 
 export default ProfilePage;
