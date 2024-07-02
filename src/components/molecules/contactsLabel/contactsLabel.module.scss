@@ -1,0 +1,12 @@
+.root {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    span {
+        color: #000;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 150%; 
+    }
+}

@@ -8,8 +8,17 @@
     color: #fafafa;
     font-weight: 500;
     cursor: pointer;
+    transition: var(--main-transition);
 
     @media (max-width: 768px) {
         padding: 8px 48px;
+    }
+
+    &:hover {
+        background: var(--button-hover);
+    }
+
+    &:active {
+        transform: translateY(1px);
     }
 }

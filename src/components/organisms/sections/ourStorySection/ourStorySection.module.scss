@@ -4,13 +4,12 @@
 }
 
 .grid {
-    padding-top: 40px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    align-items: center;
 
     @media (max-width: 768px) {
-        padding-top: 30px;
         grid-template-columns: 1fr;
     }
 }

@@ -10,7 +10,7 @@ const AboutPage = () => {
     return (
         <>
             <BreadCrumbs activePage="About" />
-            <OurStorySection className={styles.section} />
+            <OurStorySection className={`${styles.section} ${styles.ourStory}`} />
             <OurStatisticList className={styles.section} />
             <PartnersSlider className={styles.section} />
             <AdvantagesSection className={styles.section} />

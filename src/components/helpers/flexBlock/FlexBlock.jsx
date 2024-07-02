@@ -7,6 +7,7 @@ const FlexBlock = ({
     justifyCenter,
     alignCenter,
     spaceBetween,
+    justifyEnd,
     tagElement = 'div',
     className,
     children,
@@ -22,6 +23,7 @@ const FlexBlock = ({
     const justifyCenterClass = justifyCenter ? styles.justifyCenter : '';
     const alignCenterClass = alignCenter ? styles.alignCenter : '';
     const spaceBetweenClass = spaceBetween ? styles.spaceBetween : '';
+    const justifyEndClass = justifyEnd ? styles.justifyEnd : '';
 
     const combinedClasses = [
         rootClass,
@@ -31,6 +33,7 @@ const FlexBlock = ({
         justifyCenterClass,
         alignCenterClass,
         spaceBetweenClass,
+        justifyEndClass,
     ].join(' ');
 
     return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { HomePage, NotFoundPage, AboutPage } from '../pages';
+import { HomePage, NotFoundPage, AboutPage, ContactsPage } from '../pages';
 import LayoutTemplate from '../components/templates/layoutTemplate/LayoutTemplate';
 
 import ScrollToTop from '../components/helpers/scrollToTop/scrollToTop';
@@ -21,8 +21,9 @@ const App = () => {
                 <LayoutTemplate handleMenuOpen={handleMenuOpen} isOpen={isOpen}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="*" element={<NotFoundPage />} />
                         <Route path="/about" element={<AboutPage />} />
+                        <Route path="/contacts" element={<ContactsPage />} />
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </LayoutTemplate>
             </ScrollToTop>
