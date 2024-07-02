@@ -6,11 +6,14 @@ import Countdown from '../../../molecules/countdown/Countdown';
 import FlexBlock from '../../../helpers/flexBlock/FlexBlock';
 import Container from '../../../helpers/container/Container';
 
+import products from '../../../../constants/products';
+
 import styles from './flashSalesSection.module.scss';
 
 const FlashSalesSection = ({ className, ...props }) => {
     const combinedClasses = `${styles.root || ''} ${className || ''}`;
-
+    const flashSalesProducts = products.filter((product) => product.flashSales);
+    
     return (
         <section className={combinedClasses} {...props}>
             <Container>
@@ -19,7 +22,7 @@ const FlashSalesSection = ({ className, ...props }) => {
                     <Countdown variant="transparent" />
                 </FlexBlock>
 
-                <ProductSlider />
+                <ProductSlider products={flashSalesProducts} buttonsPosition="top" />
                 <FlexBlock justifyCenter className={styles.button}>
                     <Button title="View All Products" />
                 </FlexBlock>

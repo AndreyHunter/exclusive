@@ -1,0 +1,38 @@
+.title {
+    color: #000;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.content {
+    gap: 60px;
+
+    @media (max-width: 768px) {
+        gap: 30px;
+    }
+}
+
+.block {
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @media (max-width: 368px) {
+        button {
+            width: 100%;
+        }
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 468px) {
+        grid-template-columns: 1fr;
+    }
+}

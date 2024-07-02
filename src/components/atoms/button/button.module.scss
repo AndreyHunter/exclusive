@@ -4,8 +4,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    background: var(--accentColor);
-    color: #fafafa;
+
     font-weight: 500;
     cursor: pointer;
     transition: var(--main-transition);
@@ -14,11 +13,22 @@
         padding: 8px 48px;
     }
 
-    &:hover {
-        background: var(--button-hover);
-    }
-
     &:active {
         transform: translateY(1px);
     }
+}
+
+.default {
+    background: var(--accentColor);
+    color: #fafafa;
+
+    &:hover {
+        background: var(--button-hover);
+    }
+}
+
+.transparent {
+    background-color: transparent;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }

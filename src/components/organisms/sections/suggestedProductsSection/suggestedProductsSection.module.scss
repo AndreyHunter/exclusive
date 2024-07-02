@@ -1,0 +1,18 @@
+.block {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 60px;
+
+    @media (max-width: 768px) {
+        padding-bottom: 30px;
+    }
+
+    @media (max-width: 368px) {
+        > a {
+            width: 100%;
+            button {
+                width: inherit;
+            }
+        }
+    }
+}

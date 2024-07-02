@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { HomePage, NotFoundPage, AboutPage, ContactsPage, ProfilePage } from '../pages';
+import {
+    HomePage,
+    NotFoundPage,
+    AboutPage,
+    ContactsPage,
+    ProfilePage,
+    WishListPage,
+} from '../pages';
 import LayoutTemplate from '../components/templates/layoutTemplate/LayoutTemplate';
 import AccountTemplate from '../components/templates/accountTemplate/AccountTemplate';
 
@@ -28,6 +35,7 @@ const App = () => {
                         <Route index element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contacts" element={<ContactsPage />} />
+                        <Route path="/wishlist" element={<WishListPage />} />
                         <Route path="*" element={<NotFoundPage />} />
 
                         <Route path="/account" element={<AccountTemplate />}>

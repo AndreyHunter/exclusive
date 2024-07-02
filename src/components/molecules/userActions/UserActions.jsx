@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import WishListIcon from '../../atoms/wishListIcon/WishListIcon';
 import CartIcon from '../../atoms/cartIcon/CartIcon';
 
@@ -8,12 +10,12 @@ const UserActions = ({ className, color, ...props }) => {
 
     return (
         <div className={combinedClasses} {...props}>
-            <button type="button">
+            <Link to="/wishlist">
                 <WishListIcon color={color} />
-            </button>
-            <button type="button">
+            </Link>
+            <Link to="/cart">
                 <CartIcon color={color} />
-            </button>
+            </Link>
         </div>
     );
 };

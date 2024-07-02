@@ -8,26 +8,33 @@
         z-index: 10;
         top: -70px;
         right: 0;
+        > button {
+            position: static;
+            transform: translateY(0);
+        }
     }
 }
 
-.custom-pagination {
-    display: none;
-    position: static;
-    text-align: center;
-    padding-top: 30px;
-
-    @media (max-width: 468px) {
-        display: block;
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    &.swiper-button-disabled {
+        opacity: 0.3;
     }
 }
 
-.custom-pagination .swiper-pagination-bullet {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin: 0 46px;
-    background-color: var(--accentColor);
-    border-radius: 50%;
+.swiper-button-prev-custom {
+    left: 10px;
+}
+
+.swiper-button-next-custom {
+    right: 10px;
+}
+
+.custom {
     border: none;
 }
