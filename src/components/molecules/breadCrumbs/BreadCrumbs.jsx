@@ -17,7 +17,7 @@ const BreadCrumbs = ({ elements, activePage, className }) => {
                             <li
                                 key={index}
                                 className={`${styles.item} ${isLast ? styles.active : ''}`}>
-                                {isLast ? item.name : <Link to={`/${item.path}`}>{item.name}</Link>}
+                                {isLast ? item.name : <Link to={item.path}>{item.name}</Link>}
                             </li>
                         );
                     })}
