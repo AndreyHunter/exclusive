@@ -1,0 +1,45 @@
+.root {
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+    padding: 30px 60px 30px 40px;
+    gap: 100px;
+
+    @media (max-width: 568px) {
+        gap: 60px;
+        padding: 20px;
+    }
+
+    @media (max-width: 468px) {
+        gap: 30px;
+    }
+}
+
+.box {
+    width: 30%;
+
+    @media (max-width: 568px) {
+        flex-wrap: wrap;
+        width: 35%;
+    }
+}
+
+.block {
+    width: 80%;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+        width: 60px;
+    }
+}
+
+.title {
+    max-width: 160px;
+    display: block;
+    color: black;
+}

@@ -20,9 +20,12 @@ const SuggestedProductsSection = ({ sectionTitle, linkButtonTitle, linkButtonPat
                 <FlexBlock spaceBetween className={styles.block}>
                     <SectionLabel label={sectionTitle} />
                     {linkButtonTitle && (
-                        <Link to={linkButtonPath}>
-                            <Button title={linkButtonTitle} variant="transparent" />
-                        </Link>
+                        <Button
+                            type="link"
+                            to={linkButtonPath}
+                            title={linkButtonTitle}
+                            variant="transparent"
+                        />
                     )}
                 </FlexBlock>
                 <ProductSlider products={justForYou} buttonsPosition="default" />

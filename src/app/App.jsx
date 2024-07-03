@@ -8,6 +8,7 @@ import {
     ContactsPage,
     ProfilePage,
     WishListPage,
+    CartPage,
 } from '../pages';
 import LayoutTemplate from '../components/templates/layoutTemplate/LayoutTemplate';
 import AccountTemplate from '../components/templates/accountTemplate/AccountTemplate';
@@ -36,6 +37,7 @@ const App = () => {
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contacts" element={<ContactsPage />} />
                         <Route path="/wishlist" element={<WishListPage />} />
+                        <Route path="/cart" element={<CartPage />} />
                         <Route path="*" element={<NotFoundPage />} />
 
                         <Route path="/account" element={<AccountTemplate />}>

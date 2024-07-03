@@ -6,6 +6,7 @@ const FlexBlock = ({
     center,
     justifyCenter,
     alignCenter,
+    alignStart,
     spaceBetween,
     justifyEnd,
     tagElement = 'div',
@@ -22,6 +23,7 @@ const FlexBlock = ({
     const centerClass = center ? styles.center : '';
     const justifyCenterClass = justifyCenter ? styles.justifyCenter : '';
     const alignCenterClass = alignCenter ? styles.alignCenter : '';
+    const alignStartClass = alignStart ? styles.alignStart : '';
     const spaceBetweenClass = spaceBetween ? styles.spaceBetween : '';
     const justifyEndClass = justifyEnd ? styles.justifyEnd : '';
 
@@ -32,6 +34,7 @@ const FlexBlock = ({
         centerClass,
         justifyCenterClass,
         alignCenterClass,
+        alignStartClass,
         spaceBetweenClass,
         justifyEndClass,
     ].join(' ');

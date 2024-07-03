@@ -22,9 +22,12 @@ const NotFoundPage = () => {
                     </p>
                 </FlexBlock>
                 <FlexBlock justifyCenter>
-                    <Link to="/">
-                        <Button title="Back to home page" className={styles.button} />
-                    </Link>
+                    <Button
+                        type="link"
+                        path="/"
+                        title="Back to home page"
+                        className={styles.button}
+                    />
                 </FlexBlock>
             </section>
         </>
