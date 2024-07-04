@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import SectionLabel from '../../../atoms/sectionLabel/SectionLabel';
 import FlexBlock from '../../../helpers/flexBlock/FlexBlock';
 import Button from '../../../atoms/button/Button';

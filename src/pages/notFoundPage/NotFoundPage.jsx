@@ -24,7 +24,7 @@ const NotFoundPage = () => {
                 <FlexBlock justifyCenter>
                     <Button
                         type="link"
-                        path="/"
+                        to="/"
                         title="Back to home page"
                         className={styles.button}
                     />

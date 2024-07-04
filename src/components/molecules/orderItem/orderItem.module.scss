@@ -1,0 +1,19 @@
+.root {
+    gap: 30px;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+        width: 60px;
+    }
+}
+
+.title {
+    max-width: 160px;
+    display: block;
+    color: black;
+}

@@ -5,5 +5,15 @@ import ContactsPage from './contactsPage/ContactsPage';
 import ProfilePage from './profilePage/ProfilePage';
 import WishListPage from './wishListPage/WishListPage';
 import CartPage from './cartPage/CartPage';
+import CheckoutPage from './checkoutPage/CheckoutPage';
 
-export { HomePage, NotFoundPage, AboutPage, ContactsPage, ProfilePage, WishListPage, CartPage };
+export {
+    HomePage,
+    NotFoundPage,
+    AboutPage,
+    ContactsPage,
+    ProfilePage,
+    WishListPage,
+    CartPage,
+    CheckoutPage,
+};

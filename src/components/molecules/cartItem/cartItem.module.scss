@@ -19,27 +19,14 @@
     width: 30%;
 
     @media (max-width: 568px) {
+        gap: 10px;
+    }
+
+    @media (max-width: 568px) {
         flex-wrap: wrap;
-        width: 35%;
     }
 }
 
 .block {
     width: 80%;
-}
-
-.img {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-
-    img {
-        width: 60px;
-    }
-}
-
-.title {
-    max-width: 160px;
-    display: block;
-    color: black;
 }

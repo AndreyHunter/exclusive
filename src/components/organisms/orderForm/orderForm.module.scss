@@ -1,0 +1,19 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inputs {
+    > div {
+        gap: 8px;
+    }
+
+    label {
+        opacity: 0.5;
+
+        span {
+            color: var(--accentColor);
+        }
+    }
+}

@@ -11,6 +11,14 @@ const FormInput = ({ className, required, placeholder, ...props }) => {
 
     const handleBlur = (e) => (e.target.value ? setHasFocus(true) : setHasFocus(false));
 
+    if (!placeholder) {
+        return (
+            <div className={combinedClasses} {...props}>
+                <input type="text" />
+            </div>
+        );
+    }
+
     return (
         <div className={combinedClasses} {...props}>
             <div className={`${styles.placeholder} ${hasFocus ? styles.focused : ''}`}>

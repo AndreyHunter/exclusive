@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
-import Counter from '../counter/Counter';
+import useMediaQuery from '../../../hooks/useMediaQuery';
 
 import { Strings } from '../../../utils/index';
 
+import FlexBlock from '../../helpers/flexBlock/FlexBlock';
+import OrderItem from '../../molecules/orderItem/OrderItem';
+import Counter from '../counter/Counter';
+
 import styles from './cartItem.module.scss';
-import useMediaQuery from '../../../hooks/useMediaQuery';
 
 const CartItem = ({ product, className }) => {
     const [price, setPrice] = useState(product.price);
@@ -29,14 +30,11 @@ const CartItem = ({ product, className }) => {
 
     return (
         <FlexBlock className={combinedClasses} tagElement="li" spaceBetween alignCenter>
-            <FlexBlock gap={30} className={styles.box} alignCenter>
-                <Link to={`/catalog/${product.category}/${product.name}`} className={styles.img}>
-                    <img src={product.image} alt={product.name} />
-                </Link>
-                <Link to={`/catalog/${product.category}/${product.name}`} className={styles.title}>
-                    {Strings.sliceString(product.name, 15, true)}
-                </Link>
-            </FlexBlock>
+            <OrderItem
+                image={product.image}
+                name={Strings.sliceString(product.name, 15)}
+                className={styles.box}
+            />
             <FlexBlock className={styles.block} spaceBetween alignCenter>
                 <div>${price}</div>
                 <Counter
