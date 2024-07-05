@@ -1,0 +1,33 @@
+.root {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+    border: 1.5px solid black;
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    position: relative;
+}
+
+.radio {
+    appearance: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    transition: var(--main-transition);
+
+    cursor: inherit;
+
+    &:checked {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

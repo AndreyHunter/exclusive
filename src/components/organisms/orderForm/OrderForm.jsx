@@ -9,7 +9,7 @@ const OrderForm = ({ checked, handleSetChecked, className }) => {
 
     return (
         <form className={combinedClasses}>
-            <FlexBlock column gap={30} className={styles.inputs}>
+            <FlexBlock column className={styles.inputs}>
                 <FlexBlock column>
                     <label>
                         First Name<span>*</span>

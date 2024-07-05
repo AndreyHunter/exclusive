@@ -5,6 +5,12 @@
 }
 
 .inputs {
+    gap: 30px;
+
+    @media (max-width: 768px) {
+        gap: 20px;
+    }
+
     > div {
         gap: 8px;
     }
