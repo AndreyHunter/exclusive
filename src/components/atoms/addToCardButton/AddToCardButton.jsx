@@ -1,9 +1,7 @@
 import styles from './addToCardButton.module.scss';
 
-import React from 'react';
-
 const AddToCardButton = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <button type="button" className={combinedClasses} {...props}>

@@ -3,29 +3,29 @@ import ProductSlider from '../../../organisms/productSlider/ProductSlider';
 import Button from '../../../atoms/button/Button';
 import Countdown from '../../../molecules/countdown/Countdown';
 
-import FlexBlock from '../../../helpers/flexBlock/FlexBlock';
+import Flex from '../../../helpers/flex/Flex';
 import Container from '../../../helpers/container/Container';
 
 import products from '../../../../constants/products';
 
 import styles from './flashSalesSection.module.scss';
 
-const FlashSalesSection = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+const FlashSalesSection = ({ className }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
     const flashSalesProducts = products.filter((product) => product.flashSales);
-    
+
     return (
-        <section className={combinedClasses} {...props}>
+        <section className={combinedClasses}>
             <Container>
-                <FlexBlock className={styles.block}>
+                <Flex className={styles.flex} alignItems="flex-end" flexWrap="wrap">
                     <SectionLabelWithTitle label="Today’s" title="Flash Sales" />
                     <Countdown variant="transparent" />
-                </FlexBlock>
+                </Flex>
 
                 <ProductSlider products={flashSalesProducts} buttonsPosition="top" />
-                <FlexBlock justifyCenter className={styles.button}>
-                    <Button title="View All Products" />
-                </FlexBlock>
+                <Flex justifyContent="center" className={styles.button}>
+                    <Button  title="View All Products" />
+                </Flex>
             </Container>
         </section>
     );

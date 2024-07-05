@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import Arrow from '../../atoms/arrow/Arrow';
 import Line from './line.svg';
 
@@ -12,16 +13,14 @@ const ShopNowLink = ({
     className,
     ...props
 }) => {
-    const isRow = direction === 'row';
-    const isColumn = direction === 'column';
-
-    const rootClass = styles.root;
-    const additionalClass = className || '';
-
-    const rowClass = styles.row;
-    const columnClass = styles.column;
-
-    const combinedClasses = `${rootClass} ${additionalClass} ${isRow ? rowClass : isColumn ? columnClass : ''}`;
+    const combinedClasses = [
+        styles.root,
+        className || '',
+        direction === 'row' && styles.row,
+        direction === 'column' && styles.column,
+    ]
+        .filter(Boolean)
+        .join(' ');
 
     return (
         <div className={combinedClasses} {...props}>

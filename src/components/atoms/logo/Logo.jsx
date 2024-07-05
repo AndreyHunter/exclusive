@@ -2,15 +2,14 @@ import { Link } from 'react-router-dom';
 import styles from './logo.module.scss';
 
 const Logo = ({ color = 'black', className, ...props }) => {
-    const isWhite = color === 'white';
-    const isBlack = color === 'black';
-
-    const logoClass = styles.root;
-    const additionalClass = className || '';
-    const whiteClass = isWhite ? styles.white : '';
-    const blackClass = isBlack ? styles.black : '';
-
-    const combinedClasses = `${logoClass} ${whiteClass} ${blackClass} ${additionalClass}`;
+    const combinedClasses = [
+        styles.root,
+        color === 'white' && styles.white,
+        color === 'black' && styles.black,
+        className || '',
+    ]
+        .filter(Boolean)
+        .join(' ');
 
     return (
         <Link to="/" className={combinedClasses} {...props}>

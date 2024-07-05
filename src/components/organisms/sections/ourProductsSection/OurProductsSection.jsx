@@ -8,11 +8,11 @@ import products from '../../../../constants/products';
 
 import styles from './ourProductsSection.module.scss';
 
-const OurProductsSection = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+const OurProductsSection = ({ className }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     return (
-        <section className={combinedClasses} {...props}>
+        <section className={combinedClasses}>
             <Container>
                 <SectionLabelWithTitle
                     label="Our Products"

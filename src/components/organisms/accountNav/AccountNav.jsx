@@ -1,11 +1,11 @@
 import { NavLink, useLocation } from 'react-router-dom';
 
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './accountNav.module.scss';
 
 const AccountNav = ({ className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
     const { pathname } = useLocation();
 
     const accountClasses = [
@@ -18,10 +18,10 @@ const AccountNav = ({ className }) => {
         isActive ? `${styles.link} ${styles.active}` : styles.link;
 
     return (
-        <FlexBlock column className={combinedClasses}>
+        <Flex flexDirection="column" className={combinedClasses}>
             <div>
                 <strong>Manage My Account</strong>
-                <FlexBlock tagElement="ul" column gap={8}>
+                <Flex tagElement="ul" flexDirection="column" gap={8}>
                     <li>
                         <NavLink to="/account/profile" className={accountClasses}>
                             My Profile
@@ -42,11 +42,11 @@ const AccountNav = ({ className }) => {
                             My WishList
                         </NavLink>
                     </li>
-                </FlexBlock>
+                </Flex>
             </div>
             <div>
                 <strong>My Orders</strong>
-                <FlexBlock tagElement="ul" column gap={8}>
+                <Flex tagElement="ul" flexDirection="column" gap={8}>
                     <li>
                         <NavLink to="/account/returns" className={activeLinkClass}>
                             My Returns
@@ -57,9 +57,9 @@ const AccountNav = ({ className }) => {
                             My Cancellations
                         </NavLink>
                     </li>
-                </FlexBlock>
+                </Flex>
             </div>
-        </FlexBlock>
+        </Flex>
     );
 };
 

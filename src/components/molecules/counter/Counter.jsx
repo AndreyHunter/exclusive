@@ -1,6 +1,7 @@
 import useCounter from '../../../hooks/useCounter';
 
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
+import Flex from '../../helpers/flex/Flex';
+
 import Arrow from '../../../assets/icons/second-arrow.svg?react';
 
 import styles from './counter.module.scss';
@@ -8,7 +9,7 @@ import styles from './counter.module.scss';
 const Counter = ({ handleIncrementPrice, handleDecrementPrice, className }) => {
     const { count, handleIncrement, handleDecrement } = useCounter();
 
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     const handleCountInc = () => {
         if (count < 10) {
@@ -25,17 +26,17 @@ const Counter = ({ handleIncrementPrice, handleDecrementPrice, className }) => {
     };
 
     return (
-        <FlexBlock className={combinedClasses} gap={16}>
+        <Flex className={combinedClasses} gap={16}>
             <span>{count}</span>
-            <div className={styles.buttons}>
+            <Flex flexDirection="column" className={styles.buttons}>
                 <button type="button" onClick={handleCountInc}>
                     <Arrow />
                 </button>
                 <button type="button" onClick={handleCountDec}>
                     <Arrow />
                 </button>
-            </div>
-        </FlexBlock>
+            </Flex>
+        </Flex>
     );
 };
 

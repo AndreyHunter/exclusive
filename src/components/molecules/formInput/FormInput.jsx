@@ -1,9 +1,10 @@
 import { useState } from 'react';
+
 import styles from './formInput.module.scss';
 
 const FormInput = ({ className, required, placeholder, ...props }) => {
     const [hasFocus, setHasFocus] = useState(false);
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     const handleFocus = () => {
         setHasFocus(true);

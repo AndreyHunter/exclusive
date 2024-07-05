@@ -1,19 +1,19 @@
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './cartHeader.module.scss';
 
 const CartHeader = ({ className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
-        <FlexBlock spaceBetween className={combinedClasses}>
+        <Flex justifyContent="space-between" className={combinedClasses}>
             <div className={styles.product}>Product</div>
-            <FlexBlock alignCenter spaceBetween className={styles.block}>
+            <Flex alignItems="center" justifyContent="space-between" className={styles.block}>
                 <div>Price</div>
                 <div>Quantity</div>
                 <div>Subtotal</div>
-            </FlexBlock>
-        </FlexBlock>
+            </Flex>
+        </Flex>
     );
 };
 

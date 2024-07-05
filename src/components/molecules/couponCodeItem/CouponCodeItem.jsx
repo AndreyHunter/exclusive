@@ -1,20 +1,19 @@
 import Button from '../../atoms/button/Button';
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
+
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './couponCodeItem.module.scss';
 
-import React from 'react';
-
 const CouponCodeItem = ({ className }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     return (
-        <FlexBlock gap={15} className={combinedClasses}>
+        <Flex gap={15} className={combinedClasses}>
             <div className={styles.coupon}>
                 <input type="text" placeholder="Coupon Code" />
             </div>
             <Button title="Apply Coupon" />
-        </FlexBlock>
+        </Flex>
     );
 };
 

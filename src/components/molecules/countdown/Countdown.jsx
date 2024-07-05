@@ -8,18 +8,22 @@ const Countdown = ({
     className,
     ...props
 }) => {
-    const isTransparent = variant === 'transparent';
-    const isBlack = variant === 'black';
-    const isWhite = variant === 'white';
+    const additionalClass = className || '';
+    const defaultClass = `${styles.wrapper} ${additionalClass}`.trim();
+    const transparentClass = `${styles.transparent} ${additionalClass}`.trim();
 
-    const transparentClass = `${styles.transparent} ${className || ''}`;
-    const defaultClass = `${styles.wrapper} ${className || ''}`;
-
-    const combinedClasses = `${styles.item} ${isBlack ? styles.black : isWhite ? styles.white : ''}`;
+    const combinedItemClasses = [
+        styles.item,
+        variant === 'black' && styles.black,
+        variant === 'white' && styles.white,
+        variant === 'transparent' && styles,
+    ]
+        .filter(Boolean)
+        .join(' ');
 
     const { days, hours, minutes, seconds, finished } = useCountDown(endDate, 1000);
 
-    if (isTransparent) {
+    if (variant === 'transparent') {
         return (
             <div className={transparentClass} {...props}>
                 <div className={styles.transparent_item}>
@@ -44,19 +48,19 @@ const Countdown = ({
 
     return (
         <div className={defaultClass} {...props}>
-            <div className={combinedClasses}>
+            <div className={combinedItemClasses}>
                 <div>{days}</div>
                 <span>Days</span>
             </div>
-            <div className={combinedClasses}>
+            <div className={combinedItemClasses}>
                 <div>{hours}</div>
                 <span>Hours</span>
             </div>
-            <div className={combinedClasses}>
+            <div className={combinedItemClasses}>
                 <div>{minutes}</div>
                 <span>Minutes</span>
             </div>
-            <div className={combinedClasses}>
+            <div className={combinedItemClasses}>
                 <div>{seconds}</div>
                 <span>Seconds</span>
             </div>

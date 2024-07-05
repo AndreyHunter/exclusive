@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+
 import styles from './breadCrumbs.module.scss';
 
 const BreadCrumbs = ({ elements, activePage, className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <div className={combinedClasses}>

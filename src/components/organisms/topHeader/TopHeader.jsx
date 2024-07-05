@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom';
 
-import LanguageSelect from '../../molecules/languageSelect/LanguageSelect';
-import BurgerButton from '../../atoms/burgerButton/BurgerButton';
-import Container from '../../helpers/container/Container';
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
-
-import styles from './topHeader.module.scss';
 import useMediaQuery from '../../../hooks/useMediaQuery';
 
-const TopHeader = ({ handleMenuOpen, className, ...props }) => {
+import LanguageSelect from '../../molecules/languageSelect/LanguageSelect';
+import BurgerButton from '../../atoms/burgerButton/BurgerButton';
+
+import Container from '../../helpers/container/Container';
+import Flex from '../../helpers/flex/Flex';
+
+import styles from './topHeader.module.scss';
+
+const TopHeader = ({ handleMenuOpen, className }) => {
     const isMobile = useMediaQuery('(max-width: 986px)');
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
-        <section className={combinedClasses} {...props}>
+        <section className={combinedClasses}>
             <Container>
                 <div className={styles.content}>
                     <div className={styles.message}>
@@ -23,10 +25,10 @@ const TopHeader = ({ handleMenuOpen, className, ...props }) => {
                         <Link className={styles.link}>ShopNow</Link>
                     </div>
 
-                    <FlexBlock className={styles.flex} gap={30} alignCenter>
+                    <Flex className={styles.flex} alignItems="center" gap={30}>
                         <LanguageSelect />
                         {isMobile && <BurgerButton onClick={handleMenuOpen} />}
-                    </FlexBlock>
+                    </Flex>
                 </div>
             </Container>
         </section>

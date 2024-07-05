@@ -9,11 +9,11 @@ import Container from '../../helpers/container/Container';
 
 import styles from './header.module.scss';
 
-const Header = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+const Header = ({ className }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     return (
-        <header className={combinedClasses} {...props}>
+        <header className={combinedClasses}>
             <Container>
                 <div className={styles.content}>
                     <div className={styles.left}>

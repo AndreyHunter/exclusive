@@ -1,7 +1,7 @@
 import styles from './productPrice.module.scss';
 
 const ProductPrice = ({ price, discountedPrice, className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <div className={combinedClasses}>

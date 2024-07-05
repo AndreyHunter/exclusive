@@ -1,28 +1,29 @@
 import Separator from '../../atoms/separator/Separator';
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
+
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './orderInfo.module.scss';
 
 const OrderInfo = ({ subTotal, total, delivery, className }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     return (
-        <FlexBlock column gap={16} className={combinedClasses}>
-            <FlexBlock spaceBetween alignCenter>
+        <Flex flexDirection="column" gap={16} className={combinedClasses}>
+            <Flex justifyContent="space-between" alignItems="center">
                 <span>Subtotal:</span>
                 <span>${subTotal}</span>
-            </FlexBlock>
+            </Flex>
             <Separator />
-            <FlexBlock spaceBetween alignCenter>
+            <Flex justifyContent="space-between" alignItems="center">
                 <span>Shipping:</span>
                 <span>{delivery ? delivery : 'Free'}</span>
-            </FlexBlock>
+            </Flex>
             <Separator />
-            <FlexBlock spaceBetween alignCenter>
+            <Flex justifyContent="space-between" alignItems="center">
                 <span>Total:</span>
                 <span>${total}</span>
-            </FlexBlock>
-        </FlexBlock>
+            </Flex>
+        </Flex>
     );
 };
 

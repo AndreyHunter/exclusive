@@ -1,11 +1,12 @@
 import OrderInfo from '../orderInfo/OrderInfo';
 import Button from '../../atoms/button/Button';
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
+
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './cartTotal.module.scss';
 
 const CartTotal = ({ className, subTotal, total, delivery }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <div className={combinedClasses}>
@@ -16,14 +17,14 @@ const CartTotal = ({ className, subTotal, total, delivery }) => {
                 delivery={delivery}
                 className={styles.info}
             />
-            <FlexBlock justifyCenter>
+            <Flex justifyContent="center">
                 <Button
                     title="Process to checkout"
                     type="link"
                     to="/checkout"
                     className={styles.button}
                 />
-            </FlexBlock>
+            </Flex>
         </div>
     );
 };

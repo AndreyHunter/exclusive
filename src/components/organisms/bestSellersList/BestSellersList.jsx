@@ -5,7 +5,7 @@ import products from '../../../constants/products';
 import styles from './bestSellersList.module.scss';
 
 const BestSellersList = ({ className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <ul className={combinedClasses}>

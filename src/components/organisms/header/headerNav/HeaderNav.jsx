@@ -6,7 +6,7 @@ import styles from './headerNav.module.scss';
 
 const HeaderNav = ({ pages, className, ...props }) => {
     const location = useLocation();
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <nav className={combinedClasses} {...props}>

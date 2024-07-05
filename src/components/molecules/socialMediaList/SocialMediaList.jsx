@@ -5,11 +5,11 @@ import LinkedinIcon from '../../../assets/icons/linkedin.svg?react';
 
 import styles from './socialMediaList.module.scss';
 
-const SocialMediaList = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+const SocialMediaList = ({ className }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
-        <ul className={combinedClasses} {...props}>
+        <ul className={combinedClasses}>
             <li className={styles.item}>
                 <a href="">
                     <FacebookIcon />

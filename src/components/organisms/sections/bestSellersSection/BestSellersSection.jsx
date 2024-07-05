@@ -4,17 +4,17 @@ import SectionLabelWithTitle from '../../../molecules/sectionLabelWithTitle/Sect
 import Button from '../../../atoms/button/Button';
 import BestSellersList from '../../bestSellersList/BestSellersList';
 
+import Flex from '../../../helpers/flex/Flex';
 import Container from '../../../helpers/container/Container';
 
 import styles from './bestSellersSection.module.scss';
-import FlexBlock from '../../../helpers/flexBlock/FlexBlock';
 
-const BestSellersSection = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+const BestSellersSection = ({ className }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
     const isMobile = useMediaQuery('(max-width: 668px)');
 
     return (
-        <section className={combinedClasses} {...props}>
+        <section className={combinedClasses}>
             <Container>
                 <div className={styles.block}>
                     <SectionLabelWithTitle label="This Month" title="Best Selling Products" />
@@ -22,9 +22,9 @@ const BestSellersSection = ({ className, ...props }) => {
                 </div>
                 <BestSellersList />
                 {isMobile && (
-                    <FlexBlock justifyCenter className={styles.button}>
+                    <Flex justifyContent="center" className={styles.button}>
                         <Button title="View All" />
-                    </FlexBlock>
+                    </Flex>
                 )}
             </Container>
         </section>

@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom';
 
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './orderItem.module.scss';
 
 const OrderItem = ({ image, name, category, className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
-        <FlexBlock className={combinedClasses} alignCenter>
+        <Flex className={combinedClasses} alignItems="center">
             <Link to={`/catalog/${category}/${name}`} className={styles.img}>
                 <img src={image} alt={name} />
             </Link>
             <Link to={`/catalog/${category}/${name}`} className={styles.title}>
                 {name}
             </Link>
-        </FlexBlock>
+        </Flex>
     );
 };
 

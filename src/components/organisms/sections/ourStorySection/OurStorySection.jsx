@@ -1,20 +1,20 @@
 import Container from '../../../helpers/container/Container';
-import FlexBlock from '../../../helpers/flexBlock/FlexBlock';
+import Flex from '../../../helpers/flex/Flex';
 
-import aboutImage from '../../../../assets/images/about/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone.png';
+import aboutImage from '../../../../assets/images/about/two-african-females.png';
 
 import styles from './ourStorySection.module.scss';
 
 const OurStorySection = ({ className }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     return (
         <section className={combinedClasses}>
             <Container>
                 <div className={styles.grid}>
-                    <FlexBlock column className={styles.info}>
+                    <Flex flexDirection="column" className={styles.info}>
                         <h2 className={styles.title}>Our Story</h2>
-                        <FlexBlock gap={24} column>
+                        <Flex flexDirection="column" gap={24}>
                             <p>
                                 Launced in 2015, Exclusive is South Asia’s premier online shopping
                                 makterplace with an active presense in Bangladesh. Supported by wide
@@ -27,8 +27,8 @@ const OurStorySection = ({ className }) => {
                                 very fast. Exclusive offers a diverse assotment in categories
                                 ranging from consumer.
                             </p>
-                        </FlexBlock>
-                    </FlexBlock>
+                        </Flex>
+                    </Flex>
                     <img src={aboutImage} alt="about-image" />
                 </div>
             </Container>

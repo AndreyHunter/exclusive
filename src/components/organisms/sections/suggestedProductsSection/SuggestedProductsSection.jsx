@@ -1,21 +1,22 @@
 import SectionLabel from '../../../atoms/sectionLabel/SectionLabel';
-import FlexBlock from '../../../helpers/flexBlock/FlexBlock';
 import Button from '../../../atoms/button/Button';
 import ProductSlider from '../../productSlider/ProductSlider';
+
 import Container from '../../../helpers/container/Container';
+import Flex from '../../../helpers/flex/Flex';
 
 import products from '../../../../constants/products';
 
 import styles from './suggestedProductsSection.module.scss';
 
 const SuggestedProductsSection = ({ sectionTitle, linkButtonTitle, linkButtonPath, className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
     const justForYou = products.slice(products.length - 4);
 
     return (
         <section className={combinedClasses}>
             <Container>
-                <FlexBlock spaceBetween className={styles.block}>
+                <Flex justifyContent="space-between" className={styles.block}>
                     <SectionLabel label={sectionTitle} />
                     {linkButtonTitle && (
                         <Button
@@ -25,7 +26,7 @@ const SuggestedProductsSection = ({ sectionTitle, linkButtonTitle, linkButtonPat
                             variant="transparent"
                         />
                     )}
-                </FlexBlock>
+                </Flex>
                 <ProductSlider products={justForYou} buttonsPosition="default" />
             </Container>
         </section>

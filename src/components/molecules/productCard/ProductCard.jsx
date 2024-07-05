@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Numbers } from '../../../utils';
+
 import ProductPrice from '../../atoms/productPrice/ProductPrice';
 import DiscountLabel from '../../atoms/discountLabel/DiscountLabel';
 import CardActionButton from '../../atoms/cardActionButton/CardActionButton';
@@ -8,9 +10,8 @@ import FavoriteIcon from '../../atoms/favoriteIcon/FavoriteIcon';
 import CompareIcon from '../../atoms/compareIcon/CompareIcon';
 import AddToCardButton from '../../atoms/addToCardButton/AddToCardButton';
 import ProductRating from '../../molecules/productRating/ProductRating';
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
 
-import { Numbers } from '../../../utils';
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './productsCard.module.scss';
 
@@ -25,7 +26,11 @@ const ProductCard = ({ product }) => {
 
     return (
         <li className={styles.card}>
-            <FlexBlock className={styles.header}>
+            <Flex
+                className={styles.header}
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center">
                 <Link>
                     <img src={product.image} alt={product?.name} className={styles.image} />
                 </Link>
@@ -41,8 +46,8 @@ const ProductCard = ({ product }) => {
                     <CardActionButton icon={<CompareIcon />} />
                 </div>
                 <AddToCardButton className={styles.button} />
-            </FlexBlock>
-            <FlexBlock column gap={8} className={styles.info}>
+            </Flex>
+            <Flex gap={8} flexDirection="column" className={styles.info}>
                 <Link className={styles.title}>{product.name}</Link>
                 <ProductPrice price={product.price} discountedPrice={product.discountedPrice} />
                 <ProductRating
@@ -50,7 +55,7 @@ const ProductCard = ({ product }) => {
                     setRating={handleSetRating}
                     reviewsCount={reviewsCount}
                 />
-            </FlexBlock>
+            </Flex>
         </li>
     );
 };

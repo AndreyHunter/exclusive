@@ -6,11 +6,11 @@ import advantages from '../../../../constants/advantages';
 
 import styles from './advantagesSection.module.scss';
 
-const AdvantagesSection = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+const AdvantagesSection = ({ className }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     return (
-        <section className={combinedClasses} {...props}>
+        <section className={combinedClasses}>
             <Container>
                 <ul className={styles.grid}>
                     {advantages &&

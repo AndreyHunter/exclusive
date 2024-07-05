@@ -1,13 +1,9 @@
 import styles from './sectionTitle.module.scss';
 
-const SectionTitle = ({ title, className, ...props }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+const SectionTitle = ({ title, className }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
-    return (
-        <h2 className={combinedClasses} {...props}>
-            {title}
-        </h2>
-    );
+    return <h2 className={combinedClasses}>{title}</h2>;
 };
 
 export default SectionTitle;

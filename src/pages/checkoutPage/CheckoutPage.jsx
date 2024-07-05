@@ -6,11 +6,12 @@ import BreadCrumbs from '../../components/molecules/breadCrumbs/BreadCrumbs';
 import OrderForm from '../../components/organisms/orderForm/OrderForm';
 import OrderSummary from '../../components/organisms/orderSummary/OrderSummary';
 import CouponCodeItem from '../../components/molecules/couponCodeItem/CouponCodeItem';
-import Container from '../../components/helpers/container/Container';
-import FlexBlock from '../../components/helpers/flexBlock/FlexBlock';
 import Button from '../../components/atoms/button/Button';
 import RadioButton from '../../components/atoms/radioButton/RadioButton';
 import BanksList from '../../components/molecules/banksList/BanksList';
+
+import Container from '../../components/helpers/container/Container';
+import Flex from '../../components/helpers/flex/Flex';
 
 import styles from './checkoutPage.module.scss';
 
@@ -41,45 +42,45 @@ const CheckoutPage = () => {
             <section className={styles.section}>
                 <Container>
                     <h2 className={styles.title}>Billing Details</h2>
-                    <FlexBlock className={styles.flex}>
+                    <Flex justifyContent="space-between" gap={30} className={styles.flex}>
                         <OrderForm
                             className={styles.form}
                             handleSetChecked={handleSetChecked}
                             checked={checked}
                         />
                         <div className={styles.info}>
-                            <FlexBlock column className={styles.block}>
+                            <Flex flexDirection="column" className={styles.block}>
                                 <OrderSummary products={checkout} />
                                 <CouponCodeItem className={styles.coupon} />
-                                <FlexBlock spaceBetween className={styles.banks}>
-                                    <FlexBlock gap={12} alignCenter>
+                                <Flex justifyContent="space-between" className={styles.banks}>
+                                    <Flex alignItems="center" gap={12}>
                                         <RadioButton
                                             name="bank"
                                             checked={radioButtons.bank}
                                             onChange={handleRadioButton}
                                         />
                                         <span>Bank</span>
-                                    </FlexBlock>
+                                    </Flex>
                                     <BanksList />
-                                </FlexBlock>
-                                <FlexBlock>
-                                    <FlexBlock gap={12} alignCenter>
+                                </Flex>
+                                <Flex>
+                                    <Flex alignItems="center" gap={12}>
                                         <RadioButton
                                             name="cashOrDelivery"
                                             checked={radioButtons.cashOrDelivery}
                                             onChange={handleRadioButton}
                                         />
                                         <span>Cash on delivery</span>
-                                    </FlexBlock>
-                                </FlexBlock>
-                            </FlexBlock>
+                                    </Flex>
+                                </Flex>
+                            </Flex>
                             <Button title="Place Order" className={styles.button} />
                         </div>
-                    </FlexBlock>
+                    </Flex>
                 </Container>
             </section>
         </>
     );
 };
 
-export default CheckoutPage
+export default CheckoutPage;

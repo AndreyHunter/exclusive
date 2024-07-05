@@ -1,7 +1,7 @@
 import styles from './sliderButton.module.scss';
 
 const SliderButton = ({ direction = 'right', color = 'black', className, ...props }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
     const rotation = direction === 'right' ? 180 : 0;
 
     return (

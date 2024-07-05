@@ -3,7 +3,7 @@ import SearchIcon from '../../atoms/searchIcon/SearchIcon';
 import styles from './search.module.scss';
 
 const Search = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <div className={combinedClasses} {...props}>

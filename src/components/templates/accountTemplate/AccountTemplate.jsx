@@ -2,10 +2,11 @@ import { Outlet, useLocation } from 'react-router-dom';
 
 import { Utils } from '../../../utils/';
 
-import Container from '../../helpers/container/Container';
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
 import BreadCrumbs from '../../molecules/breadCrumbs/BreadCrumbs';
 import AccountNav from '../../organisms/accountNav/AccountNav';
+
+import Container from '../../helpers/container/Container';
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './accountTemplate.module.scss';
 
@@ -17,12 +18,12 @@ const AccountTemplate = () => {
     return (
         <>
             <Container>
-                <FlexBlock center spaceBetween className={styles.block}>
+                <Flex alignItems="center" justifyContent="space-between" flexWrap="wrap">
                     <BreadCrumbs elements={breadcrumbs} />
                     <div className={styles.welcome}>
                         Welcome! <span>Md Rimel</span>
                     </div>
-                </FlexBlock>
+                </Flex>
             </Container>
             <section className={styles.section}>
                 <Container>

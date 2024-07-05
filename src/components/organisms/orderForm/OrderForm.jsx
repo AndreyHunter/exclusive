@@ -1,58 +1,59 @@
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
 import FormInput from '../../molecules/formInput/FormInput';
 import Checkbox from '../../atoms/checkbox/Checkbox';
+
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './orderForm.module.scss';
 
 const OrderForm = ({ checked, handleSetChecked, className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <form className={combinedClasses}>
-            <FlexBlock column className={styles.inputs}>
-                <FlexBlock column>
+            <Flex flexDirection="column" className={styles.inputs}>
+                <Flex flexDirection="column">
                     <label>
                         First Name<span>*</span>
                     </label>
                     <FormInput />
-                </FlexBlock>
-                <FlexBlock column>
+                </Flex>
+                <Flex flexDirection="column">
                     <label>Company Name</label>
                     <FormInput />
-                </FlexBlock>
-                <FlexBlock column>
+                </Flex>
+                <Flex flexDirection="column">
                     <label>
                         Street Address<span>*</span>
                     </label>
                     <FormInput />
-                </FlexBlock>
-                <FlexBlock column>
+                </Flex>
+                <Flex flexDirection="column">
                     <label>Apartment, floor, etc. (optional)</label>
                     <FormInput />
-                </FlexBlock>
-                <FlexBlock column>
+                </Flex>
+                <Flex flexDirection="column">
                     <label>
                         Town/City<span>*</span>
                     </label>
                     <FormInput />
-                </FlexBlock>
-                <FlexBlock column>
+                </Flex>
+                <Flex flexDirection="column">
                     <label>
                         Phone Number<span>*</span>
                     </label>
                     <FormInput />
-                </FlexBlock>
-                <FlexBlock column>
+                </Flex>
+                <Flex flexDirection="column">
                     <label>
                         Email Address<span>*</span>
                     </label>
                     <FormInput />
-                </FlexBlock>
-            </FlexBlock>
-            <FlexBlock gap={16} alignCenter>
+                </Flex>
+            </Flex>
+            <Flex alignItems="center" gap={16}>
                 <Checkbox checked={checked} onChange={handleSetChecked} />
                 <span>Save this information for faster check-out next time</span>
-            </FlexBlock>
+            </Flex>
         </form>
     );
 };

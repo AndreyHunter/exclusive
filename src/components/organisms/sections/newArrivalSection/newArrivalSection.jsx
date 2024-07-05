@@ -1,16 +1,16 @@
 import SectionLabelWithTitle from '../../../molecules/sectionLabelWithTitle/SectionLabelWithTitle';
-import FlexBlock from '../../../helpers/flexBlock/FlexBlock';
 import ShopNowLink from '../../../atoms/shopNowLink/ShopNowLink';
 
 import Container from '../../../helpers/container/Container';
+import Flex from '../../../helpers/flex/Flex';
 
 import styles from './newArrivalSection.module.scss';
 
-const NewArrivalSection = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+const NewArrivalSection = ({ className }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     return (
-        <section className={combinedClasses} {...props}>
+        <section className={combinedClasses}>
             <Container>
                 <SectionLabelWithTitle
                     label="Featured"
@@ -19,39 +19,39 @@ const NewArrivalSection = ({ className, ...props }) => {
                 />
                 <div className={styles.grid}>
                     <div className={styles.large}>
-                        <FlexBlock gap={16} className={styles.large_block} column>
+                        <Flex flexDirection="column" gap={16} className={styles.large_block}>
                             <div className={styles.title}>PlayStation 5</div>
                             <p className={styles.desc}>
                                 Black and White version of the PS5 coming out on sale.
                             </p>
                             <ShopNowLink className={styles.link} line />
-                        </FlexBlock>
+                        </Flex>
                     </div>
                     <div className={styles.row}>
                         <div className={styles.full}>
-                            <FlexBlock gap={16} className={styles.full_block} column>
+                            <Flex flexDirection="column" gap={16} className={styles.full_block}>
                                 <div className={styles.title}>Women’s Collections</div>
                                 <p className={styles.desc}>
                                     Featured woman collections that give you another vibe.
                                 </p>
                                 <ShopNowLink className={styles.link} line />
-                            </FlexBlock>
+                            </Flex>
                         </div>
                         <div className={styles.col}>
                             <div className={styles.half}>
-                                <FlexBlock gap={8} className={styles.half_block} column>
+                                <Flex flexDirection="column" gap={8} className={styles.half_block}>
                                     <div className={styles.title}>Speakers</div>
                                     <p className={styles.desc}>Amazon wireless speakers</p>
                                     <ShopNowLink className={styles.link} line />
-                                </FlexBlock>
+                                </Flex>
                                 <div className={styles.ellipse}></div>
                             </div>
                             <div className={styles.half}>
-                                <FlexBlock gap={8} className={styles.half_block} column>
+                                <Flex flexDirection="column" gap={8} className={styles.half_block}>
                                     <div className={styles.title}>Perfume</div>
                                     <p className={styles.desc}>GUCCI INTENSE OUD EDP</p>
                                     <ShopNowLink className={styles.link} line />
-                                </FlexBlock>
+                                </Flex>
                                 <div className={styles.ellipse}></div>
                             </div>
                         </div>

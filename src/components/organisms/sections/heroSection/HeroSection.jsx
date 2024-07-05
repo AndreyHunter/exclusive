@@ -2,26 +2,27 @@ import CategoryNav from '../../categoryNav/CategoryNav';
 import MainSlider from '../../mainSlider/MainSlider';
 
 import Container from '../../../helpers/container/Container';
+import Flex from '../../../helpers/flex/Flex';
 
 import styles from './heroSection.module.scss';
 
-const HeroSection = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
+const HeroSection = ({ className }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     return (
-        <section className={combinedClasses} {...props}>
+        <section className={combinedClasses}>
             <Container>
-                <div className={styles.layout}>
-                    <div className={styles.wrapper}>
+                <Flex>
+                    <Flex className={styles.wrapper} justifyContent="space-between">
                         <div className={styles.block}>
                             <CategoryNav />
                         </div>
                         <div className={styles.line} />
-                    </div>
+                    </Flex>
                     <div className={styles.slider_block}>
                         <MainSlider />
                     </div>
-                </div>
+                </Flex>
             </Container>
         </section>
     );

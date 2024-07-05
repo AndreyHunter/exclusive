@@ -3,11 +3,11 @@ import SectionTitle from '../../atoms/sectionTitle/SectionTitle';
 
 import styles from './sectionLabelWithTitle.module.scss';
 
-const sectionLabelWithTitle = ({ label, title, className, ...props }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+const sectionLabelWithTitle = ({ label, title, className }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
-        <div className={combinedClasses} {...props}>
+        <div className={combinedClasses}>
             <SectionLabel label={label} />
             <SectionTitle title={title} />
         </div>

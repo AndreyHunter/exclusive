@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
-import mainCategories from '../../../constants/mainCategories';
+
 import Arrow from '../../atoms/arrow/Arrow';
+
+import mainCategories from '../../../constants/mainCategories';
 
 import styles from './categoryNav.module.scss';
 
-const CategoryNav = ({ className, ...props }) => {
-    const combinedClasses = `${styles.root || ''} ${className || ''}`;
-    
+const CategoryNav = ({ className }) => {
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
+
     return (
-        <nav className={combinedClasses} {...props}>
+        <nav className={combinedClasses}>
             <ul className={styles.list}>
                 {mainCategories &&
                     mainCategories.map((category) => (

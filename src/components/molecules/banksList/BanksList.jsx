@@ -6,7 +6,7 @@ import NagadIcon from '../../../assets/icons/banks/nagad.png';
 import styles from './banksList.module.scss';
 
 const BanksList = ({ className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <ul className={combinedClasses}>

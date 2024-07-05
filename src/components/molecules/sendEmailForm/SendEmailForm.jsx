@@ -2,8 +2,8 @@ import SendIcon from '../../../assets/icons/icon-send.svg?react';
 
 import styles from './sendEmailForm.module.scss';
 
-const SendEmailForm = ({ className, onSubmit, ...props }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+const SendEmailForm = ({ className, onSubmit }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,7 +11,7 @@ const SendEmailForm = ({ className, onSubmit, ...props }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className={combinedClasses} {...props}>
+        <form onSubmit={handleSubmit} className={combinedClasses}>
             <input type="text" placeholder="Enter your email" />
             <button className={styles.button}>
                 <SendIcon className={styles.icon} />

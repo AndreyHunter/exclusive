@@ -1,7 +1,5 @@
-.block {
+.flex {
     padding-bottom: 30px;
-    align-items: flex-end;
-    flex-wrap: wrap;
     gap: 80px;
 
     @media (max-width: 768px) {

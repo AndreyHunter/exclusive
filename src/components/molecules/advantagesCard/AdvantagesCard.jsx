@@ -1,4 +1,4 @@
-import FlexBox from '../../helpers/flexBlock/FlexBlock';
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './advantagesCard.module.scss';
 
@@ -7,10 +7,10 @@ const AdvantagesCard = ({ advantage }) => {
     return (
         <li className={styles.card}>
             <Icon />
-            <FlexBox column gap={8} center>
+            <Flex flexDirection="column" alignItems="center" gap={8}>
                 <div className={styles.title}>{advantage.title}</div>
                 <p className={styles.desc}>{advantage.desc}</p>
-            </FlexBox>
+            </Flex>
         </li>
     );
 };

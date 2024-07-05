@@ -5,11 +5,11 @@ import CartIcon from '../../atoms/cartIcon/CartIcon';
 
 import styles from './userActions.module.scss';
 
-const UserActions = ({ className, color, ...props }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+const UserActions = ({ color, className }) => {
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
-        <div className={combinedClasses} {...props}>
+        <div className={combinedClasses}>
             <Link to="/wishlist">
                 <WishListIcon color={color} />
             </Link>

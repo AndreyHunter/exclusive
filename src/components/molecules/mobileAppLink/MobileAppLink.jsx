@@ -9,8 +9,8 @@ const MobileAppLink = ({ variant, className, ...props }) => {
 
     const title = google ? 'Google play' : apple ? 'App store' : null;
     const message = google ? 'GET IT ON' : apple ? 'Download in the' : null;
-    
-    const combinedClasses = `${styles.root} ${className || ''}`;
+
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <div className={combinedClasses} {...props}>

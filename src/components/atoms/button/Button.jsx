@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import styles from './button.module.scss';
 
 const Button = ({ title, type = 'button', to, variant = 'default', className, ...props }) => {
-    const isTransparent = variant === 'transparent';
-
-    const transparentClass = styles.transparent;
-    const defaultClass = styles.default;
-
-    const combinedClasses = `${styles.root} ${isTransparent ? transparentClass : defaultClass} ${className || ''}`;
+    const combinedClasses = [
+        styles.root,
+        variant === 'transparent' && styles.transparent,
+        variant === 'default' && styles.default,
+        className || '',
+    ]
+        .filter(Boolean)
+        .join(' ')
+        .trim();
 
     if (type === 'link') {
         return (

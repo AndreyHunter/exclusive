@@ -1,25 +1,26 @@
 import BoxWrapper from '../../atoms/boxWrapper/BoxWrapper';
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
 import FormInput from '../../molecules/formInput/FormInput';
 import Button from '../../atoms/button/Button';
+
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './contactsForm.module.scss';
 
 const ContactsForm = ({ className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <BoxWrapper className={combinedClasses}>
             <form className={styles.form}>
-                <FlexBlock gap={15} className={styles.inputs}>
+                <Flex gap={15} className={styles.inputs}>
                     <FormInput placeholder="Your Name" required />
                     <FormInput placeholder="Your Email" required />
                     <FormInput placeholder="Your Phone" required />
-                </FlexBlock>
+                </Flex>
                 <FormInput placeholder="Your Massage" className={styles.message} />
-                <FlexBlock justifyEnd>
+                <Flex justifyContent="flex-end">
                     <Button title="Send Massage" />
-                </FlexBlock>
+                </Flex>
             </form>
         </BoxWrapper>
     );

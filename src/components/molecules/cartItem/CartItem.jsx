@@ -4,9 +4,10 @@ import useMediaQuery from '../../../hooks/useMediaQuery';
 
 import { Strings } from '../../../utils/index';
 
-import FlexBlock from '../../helpers/flexBlock/FlexBlock';
 import OrderItem from '../../molecules/orderItem/OrderItem';
 import Counter from '../counter/Counter';
+
+import Flex from '../../helpers/flex/Flex';
 
 import styles from './cartItem.module.scss';
 
@@ -14,7 +15,7 @@ const CartItem = ({ product, className }) => {
     const [price, setPrice] = useState(product.price);
     const [subtotal, setSubTotal] = useState(product.price);
 
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
     const isSmallMobile = useMediaQuery('(max-width: 360px)');
 
     const handleIncrementPrice = () => {
@@ -29,21 +30,25 @@ const CartItem = ({ product, className }) => {
     };
 
     return (
-        <FlexBlock className={combinedClasses} tagElement="li" spaceBetween alignCenter>
+        <Flex
+            className={combinedClasses}
+            tagElement="li"
+            justifyContent="space-between"
+            alignItems="center">
             <OrderItem
                 image={product.image}
                 name={Strings.sliceString(product.name, 15)}
                 className={styles.box}
             />
-            <FlexBlock className={styles.block} spaceBetween alignCenter>
+            <Flex className={styles.block} justifyContent="space-between" alignItems="center">
                 <div>${price}</div>
                 <Counter
                     handleIncrementPrice={handleIncrementPrice}
                     handleDecrementPrice={handleDecrementPrice}
                 />
                 {!isSmallMobile && <div>${subtotal}</div>}
-            </FlexBlock>
-        </FlexBlock>
+            </Flex>
+        </Flex>
     );
 };
 

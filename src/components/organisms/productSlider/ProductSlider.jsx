@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import useMediaQuery from '../../../hooks/useMediaQuery';
 
 import ProductCard from '../../molecules/productCard/ProductCard';
 import SliderButton from '../../atoms/sliderButton/SliderButton';
 
-import settings from './swiperSettings';
+import settings from './settings';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -13,6 +14,7 @@ import './productSlider.scss';
 
 const ProductSlider = ({ products, buttonsPosition = 'default' }) => {
     const isMobile = useMediaQuery('(max-width: 468px)');
+
     const isDefault = buttonsPosition === 'default';
     const isTop = buttonsPosition === 'top';
 

@@ -4,7 +4,7 @@ import EmailIcon from '../../../assets/icons/contacts-email.svg?react';
 import styles from './contactsLabel.module.scss';
 
 const ContactsLabel = ({ label, icon, className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`;
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     const isPhone = icon === 'phone';
     const isEmail = icon === 'email';
