@@ -1,6 +1,6 @@
-import ProductCard from '../../molecules/productCard/ProductCard';
+import products from '@constants/products';
 
-import products from '../../../constants/products';
+import ProductCard from '@components/molecules/productCard/ProductCard';
 
 import styles from './bestSellersList.module.scss';
 

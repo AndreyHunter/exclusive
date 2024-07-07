@@ -1,6 +1,5 @@
-import Button from '../../atoms/button/Button';
-
-import Flex from '../../helpers/flex/Flex';
+import Button from '@components/atoms/button/Button';
+import Flex from '@components/helpers/flex/Flex';
 
 import styles from './couponCodeItem.module.scss';
 

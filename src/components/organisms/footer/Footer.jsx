@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom';
 
-import Logo from '../../atoms/logo/Logo';
-import FooterInfoTitle from '../../atoms/footerInfoTitle/FooterInfoTitle';
-import QrCode from '../../atoms/qrCode/QrCode';
-import MobileAppLink from '../../molecules/mobileAppLink/MobileAppLink';
-import SocialMediaList from '../../molecules/socialMediaList/SocialMediaList';
-import SendEmailForm from '../../molecules/sendEmailForm/SendEmailForm';
-import Separator from '../../atoms/separator/Separator';
+import FooterInfoTitle from '@components/atoms/footerInfoTitle/FooterInfoTitle';
+import Logo from '@components/atoms/logo/Logo';
+import QrCode from '@components/atoms/qrCode/QrCode';
+import Separator from '@components/atoms/separator/Separator';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import MobileAppLink from '@components/molecules/mobileAppLink/MobileAppLink';
+import SendEmailForm from '@components/molecules/sendEmailForm/SendEmailForm';
+import SocialMediaList from '@components/molecules/socialMediaList/SocialMediaList';
 
-import Container from '../../helpers/container/Container';
-import Flex from '../../helpers/flex/Flex';
-
-import CopyrightIcon from '../../../assets/icons/copyright.svg?react';
+import CopyrightIcon from '@assets/icons/copyright.svg?react';
 
 import styles from './footer.module.scss';
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import Arrow from '../../atoms/arrow/Arrow';
+import Arrow from '@components/atoms/arrow/Arrow';
+
 import Line from './line.svg';
 
 import styles from './showNowLink.module.scss';

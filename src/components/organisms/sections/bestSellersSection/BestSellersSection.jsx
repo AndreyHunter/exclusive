@@ -1,11 +1,10 @@
-import useMediaQuery from '../../../../hooks/useMediaQuery';
+import useMediaQuery from '@hooks/useMediaQuery';
 
-import SectionLabelWithTitle from '../../../molecules/sectionLabelWithTitle/SectionLabelWithTitle';
-import Button from '../../../atoms/button/Button';
-import BestSellersList from '../../bestSellersList/BestSellersList';
-
-import Flex from '../../../helpers/flex/Flex';
-import Container from '../../../helpers/container/Container';
+import Button from '@components/atoms/button/Button';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import SectionLabelWithTitle from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
+import BestSellersList from '@components/organisms/bestSellersList/BestSellersList';
 
 import styles from './bestSellersSection.module.scss';
 

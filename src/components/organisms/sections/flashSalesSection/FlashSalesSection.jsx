@@ -1,12 +1,11 @@
-import SectionLabelWithTitle from '../../../molecules/sectionLabelWithTitle/SectionLabelWithTitle';
-import ProductSlider from '../../../organisms/productSlider/ProductSlider';
-import Button from '../../../atoms/button/Button';
-import Countdown from '../../../molecules/countdown/Countdown';
+import products from '@constants/products';
 
-import Flex from '../../../helpers/flex/Flex';
-import Container from '../../../helpers/container/Container';
-
-import products from '../../../../constants/products';
+import Button from '@components/atoms/button/Button';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import Countdown from '@components/molecules/countdown/Countdown';
+import SectionLabelWithTitle from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
+import ProductSlider from '@components/organisms/productSlider/ProductSlider';
 
 import styles from './flashSalesSection.module.scss';
 
@@ -24,7 +23,7 @@ const FlashSalesSection = ({ className }) => {
 
                 <ProductSlider products={flashSalesProducts} buttonsPosition="top" />
                 <Flex justifyContent="center" className={styles.button}>
-                    <Button  title="View All Products" />
+                    <Button title="View All Products" />
                 </Flex>
             </Container>
         </section>

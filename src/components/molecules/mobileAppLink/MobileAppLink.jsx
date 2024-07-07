@@ -1,5 +1,5 @@
-import GooglePlayIcon from '../../../assets/icons/google-play.svg?react';
-import AppleIcon from '../../../assets/icons/apple.svg?react';
+import AppleIcon from '@assets/icons/apple.svg?react';
+import GooglePlayIcon from '@assets/icons/google-play.svg?react';
 
 import styles from './mobileAppLink.module.scss';
 

@@ -1,10 +1,9 @@
-import SectionLabelWithTitle from '../../../molecules/sectionLabelWithTitle/SectionLabelWithTitle';
-import Button from '../../../atoms/button/Button';
-import ProductCard from '../../../molecules/productCard/ProductCard';
+import products from '@constants/products';
 
-import Container from '../../../helpers/container/Container';
-
-import products from '../../../../constants/products';
+import Button from '@components/atoms/button/Button';
+import Container from '@components/helpers/container/Container';
+import ProductCard from '@components/molecules/productCard/ProductCard';
+import SectionLabelWithTitle from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
 
 import styles from './ourProductsSection.module.scss';
 

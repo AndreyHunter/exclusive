@@ -1,8 +1,7 @@
-import BreadCrumbs from '../../components/molecules/breadCrumbs/BreadCrumbs';
-import WishList from '../../components/organisms/wishList/WishList';
-import SuggestedProductsSection from '../../components/organisms/sections/suggestedProductsSection/SuggestedProductsSection';
-
-import Container from '../../components/helpers/container/Container';
+import Container from '@components/helpers/container/Container';
+import BreadCrumbs from '@components/molecules/breadCrumbs/BreadCrumbs';
+import SuggestedProductsSection from '@components/organisms/sections/suggestedProductsSection/SuggestedProductsSection';
+import WishList from '@components/organisms/wishList/WishList';
 
 import styles from './wishListPage.module.scss';
 

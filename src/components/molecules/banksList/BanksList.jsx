@@ -1,7 +1,7 @@
-import BkashIcon from '../../../assets/icons/banks/BKash.svg?react';
-import VisaIcon from '../../../assets/icons/banks/visa.svg?react';
-import MasterCardIcon from '../../../assets/icons/banks/mastercard.svg?react';
-import NagadIcon from '../../../assets/icons/banks/nagad.png';
+import BkashIcon from '@assets/icons/banks/BKash.svg?react';
+import MasterCardIcon from '@assets/icons/banks/mastercard.svg?react';
+import NagadIcon from '@assets/icons/banks/nagad.png';
+import VisaIcon from '@assets/icons/banks/visa.svg?react';
 
 import styles from './banksList.module.scss';
 

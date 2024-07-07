@@ -1,4 +1,4 @@
-import SearchIcon from '../../atoms/searchIcon/SearchIcon';
+import SearchIcon from '@components/atoms/searchIcon/SearchIcon';
 
 import styles from './search.module.scss';
 

@@ -1,6 +1,6 @@
-import Partner1Image from '../assets/images/partners/5afc043392ee3cbb529f429b3e2098d3.png';
-import Partner2Image from '../assets/images/partners/a2fe88af0272adecd83422d0cb7e20d7.png';
-import Partner3Image from '../assets/images/partners/5df8103b281240ce5bafe5dd7d215ab8.png';
+import Partner1Image from '@assets/images/partners/5afc043392ee3cbb529f429b3e2098d3.png';
+import Partner3Image from '@assets/images/partners/5df8103b281240ce5bafe5dd7d215ab8.png';
+import Partner2Image from '@assets/images/partners/a2fe88af0272adecd83422d0cb7e20d7.png';
 
 const partners = [
     {

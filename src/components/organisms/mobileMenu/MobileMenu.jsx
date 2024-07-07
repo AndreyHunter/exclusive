@@ -1,15 +1,13 @@
 import { useEffect } from 'react';
-
 import { Link } from 'react-router-dom';
 
-import Logo from '../../atoms/logo/Logo';
-import UserActions from '../../molecules/userActions/UserActions';
-import SocialMediaList from '../../molecules/socialMediaList/SocialMediaList';
+import mainCategories from '@constants/mainCategories';
+import navBarPages from '@constants/navPages';
 
-import Flex from '../../helpers/flex/Flex';
-
-import mainCategories from '../../../constants/mainCategories';
-import navBarPages from '../../../constants/navPages';
+import SocialMediaList from '@components//molecules/socialMediaList/SocialMediaList';
+import Logo from '@components/atoms/logo/Logo';
+import Flex from '@components/helpers/flex/Flex';
+import UserActions from '@components/molecules/userActions/UserActions';
 
 import styles from './mobileMenu.module.scss';
 
@@ -35,11 +33,7 @@ const MobileMenu = ({ isOpen }) => {
                     <UserActions className={styles.actions} color="white" />
                 </Flex>
                 <div className={styles.grid}>
-                    <Flex
-                        tagElement="ul"
-                        flexDirection="column"
-                        gap={20}
-                        className={styles.list}>
+                    <Flex tagElement="ul" flexDirection="column" gap={20} className={styles.list}>
                         {mainCategories &&
                             mainCategories.map((category) => (
                                 <li key={category.id}>
@@ -47,11 +41,7 @@ const MobileMenu = ({ isOpen }) => {
                                 </li>
                             ))}
                     </Flex>
-                    <Flex
-                        tagElement="ul"
-                        flexDirection="column"
-                        gap={20}
-                        className={styles.list}>
+                    <Flex tagElement="ul" flexDirection="column" gap={20} className={styles.list}>
                         {navBarPages &&
                             navBarPages.map((page) => (
                                 <li key={page.id}>

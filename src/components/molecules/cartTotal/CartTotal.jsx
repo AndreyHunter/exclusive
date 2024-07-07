@@ -1,7 +1,6 @@
-import OrderInfo from '../orderInfo/OrderInfo';
-import Button from '../../atoms/button/Button';
-
-import Flex from '../../helpers/flex/Flex';
+import Button from '@components/atoms/button/Button';
+import Flex from '@components/helpers/flex/Flex';
+import OrderInfo from '@components/molecules/orderInfo/OrderInfo';
 
 import styles from './cartTotal.module.scss';
 

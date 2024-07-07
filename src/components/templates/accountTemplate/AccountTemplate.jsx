@@ -1,12 +1,11 @@
 import { Outlet, useLocation } from 'react-router-dom';
 
-import { Utils } from '../../../utils/';
+import { Utils } from '@utils/';
 
-import BreadCrumbs from '../../molecules/breadCrumbs/BreadCrumbs';
-import AccountNav from '../../organisms/accountNav/AccountNav';
-
-import Container from '../../helpers/container/Container';
-import Flex from '../../helpers/flex/Flex';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import BreadCrumbs from '@components/molecules/breadCrumbs/BreadCrumbs';
+import AccountNav from '@components/organisms/accountNav/AccountNav';
 
 import styles from './accountTemplate.module.scss';
 

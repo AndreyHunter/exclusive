@@ -1,8 +1,7 @@
-import SectionLabelWithTitle from '../../../molecules/sectionLabelWithTitle/SectionLabelWithTitle';
-import ShopNowLink from '../../../atoms/shopNowLink/ShopNowLink';
-
-import Container from '../../../helpers/container/Container';
-import Flex from '../../../helpers/flex/Flex';
+import ShopNowLink from '@components/atoms/shopNowLink/ShopNowLink';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import SectionLabelWithTitle from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
 
 import styles from './newArrivalSection.module.scss';
 

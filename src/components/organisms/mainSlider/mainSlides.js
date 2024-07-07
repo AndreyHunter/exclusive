@@ -1,6 +1,6 @@
-import iphone14Image from '../../../assets/images/mainSlider/iphone14.png';
-import macbookProImage from '../../../assets/images/mainSlider/macbook_pro.jpg';
-import appleLogo from '../../../assets/images/mainSlider/apple_logo.jpg';
+import appleLogo from '@assets/images/mainSlider/apple_logo.jpg';
+import iphone14Image from '@assets/images/mainSlider/iphone14.png';
+import macbookProImage from '@assets/images/mainSlider/macbook_pro.jpg';
 
 const mainSlides = [
     {

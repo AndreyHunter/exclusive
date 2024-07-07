@@ -1,4 +1,4 @@
-import useCountDown from '../../../hooks/useCountDown';
+import useCountDown from '@hooks/useCountDown';
 
 import styles from './countdown.module.scss';
 

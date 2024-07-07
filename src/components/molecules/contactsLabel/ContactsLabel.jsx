@@ -1,5 +1,5 @@
-import PhoneIcon from '../../../assets/icons/contacts-phone.svg?react';
-import EmailIcon from '../../../assets/icons/contacts-email.svg?react';
+import EmailIcon from '@assets/icons/contacts-email.svg?react';
+import PhoneIcon from '@assets/icons/contacts-phone.svg?react';
 
 import styles from './contactsLabel.module.scss';
 

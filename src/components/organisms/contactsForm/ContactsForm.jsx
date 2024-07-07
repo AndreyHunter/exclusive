@@ -1,8 +1,7 @@
-import BoxWrapper from '../../atoms/boxWrapper/BoxWrapper';
-import FormInput from '../../molecules/formInput/FormInput';
-import Button from '../../atoms/button/Button';
-
-import Flex from '../../helpers/flex/Flex';
+import BoxWrapper from '@components/atoms/boxWrapper/BoxWrapper';
+import Button from '@components/atoms/button/Button';
+import Flex from '@components/helpers/flex/Flex';
+import FormInput from '@components/molecules/formInput/FormInput';
 
 import styles from './contactsForm.module.scss';
 

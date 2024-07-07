@@ -1,4 +1,4 @@
-import ShopNowLink from '../../../atoms/shopNowLink/ShopNowLink';
+import ShopNowLink from '@components/atoms/shopNowLink/ShopNowLink';
 
 import styles from './mainSlide.module.scss';
 

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import Arrow from '../../atoms/arrow/Arrow';
+import mainCategories from '@constants/mainCategories';
 
-import mainCategories from '../../../constants/mainCategories';
+import Arrow from '@components/atoms/arrow/Arrow';
 
 import styles from './categoryNav.module.scss';
 

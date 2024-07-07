@@ -10,11 +10,11 @@ import {
     WishListPage,
     CartPage,
     CheckoutPage,
-} from '../pages';
-import LayoutTemplate from '../components/templates/layoutTemplate/LayoutTemplate';
-import AccountTemplate from '../components/templates/accountTemplate/AccountTemplate';
+} from '@pages/';
 
-import ScrollToTop from '../components/helpers/scrollToTop/scrollToTop';
+import ScrollToTop from '@components/helpers/scrollToTop/scrollToTop';
+import AccountTemplate from '@components/templates/accountTemplate/AccountTemplate';
+import LayoutTemplate from '@components/templates/layoutTemplate/LayoutTemplate';
 
 import styles from './app.module.scss';
 

@@ -1,8 +1,8 @@
-import Button from '../../../atoms/button/Button';
-import productImage from '../../../../assets/images/products/jbl_boombox.png';
-import Countdown from '../../../molecules/countdown/Countdown';
+import Button from '@components/atoms/button/Button';
+import Container from '@components/helpers/container/Container';
+import Countdown from '@components/molecules/countdown/Countdown';
 
-import Container from '../../../helpers/container/Container';
+import productImage from '@assets/images/products/jbl_boombox.png';
 
 import styles from './promotionSection.module.scss';
 

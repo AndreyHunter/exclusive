@@ -1,6 +1,5 @@
-import Separator from '../../atoms/separator/Separator';
-
-import Flex from '../../helpers/flex/Flex';
+import Separator from '@components/atoms/separator/Separator';
+import Flex from '@components/helpers/flex/Flex';
 
 import styles from './orderInfo.module.scss';
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import WishListIcon from '../../atoms/wishListIcon/WishListIcon';
-import CartIcon from '../../atoms/cartIcon/CartIcon';
+import CartIcon from '@components/atoms/cartIcon/CartIcon';
+import WishListIcon from '@components/atoms/wishListIcon/WishListIcon';
 
 import styles from './userActions.module.scss';
 

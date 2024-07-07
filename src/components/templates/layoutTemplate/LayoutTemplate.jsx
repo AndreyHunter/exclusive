@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
 
-import TopHeader from '../../organisms/topHeader/TopHeader';
-import Header from '../../organisms/header/Header';
-import Footer from '../../organisms/footer/Footer';
-import Separator from '../../atoms/separator/Separator';
-import MobileMenu from '../../organisms/mobileMenu/MobileMenu';
-import ScrollToTopButton from '../../molecules/scrollToTopButton/scrollToTopButton';
+import Separator from '@components/atoms/separator/Separator';
+import ScrollToTopButton from '@components/molecules/scrollToTopButton/scrollToTopButton';
+import Footer from '@components/organisms/footer/Footer';
+import Header from '@components/organisms/header/Header';
+import MobileMenu from '@components/organisms/mobileMenu/MobileMenu';
+import TopHeader from '@components/organisms/topHeader/TopHeader';
 
 import styles from './layoutTemplate.module.scss';
 

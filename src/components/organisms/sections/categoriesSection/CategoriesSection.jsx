@@ -1,7 +1,6 @@
-import SectionLabelWithTitle from '../../../molecules/sectionLabelWithTitle/SectionLabelWithTitle';
-import CategorySlider from '../../categorySlider/CategorySlider';
-
-import Container from '../../../helpers/container/Container';
+import Container from '@components/helpers/container/Container';
+import SectionLabelWithTitle from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
+import CategorySlider from '@components/organisms/categorySlider/CategorySlider';
 
 import styles from './categoriesSection.module.scss';
 

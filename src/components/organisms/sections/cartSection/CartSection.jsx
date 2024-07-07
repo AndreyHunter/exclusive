@@ -1,12 +1,11 @@
-import useMediaQuery from '../../../../hooks/useMediaQuery';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
-import Button from '../../../atoms/button/Button';
-import CartHeader from '../../../molecules/cartHeader/CartHeader';
-import CartItem from '../../../molecules/cartItem/CartItem';
-import CouponCodeItem from '../../../molecules/couponCodeItem/CouponCodeItem';
-import CartTotal from '../../../molecules/cartTotal/CartTotal';
-
-import Flex from '../../../helpers/flex/Flex';
+import Button from '@components/atoms/button/Button';
+import Flex from '@components/helpers/flex/Flex';
+import CartHeader from '@components/molecules/cartHeader/CartHeader';
+import CartItem from '@components/molecules/cartItem/CartItem';
+import CartTotal from '@components/molecules/cartTotal/CartTotal';
+import CouponCodeItem from '@components/molecules/couponCodeItem/CouponCodeItem';
 
 import styles from './cartSection.module.scss';
 

@@ -1,9 +1,8 @@
-import { Strings } from '../../../utils/';
+import { Strings } from '@utils/';
 
-import OrderInfo from '../../molecules/orderInfo/OrderInfo';
-import OrderItem from '../../molecules/orderItem/OrderItem';
-
-import Flex from '../../helpers/flex/Flex';
+import Flex from '@components/helpers/flex/Flex';
+import OrderInfo from '@components/molecules/orderInfo/OrderInfo';
+import OrderItem from '@components/molecules/orderItem/OrderItem';
 
 import styles from './orderSummary.module.scss';
 

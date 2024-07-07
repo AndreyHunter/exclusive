@@ -1,10 +1,9 @@
-import BreadCrumbs from '../../components/molecules/breadCrumbs/BreadCrumbs';
-import OurStorySection from '../../components/organisms/sections/ourStorySection/OurStorySection';
-import OurStatisticList from '../../components/organisms/ourStatisticList/OurStatisticList';
-import PartnersSlider from '../../components/organisms/partnersSlider/PartnersSlider';
-import AdvantagesSection from '../../components/organisms/sections/advantagesSection/AdvantagesSection';
-
-import Container from '../../components/helpers/container/Container';
+import Container from '@components/helpers/container/Container';
+import BreadCrumbs from '@components/molecules/breadCrumbs/BreadCrumbs';
+import OurStatisticList from '@components/organisms/ourStatisticList/OurStatisticList';
+import PartnersSlider from '@components/organisms/partnersSlider/PartnersSlider';
+import AdvantagesSection from '@components/organisms/sections/advantagesSection/AdvantagesSection';
+import OurStorySection from '@components/organisms/sections/ourStorySection/OurStorySection';
 
 import styles from './aboutPage.module.scss';
 

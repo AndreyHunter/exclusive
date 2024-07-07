@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import RatingIcon from '../../atoms/ratingIcon/RatingIcon';
+import RatingIcon from '@components/atoms/ratingIcon/RatingIcon';
 
 import styles from './productRating.module.scss';
 

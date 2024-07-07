@@ -1,7 +1,6 @@
-import FormInput from '../../molecules/formInput/FormInput';
-import Checkbox from '../../atoms/checkbox/Checkbox';
-
-import Flex from '../../helpers/flex/Flex';
+import Checkbox from '@components/atoms/checkbox/Checkbox';
+import Flex from '@components/helpers/flex/Flex';
+import FormInput from '@components/molecules/formInput/FormInput';
 
 import styles from './orderForm.module.scss';
 

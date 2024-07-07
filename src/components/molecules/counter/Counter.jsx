@@ -1,8 +1,8 @@
-import useCounter from '../../../hooks/useCounter';
+import useCounter from '@hooks/useCounter';
 
-import Flex from '../../helpers/flex/Flex';
+import Flex from '@components/helpers/flex/Flex';
 
-import Arrow from '../../../assets/icons/second-arrow.svg?react';
+import Arrow from '@assets/icons/second-arrow.svg?react';
 
 import styles from './counter.module.scss';
 

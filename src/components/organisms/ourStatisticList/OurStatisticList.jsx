@@ -1,7 +1,7 @@
-import statisticCards from '../../../constants/statisticCards';
-import OurStatisticItem from '../../molecules/ourStatisticItem/OurStatisticItem';
+import statisticCards from '@constants/statisticCards';
 
-import Container from '../../helpers/container/Container';
+import Container from '@components/helpers/container/Container';
+import OurStatisticItem from '@components/molecules/ourStatisticItem/OurStatisticItem';
 
 import styles from './ourStatisticList.module.scss';
 

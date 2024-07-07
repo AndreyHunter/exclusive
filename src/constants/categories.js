@@ -1,9 +1,9 @@
-import PhoneIcon from '../assets/icons/phone.svg?react';
-import ComputerIcon from '../assets/icons/computer.svg?react';
-import SmartWatchIcon from '../assets/icons/category-smart-watch.svg?react';
-import CameraIcon from '../assets/icons/camera.svg?react';
-import HeadPhonesIcon from '../assets/icons/headphones.svg?react';
-import GamingIcon from '../assets/icons/gaming.svg?react';
+import CameraIcon from '@assets/icons/camera.svg?react';
+import SmartWatchIcon from '@assets/icons/category-smart-watch.svg?react';
+import ComputerIcon from '@assets/icons/computer.svg?react';
+import GamingIcon from '@assets/icons/gaming.svg?react';
+import HeadPhonesIcon from '@assets/icons/headphones.svg?react';
+import PhoneIcon from '@assets/icons/phone.svg?react';
 
 const categories = [
     {

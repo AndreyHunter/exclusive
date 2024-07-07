@@ -1,7 +1,7 @@
-import HouseIcon from '../assets/icons/house.svg?react';
-import DollarIcon from '../assets/icons/dollar.svg?react';
-import BagIcon from '../assets/icons/bag.svg?react';
-import moneyBagIcon from '../assets/icons/money-bag.svg?react';
+import BagIcon from '@assets/icons/bag.svg?react';
+import DollarIcon from '@assets/icons/dollar.svg?react';
+import HouseIcon from '@assets/icons/house.svg?react';
+import moneyBagIcon from '@assets/icons/money-bag.svg?react';
 
 const statisticCards = [
     {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Flex from '../../helpers/flex/Flex';
+import Flex from '@components/helpers/flex/Flex';
 
 import styles from './orderItem.module.scss';
 

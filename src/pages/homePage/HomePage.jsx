@@ -1,13 +1,12 @@
-import HeroSection from '../../components/organisms/sections/heroSection/HeroSection';
-import FlashSalesSection from '../../components/organisms/sections/flashSalesSection/FlashSalesSection';
-import CategoriesSection from '../../components/organisms/sections/categoriesSection/CategoriesSection';
-import BestSellersSection from '../../components/organisms/sections/bestSellersSection/BestSellersSection';
-import PromotionSection from '../../components/organisms/sections/promotionSection/PromotionSection';
-import OurProductsSection from '../../components/organisms/sections/ourProductsSection/OurProductsSection';
-import NewArrivalSection from '../../components/organisms/sections/newArrivalSection/newArrivalSection';
-import AdvantagesSection from '../../components/organisms/sections/advantagesSection/AdvantagesSection';
-
-import Separator from '../../components/atoms/separator/Separator';
+import Separator from '@components/atoms/separator/Separator';
+import AdvantagesSection from '@components/organisms/sections/advantagesSection/AdvantagesSection';
+import BestSellersSection from '@components/organisms/sections/bestSellersSection/BestSellersSection';
+import CategoriesSection from '@components/organisms/sections/categoriesSection/CategoriesSection';
+import FlashSalesSection from '@components/organisms/sections/flashSalesSection/FlashSalesSection';
+import HeroSection from '@components/organisms/sections/heroSection/HeroSection';
+import NewArrivalSection from '@components/organisms/sections/newArrivalSection/newArrivalSection';
+import OurProductsSection from '@components/organisms/sections/ourProductsSection/OurProductsSection';
+import PromotionSection from '@components/organisms/sections/promotionSection/PromotionSection';
 
 import styles from './homePage.module.scss';
 

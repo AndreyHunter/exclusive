@@ -1,8 +1,7 @@
-import AdvantagesCard from '../../../molecules/advantagesCard/AdvantagesCard';
+import advantages from '@constants/advantages';
 
-import Container from '../../../helpers/container/Container';
-
-import advantages from '../../../../constants/advantages';
+import Container from '@components/helpers/container/Container';
+import AdvantagesCard from '@components/molecules/advantagesCard/AdvantagesCard';
 
 import styles from './advantagesSection.module.scss';
 

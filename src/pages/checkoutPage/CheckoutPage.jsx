@@ -1,17 +1,16 @@
 import { useState } from 'react';
 
-import products from '../../constants/products';
+import products from '@constants/products';
 
-import BreadCrumbs from '../../components/molecules/breadCrumbs/BreadCrumbs';
-import OrderForm from '../../components/organisms/orderForm/OrderForm';
-import OrderSummary from '../../components/organisms/orderSummary/OrderSummary';
-import CouponCodeItem from '../../components/molecules/couponCodeItem/CouponCodeItem';
-import Button from '../../components/atoms/button/Button';
-import RadioButton from '../../components/atoms/radioButton/RadioButton';
-import BanksList from '../../components/molecules/banksList/BanksList';
-
-import Container from '../../components/helpers/container/Container';
-import Flex from '../../components/helpers/flex/Flex';
+import Button from '@components/atoms/button/Button';
+import RadioButton from '@components/atoms/radioButton/RadioButton';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import BanksList from '@components/molecules/banksList/BanksList';
+import BreadCrumbs from '@components/molecules/breadCrumbs/BreadCrumbs';
+import CouponCodeItem from '@components/molecules/couponCodeItem/CouponCodeItem';
+import OrderForm from '@components/organisms/orderForm/OrderForm';
+import OrderSummary from '@components/organisms/orderSummary/OrderSummary';
 
 import styles from './checkoutPage.module.scss';
 

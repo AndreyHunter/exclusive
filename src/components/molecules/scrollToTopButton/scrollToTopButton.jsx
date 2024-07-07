@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import Arrow from '../../../assets/icons/arrow.svg?react';
+import Arrow from '@assets/icons/arrow.svg?react';
 
 import styles from './scrollToTopButton.module.scss';
 
@@ -8,7 +8,7 @@ const ScrollToTopButton = ({ className, ...props }) => {
     const [isVisible, setIsVisible] = useState(false);
     const visibleClassName = isVisible ? styles.visible : '';
     const combinedClasses = `${styles.root} ${visibleClassName} ${className || ''}`;
-    
+
     const scrollTo = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };

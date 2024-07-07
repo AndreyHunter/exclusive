@@ -1,7 +1,7 @@
-import Container from '../../../helpers/container/Container';
-import Flex from '../../../helpers/flex/Flex';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
 
-import aboutImage from '../../../../assets/images/about/two-african-females.png';
+import aboutImage from '@assets/images/about/two-african-females.png';
 
 import styles from './ourStorySection.module.scss';
 

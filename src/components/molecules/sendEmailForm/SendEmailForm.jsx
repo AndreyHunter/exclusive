@@ -1,4 +1,4 @@
-import SendIcon from '../../../assets/icons/icon-send.svg?react';
+import SendIcon from '@assets/icons/icon-send.svg?react';
 
 import styles from './sendEmailForm.module.scss';
 

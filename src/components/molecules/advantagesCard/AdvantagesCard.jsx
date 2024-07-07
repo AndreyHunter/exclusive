@@ -1,4 +1,4 @@
-import Flex from '../../helpers/flex/Flex';
+import Flex from '@components/helpers/flex/Flex';
 
 import styles from './advantagesCard.module.scss';
 

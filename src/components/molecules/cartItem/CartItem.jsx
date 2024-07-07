@@ -1,13 +1,12 @@
 import { useState } from 'react';
 
-import useMediaQuery from '../../../hooks/useMediaQuery';
+import useMediaQuery from '@hooks/useMediaQuery';
 
-import { Strings } from '../../../utils/index';
+import { Strings } from '@utils/index';
 
-import OrderItem from '../../molecules/orderItem/OrderItem';
-import Counter from '../counter/Counter';
-
-import Flex from '../../helpers/flex/Flex';
+import Flex from '@components/helpers/flex/Flex';
+import Counter from '@components/molecules/counter/Counter';
+import OrderItem from '@components/molecules/orderItem/OrderItem';
 
 import styles from './cartItem.module.scss';
 

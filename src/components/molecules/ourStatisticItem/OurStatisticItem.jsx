@@ -1,4 +1,4 @@
-import CircleContainerIcon from '../../atoms/circleContainerIcon/CircleContainerIcon';
+import CircleContainerIcon from '@components/atoms/circleContainerIcon/CircleContainerIcon';
 
 import styles from './ourStatisticItem.module.scss';
 

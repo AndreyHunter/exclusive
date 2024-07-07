@@ -1,11 +1,10 @@
-import SectionLabel from '../../../atoms/sectionLabel/SectionLabel';
-import Button from '../../../atoms/button/Button';
-import ProductSlider from '../../productSlider/ProductSlider';
+import products from '@constants/products';
 
-import Container from '../../../helpers/container/Container';
-import Flex from '../../../helpers/flex/Flex';
-
-import products from '../../../../constants/products';
+import Button from '@components/atoms/button/Button';
+import SectionLabel from '@components/atoms/sectionLabel/SectionLabel';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import ProductSlider from '@components/organisms/productSlider/ProductSlider';
 
 import styles from './suggestedProductsSection.module.scss';
 

@@ -1,10 +1,9 @@
-import BreadCrumbs from '../../components/molecules/breadCrumbs/BreadCrumbs';
-
-import Flex from '../../components/helpers/flex/Flex';
-import Button from '../../components/atoms/button/Button';
+import Button from '@components/atoms/button/Button';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import BreadCrumbs from '@components/molecules/breadCrumbs/BreadCrumbs';
 
 import styles from './notFoundPage.module.scss';
-import Container from '../../components/helpers/container/Container';
 
 const NotFoundPage = () => {
     return (

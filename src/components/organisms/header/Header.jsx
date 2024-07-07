@@ -1,11 +1,11 @@
-import Logo from '../../atoms/logo/Logo';
+import navPages from '@constants/navPages';
+
+import Logo from '@components/atoms/logo/Logo';
+import Container from '@components/helpers/container/Container';
+import Search from '@components/molecules/search/Search';
+import UserActions from '@components/molecules/userActions/UserActions';
+
 import HeaderNav from './headerNav/HeaderNav';
-import Search from '../../molecules/search/Search';
-import UserActions from '../../molecules/userActions/UserActions';
-
-import navPages from '../../../constants/navPages';
-
-import Container from '../../helpers/container/Container';
 
 import styles from './header.module.scss';
 

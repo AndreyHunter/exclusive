@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Container from '../../helpers/container/Container';
-import PartnerCard from '../../molecules/partnerCard/PartnerCard';
+import partners from '@constants/partners';
+
+import Container from '@components/helpers/container/Container';
+import PartnerCard from '@components/molecules/partnerCard/PartnerCard';
 
 import settings from './settings';
-import partners from '../../../constants/partners';
 
 import 'swiper/css';
 import 'swiper/css/pagination';

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import styles from './burgerButton.module.scss';
 
 const BurgerButton = ({ onClick, ...props }) => {

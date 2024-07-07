@@ -1,8 +1,7 @@
-import CategoryNav from '../../categoryNav/CategoryNav';
-import MainSlider from '../../mainSlider/MainSlider';
-
-import Container from '../../../helpers/container/Container';
-import Flex from '../../../helpers/flex/Flex';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import CategoryNav from '@components/organisms/categoryNav/CategoryNav';
+import MainSlider from '@components/organisms/mainSlider/MainSlider';
 
 import styles from './heroSection.module.scss';
 

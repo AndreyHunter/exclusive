@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import useMediaQuery from '../../../hooks/useMediaQuery';
+import useMediaQuery from '@hooks/useMediaQuery';
 
-import LanguageSelect from '../../molecules/languageSelect/LanguageSelect';
-import BurgerButton from '../../atoms/burgerButton/BurgerButton';
-
-import Container from '../../helpers/container/Container';
-import Flex from '../../helpers/flex/Flex';
+import BurgerButton from '@components/atoms/burgerButton/BurgerButton';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import LanguageSelect from '@components/molecules/languageSelect/LanguageSelect';
 
 import styles from './topHeader.module.scss';
 

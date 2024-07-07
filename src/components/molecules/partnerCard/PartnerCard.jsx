@@ -1,6 +1,6 @@
-import TwitterIcon from '../../../assets/icons/twitter.svg?react';
-import InstagramIcon from '../../../assets/icons/instagram.svg?react';
-import LinkedinIcon from '../../../assets/icons/linkedin.svg?react';
+import InstagramIcon from '@assets/icons/instagram.svg?react';
+import LinkedinIcon from '@assets/icons/linkedin.svg?react';
+import TwitterIcon from '@assets/icons/twitter.svg?react';
 
 import styles from './partnerCard.module.scss';
 

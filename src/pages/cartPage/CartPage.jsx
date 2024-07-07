@@ -1,6 +1,6 @@
-import BreadCrumbs from '../../components/molecules/breadCrumbs/BreadCrumbs';
-import Container from '../../components/helpers/container/Container';
-import CartSection from '../../components/organisms/sections/cartSection/CartSectionContainer';
+import Container from '@components/helpers/container/Container';
+import BreadCrumbs from '@components/molecules/breadCrumbs/BreadCrumbs';
+import CartSection from '@components/organisms/sections/cartSection/CartSectionContainer';
 
 import styles from './cartPage.module.scss';
 

@@ -1,10 +1,9 @@
-import Button from '../../atoms/button/Button';
-import ProductCard from '../../molecules/productCard/ProductCard';
+import products from '@constants/products';
 
-import Container from '../../helpers/container/Container';
-import Flex from '../../helpers/flex/Flex';
-
-import products from '../../../constants/products';
+import Button from '@components/atoms/button/Button';
+import Container from '@components/helpers/container/Container';
+import Flex from '@components/helpers/flex/Flex';
+import ProductCard from '@components/molecules/productCard/ProductCard';
 
 import styles from './wishList.module.scss';
 

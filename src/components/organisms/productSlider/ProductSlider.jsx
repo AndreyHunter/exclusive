@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import useMediaQuery from '../../../hooks/useMediaQuery';
+import useMediaQuery from '@hooks/useMediaQuery';
 
-import ProductCard from '../../molecules/productCard/ProductCard';
-import SliderButton from '../../atoms/sliderButton/SliderButton';
+import SliderButton from '@components/atoms/sliderButton/SliderButton';
+import ProductCard from '@components/molecules/productCard/ProductCard';
 
 import settings from './settings';
 

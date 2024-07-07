@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Numbers } from '../../../utils';
+import { Numbers } from '@utils/';
 
-import ProductPrice from '../../atoms/productPrice/ProductPrice';
-import DiscountLabel from '../../atoms/discountLabel/DiscountLabel';
-import CardActionButton from '../../atoms/cardActionButton/CardActionButton';
-import FavoriteIcon from '../../atoms/favoriteIcon/FavoriteIcon';
-import CompareIcon from '../../atoms/compareIcon/CompareIcon';
-import AddToCardButton from '../../atoms/addToCardButton/AddToCardButton';
-import ProductRating from '../../molecules/productRating/ProductRating';
-
-import Flex from '../../helpers/flex/Flex';
+import AddToCardButton from '@components/atoms/addToCardButton/AddToCardButton';
+import CardActionButton from '@components/atoms/cardActionButton/CardActionButton';
+import CompareIcon from '@components/atoms/compareIcon/CompareIcon';
+import DiscountLabel from '@components/atoms/discountLabel/DiscountLabel';
+import FavoriteIcon from '@components/atoms/favoriteIcon/FavoriteIcon';
+import ProductPrice from '@components/atoms/productPrice/ProductPrice';
+import Flex from '@components/helpers/flex/Flex';
+import ProductRating from '@components/molecules/productRating/ProductRating';
 
 import styles from './productsCard.module.scss';
 

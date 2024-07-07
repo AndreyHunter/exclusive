@@ -1,8 +1,7 @@
-import BoxWrapper from '../../atoms/boxWrapper/BoxWrapper';
-import Separator from '../../atoms/separator/Separator';
-import ContactsLabel from '../../molecules/contactsLabel/ContactsLabel';
-
-import Flex from '../../helpers/flex/Flex';
+import BoxWrapper from '@components/atoms/boxWrapper/BoxWrapper';
+import Separator from '@components/atoms/separator/Separator';
+import Flex from '@components/helpers/flex/Flex';
+import ContactsLabel from '@components/molecules/contactsLabel/ContactsLabel';
 
 import styles from './contactsInfo.module.scss';
 

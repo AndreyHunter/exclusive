@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import CategoryItem from '../../molecules/categoryItem/CategoryItem';
-import SliderButton from '../../atoms/sliderButton/SliderButton';
+import categories from '@constants/categories';
+
+import SliderButton from '@components/atoms/sliderButton/SliderButton';
+import CategoryItem from '@components/molecules/categoryItem/CategoryItem';
 
 import settings from './settings';
-import categories from '../../../constants/categories';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
