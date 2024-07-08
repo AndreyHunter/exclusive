@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import useCounter from '@hooks/useCounter';
 import useMediaQuery from '@hooks/useMediaQuery';
 
 import { Strings } from '@utils/index';
@@ -13,18 +14,21 @@ import styles from './cartItem.module.scss';
 const CartItem = ({ product, className }) => {
     const [price, setPrice] = useState(product.price);
     const [subtotal, setSubTotal] = useState(product.price);
+    const { count, handleDecrement, handleIncrement } = useCounter();
 
     const combinedClasses = `${styles.root} ${className || ''}`.trim();
     const isSmallMobile = useMediaQuery('(max-width: 360px)');
 
-    const handleIncrementPrice = () => {
+    const handleProductInc = () => {
         setPrice((prev) => prev + product.price);
+        handleIncrement();
     };
 
-    const handleDecrementPrice = () => {
+    const handleProductDec = () => {
         if (price <= product.price) {
             return;
         }
+        handleDecrement();
         setPrice((prev) => prev - product.price);
     };
 
@@ -42,8 +46,10 @@ const CartItem = ({ product, className }) => {
             <Flex className={styles.block} justifyContent="space-between" alignItems="center">
                 <div>${price}</div>
                 <Counter
-                    handleIncrementPrice={handleIncrementPrice}
-                    handleDecrementPrice={handleDecrementPrice}
+                    variant="cart"
+                    count={count}
+                    decrement={handleProductDec}
+                    increment={handleProductInc}
                 />
                 {!isSmallMobile && <div>${subtotal}</div>}
             </Flex>

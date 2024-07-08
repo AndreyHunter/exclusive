@@ -1,6 +1,7 @@
 .root {
     display: flex;
     align-items: flex-start;
+    gap: 6px;
 
     a {
         color: white;
@@ -15,4 +16,9 @@
 
 .column {
     flex-direction: column;
+}
+
+.white path {
+    stroke: white;
+
 }

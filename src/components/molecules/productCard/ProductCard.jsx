@@ -7,10 +7,11 @@ import AddToCardButton from '@components/atoms/addToCardButton/AddToCardButton';
 import CardActionButton from '@components/atoms/cardActionButton/CardActionButton';
 import CompareIcon from '@components/atoms/compareIcon/CompareIcon';
 import DiscountLabel from '@components/atoms/discountLabel/DiscountLabel';
-import FavoriteIcon from '@components/atoms/favoriteIcon/FavoriteIcon';
 import ProductPrice from '@components/atoms/productPrice/ProductPrice';
 import Flex from '@components/helpers/flex/Flex';
 import ProductRating from '@components/molecules/productRating/ProductRating';
+
+import FavoriteIcon from '@assets/icons/heart.svg?react';
 
 import styles from './productsCard.module.scss';
 

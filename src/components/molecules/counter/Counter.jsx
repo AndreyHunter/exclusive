@@ -2,40 +2,52 @@ import useCounter from '@hooks/useCounter';
 
 import Flex from '@components/helpers/flex/Flex';
 
-import Arrow from '@assets/icons/second-arrow.svg?react';
+import MinusIcon from '@assets/icons/minus.svg?react';
+import PlusIcon from '@assets/icons/plus.svg?react';
+import Arrow from '@assets/icons/small-arrow.svg?react';
 
 import styles from './counter.module.scss';
 
-const Counter = ({ handleIncrementPrice, handleDecrementPrice, className }) => {
-    const { count, handleIncrement, handleDecrement } = useCounter();
-
+const Counter = ({ variant = 'primary', count, increment, decrement, className }) => {
     const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
-    const handleCountInc = () => {
+    const handleIncrement = () => {
         if (count < 10) {
-            handleIncrement();
-            handleIncrementPrice();
+            increment();
         }
     };
 
-    const handleCountDec = () => {
+    const handleDecrement = () => {
         if (count > 0) {
-            handleDecrement();
-            handleDecrementPrice();
+            decrement();
         }
     };
+
+    if (variant === 'cart') {
+        return (
+            <Flex className={combinedClasses} gap={16}>
+                <span>{count}</span>
+                <Flex flexDirection="column" className={styles.buttons}>
+                    <button type="button" onClick={handleIncrement}>
+                        <Arrow />
+                    </button>
+                    <button type="button" onClick={handleDecrement}>
+                        <Arrow />
+                    </button>
+                </Flex>
+            </Flex>
+        );
+    }
 
     return (
-        <Flex className={combinedClasses} gap={16}>
+        <Flex className={styles.counter} alignItems="center" justifyContent="space-between">
+            <button className={styles.button} onClick={handleDecrement}>
+                <MinusIcon />
+            </button>
             <span>{count}</span>
-            <Flex flexDirection="column" className={styles.buttons}>
-                <button type="button" onClick={handleCountInc}>
-                    <Arrow />
-                </button>
-                <button type="button" onClick={handleCountDec}>
-                    <Arrow />
-                </button>
-            </Flex>
+            <button className={styles.activeButton} onClick={handleIncrement}>
+                <PlusIcon />
+            </button>
         </Flex>
     );
 };

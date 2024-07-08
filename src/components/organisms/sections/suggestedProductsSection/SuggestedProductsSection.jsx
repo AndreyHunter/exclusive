@@ -9,7 +9,7 @@ import ProductSlider from '@components/organisms/productSlider/ProductSlider';
 import styles from './suggestedProductsSection.module.scss';
 
 const SuggestedProductsSection = ({ sectionTitle, linkButtonTitle, linkButtonPath, className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`.trim();
+    const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
     const justForYou = products.slice(products.length - 4);
 
     return (

@@ -1,0 +1,69 @@
+.title {
+    font-family: 'Inter';
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.reviews {
+    margin-bottom: 16px;
+
+    > span {
+        color: #0f6;
+        font-size: 0.875rem;
+        opacity: 0.6;
+    }
+}
+
+.price {
+    font-family: 'Inter';
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.desc {
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+}
+
+.separator,
+.colors,
+.sizes {
+    margin-bottom: 20px;
+}
+
+.add {
+    > * {
+        max-height: 44px;
+    }
+
+    > button {
+        flex-shrink: 0;
+
+        @media (max-width: 1100px) {
+            padding: 16px 36px;
+        }
+    }
+
+    @media (max-width: 568px) {
+        flex-wrap: wrap;
+    }
+}
+
+.wish {
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: var(--main-transition);
+
+    &:hover {
+        background-color: var(--accentColor);
+        border: none;
+        svg path {
+            stroke: white;
+        }
+    }
+}

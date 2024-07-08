@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import mainCategories from '@constants/mainCategories';
 
-import Arrow from '@components/atoms/arrow/Arrow';
+import Arrow from '@assets/icons/dropdown-arrow.svg?react';
 
 import styles from './categoryNav.module.scss';
 

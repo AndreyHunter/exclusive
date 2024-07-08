@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import CartIcon from '@components/atoms/cartIcon/CartIcon';
-import WishListIcon from '@components/atoms/wishListIcon/WishListIcon';
+import CartIcon from '@assets/icons/cart.svg?react';
+import WishListIcon from '@assets/icons/heart.svg?react';
 
 import styles from './userActions.module.scss';
 
@@ -11,10 +11,10 @@ const UserActions = ({ color, className }) => {
     return (
         <div className={combinedClasses}>
             <Link to="/wishlist">
-                <WishListIcon color={color} />
+                <WishListIcon />
             </Link>
             <Link to="/cart">
-                <CartIcon color={color} />
+                <CartIcon />
             </Link>
         </div>
     );
