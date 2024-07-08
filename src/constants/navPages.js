@@ -17,7 +17,7 @@ const navBarPages = [
     {
         id: 4,
         name: 'Sign Up',
-        path: '/signup',
+        path: '/auth',
     },
 ];
 

@@ -14,7 +14,10 @@ import {
 } from '@pages/';
 
 import ScrollToTop from '@components/helpers/scrollToTop/scrollToTop';
+import LoginForm from '@components/organisms/loginForm/LoginForm';
+import RegistrationForm from '@components/organisms/registrationForm/RegistrationForm';
 import AccountTemplate from '@components/templates/accountTemplate/AccountTemplate';
+import AuthTemplate from '@components/templates/authTemplate/AuthTemplate';
 import LayoutTemplate from '@components/templates/layoutTemplate/LayoutTemplate';
 
 import styles from './app.module.scss';
@@ -47,6 +50,12 @@ const App = () => {
                         <Route path="/account" element={<AccountTemplate />}>
                             <Route index element={<ProfilePage />} />
                             <Route path="profile" element={<ProfilePage />} />
+                        </Route>
+
+                        <Route path="/auth" element={<AuthTemplate />}>
+                            <Route index element={<RegistrationForm />} />
+                            <Route path="signup" element={<RegistrationForm />} />
+                            <Route path="signin" element={<LoginForm />} />
                         </Route>
                     </Route>
                 </Routes>

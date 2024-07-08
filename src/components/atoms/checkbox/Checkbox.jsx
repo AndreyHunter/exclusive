@@ -2,7 +2,7 @@ import styles from './checkbox.module.scss';
 
 const Checkbox = ({ checked, onChange }) => {
     return (
-        <label className={styles.root}>
+        <label className={`${styles.root} ${checked && styles.checked}`}>
             <input
                 type="checkbox"
                 checked={checked}

@@ -7,14 +7,15 @@ import styles from './userActions.module.scss';
 
 const UserActions = ({ color, className }) => {
     const combinedClasses = `${styles.root} ${className || ''}`.trim();
+    const colorWhite = color === 'white' ? styles.white : '';
 
     return (
         <div className={combinedClasses}>
             <Link to="/wishlist">
-                <WishListIcon />
+                <WishListIcon className={`${styles.icon} ${colorWhite}`} />
             </Link>
             <Link to="/cart">
-                <CartIcon />
+                <CartIcon className={`${styles.icon} ${colorWhite}`} />
             </Link>
         </div>
     );
