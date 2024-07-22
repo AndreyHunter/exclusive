@@ -2,8 +2,9 @@
     display: inline-flex;
     align-items: center;
     gap: 16px;
+    position: relative;
 
-    a {
+    > a {
         width: 34px;
         height: 34px;
         display: flex;
@@ -20,4 +21,34 @@
 
 .white path {
     stroke: white;
+}
+
+.root .userBG {
+    width: 32px;
+    height: 32px;
+    background-color: var(--accentColor);
+    border-radius: 50%;
+    padding: 3px;
+
+    svg path {
+        stroke: white;
+        stroke-width: 2px;
+    }
+}
+
+.menu {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    bottom: -270px;
+    left: -110px;
+
+    z-index: 100;
+    transition: 0.2s ease;
+
+    &.open {
+        visibility: visible;
+        opacity: 1;
+    }
 }

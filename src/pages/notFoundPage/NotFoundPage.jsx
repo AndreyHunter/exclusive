@@ -20,7 +20,7 @@ const NotFoundPage = () => {
                 </Flex>
                 <Flex justifyContent="center">
                     <Button
-                        type="link"
+                        tagElement="link"
                         to="/"
                         title="Back to home page"
                         className={styles.button}

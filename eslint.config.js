@@ -53,7 +53,7 @@ export default [
 
             // Code style
             semi: ['error', 'always'],
-            indent: ['error', 4],
+            // indent: ['error', 4],
             quotes: ['error', 'single'],
             'comma-dangle': ['error', 'always-multiline'],
         },

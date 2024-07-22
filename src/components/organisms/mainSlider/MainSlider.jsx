@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+
+import { closeUserMenu } from '@store/userMenu/userMenuSlice';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,8 +13,15 @@ import 'swiper/css/pagination';
 import './mainSlider.scss';
 
 const MainSlider = () => {
+    const dispatch = useDispatch();
+
+    const handleMenuCLose = () => {
+        dispatch(closeUserMenu());
+    };
+
     return (
         <Swiper
+            onClick={handleMenuCLose}
             modules={[Pagination, Autoplay]}
             pagination={{ clickable: true }}
             slidesPerView={1}

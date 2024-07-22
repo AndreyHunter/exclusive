@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { mobileMenuSelector } from '@store/mobileMenu/mobileMenuSelectors';
 
 import mainCategories from '@constants/mainCategories';
 import navBarPages from '@constants/navPages';
@@ -11,7 +14,9 @@ import UserActions from '@components/molecules/userActions/UserActions';
 
 import styles from './mobileMenu.module.scss';
 
-const MobileMenu = ({ isOpen }) => {
+const MobileMenu = () => {
+    const isOpen = useSelector(mobileMenuSelector);
+
     useEffect(() => {
         const body = document.querySelector('body');
         if (isOpen) {
@@ -24,6 +29,10 @@ const MobileMenu = ({ isOpen }) => {
             body.classList.remove(styles.hidden);
         };
     }, [isOpen]);
+
+    if (!isOpen) {
+        return null;
+    }
 
     return (
         <section className={`${styles.menu} ${isOpen ? styles.open : ''}`}>

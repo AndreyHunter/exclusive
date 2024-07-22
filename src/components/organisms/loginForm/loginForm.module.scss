@@ -33,3 +33,12 @@
         font-weight: 500;
     }
 }
+
+.line {
+    border-color: var(--accentColor);
+}
+
+.error {
+    font-size: 14px;
+    color: var(--accentColor);
+}

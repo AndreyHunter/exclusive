@@ -4,18 +4,30 @@ import GoogleIcon from '@assets/icons/google.svg?react';
 
 import styles from './button.module.scss';
 
-const Button = ({ type = 'button', to, variant = 'default', icon, title, className, ...props }) => {
+const Button = ({
+    type = 'button',
+    tagElement = 'button',
+    to,
+    variant = 'default',
+    icon,
+    title,
+    className,
+    activeClass = true,
+    children,
+    ...props
+}) => {
     const combinedClasses = [
         styles.root,
         variant === 'transparent' && styles.transparent,
         variant === 'default' && styles.default,
+        activeClass && styles.active,
         className || '',
     ]
         .filter(Boolean)
         .join(' ')
         .trim();
 
-    if (type === 'link') {
+    if (tagElement === 'link') {
         return (
             <Link to={to} className={combinedClasses} {...props}>
                 {icon && icon === 'google' && <GoogleIcon />}
@@ -25,9 +37,10 @@ const Button = ({ type = 'button', to, variant = 'default', icon, title, classNa
     }
 
     return (
-        <button type="button" className={combinedClasses} {...props}>
+        <button type={type} className={combinedClasses} {...props}>
             {icon && icon === 'google' && <GoogleIcon />}
-            {title ? title : 'Button'}
+            {title && title}
+            {children}
         </button>
     );
 };

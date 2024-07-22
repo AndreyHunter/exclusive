@@ -21,7 +21,7 @@ const CartSection = ({ className, products }) => {
                     products.map((product) => <CartItem key={product.id} product={product} />)}
             </Flex>
             <Flex justifyContent="space-between" className={styles.buttons}>
-                <Button type="link" to="/catalog" title="Return To Shop" variant="transparent" />
+                <Button tagElement="link" to="/catalog" title="Return To Shop" variant="transparent" />
                 <Button title="Update Cart" variant="transparent" />
             </Flex>
             <div className={styles.block}>

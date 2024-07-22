@@ -9,11 +9,11 @@ import TopHeader from '@components/organisms/topHeader/TopHeader';
 
 import styles from './layoutTemplate.module.scss';
 
-const LayoutTemplate = ({ handleMenuOpen, isOpen }) => {
+const LayoutTemplate = () => {
     return (
         <>
             <div className={styles.top_header}>
-                <TopHeader handleMenuOpen={handleMenuOpen} />
+                <TopHeader />
             </div>
             <Header className={styles.header} />
             <Separator />
@@ -21,7 +21,7 @@ const LayoutTemplate = ({ handleMenuOpen, isOpen }) => {
                 <Outlet />
             </main>
             <Footer className={styles.footer} />
-            <MobileMenu isOpen={isOpen} />
+            <MobileMenu />
             <ScrollToTopButton />
         </>
     );

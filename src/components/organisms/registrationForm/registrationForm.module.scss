@@ -12,6 +12,7 @@
 .input {
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    transition: var(--main-transition);
 
     input {
         width: 100%;
@@ -28,4 +29,13 @@
         opacity: 0.8;
         font-weight: 500;
     }
+}
+
+.line {
+    border-color: var(--accentColor);
+}
+
+.error {
+    font-size: 14px;
+    color: var(--accentColor);
 }

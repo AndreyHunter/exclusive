@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    font-size: 14px;
 
     border-radius: 4px;
 
@@ -16,8 +17,10 @@
         padding: 8px 48px;
     }
 
-    &:active {
-        transform: translateY(1px);
+    &.active {
+        &:active {
+            transform: translateY(1px);
+        }
     }
 }
 

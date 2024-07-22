@@ -1,4 +1,9 @@
-import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+
+import useAuth from '@hooks/useAuth';
+
+import { validateContact, validatePassword } from '@utils/validators';
 
 import Button from '@components/atoms/button/Button';
 import Separator from '@components/atoms/separator/Separator';
@@ -7,23 +12,58 @@ import Flex from '@components/helpers/flex/Flex';
 import styles from './loginForm.module.scss';
 
 const LoginForm = () => {
+    const {
+        register,
+        formState: { errors },
+        handleSubmit,
+        reset,
+    } = useForm();
+    const navigate = useNavigate();
+    const { handleSignin, error } = useAuth();
+
+    const onSubmit = async (body) => {
+        const success = await handleSignin(body);
+
+        if (success) {
+            reset();
+            navigate('/');
+        }
+    };
+
     return (
-        <Flex tagElement="form" flexDirection="column" gap={40}>
+        <Flex tagElement="form" onSubmit={handleSubmit(onSubmit)} flexDirection="column" gap={30}>
             <Flex flexDirection="column" gap={24}>
                 <h2 className={styles.title}>Log in to Exclusive</h2>
                 <p>Enter your details below</p>
             </Flex>
-            <Flex flexDirection="column" gap={40}>
-                <div className={styles.input}>
-                    <input type="text" placeholder="Email or Phone Number" />
-                </div>
-                <div className={styles.input}>
-                    <input type="text" placeholder="Password" />
-                </div>
+            <Flex flexDirection="column" gap={10}>
+                <Flex flexDirection="column" gap={40}>
+                    <div className={`${styles.input} ${errors.contact && styles.line}`}>
+                        <input
+                            {...register('contact', { validate: validateContact })}
+                            type="text"
+                            placeholder="Email or Phone Number"
+                        />
+                        {errors.contact && (
+                            <span className={styles.error}>{errors.contact.message}</span>
+                        )}
+                    </div>
+                    <div className={`${styles.input} ${errors.password && styles.line}`}>
+                        <input
+                            {...register('password', { validate: validatePassword })}
+                            type="password"
+                            placeholder="Password"
+                        />
+                        {errors.password && (
+                            <span className={styles.error}>{errors.password.message}</span>
+                        )}
+                    </div>
+                </Flex>
+                <div>{error && <span className={styles.error}>{error}</span>}</div>
             </Flex>
-            <Flex flexDirection="column" gap={32}>
+            <Flex flexDirection="column" gap={30}>
                 <Flex gap={16} alignItems="center" justifyContent="space-between" flexWrap="wrap">
-                    <Button title="Log In" />
+                    <Button type="submit" title="Log In" />
                     <Link className={styles.link}>Forget Password?</Link>
                 </Flex>
             </Flex>

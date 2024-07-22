@@ -14,6 +14,8 @@ export default defineConfig({
             '@constants': '/src/constants',
             '@components': '/src/components',
             '@pages': '/src/pages',
+            '@store': '/src/store',
+            '@services': '/src/services',
         },
     },
 });

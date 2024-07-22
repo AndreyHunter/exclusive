@@ -1,0 +1,1 @@
+export const mobileMenuSelector = (state) => state.mobileMenu.isOpen;

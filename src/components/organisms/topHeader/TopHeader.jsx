@@ -1,4 +1,7 @@
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { toggleMenuOpen } from '@store/mobileMenu/mobileMenuSlice';
 
 import useMediaQuery from '@hooks/useMediaQuery';
 
@@ -9,7 +12,13 @@ import LanguageSelect from '@components/molecules/languageSelect/LanguageSelect'
 
 import styles from './topHeader.module.scss';
 
-const TopHeader = ({ handleMenuOpen, className }) => {
+const TopHeader = ({ className }) => {
+    const dispatch = useDispatch();
+
+    const handleMenuOpen = () => {
+        dispatch(toggleMenuOpen());
+    };
+
     const isMobile = useMediaQuery('(max-width: 986px)');
     const combinedClasses = `${styles.root} ${className || ''}`.trim();
 

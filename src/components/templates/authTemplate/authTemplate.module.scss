@@ -3,6 +3,7 @@
 }
 
 .section {
+    min-height: 640px;
     display: grid;
     grid-template-columns:
         minmax(15px, 1fr)

@@ -23,21 +23,11 @@ import LayoutTemplate from '@components/templates/layoutTemplate/LayoutTemplate'
 import styles from './app.module.scss';
 
 const App = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleMenuOpen = () => {
-        setIsOpen((prev) => !prev);
-    };
-
     return (
         <div className={styles.app}>
             <ScrollToTop>
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <LayoutTemplate handleMenuOpen={handleMenuOpen} isOpen={isOpen} />
-                        }>
+                    <Route path="/" element={<LayoutTemplate />}>
                         <Route index element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contacts" element={<ContactsPage />} />

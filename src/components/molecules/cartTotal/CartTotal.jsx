@@ -19,7 +19,7 @@ const CartTotal = ({ className, subTotal, total, delivery }) => {
             <Flex justifyContent="center">
                 <Button
                     title="Process to checkout"
-                    type="link"
+                    tagElement="link"
                     to="/checkout"
                     className={styles.button}
                 />
