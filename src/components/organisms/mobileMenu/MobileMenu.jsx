@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { mobileMenuSelector } from '@store/mobileMenu/mobileMenuSelectors';
 
-import mainCategories from '@constants/mainCategories';
+import categories from '@constants/categories';
 import navBarPages from '@constants/navPages';
 
 import SocialMediaList from '@components//molecules/socialMediaList/SocialMediaList';
@@ -43,8 +43,8 @@ const MobileMenu = () => {
                 </Flex>
                 <div className={styles.grid}>
                     <Flex tagElement="ul" flexDirection="column" gap={20} className={styles.list}>
-                        {mainCategories &&
-                            mainCategories.map((category) => (
+                        {categories &&
+                            categories.map((category) => (
                                 <li key={category.id}>
                                     <Link to={`/catalog${category.path}`}>{category.name}</Link>
                                 </li>

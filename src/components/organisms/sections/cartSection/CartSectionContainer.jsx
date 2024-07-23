@@ -1,9 +1,7 @@
-import products from '@constants/products';
-
 import CartSection from './CartSection';
 
 const CartSectionContainer = ({ className }) => {
-    const cart = products.slice(products.length - 2);
+    const cart = [];
 
     return <CartSection products={cart} className={className} />;
 };

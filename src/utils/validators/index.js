@@ -3,8 +3,8 @@ export const validateName = (value) => {
         return 'Name is required';
     } else if (value.length < 2) {
         return 'Name should be at least 2 characters';
-    } else if (value.match(/[0-9]/g)) {
-        return 'Name should start with a latter';
+    } else if (/^[0-9]/.test(value)) {
+        return 'Name should not start with a number';
     }
 
     return true;

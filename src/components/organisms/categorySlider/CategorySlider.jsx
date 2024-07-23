@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import categories from '@constants/categories';
+import gameCategories from '@constants/gameCategories';
 
 import SliderButton from '@components/atoms/sliderButton/SliderButton';
 import CategoryItem from '@components/molecules/categoryItem/CategoryItem';
@@ -15,8 +15,8 @@ const CategorySlider = () => {
     return (
         <div className="categories-slider">
             <Swiper {...settings}>
-                {categories &&
-                    categories.map((category) => (
+                {gameCategories &&
+                    gameCategories.map((category) => (
                         <SwiperSlide key={category.id}>
                             <CategoryItem category={category} />
                         </SwiperSlide>

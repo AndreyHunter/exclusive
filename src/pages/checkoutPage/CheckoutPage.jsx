@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import products from '@constants/products';
-
 import Button from '@components/atoms/button/Button';
 import RadioButton from '@components/atoms/radioButton/RadioButton';
 import Container from '@components/helpers/container/Container';
@@ -17,7 +15,7 @@ import styles from './checkoutPage.module.scss';
 const CheckoutPage = () => {
     const [radioButtons, setRadioButtons] = useState({ bank: false, cashOrDelivery: false });
     const [checked, setChecked] = useState(true);
-    const checkout = products.slice(products.length - 2);
+    const checkout = [];
 
     const handleSetChecked = () => {
         setChecked(!checked);

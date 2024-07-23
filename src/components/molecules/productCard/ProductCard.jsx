@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
                 justifyContent="center"
                 alignItems="center">
                 <Link>
-                    <img src={product.image} alt={product?.name} className={styles.image} />
+                    <img src={product.images[0]} alt={product?.name} className={styles.image} />
                 </Link>
                 <DiscountLabel
                     discount={

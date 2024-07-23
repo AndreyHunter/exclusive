@@ -1,46 +1,82 @@
-import CameraIcon from '@assets/icons/camera.svg?react';
-import SmartWatchIcon from '@assets/icons/category-smart-watch.svg?react';
-import ComputerIcon from '@assets/icons/computer.svg?react';
-import GamingIcon from '@assets/icons/gaming.svg?react';
-import HeadPhonesIcon from '@assets/icons/headphones.svg?react';
-import PhoneIcon from '@assets/icons/phone.svg?react';
-
 const categories = [
     {
         id: 1,
-        name: 'Phones',
-        path: '/phones',
-        icon: PhoneIcon,
+        name: 'Woman’s Fashion',
+        path: '/woman’s-fashion',
+        subcategories: [
+            {
+                id: 1,
+                name: 'jackets',
+                path: '/jackets',
+            },
+            {
+                id: 2,
+                name: 'jackets',
+                path: '/shoos',
+            },
+            {
+                id: 3,
+                name: 'jackets',
+                path: '/trousers',
+            },
+        ],
     },
     {
         id: 2,
-        name: 'Computers',
-        path: '/computers',
-        icon: ComputerIcon,
+        name: 'Men’s Fashion',
+        path: '/men’s-fashion',
+        subcategories: [
+            {
+                id: 1,
+                name: 'jackets',
+                path: '/jackets',
+            },
+            {
+                id: 2,
+                name: 'jackets',
+                path: '/shoos',
+            },
+            {
+                id: 3,
+                name: 'jackets',
+                path: '/trousers',
+            },
+        ],
     },
     {
         id: 3,
-        name: 'SmartWatch',
-        path: '/smartWatch',
-        icon: SmartWatchIcon,
+        name: 'Electronics',
+        path: '/electronics',
     },
     {
         id: 4,
-        name: 'Camera',
-        path: '/camera',
-        icon: CameraIcon,
+        name: 'Home & Lifestyle',
+        path: '/home-lifestyle',
     },
     {
         id: 5,
-        name: 'HeadPhones',
-        path: '/headPhones',
-        icon: HeadPhonesIcon,
+        name: 'Medicine',
+        path: '/medicine',
     },
     {
         id: 6,
-        name: 'Gaming',
-        path: '/gaming',
-        icon: GamingIcon,
+        name: 'Sports & Outdoor',
+        path: '/sports-outdoor',
+    },
+    {
+        id: 7,
+        name: 'Baby’s & Toys',
+        path: '/baby’s-toys',
+    },
+    {
+        id: 8,
+        name: 'Groceries & Pets',
+        path: '/groceries-pets',
+    },
+    {
+        id: 9,
+        name: 'Health & Beauty',
+        path: '/health-beauty',
     },
 ];
 

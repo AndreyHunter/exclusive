@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import mainCategories from '@constants/mainCategories';
+import categories from '@constants/categories';
 
 import Arrow from '@assets/icons/dropdown-arrow.svg?react';
 
@@ -12,10 +12,10 @@ const CategoryNav = ({ className }) => {
     return (
         <nav className={combinedClasses}>
             <ul className={styles.list}>
-                {mainCategories &&
-                    mainCategories.map((category) => (
+                {categories &&
+                    categories.map((category) => (
                         <li key={category.id} className={styles.item}>
-                            <Link to={`/catalog${category.path}`} className={styles.link}>
+                            <Link to={`/category${category.path}`} className={styles.link}>
                                 {category.name}
                             </Link>
                             {category.subcategories && <Arrow />}

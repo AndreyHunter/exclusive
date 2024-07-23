@@ -1,5 +1,3 @@
-import products from '@constants/products';
-
 import Button from '@components/atoms/button/Button';
 import Container from '@components/helpers/container/Container';
 import Flex from '@components/helpers/flex/Flex';
@@ -23,8 +21,8 @@ const WishList = ({ list, className }) => {
                     </Flex>
 
                     <ul className={styles.grid}>
-                        {products &&
-                            products
+                        {true &&
+                            []
                                 .map((product) => (
                                     <ProductCard key={product.id} product={product} />
                                 ))

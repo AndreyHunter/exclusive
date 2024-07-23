@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import authReducer from './auth/authSlice';
 import mobileMenuReducer from './mobileMenu/mobileMenuSlice';
+import productsSliceReducer from './products/productsSlice';
 import userMenuReducer from './userMenu/userMenuSlice';
 
 export const store = configureStore({
@@ -9,5 +10,6 @@ export const store = configureStore({
         mobileMenu: mobileMenuReducer,
         auth: authReducer,
         user: userMenuReducer,
+        products: productsSliceReducer,
     },
 });

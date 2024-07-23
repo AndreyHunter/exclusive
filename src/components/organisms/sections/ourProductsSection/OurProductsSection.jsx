@@ -1,4 +1,8 @@
-import products from '@constants/products';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { ourProductsSelector } from '@store/products/productsSelectors';
+import { fetchProducts } from '@store/products/productsSlice';
 
 import Button from '@components/atoms/button/Button';
 import Container from '@components/helpers/container/Container';
@@ -8,7 +12,14 @@ import SectionLabelWithTitle from '@components/molecules/sectionLabelWithTitle/S
 import styles from './ourProductsSection.module.scss';
 
 const OurProductsSection = ({ className }) => {
+    const dispatch = useDispatch();
+    const products = useSelector(ourProductsSelector);
+    const [limit, setLimit] = useState(8);
     const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
+
+    useEffect(() => {
+        dispatch(fetchProducts({ limit }));
+    }, [dispatch, limit]);
 
     return (
         <section className={combinedClasses}>
@@ -20,9 +31,9 @@ const OurProductsSection = ({ className }) => {
                 />
                 <ul className={styles.list}>
                     {products &&
-                        products
-                            .filter((product) => !product.bestSelling && !product.flashSales)
-                            .map((product) => <ProductCard key={product.id} product={product} />)}
+                        products.map((product) => (
+                            <ProductCard key={product._id} product={product} />
+                        ))}
                 </ul>
                 <div className={styles.button}>
                     <Button title="View All Products" />

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { isUserMenuOpenSelector } from '@store/userMenu/userMenuSelectors';
 import { closeUserMenu, toggleMenuOpen } from '@store/userMenu/userMenuSlice';
 
 import Button from '@components/atoms/button/Button';
@@ -15,7 +16,7 @@ import styles from './userActions.module.scss';
 
 const UserActions = ({ color, className }) => {
     const dispatch = useDispatch();
-    const isOpen = useSelector((state) => state.user.isOpen);
+    const isOpen = useSelector(isUserMenuOpenSelector);
 
     const menuRef = useRef(null);
     const isAuth = useSelector((state) => state.auth.isAuth);

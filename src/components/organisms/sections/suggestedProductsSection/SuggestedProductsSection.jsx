@@ -1,5 +1,3 @@
-import products from '@constants/products';
-
 import Button from '@components/atoms/button/Button';
 import SectionLabel from '@components/atoms/sectionLabel/SectionLabel';
 import Container from '@components/helpers/container/Container';
@@ -10,7 +8,6 @@ import styles from './suggestedProductsSection.module.scss';
 
 const SuggestedProductsSection = ({ sectionTitle, linkButtonTitle, linkButtonPath, className }) => {
     const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
-    const justForYou = products.slice(products.length - 4);
 
     return (
         <section className={combinedClasses}>
@@ -26,7 +23,7 @@ const SuggestedProductsSection = ({ sectionTitle, linkButtonTitle, linkButtonPat
                         />
                     )}
                 </Flex>
-                <ProductSlider products={justForYou} buttonsPosition="default" />
+                <ProductSlider products={[]} buttonsPosition="default" />
             </Container>
         </section>
     );
