@@ -32,7 +32,7 @@ const FlashSalesSection = ({ className }) => {
                     <Countdown variant="transparent" />
                 </Flex>
 
-                <ProductSlider products={products} buttonsPosition="top" />
+                <ProductSlider products={products} sliderId="flash-sales" buttonsPosition="top" />
                 <Flex justifyContent="center" className={styles.button}>
                     <Button title="View All Products" />
                 </Flex>

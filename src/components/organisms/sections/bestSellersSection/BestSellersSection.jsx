@@ -33,7 +33,7 @@ const BestSellersSection = ({ className }) => {
                     <SectionLabelWithTitle label="This Month" title="Best Selling Products" />
                     {!isMobile && <Button title="View All" />}
                 </div>
-                <ProductSlider products={products} />
+                <ProductSlider products={products} sliderId="best-sellers" />
                 {isMobile && (
                     <Flex justifyContent="center" className={styles.button}>
                         <Button title="View All" />
