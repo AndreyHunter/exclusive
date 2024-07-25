@@ -5,6 +5,7 @@ import ContactsPage from './contactsPage/ContactsPage';
 import HomePage from './homePage/HomePage';
 import NotFoundPage from './notFoundPage/NotFoundPage';
 import ProductPage from './productPage/ProductPage';
+import ProductsPage from './productsPage/ProductPageContainer';
 import ProfilePage from './profilePage/ProfilePage';
 import WishListPage from './wishListPage/WishListPage';
 
@@ -18,4 +19,5 @@ export {
     CartPage,
     CheckoutPage,
     ProductPage,
+    ProductsPage,
 };

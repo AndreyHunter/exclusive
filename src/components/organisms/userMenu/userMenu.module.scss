@@ -4,6 +4,10 @@
     padding: 20px;
     border-radius: 4px;
 
+    ul > li > * svg {
+        flex-shrink: 0;
+    }
+
     ul > li > a,
     button {
         display: inline-flex;
@@ -23,15 +27,11 @@
 }
 
 .root .user {
-    gap: 8px;
-
-    svg {
-        width: 28px;
-        height: 28px;
-        transform: translateX(-2px);
-        path {
-            stroke: white;
-            stroke-width: 2px;
-        }
+    width: 28px;
+    height: 28px;
+    transform: translateX(-2px);
+    path {
+        stroke: white;
+        stroke-width: 2px;
     }
 }

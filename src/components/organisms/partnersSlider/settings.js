@@ -8,6 +8,7 @@ const swiperSettings = {
     slidesPerView: 3,
     spaceBetween: 30,
     freeMode: true,
+    // allowTouchMove: false,
     breakpoints: {
         0: {
             slidesPerView: 1,

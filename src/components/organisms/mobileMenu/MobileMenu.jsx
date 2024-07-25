@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { mobileMenuSelector } from '@store/mobileMenu/mobileMenuSelectors';
+import { closeMobileMenu } from '@store/mobileMenu/mobileMenuSlice';
 
 import categories from '@constants/categories';
 import navBarPages from '@constants/navPages';
@@ -10,11 +11,12 @@ import navBarPages from '@constants/navPages';
 import SocialMediaList from '@components//molecules/socialMediaList/SocialMediaList';
 import Logo from '@components/atoms/logo/Logo';
 import Flex from '@components/helpers/flex/Flex';
-import UserActions from '@components/molecules/userActions/UserActions';
+import UserActions from '@components/molecules/userActions/UserActionsContainer';
 
 import styles from './mobileMenu.module.scss';
 
 const MobileMenu = () => {
+    const dispatch = useDispatch();
     const isOpen = useSelector(mobileMenuSelector);
 
     useEffect(() => {
@@ -34,6 +36,10 @@ const MobileMenu = () => {
         return null;
     }
 
+    const handleCloseMenu = () => {
+        dispatch(closeMobileMenu());
+    };
+
     return (
         <section className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
             <Flex flexDirection="column" gap={30} className={styles.content}>
@@ -46,7 +52,9 @@ const MobileMenu = () => {
                         {categories &&
                             categories.map((category) => (
                                 <li key={category.id}>
-                                    <Link to={`/catalog${category.path}`}>{category.name}</Link>
+                                    <Link to={`/catalog${category.path}`} onClick={handleCloseMenu}>
+                                        {category.name}
+                                    </Link>
                                 </li>
                             ))}
                     </Flex>
@@ -54,7 +62,9 @@ const MobileMenu = () => {
                         {navBarPages &&
                             navBarPages.map((page) => (
                                 <li key={page.id}>
-                                    <Link to={page.path}>{page.name}</Link>
+                                    <Link to={page.path} onClick={handleCloseMenu}>
+                                        {page.name}
+                                    </Link>
                                 </li>
                             ))}
                     </Flex>

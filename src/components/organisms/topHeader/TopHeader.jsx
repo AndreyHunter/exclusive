@@ -1,6 +1,7 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { mobileMenuSelector } from '@store/mobileMenu/mobileMenuSelectors';
 import { toggleMenuOpen } from '@store/mobileMenu/mobileMenuSlice';
 
 import useMediaQuery from '@hooks/useMediaQuery';
@@ -13,6 +14,7 @@ import LanguageSelect from '@components/molecules/languageSelect/LanguageSelect'
 import styles from './topHeader.module.scss';
 
 const TopHeader = ({ className }) => {
+    const isOpen = useSelector(mobileMenuSelector);
     const dispatch = useDispatch();
 
     const handleMenuOpen = () => {
@@ -35,7 +37,7 @@ const TopHeader = ({ className }) => {
 
                     <Flex className={styles.flex} alignItems="center" gap={30}>
                         <LanguageSelect />
-                        {isMobile && <BurgerButton onClick={handleMenuOpen} />}
+                        {isMobile && <BurgerButton isOpen={isOpen} onClick={handleMenuOpen} />}
                     </Flex>
                 </div>
             </Container>

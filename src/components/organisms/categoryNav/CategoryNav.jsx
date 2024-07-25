@@ -15,7 +15,7 @@ const CategoryNav = ({ className }) => {
                 {categories &&
                     categories.map((category) => (
                         <li key={category.id} className={styles.item}>
-                            <Link to={`/category${category.path}`} className={styles.link}>
+                            <Link to={`/category/${category.path}`} className={styles.link}>
                                 {category.name}
                             </Link>
                             {category.subcategories && <Arrow />}

@@ -11,8 +11,11 @@ export const mobileMenuSlice = createSlice({
         toggleMenuOpen: (state) => {
             state.isOpen = !state.isOpen;
         },
+        closeMobileMenu: (state) => {
+            state.isOpen = false;
+        },
     },
 });
 
-export const { toggleMenuOpen } = mobileMenuSlice.actions;
+export const { toggleMenuOpen, closeMobileMenu } = mobileMenuSlice.actions;
 export default mobileMenuSlice.reducer;

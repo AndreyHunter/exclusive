@@ -11,6 +11,7 @@ import {
     CartPage,
     CheckoutPage,
     ProductPage,
+    ProductsPage,
 } from '@pages/';
 
 import ScrollToTop from '@components/helpers/scrollToTop/scrollToTop';
@@ -34,7 +35,10 @@ const App = () => {
                         <Route path="/wishlist" element={<WishListPage />} />
                         <Route path="/cart" element={<CartPage />} />
                         <Route path="/checkout" element={<CheckoutPage />} />
+
+                        <Route path="/category/*" element={<ProductsPage />} />
                         <Route path="/product" element={<ProductPage />} />
+
                         <Route path="*" element={<NotFoundPage />} />
 
                         <Route path="/account" element={<AccountTemplate />}>

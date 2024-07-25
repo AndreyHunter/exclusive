@@ -10,7 +10,6 @@ import Button from '@components/atoms/button/Button';
 import Container from '@components/helpers/container/Container';
 import Flex from '@components/helpers/flex/Flex';
 import SectionLabelWithTitle from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
-import BestSellersList from '@components/organisms/bestSellersList/BestSellersList';
 import ProductSlider from '@components/organisms/productSlider/ProductSlider';
 
 import styles from './bestSellersSection.module.scss';

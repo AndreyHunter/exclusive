@@ -1,4 +1,4 @@
-.partners-slider .swiper-pagination {
+.partner-slider .swiper-pagination {
     position: static;
     padding-top: 40px;
 
@@ -7,15 +7,15 @@
     }
 }
 
-.partners-slider .swiper-pagination .swiper-pagination-bullet {
+.partner-slider .swiper-pagination .swiper-pagination-bullet {
     background-color: rgb(38, 38, 38);
     border: none;
 }
 
-.partners-slider .swiper-pagination .swiper-pagination-bullet-active {
+.partner-slider .swiper-pagination .swiper-pagination-bullet-active {
     background-color: var(--accentColor);
     border: 2px solid white;
-    position: relative; 
+    position: relative;
 
     &::after {
         content: '';
@@ -29,4 +29,7 @@
         border-radius: 50%;
         z-index: -1;
     }
+}
+
+.list {
 }

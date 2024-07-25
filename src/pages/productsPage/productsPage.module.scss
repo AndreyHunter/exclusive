@@ -1,0 +1,11 @@
+.title {
+    padding-block: 40px;
+}
+
+.content {
+    padding-bottom: 120px;
+
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    gap: 30px;
+}

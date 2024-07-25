@@ -1,3 +1,4 @@
 import generateBreadcrumbs from './generateBreadcrumbs';
+import getCategoryName from './getCategoryName';
 
-export { generateBreadcrumbs };
+export { generateBreadcrumbs, getCategoryName };

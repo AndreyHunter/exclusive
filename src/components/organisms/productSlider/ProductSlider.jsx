@@ -10,16 +10,14 @@ import settings from './settings';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './productSlider.scss';
+import styles from './productSlider.module.scss';
 
 const ProductSlider = ({ products, buttonsPosition = 'default' }) => {
     const isMobile = useMediaQuery('(max-width: 468px)');
-
-    const isDefault = buttonsPosition === 'default';
     const isTop = buttonsPosition === 'top';
 
     return (
-        <div className="product-slider">
+        <div className={styles.slider}>
             <Swiper {...settings}>
                 {products &&
                     products.map((product) => (
@@ -28,21 +26,15 @@ const ProductSlider = ({ products, buttonsPosition = 'default' }) => {
                         </SwiperSlide>
                     ))}
             </Swiper>
-            {isDefault && (
-                <>
-                    <SliderButton direction="left" className="swiper-button-prev-custom" />
-                    <SliderButton direction="right" className="swiper-button-next-custom" />
-                </>
-            )}
             {isTop && !isMobile ? (
-                <div className="product-slider-buttons">
-                    <SliderButton direction="left" className="swiper-button-prev-custom custom" />
-                    <SliderButton direction="right" className="swiper-button-next-custom custom" />
+                <div className={styles.buttons}>
+                    <SliderButton direction="left" className={`${styles.prev} ${styles.custom}`} />
+                    <SliderButton direction="right" className={`${styles.next} ${styles.custom}`} />
                 </div>
             ) : (
                 <>
-                    <SliderButton direction="left" className="swiper-button-prev-custom" />
-                    <SliderButton direction="right" className="swiper-button-next-custom" />
+                    <SliderButton direction="left" className={styles.prev} />
+                    <SliderButton direction="right" className={styles.next} />
                 </>
             )}
         </div>

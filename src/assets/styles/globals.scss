@@ -13,3 +13,7 @@ body {
     background-color: var(--mainBg);
     overflow-x: hidden;
 }
+
+.swiper-button-disabled {
+    opacity: 0.3;
+}

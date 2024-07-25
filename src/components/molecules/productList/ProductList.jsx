@@ -1,8 +1,8 @@
 import ProductCard from '@components/molecules/productCard/ProductCard';
 
-import styles from './bestSellersList.module.scss';
+import styles from './productList.module.scss';
 
-const BestSellersList = ({ products, className }) => {
+const ProductsList = ({ products, className }) => {
     const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
@@ -13,4 +13,4 @@ const BestSellersList = ({ products, className }) => {
     );
 };
 
-export default BestSellersList;
+export default ProductsList;

@@ -1,20 +1,10 @@
-import { useState } from 'react';
-
 import styles from './burgerButton.module.scss';
 
-const BurgerButton = ({ onClick, ...props }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const BurgerButton = ({ onClick, isOpen, ...props }) => {
     const combinedClasses = `${styles.root} ${isOpen ? styles.open : ''}`.trim();
 
-    const handleSetOpen = () => {
-        setIsOpen((prev) => !prev);
-        if (onClick) {
-            onClick();
-        }
-    };
-
     return (
-        <button type="button" className={combinedClasses} onClick={handleSetOpen} {...props}>
+        <button type="button" className={combinedClasses} onClick={onClick} {...props}>
             <span></span>
             <span></span>
             <span></span>

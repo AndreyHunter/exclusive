@@ -1,11 +1,14 @@
 import { Navigation, Pagination } from 'swiper/modules';
 
+import styles from './productSlider.module.scss';
+
 const settings = {
     modules: [Navigation, Pagination],
-    navigation: { prevEl: '.swiper-button-prev-custom', nextEl: '.swiper-button-next-custom' },
+    navigation: { prevEl: `.${styles.prev}`, nextEl: `.${styles.next}` },
     slidesPerView: 4,
     freeMode: true,
     spaceBetween: 30,
+    // allowTouchMove: false,
     breakpoints: {
         0: {
             slidesPerView: 1,

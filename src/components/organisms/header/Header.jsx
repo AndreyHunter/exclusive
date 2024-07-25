@@ -3,7 +3,7 @@ import navPages from '@constants/navPages';
 import Logo from '@components/atoms/logo/Logo';
 import Container from '@components/helpers/container/Container';
 import Search from '@components/molecules/search/Search';
-import UserActions from '@components/molecules/userActions/UserActions';
+import UserActions from '@components/molecules/userActions/UserActionsContainer';
 
 import HeaderNav from './headerNav/HeaderNav';
 
