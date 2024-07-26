@@ -17,6 +17,7 @@ const RegistrationForm = () => {
         handleSubmit,
         formState: { errors },
         reset,
+        watch,
     } = useForm();
     const navigate = useNavigate();
     const { handleSignup, error } = useAuth();
@@ -29,6 +30,8 @@ const RegistrationForm = () => {
             navigate('/');
         }
     };
+
+    const isButtonDisabled = !watch('name') || !watch('contact') || !watch('password');
 
     return (
         <Flex tagElement="form" onSubmit={handleSubmit(onSubmit)} flexDirection="column" gap={40}>
@@ -69,7 +72,7 @@ const RegistrationForm = () => {
             <Flex flexDirection="column" gap={32}>
                 <Flex flexDirection="column" gap={16}>
                     <div>{error && <span className={styles.error}>{error}</span>}</div>
-                    <Button type="submit" title="Create Account" />
+                    <Button disabled={isButtonDisabled} type="submit" title="Create Account" />
                     <Button variant="transparent" title="Sign up with Google" icon="google" />
                 </Flex>
                 <Flex gap={16} alignItems="center">

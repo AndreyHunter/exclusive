@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Numbers } from '@utils/';
+import { Numbers, Strings } from '@utils/';
 
 import AddToCardButton from '@components/atoms/addToCardButton/AddToCardButton';
 import CardActionButton from '@components/atoms/cardActionButton/CardActionButton';
@@ -48,7 +48,7 @@ const ProductCard = ({ product }) => {
                 <AddToCardButton className={styles.button} />
             </Flex>
             <Flex gap={8} flexDirection="column" className={styles.info}>
-                <Link className={styles.title}>{product.name}</Link>
+                <Link className={styles.title}>{Strings.sliceString(product.name, 25, true)}</Link>
                 <ProductPrice price={product.price} discountedPrice={product.discountedPrice} />
                 <ProductRating
                     rating={rating}

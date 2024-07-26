@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { isAuthSelector } from '@store/auth/authSelectors';
 import { closeMobileMenu } from '@store/mobileMenu/mobileMenuSlice';
 import { isUserMenuOpenSelector } from '@store/userMenu/userMenuSelectors';
 import { closeUserMenu, toggleMenuOpen } from '@store/userMenu/userMenuSlice';
@@ -12,7 +13,7 @@ const UserActionsContainer = ({ color, onClick, className }) => {
     const isOpen = useSelector(isUserMenuOpenSelector);
 
     const menuRef = useRef(null);
-    const isAuth = useSelector((state) => state.auth.isAuth);
+    const isAuth = useSelector(isAuthSelector);
 
     useEffect(() => {
         const handleClickOutside = (event) => {

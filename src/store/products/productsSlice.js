@@ -5,7 +5,6 @@ const initialState = {
     products: [],
     flashSales: [],
     bestSellers: [],
-    ourProducts: [],
     error: null,
     loading: false,
 };
@@ -43,19 +42,6 @@ const productsSlice = createSlice({
                 state.products = action.payload;
             })
             .addCase(fetchProductsByCategories.rejected, (state, action) => {
-                state.loading = false;
-                state.error = action.payload;
-            })
-
-            // Explore Our Products
-            .addCase(fetchOurProducts.pending, (state) => {
-                state.loading = true;
-            })
-            .addCase(fetchOurProducts.fulfilled, (state, action) => {
-                state.loading = false;
-                state.ourProducts = action.payload;
-            })
-            .addCase(fetchOurProducts.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             })
@@ -110,24 +96,6 @@ export const fetchProductsByCategories = createAsyncThunk(
     async ({ category, limit, sort }, { rejectWithValue }) => {
         try {
             const res = await axios.get(`/products/category${category}`, {
-                params: {
-                    limit,
-                    sort,
-                },
-            });
-
-            return res.data.products;
-        } catch (err) {
-            return rejectWithValue(err.response.data.message);
-        }
-    },
-);
-
-export const fetchOurProducts = createAsyncThunk(
-    'products/explore-our-products',
-    async ({ limit, sort }, { rejectWithValue }) => {
-        try {
-            const res = await axios.get('/products', {
                 params: {
                     limit,
                     sort,

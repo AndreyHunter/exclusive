@@ -14,6 +14,7 @@ import {
     ProductsPage,
 } from '@pages/';
 
+import PrivateRoute from '@components/helpers/privateRoute/PrivateRoute';
 import ScrollToTop from '@components/helpers/scrollToTop/scrollToTop';
 import LoginForm from '@components/organisms/loginForm/LoginForm';
 import RegistrationForm from '@components/organisms/registrationForm/RegistrationForm';
@@ -32,7 +33,14 @@ const App = () => {
                         <Route index element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contacts" element={<ContactsPage />} />
-                        <Route path="/wishlist" element={<WishListPage />} />
+                        <Route
+                            path="/wishlist"
+                            element={
+                                <PrivateRoute>
+                                    <WishListPage />
+                                </PrivateRoute>
+                            }
+                        />
                         <Route path="/cart" element={<CartPage />} />
                         <Route path="/checkout" element={<CheckoutPage />} />
 

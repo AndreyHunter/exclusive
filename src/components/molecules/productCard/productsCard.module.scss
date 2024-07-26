@@ -50,4 +50,10 @@
     color: black;
     font-weight: 500;
     line-height: 150%;
+    transition: var(--main-transition);
+
+    &:hover {
+        color: var(--accentColor);
+    }
 }
+

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { exploreOurProductsSelector } from '@store/products/productsSelectors';
-import { fetchOurProducts } from '@store/products/productsSlice';
+import { productsSelector } from '@store/products/productsSelectors';
+import { fetchProducts } from '@store/products/productsSlice';
 
 import Button from '@components/atoms/button/Button';
 import Container from '@components/helpers/container/Container';
@@ -13,12 +13,12 @@ import styles from './ourProductsSection.module.scss';
 
 const OurProductsSection = ({ className }) => {
     const dispatch = useDispatch();
-    const products = useSelector(exploreOurProductsSelector);
+    const products = useSelector(productsSelector);
     const [limit, setLimit] = useState(8);
     const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
 
     useEffect(() => {
-        dispatch(fetchOurProducts({ limit }));
+        dispatch(fetchProducts({ limit }));
     }, [dispatch, limit]);
 
     return (

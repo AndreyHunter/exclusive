@@ -9,37 +9,37 @@ const gameCategories = [
     {
         id: 1,
         name: 'Phones',
-        path: 'electronic/phones',
+        path: 'electronics/phones',
         icon: PhoneIcon,
     },
     {
         id: 2,
         name: 'Computers',
-        path: 'electronic/computers',
+        path: 'electronics/computers',
         icon: ComputerIcon,
     },
     {
         id: 3,
         name: 'SmartWatch',
-        path: 'electronic/smart-watch',
+        path: 'electronics/smart-watch',
         icon: SmartWatchIcon,
     },
     {
         id: 4,
         name: 'Cameras',
-        path: 'electronic/cameras',
+        path: 'electronics/cameras',
         icon: CameraIcon,
     },
     {
         id: 5,
         name: 'HeadPhones',
-        path: 'electronic/headphones',
+        path: 'electronics/headphones',
         icon: HeadPhonesIcon,
     },
     {
         id: 6,
         name: 'Gaming',
-        path: 'electronic/gaming',
+        path: 'electronics/gaming',
         icon: GamingIcon,
     },
 ];

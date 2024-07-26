@@ -17,6 +17,7 @@ const LoginForm = () => {
         formState: { errors },
         handleSubmit,
         reset,
+        watch,
     } = useForm();
     const navigate = useNavigate();
     const { handleSignin, error } = useAuth();
@@ -29,6 +30,8 @@ const LoginForm = () => {
             navigate('/');
         }
     };
+
+    const isButtonDisabled = !watch('contact') || !watch('password');
 
     return (
         <Flex tagElement="form" onSubmit={handleSubmit(onSubmit)} flexDirection="column" gap={30}>
@@ -63,7 +66,7 @@ const LoginForm = () => {
             </Flex>
             <Flex flexDirection="column" gap={30}>
                 <Flex gap={16} alignItems="center" justifyContent="space-between" flexWrap="wrap">
-                    <Button type="submit" title="Log In" />
+                    <Button type="submit" title="Log In" disabled={isButtonDisabled} />
                     <Link className={styles.link}>Forget Password?</Link>
                 </Flex>
             </Flex>

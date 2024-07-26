@@ -14,13 +14,14 @@ const Button = ({
     className,
     activeClass = true,
     children,
+    disabled,
     ...props
 }) => {
     const combinedClasses = [
         styles.root,
         variant === 'transparent' && styles.transparent,
         variant === 'default' && styles.default,
-        activeClass && styles.active,
+        activeClass && !disabled && styles.active,
         className || '',
     ]
         .filter(Boolean)
@@ -37,7 +38,7 @@ const Button = ({
     }
 
     return (
-        <button type={type} className={combinedClasses} {...props}>
+        <button type={type} disabled={disabled} className={combinedClasses} {...props}>
             {icon && icon === 'google' && <GoogleIcon />}
             {title && title}
             {children}
