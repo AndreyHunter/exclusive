@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import useCounter from '@hooks/useCounter';
 import useMediaQuery from '@hooks/useMediaQuery';
 
 import { Strings } from '@utils/index';
@@ -11,25 +10,24 @@ import OrderItem from '@components/molecules/orderItem/OrderItem';
 
 import styles from './cartItem.module.scss';
 
-const CartItem = ({ product, className }) => {
-    const [price, setPrice] = useState(product.price);
-    const [subtotal, setSubTotal] = useState(product.price);
-    const { count, handleDecrement, handleIncrement } = useCounter();
-
+const CartItem = ({ product, quantity, className }) => {
     const combinedClasses = `${styles.root} ${className || ''}`.trim();
     const isSmallMobile = useMediaQuery('(max-width: 360px)');
+    const [count, setCount] = useState(quantity);
+
+    const price = product.price;
+    const discountedPrice = product.discountedPrice;
+
+    const actualPrice = discountedPrice || price;
+    const subTotalPrice = price * count;
+    const totalPrice = actualPrice * count;
 
     const handleProductInc = () => {
-        setPrice((prev) => prev + product.price);
-        handleIncrement();
+        setCount((prevCount) => prevCount + 1);
     };
 
     const handleProductDec = () => {
-        if (price <= product.price) {
-            return;
-        }
-        handleDecrement();
-        setPrice((prev) => prev - product.price);
+        setCount((prevCount) => (prevCount > 1 ? prevCount - 1 : 1));
     };
 
     return (
@@ -39,19 +37,19 @@ const CartItem = ({ product, className }) => {
             justifyContent="space-between"
             alignItems="center">
             <OrderItem
-                image={product.image}
-                name={Strings.sliceString(product.name, 15)}
+                image={product.images[0]}
+                name={Strings.sliceString(product.name, 28, true)}
                 className={styles.box}
             />
             <Flex className={styles.block} justifyContent="space-between" alignItems="center">
-                <div>${price}</div>
+                <div className={styles.price}>${totalPrice}</div>
                 <Counter
                     variant="cart"
                     count={count}
                     decrement={handleProductDec}
                     increment={handleProductInc}
                 />
-                {!isSmallMobile && <div>${subtotal}</div>}
+                {!isSmallMobile && <div className={styles.price}>${subTotalPrice}</div>}
             </Flex>
         </Flex>
     );

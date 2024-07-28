@@ -12,9 +12,7 @@ import './index.scss';
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
         <Provider store={store}>
-            <React.StrictMode>
-                <App />
-            </React.StrictMode>
+            <App />
         </Provider>
     </Router>,
 );

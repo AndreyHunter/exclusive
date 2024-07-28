@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import axios from '@services/axiosConfig';
-import { setToken } from '@store/auth/authSlice';
+import { setUser } from '@store/auth/authSlice';
 
 const useAuth = () => {
     const [loading, setLoading] = useState(false);
@@ -13,7 +13,7 @@ const useAuth = () => {
         setLoading(true);
         try {
             const res = await axios.post('/auth/signup', body);
-            dispatch(setToken(res.data.token));
+            dispatch(setUser(res.data));
             return true;
         } catch (err) {
             setError(err.response?.data?.message || err.message);
@@ -27,7 +27,7 @@ const useAuth = () => {
         setLoading(true);
         try {
             const res = await axios.post('/auth/signin', body);
-            dispatch(setToken(res.data.token));
+            dispatch(setUser(res.data));
             return true;
         } catch (err) {
             setError(err.response?.data?.message || err.message);

@@ -15,7 +15,7 @@ import FavoriteIcon from '@assets/icons/heart.svg?react';
 
 import styles from './productsCard.module.scss';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, handleAddToCart, loading, showAddedMessage }) => {
     const [rating, setRating] = useState(product.rating);
     const [reviewsCount, setReviewsCount] = useState(product.reviewsCount);
 
@@ -45,7 +45,12 @@ const ProductCard = ({ product }) => {
                     <CardActionButton icon={<FavoriteIcon />} />
                     <CardActionButton icon={<CompareIcon />} />
                 </div>
-                <AddToCardButton className={styles.button} />
+                <AddToCardButton
+                    className={styles.button}
+                    onClick={handleAddToCart}
+                    loading={loading}
+                    showAddedMessage={showAddedMessage}
+                />
             </Flex>
             <Flex gap={8} flexDirection="column" className={styles.info}>
                 <Link className={styles.title}>{Strings.sliceString(product.name, 25, true)}</Link>

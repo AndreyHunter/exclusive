@@ -2,10 +2,15 @@
     width: 100%;
     min-height: 41px;
     border-radius: 0px 0px 4px 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: black;
     font-weight: 600;
-    line-height: 150%;
     color: white;
+
     cursor: pointer;
     transition: var(--main-transition);
 }

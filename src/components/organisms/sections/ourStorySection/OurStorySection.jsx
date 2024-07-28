@@ -12,7 +12,7 @@ const OurStorySection = ({ className }) => {
         <section className={combinedClasses}>
             <Container>
                 <div className={styles.grid}>
-                    <Flex flexDirection="column" className={styles.info}>
+                <Flex flexDirection="column" className={styles.info}>
                         <h2 className={styles.title}>Our Story</h2>
                         <Flex flexDirection="column" gap={24}>
                             <p>

@@ -6,7 +6,7 @@ import { fetchProducts } from '@store/products/productsSlice';
 
 import Button from '@components/atoms/button/Button';
 import Container from '@components/helpers/container/Container';
-import ProductCard from '@components/molecules/productCard/ProductCard';
+import ProductCard from '@components/molecules/productCard/ProductCardContainer';
 import SectionLabelWithTitle from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
 
 import styles from './ourProductsSection.module.scss';

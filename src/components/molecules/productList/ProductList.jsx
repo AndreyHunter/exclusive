@@ -1,4 +1,4 @@
-import ProductCard from '@components/molecules/productCard/ProductCard';
+import ProductCard from '@components/molecules/productCard/ProductCardContainer';
 
 import styles from './productList.module.scss';
 

@@ -24,8 +24,8 @@
 }
 
 .root .userBG {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     background-color: var(--accentColor);
     border-radius: 50%;
     padding: 3px;
@@ -51,4 +51,16 @@
         visibility: visible;
         opacity: 1;
     }
+}
+
+.root .cart {
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.quantity {
+    position: absolute;
+    top: -5px;
+    right: 0;
 }

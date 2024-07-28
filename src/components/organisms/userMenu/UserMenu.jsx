@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { removeToken } from '@store/auth/authSlice';
+import { logout } from '@store/auth/authSlice';
 import { closeUserMenu } from '@store/userMenu/userMenuSlice';
 
 import userMenuLinks from '@constants/userMenuLinks';
@@ -19,7 +19,7 @@ const UserMenu = ({ closeMobileMenu, className }) => {
 
     const handleLogout = () => {
         if (confirm('Are you sure you want to log out?')) {
-            dispatch(removeToken());
+            dispatch(logout());
             dispatch(closeUserMenu());
         }
     };

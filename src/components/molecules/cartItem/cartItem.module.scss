@@ -30,3 +30,11 @@
 .block {
     width: 80%;
 }
+
+.price {
+    width: 60px;
+
+    @media (max-width: 568px) {
+        width: auto;
+    }
+}

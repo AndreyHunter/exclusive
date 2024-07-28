@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
 import {
@@ -13,6 +14,7 @@ import {
     ProductPage,
     ProductsPage,
 } from '@pages/';
+import { fetchUserCartByIds } from '@store/cart/CartSlice';
 
 import PrivateRoute from '@components/helpers/privateRoute/PrivateRoute';
 import ScrollToTop from '@components/helpers/scrollToTop/scrollToTop';
@@ -25,6 +27,13 @@ import LayoutTemplate from '@components/templates/layoutTemplate/LayoutTemplate'
 import styles from './app.module.scss';
 
 const App = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        dispatch(fetchUserCartByIds(userId));
+    }, []);
+
     return (
         <div className={styles.app}>
             <ScrollToTop>

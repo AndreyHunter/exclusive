@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import useMediaQuery from '@hooks/useMediaQuery';
 
 import SliderButton from '@components/atoms/sliderButton/SliderButton';
-import ProductCard from '@components/molecules/productCard/ProductCard';
+import ProductCard from '@components/molecules/productCard/ProductCardContainer';
 
 import settings from './settings';
 
@@ -14,6 +14,7 @@ import 'swiper/css';
 
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 import './productSlider.scss';
 
 const ProductSlider = ({ products, sliderId, buttonsPosition = 'default' }) => {

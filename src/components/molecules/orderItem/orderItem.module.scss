@@ -16,4 +16,9 @@
     max-width: 160px;
     display: block;
     color: black;
+    transition: var(--main-transition);
+
+    &:hover {
+        color: var(--accentColor);
+    }
 }
