@@ -3,7 +3,7 @@ import useCountDown from '@hooks/useCountDown';
 import styles from './countdown.module.scss';
 
 const Countdown = ({
-    endDate = new Date('2024-07-30T08:52:00'),
+    endDate = new Date('2024-08-30T08:52:00'),
     variant = 'black',
     className,
     ...props
@@ -22,6 +22,10 @@ const Countdown = ({
         .join(' ');
 
     const { days, hours, minutes, seconds, finished } = useCountDown(endDate, 1000);
+
+    if (finished) {
+        return null;
+    }
 
     if (variant === 'transparent') {
         return (

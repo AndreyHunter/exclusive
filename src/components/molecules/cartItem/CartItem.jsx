@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { updateQuantity } from '@store/cart/CartSlice';
 
 import useMediaQuery from '@hooks/useMediaQuery';
 
@@ -8,27 +11,37 @@ import Flex from '@components/helpers/flex/Flex';
 import Counter from '@components/molecules/counter/Counter';
 import OrderItem from '@components/molecules/orderItem/OrderItem';
 
+import DeleteIcon from '@assets/icons/delete-from-cart.svg?react';
+
 import styles from './cartItem.module.scss';
 
-const CartItem = ({ product, quantity, className }) => {
-    const combinedClasses = `${styles.root} ${className || ''}`.trim();
-    const isSmallMobile = useMediaQuery('(max-width: 360px)');
+const CartItem = ({ product, quantity, handleDeleteProduct, className }) => {
+    const dispatch = useDispatch();
+    const itemQuantity = useSelector(
+        (state) =>
+            state.cart.items.find((item) => item.productId._id === product._id)?.quantity ||
+            quantity,
+    );
+
     const [count, setCount] = useState(quantity);
-
-    const price = product.price;
-    const discountedPrice = product.discountedPrice;
-
-    const actualPrice = discountedPrice || price;
-    const subTotalPrice = price * count;
+    const actualPrice = product.discountedPrice || product.price;
+    const subTotalPrice = product.price * count;
     const totalPrice = actualPrice * count;
 
     const handleProductInc = () => {
-        setCount((prevCount) => prevCount + 1);
+        setCount((prev) => prev + 1);
+        dispatch(updateQuantity({ productId: product._id, quantity: quantity + 1 }));
     };
 
     const handleProductDec = () => {
-        setCount((prevCount) => (prevCount > 1 ? prevCount - 1 : 1));
+        setCount((prev) => (prev > 1 ? prev - 1 : 1));
+        dispatch(
+            updateQuantity({ productId: product._id, quantity: quantity > 1 ? quantity - 1 : 1 }),
+        );
     };
+
+    const isSmallMobile = useMediaQuery('(max-width: 360px)');
+    const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
         <Flex
@@ -36,16 +49,19 @@ const CartItem = ({ product, quantity, className }) => {
             tagElement="li"
             justifyContent="space-between"
             alignItems="center">
-            <OrderItem
-                image={product.images[0]}
-                name={Strings.sliceString(product.name, 28, true)}
-                className={styles.box}
-            />
+            <div className={styles.order}>
+                <OrderItem
+                    image={product.images[0]}
+                    name={Strings.sliceString(product.name, 28, true)}
+                    className={styles.box}
+                />
+                <DeleteIcon className={styles.deleteIcon} onClick={handleDeleteProduct} />
+            </div>
             <Flex className={styles.block} justifyContent="space-between" alignItems="center">
                 <div className={styles.price}>${totalPrice}</div>
                 <Counter
                     variant="cart"
-                    count={count}
+                    count={itemQuantity}
                     decrement={handleProductDec}
                     increment={handleProductInc}
                 />

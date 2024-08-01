@@ -18,7 +18,7 @@ const Counter = ({ variant = 'primary', count, increment, decrement, className }
     };
 
     const handleDecrement = () => {
-        if (count > 0) {
+        if (count > 1) {
             decrement();
         }
     };

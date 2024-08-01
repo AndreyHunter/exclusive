@@ -38,3 +38,18 @@
         width: auto;
     }
 }
+
+.order {
+    position: relative;
+}
+
+.deleteIcon {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

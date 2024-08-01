@@ -17,16 +17,17 @@ const UserActionsContainer = ({ color, onClick, className }) => {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (menuRef.current && !menuRef.current.contains(event.target)) {
+            if (isOpen && menuRef.current && !menuRef.current.contains(event.target)) {
                 dispatch(closeUserMenu());
             }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
+
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [dispatch, menuRef]);
+    }, [dispatch, menuRef, isOpen]);
 
     const toggleMenu = () => {
         dispatch(toggleMenuOpen());

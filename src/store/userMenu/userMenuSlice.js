@@ -12,9 +12,7 @@ const userMenuSlice = createSlice({
             state.isOpen = !state.isOpen;
         },
         closeUserMenu: (state) => {
-            if (state.isOpen) {
-                state.isOpen = false;
-            }
+            state.isOpen = false;
         },
     },
 });

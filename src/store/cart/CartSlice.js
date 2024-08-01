@@ -11,7 +11,15 @@ const initialState = {
 const cartSlice = createSlice({
     name: 'cartSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        updateQuantity: (state, action) => {
+            const { productId, quantity } = action.payload;
+            const product = state.items.find((product) => product.productId._id === productId);
+            if (product) {
+                product.quantity = quantity;
+            }
+        },
+    },
     extraReducers: (builder) => {
         builder
             // Add to cart
@@ -41,6 +49,21 @@ const cartSlice = createSlice({
             // Get user cart ids
             .addCase(fetchUserCartByIds.fulfilled, (state, action) => {
                 state.productsIds = action.payload;
+            })
+            // Update user cart
+            .addCase(updateCartItemsQuantity.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(updateCartItemsQuantity.fulfilled, (state, action) => {
+                state.loading = false;
+                state.items = action.payload;
+            })
+            .addCase(updateCartItemsQuantity.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            })
+            .addCase(deleteCartItem.fulfilled, (state, action) => {
+                state.items = action.payload;
             });
     },
 });
@@ -87,4 +110,28 @@ export const fetchUserCartByIds = createAsyncThunk('fetchUserCartIds', async (us
     }
 });
 
+export const updateCartItemsQuantity = createAsyncThunk(
+    'updateCartItemsQuantity',
+    async ({ userId, products }) => {
+        try {
+            const res = await axios.put('/cart', { userId, products });
+            return res.data;
+        } catch (err) {
+            console.error(err.message);
+        }
+    },
+);
+
+export const deleteCartItem = createAsyncThunk('deleteCartItem', async ({ userId, productId }) => {
+    try {
+        const { data } = await axios.delete('/cart', {
+            params: { userId, productId },
+        });
+        return data;
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+export const { updateQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

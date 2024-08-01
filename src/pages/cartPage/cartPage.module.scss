@@ -55,3 +55,12 @@
         gap: 15px;
     }
 }
+
+.updateButton {
+    max-width: 200px;
+    width: 100%;
+
+    @media (max-width: 468px) {
+        max-width: 100%;
+    }
+}

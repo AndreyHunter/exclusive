@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import Loader from '@components/atoms/loader/Loader';
+
 import GoogleIcon from '@assets/icons/google.svg?react';
 
 import styles from './button.module.scss';
@@ -15,6 +17,7 @@ const Button = ({
     activeClass = true,
     children,
     disabled,
+    loading,
     ...props
 }) => {
     const combinedClasses = [
@@ -40,7 +43,8 @@ const Button = ({
     return (
         <button type={type} disabled={disabled} className={combinedClasses} {...props}>
             {icon && icon === 'google' && <GoogleIcon />}
-            {title && title}
+            {title && !loading && title}
+            {loading && <Loader small />}
             {children}
         </button>
     );
