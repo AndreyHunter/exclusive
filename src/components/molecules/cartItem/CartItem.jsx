@@ -19,7 +19,7 @@ const CartItem = ({
     itemQuantity,
     className,
 }) => {
-    const isSmallMobile = useMediaQuery('(max-width: 360px)');
+    const isSmallMobile = useMediaQuery('(max-width: 568px)');
     const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
     return (
@@ -30,10 +30,10 @@ const CartItem = ({
             alignItems="center">
             <div className={styles.order}>
                 <OrderItem image={product.images[0]} name={productName} className={styles.box} />
+                <div className={styles.price}>${totalPrice}</div>
                 <DeleteIcon className={styles.deleteIcon} onClick={handleDeleteProduct} />
             </div>
             <Flex className={styles.block} justifyContent="space-between" alignItems="center">
-                <div className={styles.price}>${totalPrice}</div>
                 <Counter
                     variant="cart"
                     count={itemQuantity}
