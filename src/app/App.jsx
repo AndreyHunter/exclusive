@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ import {
     ProductPage,
     ProductsPage,
 } from '@pages/';
-import { fetchUserCartByIds } from '@store/cart/CartSlice';
+import { fetchUserCart } from '@store/cart/CartSlice';
 
 import PrivateRoute from '@components/helpers/privateRoute/PrivateRoute';
 import ScrollToTop from '@components/helpers/scrollToTop/scrollToTop';
@@ -31,7 +31,7 @@ const App = () => {
 
     useEffect(() => {
         const userId = localStorage.getItem('userId');
-        dispatch(fetchUserCartByIds(userId));
+        dispatch(fetchUserCart({ userId }));
     }, []);
 
     return (

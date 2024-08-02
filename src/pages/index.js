@@ -1,5 +1,5 @@
 import AboutPage from './aboutPage/AboutPage';
-import CartPage from './cartPage/CartPage';
+import CartPage from './cartPage/CartPageContainer';
 import CheckoutPage from './checkoutPage/CheckoutPage';
 import ContactsPage from './contactsPage/ContactsPage';
 import HomePage from './homePage/HomePage';
