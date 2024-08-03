@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { logout } from '@store/auth/authSlice';
+import { clearCart } from '@store/cart/CartSlice';
 import { closeUserMenu } from '@store/userMenu/userMenuSlice';
 
 import userMenuLinks from '@constants/userMenuLinks';
@@ -21,6 +22,7 @@ const UserMenu = ({ closeMobileMenu, className }) => {
         if (confirm('Are you sure you want to log out?')) {
             dispatch(logout());
             dispatch(closeUserMenu());
+            dispatch(clearCart());
         }
     };
 

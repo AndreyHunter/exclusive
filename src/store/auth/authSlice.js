@@ -11,11 +11,11 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, { payload }) => {
-            state.token = payload.token;
-            state.userId = payload._id;
+            state.token = payload.user.token;
+            state.userId = payload.user._id;
             state.isAuth = true;
-            localStorage.setItem('token', payload.token);
-            localStorage.setItem('userId', payload._id);
+            localStorage.setItem('token', payload.user.token);
+            localStorage.setItem('userId', payload.user._id);
         },
         logout: (state) => {
             state.token = null;

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import axios from '@services/axiosConfig';
 import { setUser } from '@store/auth/authSlice';
+import { updateCartQuantityAfterAuth } from '@store/cart/CartSlice';
 
 const useAuth = () => {
     const [loading, setLoading] = useState(false);
@@ -14,6 +15,7 @@ const useAuth = () => {
         try {
             const res = await axios.post('/auth/signup', body);
             dispatch(setUser(res.data));
+            dispatch(updateCartQuantityAfterAuth(res.data));
             return true;
         } catch (err) {
             setError(err.response?.data?.message || err.message);
@@ -28,6 +30,7 @@ const useAuth = () => {
         try {
             const res = await axios.post('/auth/signin', body);
             dispatch(setUser(res.data));
+            dispatch(updateCartQuantityAfterAuth(res.data));
             return true;
         } catch (err) {
             setError(err.response?.data?.message || err.message);

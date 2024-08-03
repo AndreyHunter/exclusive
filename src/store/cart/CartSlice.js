@@ -14,10 +14,18 @@ const cartSlice = createSlice({
     reducers: {
         updateQuantity: (state, action) => {
             const { productId, quantity } = action.payload;
-            const product = state.products.find((product) => product.productId._id === productId);
+            const product = state.products.find((product) => product.product._id === productId);
             if (product) {
                 product.quantity = quantity;
             }
+        },
+        updateCartQuantityAfterAuth: (state, action) => {
+            const { cart } = action.payload;
+            state.productsQuantity = cart;
+        },
+        clearCart: (state) => {
+            state.productsQuantity = [];
+            state.products = [];
         },
     },
     extraReducers: (builder) => {
@@ -72,9 +80,9 @@ const cartSlice = createSlice({
 
 export const addToCart = createAsyncThunk(
     'addToCart',
-    async ({ userId, productId, quantity }, { rejectWithValue }) => {
+    async ({ productId, quantity }, { rejectWithValue }) => {
         try {
-            const data = await CartService.addToCart({ userId, productId, quantity });
+            const data = await CartService.addToCart({ productId, quantity });
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -84,9 +92,9 @@ export const addToCart = createAsyncThunk(
 
 export const fetchUserCart = createAsyncThunk(
     'fetchUserCart',
-    async ({ userId, details }, { rejectWithValue }) => {
+    async ({ details }, { rejectWithValue }) => {
         try {
-            const data = await CartService.getUserCart({ userId, details });
+            const data = await CartService.getUserCart({ details });
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -96,9 +104,9 @@ export const fetchUserCart = createAsyncThunk(
 
 export const updateCartItemsQuantity = createAsyncThunk(
     'updateCartItemsQuantity',
-    async ({ userId, products }, { rejectWithValue }) => {
+    async ({ products }, { rejectWithValue }) => {
         try {
-            const data = await CartService.updateCartItemsQuantity({ userId, products });
+            const data = await CartService.updateCartItemsQuantity({ products });
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -108,9 +116,9 @@ export const updateCartItemsQuantity = createAsyncThunk(
 
 export const deleteCartItem = createAsyncThunk(
     'deleteCartItem',
-    async ({ userId, productId }, { rejectWithValue }) => {
+    async ({ productId }, { rejectWithValue }) => {
         try {
-            const data = await CartService.deleteCartItem({ userId, productId });
+            const data = await CartService.deleteCartItem({ productId });
             return data;
         } catch (err) {
             return rejectWithValue(err.message);
@@ -118,5 +126,5 @@ export const deleteCartItem = createAsyncThunk(
     },
 );
 
-export const { updateQuantity } = cartSlice.actions;
+export const { updateQuantity, updateCartQuantityAfterAuth, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

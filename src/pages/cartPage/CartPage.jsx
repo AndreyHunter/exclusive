@@ -37,13 +37,12 @@ const CartPage = ({
                                 products.map((product) => {
                                     return (
                                         <CartItem
-                                            key={product.productId._id}
-                                            product={product.productId}
+                                            key={product.product._id}
+                                            product={product.product}
                                             quantity={product.quantity}
                                             handleDeleteProduct={() =>
                                                 handleDeleteItem({
-                                                    userId: localStorage.getItem('userId'),
-                                                    productId: product.productId._id,
+                                                    productId: product.product._id,
                                                 })
                                             }
                                         />

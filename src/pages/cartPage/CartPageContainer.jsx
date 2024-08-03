@@ -12,25 +12,24 @@ const CartPageContainer = () => {
     const loading = useSelector(cartLoadingSelector);
 
     useEffect(() => {
-        const userId = localStorage.getItem('userId');
-        dispatch(fetchUserCart({ userId, details: true }));
+        dispatch(fetchUserCart({ details: true }));
     }, []);
 
     const cartTotal = products?.reduce((prev, product) => {
-        const actualPrice = product.productId.discountedPrice || product.productId.price;
+        const actualPrice = product.product.discountedPrice || product.product.price;
         return prev + actualPrice * product.quantity;
     }, 0);
 
     const subTotal = products?.reduce((prev, product) => {
-        return prev + product.productId.price * product.quantity;
+        return prev + product.product.price * product.quantity;
     }, 0);
 
     const handleUpdateCart = () => {
-        dispatch(updateCartItemsQuantity({ userId: localStorage.getItem('userId'), products }));
+        dispatch(updateCartItemsQuantity({ products }));
     };
 
-    const handleDeleteItem = ({ userId, productId }) => {
-        dispatch(deleteCartItem({ userId, productId }));
+    const handleDeleteItem = ({ productId }) => {
+        dispatch(deleteCartItem({ productId }));
     };
 
     return (

@@ -11,7 +11,7 @@ const CartItemContainer = ({ product, quantity, handleDeleteProduct, className }
     const dispatch = useDispatch();
     const itemQuantity = useSelector(
         (state) =>
-            state.cart.products.find((item) => item.productId._id === product._id)?.quantity ||
+            state.cart.products.find((item) => item.product._id === product._id)?.quantity ||
             quantity,
     );
 
