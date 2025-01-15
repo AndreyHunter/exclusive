@@ -12,7 +12,7 @@ const AddToCardButton = ({ className, loading, showAddedMessage, onCLick, ...pro
             onClick={onCLick}
             disabled={loading}
             {...props}>
-            {loading ? <Loader small/> : showAddedMessage ? 'In cart' : 'Add to cart'}
+            {loading ? <Loader small /> : showAddedMessage ? 'In cart' : 'Add to cart'}
         </button>
     );
 };

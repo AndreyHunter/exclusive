@@ -6,10 +6,10 @@ import productImage from '@assets/images/products/jbl_boombox.png';
 
 import styles from './promotionSection.module.scss';
 
+const promotionTime = new Date('2025-02-31T23:59:59');
+
 const PromotionSection = ({ className }) => {
     const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
-
-    const promotionTime = new Date('2024-12-31T23:59:59');
 
     return (
         <section className={combinedClasses}>

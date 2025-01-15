@@ -3,7 +3,7 @@ import useCountDown from '@hooks/useCountDown';
 import styles from './countdown.module.scss';
 
 const Countdown = ({
-    endDate = new Date('2024-08-30T08:52:00'),
+    endDate = new Date('2025-02-30T08:52:00'),
     variant = 'black',
     className,
     ...props
@@ -16,7 +16,7 @@ const Countdown = ({
         styles.item,
         variant === 'black' && styles.black,
         variant === 'white' && styles.white,
-        variant === 'transparent' && styles,
+        variant === 'transparent' && styles.transparent,
     ]
         .filter(Boolean)
         .join(' ');

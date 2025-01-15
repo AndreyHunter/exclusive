@@ -1,5 +1,4 @@
 const getCategoryName = (pathName) => {
-    
     const pathSegments = pathName.split('/').filter(Boolean);
 
     const lastElement = pathSegments[pathSegments.length - 1];

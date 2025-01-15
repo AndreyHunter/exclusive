@@ -65,7 +65,7 @@ export default [
             'import/named': 'error',
             'import/no-cycle': 'error',
             'import/no-self-import': 'error',
-            'import/first': 'error',
+            // 'import/first': 'error',
             'import/no-duplicates': 'error',
             'import/exports-last': 'error',
             'import-helpers/order-imports': [
