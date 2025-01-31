@@ -4,9 +4,11 @@
     "strict": true,
     "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "isolatedModules": true,
+    "isolatedModules": true, // jest asked
+    "esModuleInterop": true,
     "rootDir": ".",
     "outDir": "./dist",
+    "jsx": "react-jsx",
     "allowJs": true,
     "checkJs": true,
     "noEmit": false,
@@ -19,9 +21,11 @@
       "@features/*": ["src/features/*"],
       "@hooks/*": ["src/hooks/*"],
       "@store/*": ["src/store/*"],
-      "@types/*": ["src/types/*"],
+      "@tests/*": ["src/tests/*"],
+      "types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"]
-    }
+    },
+    "types": ["jest", "@testing-library/jest-dom", "@testing-library/user-event"]
   },
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
   "exclude": ["eslint.config.js"]

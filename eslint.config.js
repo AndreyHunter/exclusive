@@ -49,16 +49,30 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      // general options
+      // prettier
       'prettier/prettier': 'warn',
-
+      // ts rules
+      '@typescript-eslint/await-thenable': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
+      // general
+      'no-console': 'warn',
+      'no-debugger': 'error',
+      'no-else-return': 'warn',
+      'no-implicit-coercion': 'error',
+      // React
       // imports
+      'import/order': [
+        'warn',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          'newlines-between': 'always',
+        },
+      ],
       'import/exports-last': 'warn',
       'import/imports-first': 'warn',
       'import/no-cycle': 'error',
       'import/no-self-import': 'error',
       'import/newline-after-import': 'warn',
-      'import/order': 'warn',
       'import/imports-first': 'off', // deprecated
       'import/first': 'warn', // instead of import/imports-first
     },
