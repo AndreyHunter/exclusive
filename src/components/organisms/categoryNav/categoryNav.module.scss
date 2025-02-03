@@ -1,0 +1,23 @@
+.block {
+  padding-top: 40px;
+  padding-right: 16px;
+}
+
+.list {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.link {
+  color: black;
+  font-size: 1rem;
+  line-height: 150%;
+}

@@ -1,0 +1,19 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  width: 100%;
+  min-height: 100vh;
+  // scroll-behavior: smooth;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+body {
+  background-color: var(--mainBg);
+  overflow-x: hidden;
+}
+
+.swiper-button-disabled {
+  opacity: 0.3;
+}

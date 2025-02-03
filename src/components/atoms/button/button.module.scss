@@ -1,0 +1,44 @@
+.root {
+  padding: 16px 48px;
+  max-height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+
+  border-radius: 4px;
+
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--main-transition);
+
+  @media (max-width: 568px) {
+    padding: 8px 48px;
+  }
+
+  &.active {
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.7;
+  }
+}
+
+.default {
+  background: var(--accentColor);
+  color: #fafafa;
+
+  &:hover {
+    background: var(--button-hover);
+  }
+}
+
+.transparent {
+  background-color: transparent;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}

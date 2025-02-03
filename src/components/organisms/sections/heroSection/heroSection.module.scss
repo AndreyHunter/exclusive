@@ -1,0 +1,28 @@
+.wrapper {
+  min-width: 235px;
+}
+
+.block {
+  padding-top: 40px;
+}
+
+.line {
+  border-right: 0.5px solid black;
+  opacity: 0.3;
+}
+
+.slider_block {
+  width: 100%;
+  padding: 40px 0 0 45px;
+  overflow: hidden;
+}
+
+@media (max-width: 968px) {
+  .wrapper {
+    display: none;
+  }
+
+  .slider_block {
+    padding: 0;
+  }
+}

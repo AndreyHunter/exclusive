@@ -1,0 +1,131 @@
+import { createBrowserRouter } from 'react-router-dom';
+import { lazy } from 'react';
+
+import { SuspenseWrapper } from '@/components/atoms/suspenseWrapper/SuspenseWrapper';
+import { SigninForm } from '@/components/organisms/signinForm/SigninForm';
+import { SignupForm } from '@/components/organisms/signupForm/SignupForm';
+import { LayoutTemplate } from '@components/templates/';
+
+import { ROUTES } from './routes';
+
+const HomePage = lazy(() => import('@pages/homePage/HomePage'));
+const AboutPage = lazy(() => import('@pages/aboutPage/AboutPage'));
+const CartPage = lazy(() => import('@pages/cartPage/CartPageContainer'));
+const CheckoutPage = lazy(() => import('@pages/checkoutPage/CheckoutPage'));
+const NotFoundPage = lazy(() => import('@pages/notFoundPage/NotFoundPage'));
+const ContactsPage = lazy(() => import('@pages/contactsPage/ContactsPage'));
+const ProductsPage = lazy(() => import('@pages/productsPage/ProductPageContainer'));
+const ProductPage = lazy(() => import('@pages/productPage/ProductPage'));
+const ProfilePage = lazy(() => import('@pages/profilePage/ProfilePage'));
+
+const AuthTemplate = lazy(() => import('@components/templates/authTemplate/AuthTemplate'));
+const AccountTemplate = lazy(() => import('@components/templates/accountTemplate/AccountTemplate'));
+
+export default createBrowserRouter([
+  {
+    path: ROUTES.INDEX,
+    element: <LayoutTemplate />,
+    children: [
+      {
+        index: true,
+        element: (
+          <SuspenseWrapper>
+            <HomePage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: ROUTES.ABOUT,
+        element: (
+          <SuspenseWrapper>
+            <AboutPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: ROUTES.CONTACTS,
+        element: (
+          <SuspenseWrapper>
+            <ContactsPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: `${ROUTES.PRODUCTS}/:category`,
+        element: (
+          <SuspenseWrapper>
+            <ProductsPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: `${ROUTES.PRODUCT}/:id`,
+        element: (
+          <SuspenseWrapper>
+            <ProductPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: ROUTES.CART,
+        element: (
+          <SuspenseWrapper>
+            <CartPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: ROUTES.CHECKOUT,
+        element: (
+          <SuspenseWrapper>
+            <CheckoutPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: ROUTES.PROFILE,
+        element: (
+          <SuspenseWrapper>
+            <AccountTemplate />
+          </SuspenseWrapper>
+        ),
+        children: [
+          {
+            index: true,
+            element: <ProfilePage />,
+          },
+        ],
+      },
+      {
+        path: ROUTES.AUTH,
+        element: (
+          <SuspenseWrapper>
+            <AuthTemplate />
+          </SuspenseWrapper>
+        ),
+        children: [
+          {
+            index: true,
+            element: <SignupForm />,
+          },
+          {
+            path: ROUTES.SIGNUP,
+            element: <SignupForm />,
+          },
+          {
+            path: ROUTES.SIGNIN,
+            element: <SigninForm />,
+          },
+        ],
+      },
+      {
+        path: ROUTES.NOT_FOUND,
+        element: (
+          <SuspenseWrapper>
+            <NotFoundPage />
+          </SuspenseWrapper>
+        ),
+      },
+    ],
+  },
+]);
