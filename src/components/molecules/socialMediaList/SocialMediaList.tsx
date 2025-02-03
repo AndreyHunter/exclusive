@@ -1,0 +1,35 @@
+import FacebookIcon from '@assets/icons/facebook.svg?react';
+import InstagramIcon from '@assets/icons/instagram.svg?react';
+import LinkedinIcon from '@assets/icons/linkedin.svg?react';
+import TwitterIcon from '@assets/icons/twitter.svg?react';
+
+import styles from './socialMediaList.module.scss';
+
+export const SocialMediaList = ({ className }) => {
+  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+
+  return (
+    <ul className={combinedClasses}>
+      <li className={styles.item}>
+        <a href="">
+          <FacebookIcon />
+        </a>
+      </li>
+      <li className={styles.item}>
+        <a href="">
+          <TwitterIcon />
+        </a>
+      </li>
+      <li className={styles.item}>
+        <a href="">
+          <InstagramIcon />
+        </a>
+      </li>
+      <li className={styles.item}>
+        <a href="">
+          <LinkedinIcon />
+        </a>
+      </li>
+    </ul>
+  );
+};

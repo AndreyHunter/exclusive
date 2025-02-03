@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { Container } from '@/components/helpers/container/Container';
+import { Container } from '@components/helpers/container/Container';
 import { Loader } from '@components/atoms/loader/Loader';
 
 export const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (

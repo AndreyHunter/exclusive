@@ -1,19 +1,10 @@
+import type { FC } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
+import { useInit } from '@/hooks/useInit';
 import router from '@routes/index';
-import { fetchUserCart } from '@/store/cart/CartSlice';
 
-function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const userId = localStorage.getItem('userId');
-    dispatch(fetchUserCart({ userId }));
-  }, [dispatch]);
-
+export const App: FC = () => {
+  useInit();
   return <RouterProvider router={router} />;
-}
-
-export default App;
+};

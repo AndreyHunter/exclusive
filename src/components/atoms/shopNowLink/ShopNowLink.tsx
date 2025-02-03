@@ -1,0 +1,32 @@
+import { Link } from 'react-router-dom';
+
+import Arrow from '@assets/icons/right-arrow.svg?react';
+
+import Line from './line.svg';
+import styles from './showNowLink.module.scss';
+
+export const ShopNowLink = ({
+  arrow = false,
+  direction = 'column',
+  line = false,
+  link,
+  className,
+  ...props
+}) => {
+  const combinedClasses = [
+    styles.root,
+    className || '',
+    direction === 'row' && styles.row,
+    direction === 'column' && styles.column,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  return (
+    <div className={combinedClasses} {...props}>
+      <Link to={link}>Shop Now</Link>
+      {arrow && <Arrow />}
+      {line && <img src={Line} alt="line" />}
+    </div>
+  );
+};
