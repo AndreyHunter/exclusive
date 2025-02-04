@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import FavoriteIcon from '@assets/icons/heart.svg?react';
 import { Numbers, Strings } from '@utils/index';
-import { AddToCardButton } from '@components/atoms/addToCardButton/AddToCardButton';
+import { AddToCartButton } from '@/components/atoms/addToCartButton/AddToCartButton';
 import { CardActionButton } from '@components/atoms/cardActionButton/CardActionButton';
 import { CompareIcon } from '@components/atoms/compareIcon/CompareIcon';
 import { DiscountLabel } from '@components/atoms/discountLabel/DiscountLabel';
@@ -42,7 +42,7 @@ export const ProductCard = ({ product, handleAddToCart, loading, showAddedMessag
           <CardActionButton icon={<FavoriteIcon />} />
           <CardActionButton icon={<CompareIcon />} />
         </div>
-        <AddToCardButton
+        <AddToCartButton
           className={styles.button}
           onClick={handleAddToCart}
           loading={loading}
