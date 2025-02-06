@@ -39,8 +39,12 @@ export const ProductCard = ({ product, handleAddToCart, loading, showAddedMessag
           className={styles.label}
         />
         <div className={styles.buttons}>
-          <CardActionButton icon={<FavoriteIcon />} />
-          <CardActionButton icon={<CompareIcon />} />
+          <CardActionButton>
+            <FavoriteIcon />
+          </CardActionButton>
+          <CardActionButton>
+            <CompareIcon />
+          </CardActionButton>
         </div>
         <AddToCartButton
           className={styles.button}

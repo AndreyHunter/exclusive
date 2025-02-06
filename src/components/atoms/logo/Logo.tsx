@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 import { ROUTES } from '@routes/routes';
 
 import styles from './logo.module.scss';
 
-export const Logo = ({ color = 'black', className, ...props }) => {
+interface LogoProps {
+  color: string;
+  className: string;
+}
+
+export const Logo: React.FC<LogoProps> = ({ color = 'black', className, ...props }) => {
   const combinedClasses = [
     styles.root,
     color === 'white' && styles.white,

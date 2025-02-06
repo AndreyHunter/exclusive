@@ -1,7 +1,14 @@
+import React from 'react';
+import { clsx } from 'clsx';
+
 import styles from './circleCount.module.scss';
 
-export const CircleCount = ({ quantity, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface CircleCountProps {
+  quantity: number;
+  className?: string;
+}
 
-  return <div className={combinedClasses}>{quantity}</div>;
+export const CircleCount: React.FC<CircleCountProps> = ({ quantity, className }) => {
+  const classes = clsx(styles.root, className);
+  return <div className={classes}>{quantity}</div>;
 };
