@@ -11,23 +11,23 @@ const setup = (props: AddToCartButtonProps) => {
 };
 
 describe('AddToCardButton component', () => {
-  test('renders loader if loading is true', () => {
+  it('renders loader if loading is true', () => {
     setup({ loading: true, showAddedMessage: false });
     const loader = screen.getByTestId('loader');
     expect(loader).toBeInTheDocument();
   });
 
-  test('shows message "In Cart" if product is added', () => {
+  it('shows message "In Cart" if product is added', () => {
     const { button } = setup({ loading: false, showAddedMessage: true });
     expect(button).toHaveTextContent(/in cart/i);
   });
 
-  test('shows message "Add to cart" if no flags are passed', () => {
+  it('shows message "Add to cart" if no flags are passed', () => {
     const { button } = setup({ loading: false, showAddedMessage: false });
     expect(button).toHaveTextContent(/add to cart/i);
   });
 
-  test('checks if function executes', async () => {
+  it('checks if function executes', async () => {
     const onClickMock = jest.fn();
     const { button } = setup({
       loading: false,
@@ -38,7 +38,7 @@ describe('AddToCardButton component', () => {
     expect(onClickMock).toHaveBeenCalledTimes(1);
   });
 
-  test("checks if function doesn't call when it is disabled", async () => {
+  it("checks if function doesn't call when it is disabled", async () => {
     const onClickMock = jest.fn();
     const { button } = setup({ loading: true, showAddedMessage: false, onClick: onClickMock });
     expect(button).toBeDisabled();

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import { BoxWrapper } from './BoxWrapper';
 
-test('checks render with class and children', () => {
+it('checks render with class and children', () => {
   const boxId = 'test-box';
   render(
     <BoxWrapper className="test-class" data-testid={boxId}>
