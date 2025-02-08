@@ -5,7 +5,7 @@ import TwitterIcon from '@assets/icons/twitter.svg?react';
 
 import styles from './socialMediaList.module.scss';
 
-export const SocialMediaList = ({ className }) => {
+export const SocialMediaList = ({ className }: { className?: string }) => {
   const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
   return (

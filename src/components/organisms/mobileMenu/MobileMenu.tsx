@@ -6,7 +6,7 @@ import { ROUTES } from '@routes/routes';
 import { closeMobileMenu, selectIsMobileMenuOpen } from '@features/mobileMenu/mobileMenuSlice';
 import { categories } from '@constants/categories';
 import { navPages } from '@constants/navPages';
-import { SocialMediaList } from '@components//molecules/socialMediaList/SocialMediaList';
+import { SocialMediaList } from '@components/molecules/socialMediaList/SocialMediaList';
 import { Logo } from '@components/atoms/logo/Logo';
 import { Flex } from '@components/helpers/flex/Flex';
 import { UserActionsContainer as UserActions } from '@components/molecules/userActions/UserActionsContainer';
@@ -18,7 +18,7 @@ export const MobileMenu = () => {
   const isOpen = useAppSelector(selectIsMobileMenuOpen);
 
   useEffect(() => {
-    const body = document.querySelector('body');
+    const body = document.querySelector('body')!;
     if (isOpen) {
       body.classList.add(styles.hidden);
     } else {

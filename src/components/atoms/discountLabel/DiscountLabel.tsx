@@ -1,7 +1,14 @@
+import React from 'react';
+import { clsx } from 'clsx';
+
 import styles from './discountLabel.module.scss';
 
-export const DiscountLabel = ({ discount, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface DiscountLabelProps {
+  discount: number;
+  className?: string;
+}
 
-  return <div>{discount && <div className={combinedClasses}>-{discount}%</div>}</div>;
+export const DiscountLabel: React.FC<DiscountLabelProps> = ({ discount, className }) => {
+  const classes = clsx(styles.root, className);
+  return <div>{discount && <div className={classes}>-{discount}%</div>}</div>;
 };

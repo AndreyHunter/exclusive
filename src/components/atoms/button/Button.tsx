@@ -1,38 +1,51 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { clsx } from 'clsx';
 
 import { Loader } from '@components/atoms/loader/Loader';
 import GoogleIcon from '@assets/icons/google.svg?react';
 
 import styles from './button.module.scss';
 
-export const Button = ({
-  type = 'button',
+interface ButtonProps {
+  tagElement: 'link' | 'button';
+  type: 'button' | 'submit';
+  disabled: boolean;
+  to: string;
+  variant: 'default' | 'transparent';
+  icon: 'google';
+  title: string;
+  loading: boolean;
+  className: string;
+  activeClass: boolean;
+  children: React.ReactNode;
+}
+
+type PartialButtonProps = Partial<ButtonProps>;
+
+export const Button: React.FC<PartialButtonProps> = ({
   tagElement = 'button',
-  to,
   variant = 'default',
-  icon,
-  title,
-  className,
+  type = 'button',
   activeClass = true,
-  children,
+  to,
+  title,
+  icon,
+  className,
   disabled,
   loading,
+  children,
   ...props
 }) => {
-  const combinedClasses = [
-    styles.root,
-    variant === 'transparent' && styles.transparent,
-    variant === 'default' && styles.default,
-    activeClass && !disabled && styles.active,
-    className || '',
-  ]
-    .filter(Boolean)
-    .join(' ')
-    .trim();
+  const classes = clsx(styles.root, className, {
+    [styles.default]: variant === 'default',
+    [styles.transparent]: variant === 'transparent',
+    [styles.active]: activeClass && !disabled,
+  });
 
-  if (tagElement === 'link') {
+  if (tagElement === 'link' && to) {
     return (
-      <Link to={to} className={combinedClasses} {...props}>
+      <Link {...props} to={to} className={classes}>
         {icon && icon === 'google' && <GoogleIcon />}
         {title ? title : 'Link'}
       </Link>
@@ -40,11 +53,11 @@ export const Button = ({
   }
 
   return (
-    <button type={type} disabled={disabled} className={combinedClasses} {...props}>
+    <button {...props} type={type} disabled={disabled} className={classes}>
       {icon && icon === 'google' && <GoogleIcon />}
+      {loading && <Loader data-testid="button-loader" small />}
       {title && !loading && title}
-      {loading && <Loader small />}
-      {children}
+      {children && !loading && children}
     </button>
   );
 };

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { closeMobileMenu } from '@features/mobileMenu/mobileMenuSlice';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
@@ -8,19 +8,26 @@ import {
   closeUserMenu,
   toggleMenuOpen,
 } from '@features/userMenu/userMenuSlice';
+import { selectProductsQuantity } from '@features/cart/cartSlice';
 
 import { UserActions } from './UserActions';
 
-export const UserActionsContainer = ({ color, onClick, className }) => {
+export interface UserActionsContainerProps {
+  color: string;
+  className: string;
+}
+
+export const UserActionsContainer: React.FC<UserActionsContainerProps> = ({ color, className }) => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector(selectIsUserMenuOpen);
-
-  const menuRef = useRef(null);
   const isAuth = useAppSelector(selectIsAuth);
+  const productsQuantity = useAppSelector(selectProductsQuantity);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isOpen && menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isOpen && menuRef.current && !menuRef.current.contains(event.target as Node)) {
         dispatch(closeUserMenu());
       }
     };
@@ -32,7 +39,7 @@ export const UserActionsContainer = ({ color, onClick, className }) => {
     };
   }, [dispatch, menuRef, isOpen]);
 
-  const toggleMenu = () => {
+  const handletoggleMenu = () => {
     dispatch(toggleMenuOpen());
   };
 
@@ -42,14 +49,14 @@ export const UserActionsContainer = ({ color, onClick, className }) => {
 
   return (
     <UserActions
-      reF={menuRef}
+      ref={menuRef}
       isAuth={isAuth}
       isOpen={isOpen}
-      toggleMenu={toggleMenu}
-      closeMobileMenu={handleCloseMobileMenu}
+      onToggleMenu={handletoggleMenu}
+      onCloseMobileMenu={handleCloseMobileMenu}
       color={color}
-      onClick={onClick}
       className={className}
+      productsQuantity={productsQuantity.length}
     />
   );
 };
