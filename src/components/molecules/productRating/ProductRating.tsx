@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { RatingIcon } from '@components/atoms/ratingIcon/RatingIcon';
+import RatingIcon from '@assets/icons/star.svg?react';
 
 import styles from './productRating.module.scss';
 
@@ -21,7 +21,7 @@ export const ProductRating = ({ rating, setRating, reviewsCount }) => {
               onMouseEnter={() => setHover(index)}
               onMouseLeave={() => setHover(rating)}>
               <span className={styles.star}>
-                <RatingIcon filled={index <= (hover || rating)} />
+                <RatingIcon />
               </span>
             </button>
           );

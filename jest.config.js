@@ -17,7 +17,7 @@ export default {
     '^@types/(.*)$': '<rootDir>/src/types/$1',
 
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    '\\.(svg|png|jpg|jpeg|gif|webp)$': '<rootDir>/src/tests/__mocks__/fileMock.js',
+    '\\.(svg|png|jpg|jpeg|gif|webp)$': '<rootDir>/src/tests/__mocks__/imagesMock.tsx',
   },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   roots: ['<rootDir>/src'],

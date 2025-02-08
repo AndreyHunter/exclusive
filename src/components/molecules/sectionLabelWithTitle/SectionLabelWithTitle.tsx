@@ -8,8 +8,8 @@ export const SectionLabelWithTitle = ({ label, title, className }) => {
 
   return (
     <div className={combinedClasses}>
-      <SectionLabel label={label} />
-      <SectionTitle title={title} />
+      <SectionLabel>{label}</SectionLabel>
+      <SectionTitle>{title}</SectionTitle>
     </div>
   );
 };

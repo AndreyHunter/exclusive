@@ -1,12 +1,19 @@
+import React from 'react';
+import { clsx } from 'clsx';
+
 import qrCodeImage from '@assets/images/qr-code.jpg';
 
 import styles from './qrCode.module.scss';
 
-export const QrCode = ({ className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface QrCodeProps {
+  className?: string;
+}
+
+export const QrCode: React.FC<QrCodeProps> = ({ className }) => {
+  const classes = clsx(styles.root, className);
 
   return (
-    <div className={combinedClasses}>
+    <div className={classes}>
       <img src={qrCodeImage} alt="qr-code" />
     </div>
   );

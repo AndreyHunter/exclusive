@@ -1,4 +1,4 @@
-import { SearchIcon } from '@components/atoms/searchIcon/SearchIcon';
+import SearchIcon from '@assets/icons/search.svg?react';
 
 import styles from './search.module.scss';
 
