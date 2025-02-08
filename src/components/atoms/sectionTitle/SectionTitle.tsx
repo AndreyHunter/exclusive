@@ -1,7 +1,14 @@
+import React from 'react';
+import { clsx } from 'clsx';
+
 import styles from './sectionTitle.module.scss';
 
-export const SectionTitle = ({ title, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface SectionTitleProps {
+  children: React.ReactNode;
+  className?: string;
+}
 
-  return <h2 className={combinedClasses}>{title}</h2>;
+export const SectionTitle: React.FC<SectionTitleProps> = ({ className, children }) => {
+  const classes = clsx(styles.root, className);
+  return <h2 className={classes}>{children}</h2>;
 };

@@ -11,7 +11,7 @@ export const OurStatisticItem = ({ card, className }) => {
 
   return (
     <li className={combinedClasses}>
-      <CircleContainerIcon icon={<Icon />} className={circleClass} />
+      <CircleContainerIcon className={circleClass}>{<Icon />}</CircleContainerIcon>
       <div className={styles.block}>
         <div>{card.amount}k</div>
         <p>{card.desc}</p>

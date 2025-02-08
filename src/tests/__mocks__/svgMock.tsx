@@ -1,5 +1,10 @@
 import React from 'react';
 
-const SvgMock = () => <div data-testid="svg-mock" />;
+// eslint-disable-next-line
+interface SvgMockProps extends React.SVGAttributes<SVGElement> {}
 
-export default SvgMock;
+const MockSvg: React.FC<SvgMockProps> = ({ style, ...props }) => {
+  return <svg data-testid="svg-mock" {...props} style={style} />;
+};
+
+export default MockSvg;
