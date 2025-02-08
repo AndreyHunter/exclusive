@@ -1,33 +1,6 @@
-import React from 'react';
-
 import styles from './flex.module.scss';
 
-interface FlexProps {
-  tagElement?: React.ElementType;
-  flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  justifyContent?:
-    | 'flex-start'
-    | 'center'
-    | 'flex-end'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  alignItems?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'baseline'
-    | 'stretch'
-    | 'inherit'
-    | 'initial'
-    | 'unset';
-  flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-  gap?: number;
-  className?: string;
-  children: React.ReactNode;
-}
-
-export const Flex: React.FC<FlexProps> = ({
+export const Flex = ({
   tagElement = 'div',
   flexDirection,
   justifyContent,

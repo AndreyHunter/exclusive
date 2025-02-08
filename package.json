@@ -10,7 +10,6 @@
     "lint:fix": "eslint . --fix",
     "format": "npx prettier --write .",
     "test": "jest",
-    "test:changed": "jest --onlyChanged",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -49,7 +48,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.7.9",
-    "clsx": "^2.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",

@@ -1,5 +1,3 @@
-import React from 'react';
-import { clsx } from 'clsx';
 import { Link } from 'react-router-dom';
 
 import Arrow from '@assets/icons/right-arrow.svg?react';
@@ -7,28 +5,25 @@ import Arrow from '@assets/icons/right-arrow.svg?react';
 import Line from './line.svg';
 import styles from './showNowLink.module.scss';
 
-interface ShopNowLinkProps extends React.HTMLAttributes<HTMLDivElement> {
-  arrow?: boolean;
-  line?: boolean;
-  direction?: 'row' | 'column';
-  link: string;
-}
-
-export const ShopNowLink: React.FC<ShopNowLinkProps> = ({
+export const ShopNowLink = ({
   arrow = false,
-  line = false,
   direction = 'column',
+  line = false,
   link,
   className,
   ...props
 }) => {
-  const classes = clsx(styles.root, className, {
-    [styles.row]: direction === 'row',
-    [styles.column]: direction === 'column',
-  });
+  const combinedClasses = [
+    styles.root,
+    className || '',
+    direction === 'row' && styles.row,
+    direction === 'column' && styles.column,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <div {...props} className={classes}>
+    <div className={combinedClasses} {...props}>
       <Link to={link}>Shop Now</Link>
       {arrow && <Arrow />}
       {line && <img src={Line} alt="line" />}

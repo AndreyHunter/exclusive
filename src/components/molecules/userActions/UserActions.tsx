@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { clsx } from 'clsx';
 
+import { useAppSelector } from '@/app/hooks';
+import { selectProductsQuantity } from '@features/cart/cartSlice';
 import { ROUTES } from '@routes/routes';
 import { Button } from '@components/atoms/button/Button';
 import { CircleCount } from '@components/atoms/circleCount/CircleCount';
@@ -9,57 +10,47 @@ import CartIcon from '@assets/icons/cart.svg?react';
 import WishListIcon from '@assets/icons/heart.svg?react';
 import UserIcon from '@assets/icons/user.svg?react';
 
-import type { UserActionsContainerProps } from './UserActionsContainer';
 import styles from './userActions.module.scss';
 
-interface UserActionsProps extends UserActionsContainerProps {
-  ref: React.RefObject<HTMLDivElement | null>;
-  isOpen: boolean;
-  isAuth: boolean;
-  productsQuantity: number;
-  onToggleMenu: () => void;
-  onCloseMobileMenu: () => void;
-}
-
-export const UserActions: React.FC<UserActionsProps> = ({
-  ref,
+export const UserActions = ({
+  reF,
   isOpen,
   isAuth,
+  toggleMenu,
   color,
+  closeMobileMenu,
   className,
-  productsQuantity,
-  onToggleMenu,
-  onCloseMobileMenu,
 }) => {
-  const classes = clsx(styles.root, className);
-  const colorWhite = clsx(color === 'white' && styles.white);
+  const productsQuantity = useAppSelector(selectProductsQuantity);
+  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+  const colorWhite = color === 'white' ? styles.white : '';
+
+  const handleLinkClick = () => {
+    if (closeMobileMenu) closeMobileMenu();
+  };
 
   return (
-    <div className={classes}>
+    <div className={combinedClasses}>
       <Link to={ROUTES.WISHLIST}>
-        <WishListIcon className={`${styles.icon} ${colorWhite}`} onClick={onCloseMobileMenu} />
+        <WishListIcon className={`${styles.icon} ${colorWhite}`} onClick={handleLinkClick} />
       </Link>
       <Link to={ROUTES.CART} className={styles.cart}>
-        <CartIcon className={`${styles.icon} ${colorWhite}`} onClick={onCloseMobileMenu} />
-        <CircleCount quantity={productsQuantity || 0} className={styles.quantity} />
+        <CartIcon className={`${styles.icon} ${colorWhite}`} onClick={handleLinkClick} />
+        <CircleCount quantity={productsQuantity?.length || 0} className={styles.quantity} />
       </Link>
       {!isAuth ? (
         <Link
           to={isAuth ? ROUTES.PROFILE : `${ROUTES.AUTH}/${ROUTES.SIGNUP}`}
-          onClick={onCloseMobileMenu}>
+          onClick={handleLinkClick}>
           <UserIcon className={colorWhite} />
         </Link>
       ) : (
-        <Button
-          onClick={onToggleMenu}
-          className={styles.userBG}
-          activeClass={false}
-          variant="transparent">
+        <Button onClick={toggleMenu} className={styles.userBG} activeClass={false}>
           <UserIcon />
         </Button>
       )}
-      <div ref={ref} className={`${styles.menu} ${isOpen && styles.open}`}>
-        <UserMenu closeMobileMenu={onCloseMobileMenu} />
+      <div ref={reF} className={`${styles.menu} ${isOpen && styles.open}`}>
+        <UserMenu closeMobileMenu={handleLinkClick} />
       </div>
     </div>
   );

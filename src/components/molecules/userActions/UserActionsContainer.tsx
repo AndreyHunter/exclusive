@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { closeMobileMenu } from '@features/mobileMenu/mobileMenuSlice';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
@@ -8,26 +8,19 @@ import {
   closeUserMenu,
   toggleMenuOpen,
 } from '@features/userMenu/userMenuSlice';
-import { selectProductsQuantity } from '@features/cart/cartSlice';
 
 import { UserActions } from './UserActions';
 
-export interface UserActionsContainerProps {
-  color: string;
-  className: string;
-}
-
-export const UserActionsContainer: React.FC<UserActionsContainerProps> = ({ color, className }) => {
+export const UserActionsContainer = ({ color, onClick, className }) => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector(selectIsUserMenuOpen);
-  const isAuth = useAppSelector(selectIsAuth);
-  const productsQuantity = useAppSelector(selectProductsQuantity);
 
-  const menuRef = useRef<HTMLDivElement | null>(null);
+  const menuRef = useRef(null);
+  const isAuth = useAppSelector(selectIsAuth);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen && menuRef.current && !menuRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (event) => {
+      if (isOpen && menuRef.current && !menuRef.current.contains(event.target)) {
         dispatch(closeUserMenu());
       }
     };
@@ -39,7 +32,7 @@ export const UserActionsContainer: React.FC<UserActionsContainerProps> = ({ colo
     };
   }, [dispatch, menuRef, isOpen]);
 
-  const handletoggleMenu = () => {
+  const toggleMenu = () => {
     dispatch(toggleMenuOpen());
   };
 
@@ -49,14 +42,14 @@ export const UserActionsContainer: React.FC<UserActionsContainerProps> = ({ colo
 
   return (
     <UserActions
-      ref={menuRef}
+      reF={menuRef}
       isAuth={isAuth}
       isOpen={isOpen}
-      onToggleMenu={handletoggleMenu}
-      onCloseMobileMenu={handleCloseMobileMenu}
+      toggleMenu={toggleMenu}
+      closeMobileMenu={handleCloseMobileMenu}
       color={color}
+      onClick={onClick}
       className={className}
-      productsQuantity={productsQuantity.length}
     />
   );
 };

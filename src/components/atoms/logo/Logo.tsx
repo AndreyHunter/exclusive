@@ -1,24 +1,21 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
-import { clsx } from 'clsx';
 
 import { ROUTES } from '@routes/routes';
 
 import styles from './logo.module.scss';
 
-export interface LogoProps {
-  color: 'white' | 'black';
-  className?: string;
-}
-
-export const Logo: React.FC<LogoProps> = ({ color = 'black', className, ...props }) => {
-  const classes = clsx(styles.root, className, {
-    [styles.white]: color === 'white',
-    [styles.black]: color === 'black',
-  });
+export const Logo = ({ color = 'black', className, ...props }) => {
+  const combinedClasses = [
+    styles.root,
+    color === 'white' && styles.white,
+    color === 'black' && styles.black,
+    className || '',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <Link {...props} to={ROUTES.INDEX} className={classes}>
+    <Link to={ROUTES.INDEX} className={combinedClasses} {...props}>
       Exclusive
     </Link>
   );

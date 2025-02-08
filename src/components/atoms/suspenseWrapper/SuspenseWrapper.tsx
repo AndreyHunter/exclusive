@@ -1,13 +1,9 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 import { Container } from '@components/helpers/container/Container';
 import { Loader } from '@components/atoms/loader/Loader';
 
-interface SuspenseWrapperProps {
-  children: React.ReactNode;
-}
-
-export const SuspenseWrapper: React.FC<SuspenseWrapperProps> = ({ children }) => (
+export const SuspenseWrapper = ({ children }: { children: React.ReactNode }) => (
   <Suspense
     fallback={
       <Container paddingTop={20}>

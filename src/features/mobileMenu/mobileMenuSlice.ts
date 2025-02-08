@@ -6,7 +6,7 @@ const initialState = {
   isOpen: false,
 };
 
-const mobileMenuSlice = createSlice({
+export const mobileMenuSlice = createSlice({
   name: 'mobileMenu',
   initialState,
   reducers: {

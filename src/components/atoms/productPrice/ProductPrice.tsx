@@ -1,23 +1,10 @@
-import React from 'react';
-import { clsx } from 'clsx';
-
 import styles from './productPrice.module.scss';
 
-interface ProductPriceProps {
-  price: number;
-  discountedPrice?: number;
-  className?: string;
-}
-
-export const ProductPrice: React.FC<ProductPriceProps> = ({
-  price,
-  discountedPrice,
-  className,
-}) => {
-  const classes = clsx(styles.root, className);
+export const ProductPrice = ({ price, discountedPrice, className }) => {
+  const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
   return (
-    <div className={classes}>
+    <div className={combinedClasses}>
       <span className={styles.price}>${discountedPrice || price}</span>
       {discountedPrice && <span className={styles.discountedPrice}>${price}</span>}
     </div>
