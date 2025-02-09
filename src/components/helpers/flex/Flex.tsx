@@ -1,4 +1,5 @@
 import React from 'react';
+import { clsx } from 'clsx';
 
 import styles from './flex.module.scss';
 
@@ -27,73 +28,59 @@ interface FlexProps {
   children: React.ReactNode;
 }
 
-export const Flex: React.FC<FlexProps> = ({
+export const Flex = ({
   tagElement = 'div',
   flexDirection,
+  flexWrap,
   justifyContent,
   alignItems,
-  flexWrap,
   gap,
   className,
   children,
   ...props
-}) => {
+}: FlexProps) => {
   const Component = tagElement;
 
   // Flex direction classes
-  const directionClasses = [
+  const directionClasses = clsx(
     flexDirection === 'row' && styles.row,
     flexDirection === 'row-reverse' && styles.rowReverse,
     flexDirection === 'column' && styles.column,
     flexDirection === 'column-reverse' && styles.columnReverse,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  );
 
   // Flex wrap classes
-  const wrapClasses = [
+  const wrapClasses = clsx(
     flexWrap === 'nowrap' && styles.noWrap,
     flexWrap === 'wrap' && styles.wrap,
     flexWrap === 'wrap-reverse' && styles.wrapReverse,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  );
 
   // justify classes
-  const justifyClasses = [
+  const justifyClasses = clsx(
     justifyContent === 'flex-start' && styles.justifyStart,
     justifyContent === 'center' && styles.justifyCenter,
     justifyContent === 'flex-end' && styles.justifyEnd,
     justifyContent === 'space-between' && styles.justifySpaceBetween,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  );
 
   // align classes
-  const alignClasses = [
+  const alignClasses = clsx(
     alignItems === 'flex-start' && styles.alignStart,
     alignItems === 'center' && styles.alignCenter,
     alignItems === 'flex-end' && styles.alignEnd,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  );
 
   // gap style
-  const gapStyle = gap ? { gap: `${gap}px` } : {};
-
-  const combinedClasses = [
-    styles.root,
-    className || '',
+  const classes = clsx(styles.root, className, [
     directionClasses,
     wrapClasses,
     justifyClasses,
     alignClasses,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  ]);
 
   return (
-    <Component className={combinedClasses} style={gapStyle} {...props}>
+    <Component {...props} className={classes} style={{ gap }}>
       {children}
     </Component>
   );

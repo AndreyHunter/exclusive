@@ -5,6 +5,7 @@ import { SuspenseWrapper } from '@/components/atoms/suspenseWrapper/SuspenseWrap
 import { SigninForm } from '@/components/organisms/signinForm/SigninForm';
 import { SignupForm } from '@/components/organisms/signupForm/SignupForm';
 import { LayoutTemplate } from '@components/templates/';
+import { PrivateRoute } from '@/components/helpers/privateRoute/PrivateRoute';
 
 import { ROUTES } from './routes';
 
@@ -85,9 +86,11 @@ export default createBrowserRouter([
       {
         path: ROUTES.PROFILE,
         element: (
-          <SuspenseWrapper>
-            <AccountTemplate />
-          </SuspenseWrapper>
+          <PrivateRoute>
+            <SuspenseWrapper>
+              <AccountTemplate />
+            </SuspenseWrapper>
+          </PrivateRoute>
         ),
         children: [
           {
