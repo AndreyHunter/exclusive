@@ -4,7 +4,7 @@ import styles from './radioButton.module.scss';
 
 interface RadioButtonProps {
   checked: boolean;
-  name: string;
+  name?: string;
   onChange: () => void;
 }
 
