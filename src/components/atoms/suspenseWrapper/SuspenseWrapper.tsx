@@ -10,7 +10,7 @@ interface SuspenseWrapperProps {
 export const SuspenseWrapper: React.FC<SuspenseWrapperProps> = ({ children }) => (
   <Suspense
     fallback={
-      <Container paddingTop={20}>
+      <Container style={{ paddingTop: 20 }}>
         <Loader />
       </Container>
     }>
