@@ -1,14 +1,20 @@
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { clsx } from 'clsx';
+
+import { useMediaQuery } from '@hooks/useMediaQuery';
 import { Flex } from '@components/helpers/flex/Flex';
 
 import styles from './cartHeader.module.scss';
 
-export const CartHeader = ({ className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface CartHeaderProps {
+  className?: string;
+}
+
+export const CartHeader = ({ className }: CartHeaderProps) => {
+  const classes = clsx(styles.root, className);
   const isSmallMobile = useMediaQuery('(max-width: 568px)');
 
   return (
-    <Flex justifyContent="space-between" className={combinedClasses}>
+    <Flex justifyContent="space-between" className={classes}>
       <Flex alignItems="center" justifyContent="space-between" className={styles.left}>
         <div>Product</div>
         <div>Price</div>

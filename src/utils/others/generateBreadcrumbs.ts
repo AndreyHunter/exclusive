@@ -1,9 +1,6 @@
-type BreadCrumbs = {
-  path: string;
-  name: string;
-};
+import type { BreadCrumbsType } from 'types/index';
 
-export const generateBreadcrumbs = (path: string): BreadCrumbs[] => {
+export const generateBreadcrumbs = (path: string): BreadCrumbsType[] => {
   const pathSegments = path.split('/').filter((segment) => segment);
 
   const breadcrumbs = pathSegments.map((segment, index) => {

@@ -2,7 +2,14 @@ import DeliveryIcon from '@assets/icons/advantages/Services-1.svg?react';
 import HeadphonesIcon from '@assets/icons/advantages/Services-2.svg?react';
 import GuaranteeIcon from '@assets/icons/advantages/Services-3.svg?react';
 
-export const advantages = [
+export interface Advantage {
+  id: number;
+  title: string;
+  desc: string;
+  icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+}
+
+export const advantages: Advantage[] = [
   {
     id: 1,
     title: 'FREE AND FAST DELIVERY',

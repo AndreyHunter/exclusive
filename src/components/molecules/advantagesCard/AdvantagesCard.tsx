@@ -1,15 +1,16 @@
 import { Flex } from '@components/helpers/flex/Flex';
+import type { Advantage } from '@constants/advantages';
 
 import styles from './advantagesCard.module.scss';
 
-export const AdvantagesCard = ({ advantage }) => {
-  const Icon = advantage.icon;
+export const AdvantagesCard = ({ title, desc, icon }: Omit<Advantage, 'id'>) => {
+  const Icon = icon;
   return (
-    <li className={styles.card}>
+    <li className={styles.root}>
       <Icon />
       <Flex flexDirection="column" alignItems="center" gap={8}>
-        <div className={styles.title}>{advantage.title}</div>
-        <p className={styles.desc}>{advantage.desc}</p>
+        <div className={styles.title}>{title}</div>
+        <p className={styles.desc}>{desc}</p>
       </Flex>
     </li>
   );

@@ -12,9 +12,7 @@ export const AdvantagesSection = ({ className }) => {
       <Container>
         <ul className={styles.grid}>
           {advantages &&
-            advantages.map((advantage) => (
-              <AdvantagesCard key={advantage.id} advantage={advantage} />
-            ))}
+            advantages.map((advantage) => <AdvantagesCard key={advantage.id} {...advantage} />)}
         </ul>
       </Container>
     </section>
