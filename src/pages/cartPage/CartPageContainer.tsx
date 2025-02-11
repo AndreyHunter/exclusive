@@ -33,7 +33,7 @@ const CartPageContainer = () => {
     dispatch(updateCartItemsQuantity({ products }));
   };
 
-  const handleDeleteItem = ({ productId }) => {
+  const handleDeleteProduct = ({ productId }) => {
     dispatch(deleteCartItem({ productId }));
   };
 
@@ -41,10 +41,10 @@ const CartPageContainer = () => {
     <CartPage
       products={products}
       loading={loading}
-      handleUpdateCart={handleUpdateCart}
-      handleDeleteItem={handleDeleteItem}
       cartTotal={cartTotal}
       subTotal={subTotal}
+      onUpdateCart={handleUpdateCart}
+      onDeleteProduct={handleDeleteProduct}
     />
   );
 };

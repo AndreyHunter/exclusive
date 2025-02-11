@@ -11,14 +11,7 @@ import { ROUTES } from '@routes/routes';
 
 import styles from './cartPage.module.scss';
 
-const CartPage = ({
-  products,
-  loading,
-  handleUpdateCart,
-  handleDeleteItem,
-  subTotal,
-  cartTotal,
-}) => {
+const CartPage = ({ products, loading, onUpdateCart, onDeleteProduct, subTotal, cartTotal }) => {
   const isSmallMobile = useMediaQuery('(max-width: 360px)');
 
   return (
@@ -36,8 +29,8 @@ const CartPage = ({
                       key={product.product._id}
                       product={product.product}
                       quantity={product.quantity}
-                      handleDeleteProduct={() =>
-                        handleDeleteItem({
+                      onDeleteProduct={() =>
+                        onDeleteProduct({
                           productId: product.product._id,
                         })
                       }
@@ -55,7 +48,7 @@ const CartPage = ({
               <Button
                 title="Update Cart"
                 variant="transparent"
-                onClick={handleUpdateCart}
+                onClick={onUpdateCart}
                 loading={loading}
                 disabled={!products.length}
                 className={styles.updateButton}

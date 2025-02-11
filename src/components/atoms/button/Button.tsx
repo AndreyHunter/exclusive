@@ -16,9 +16,9 @@ interface ButtonProps {
   icon: 'google';
   title: string;
   loading: boolean;
-  className: string;
   activeClass: boolean;
-  children: React.ReactNode;
+  className?: string;
+  children?: React.ReactNode;
 }
 
 type PartialButtonProps = Partial<ButtonProps>;
@@ -47,7 +47,8 @@ export const Button: React.FC<PartialButtonProps> = ({
     return (
       <Link {...props} to={to} className={classes}>
         {icon && icon === 'google' && <GoogleIcon />}
-        {title ? title : 'Link'}
+        {title && !children ? title : !title && !children ? 'Link' : ''}
+        {children && !title && children}
       </Link>
     );
   }

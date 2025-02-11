@@ -1,5 +1,5 @@
 import { Flex } from '@components/helpers/flex/Flex';
-import type { Advantage } from '@constants/advantages';
+import type { Advantage } from 'types/static';
 
 import styles from './advantagesCard.module.scss';
 

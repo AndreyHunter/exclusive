@@ -1,4 +1,5 @@
-import { useCounter } from '@hooks/useCounter';
+import { clsx } from 'clsx';
+
 import { Flex } from '@components/helpers/flex/Flex';
 import MinusIcon from '@assets/icons/minus.svg?react';
 import PlusIcon from '@assets/icons/plus.svg?react';
@@ -6,8 +7,22 @@ import Arrow from '@assets/icons/small-arrow.svg?react';
 
 import styles from './counter.module.scss';
 
-export const Counter = ({ variant = 'primary', count, increment, decrement, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface CounterProps {
+  variant?: 'primary' | 'cart';
+  count: number;
+  className?: string;
+  increment: () => void;
+  decrement: () => void;
+}
+
+export const Counter = ({
+  variant = 'primary',
+  count,
+  increment,
+  decrement,
+  className,
+}: CounterProps) => {
+  const classes = clsx(styles.root, className);
 
   const handleIncrement = () => {
     if (count < 10) {
@@ -23,7 +38,7 @@ export const Counter = ({ variant = 'primary', count, increment, decrement, clas
 
   if (variant === 'cart') {
     return (
-      <Flex className={combinedClasses} gap={16}>
+      <Flex className={classes} gap={16}>
         <span>{count}</span>
         <Flex flexDirection="column" className={styles.buttons}>
           <button type="button" onClick={handleIncrement}>
