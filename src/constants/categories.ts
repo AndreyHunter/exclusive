@@ -1,4 +1,6 @@
-export const categories = [
+import type { Category } from 'types/static';
+
+export const categories: Category[] = [
   {
     id: 1,
     name: 'Woman’s Fashion',

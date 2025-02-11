@@ -1,15 +1,23 @@
 import { Link } from 'react-router-dom';
+import { clsx } from 'clsx';
 
 import { Flex } from '@components/helpers/flex/Flex';
 import { ROUTES } from '@routes/routes';
 
 import styles from './orderItem.module.scss';
 
-export const OrderItem = ({ image, name, category, className, id }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface OrderItemProps {
+  id: string;
+  name: string;
+  image: string;
+  className?: string;
+}
+
+export const OrderItem = ({ image, name, className, id }: OrderItemProps) => {
+  const classes = clsx(styles.root, className);
 
   return (
-    <Flex className={combinedClasses} alignItems="center">
+    <Flex className={classes} alignItems="center">
       <Link to={`/${ROUTES.PRODUCT}/${id}`} className={styles.img}>
         <img src={image} alt={name} />
       </Link>

@@ -4,8 +4,9 @@ import ComputerIcon from '@assets/icons/computer.svg?react';
 import GamingIcon from '@assets/icons/gaming.svg?react';
 import HeadPhonesIcon from '@assets/icons/headphones.svg?react';
 import PhoneIcon from '@assets/icons/phone.svg?react';
+import type { Category } from 'types/static';
 
-export const gameCategories = [
+export const gameCategories: Category[] = [
   {
     id: 1,
     name: 'Phones',

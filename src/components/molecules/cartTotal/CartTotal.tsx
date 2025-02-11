@@ -1,23 +1,29 @@
+import { clsx } from 'clsx';
+
 import { Button } from '@components/atoms/button/Button';
 import { Flex } from '@components/helpers/flex/Flex';
 import { OrderInfo } from '@components/molecules/orderInfo/OrderInfo';
 
 import styles from './cartTotal.module.scss';
 
-export const CartTotal = ({ className, subTotal, total, delivery }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface CartTotalProps {
+  total: number;
+  subTotal: number;
+  delivery?: number;
+  className?: string;
+}
+
+export const CartTotal = ({ className, subTotal, total, delivery }: CartTotalProps) => {
+  const classes = clsx(styles.root, className);
 
   return (
-    <div className={combinedClasses}>
+    <div className={classes}>
       <strong className={styles.title}>Cart Total</strong>
       <OrderInfo total={total} subTotal={subTotal} delivery={delivery} className={styles.info} />
       <Flex justifyContent="center">
-        <Button
-          title="Process to checkout"
-          tagElement="link"
-          to="/checkout"
-          className={styles.button}
-        />
+        <Button tagElement="link" to="/checkout" className={styles.button}>
+          Process to checkout
+        </Button>
       </Flex>
     </div>
   );
