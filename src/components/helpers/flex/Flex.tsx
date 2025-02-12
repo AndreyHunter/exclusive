@@ -25,6 +25,7 @@ interface FlexProps {
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   gap?: number;
   className?: string;
+  style?: React.CSSProperties;
   children: React.ReactNode;
 }
 
@@ -37,6 +38,7 @@ export const Flex = ({
   gap,
   className,
   children,
+  style = {},
   ...props
 }: FlexProps) => {
   const Component = tagElement;
@@ -79,8 +81,13 @@ export const Flex = ({
     alignClasses,
   ]);
 
+  const combinedStyle = {
+    ...style,
+    ...(gap !== undefined && { gap }),
+  };
+
   return (
-    <Component {...props} className={classes} style={{ gap }}>
+    <Component {...props} className={classes} style={combinedStyle}>
       {children}
     </Component>
   );
