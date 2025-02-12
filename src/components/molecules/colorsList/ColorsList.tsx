@@ -2,7 +2,18 @@ import { Flex } from '@components/helpers/flex/Flex';
 
 import styles from './colorsList.module.scss';
 
-export const ColorsList = ({ colors, checked, onChange }) => {
+interface Color {
+  name: string;
+  color: string;
+}
+
+interface ColorsListProps {
+  colors: Color[];
+  checked: string;
+  onChange: (color: string) => void;
+}
+
+export const ColorsList = ({ colors, checked, onChange }: ColorsListProps) => {
   return (
     <Flex tagElement="ul" alignItems="center" gap={8}>
       {colors.map((color, index) => (

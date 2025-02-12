@@ -15,6 +15,5 @@ describe('CartTotal component', () => {
       </MemoryRouter>,
     );
     expect(screen.getByRole('link')).toHaveAttribute('href', '/checkout');
-    screen.debug();
   });
 });
