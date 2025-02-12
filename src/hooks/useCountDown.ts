@@ -1,9 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-export const useCountDown = (endDate, interval = 1000) => {
-  const calcTimeDifference = () => {
-    const now = new Date();
-    const difference = endDate - now;
+interface TimeState {
+  days: `0${string}` | number;
+  hours: `0${string}` | number;
+  minutes: `0${string}` | number;
+  seconds: `0${string}` | number;
+  finished: boolean;
+}
+
+export const useCountDown = (endDate: Date, interval: number = 1000) => {
+  const getZero = (time: number): `0${string}` | number => (time < 10 ? `0${time}` : time);
+
+  const calcTimeDifference = useCallback((): TimeState => {
+    const now = Number(new Date());
+    const difference = Number(endDate) - now;
 
     if (difference <= 0) {
       return {
@@ -22,14 +32,12 @@ export const useCountDown = (endDate, interval = 1000) => {
       seconds: getZero(Math.floor((difference / 1000) % 60)),
       finished: false,
     };
-  };
+  }, [endDate]);
 
-  const getZero = (time) => (time < 10 ? `0${time}` : time);
-
-  const [timeInfo, setTime] = useState(calcTimeDifference());
+  const [time, setTime] = useState<TimeState>(calcTimeDifference());
 
   useEffect(() => {
-    if (timeInfo.finished) {
+    if (time.finished) {
       return;
     }
 
@@ -40,7 +48,7 @@ export const useCountDown = (endDate, interval = 1000) => {
     return () => {
       clearInterval(timerId);
     };
-  }, [endDate, interval, timeInfo.finished]);
+  }, [endDate, interval, time.finished, calcTimeDifference]);
 
-  return timeInfo;
+  return time;
 };

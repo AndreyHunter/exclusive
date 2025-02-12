@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import { Link } from 'react-router-dom';
 
 import { Separator } from '@components/atoms/separator/Separator';
@@ -7,11 +8,15 @@ import TruckIcon from '@assets/icons/truck.svg?react';
 
 import styles from './deliveryInfo.module.scss';
 
-export const DeliveryInfo = ({ className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface DeliveryInfoProps {
+  className?: string;
+}
+
+export const DeliveryInfo = ({ className }: DeliveryInfoProps) => {
+  const classes = clsx(styles.root, className);
 
   return (
-    <div className={combinedClasses}>
+    <div className={classes}>
       <Flex alignItems="center" gap={16}>
         <TruckIcon />
         <Flex flexDirection="column" gap={8} className={styles.info}>
@@ -25,7 +30,10 @@ export const DeliveryInfo = ({ className }) => {
         <Flex flexDirection="column" gap={8} className={styles.info}>
           <label>Return Delivery</label>
           <p>
-            Free 30 Days Delivery Returns. <Link className={styles.link}>Details</Link>
+            Free 30 Days Delivery Returns.
+            <Link to="/details" className={styles.link}>
+              Details
+            </Link>
           </p>
         </Flex>
       </Flex>
