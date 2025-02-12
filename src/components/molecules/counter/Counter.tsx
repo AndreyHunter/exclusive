@@ -8,21 +8,15 @@ import Arrow from '@assets/icons/small-arrow.svg?react';
 import styles from './counter.module.scss';
 
 interface CounterProps {
-  variant?: 'primary' | 'cart';
+  variant?: 'cart';
   count: number;
   className?: string;
   increment: () => void;
   decrement: () => void;
 }
 
-export const Counter = ({
-  variant = 'primary',
-  count,
-  increment,
-  decrement,
-  className,
-}: CounterProps) => {
-  const classes = clsx(styles.root, className);
+export const Counter = ({ variant, count, increment, decrement, className }: CounterProps) => {
+  const classes = clsx(styles.cart, className);
 
   const handleIncrement = () => {
     if (count < 10) {
@@ -39,12 +33,12 @@ export const Counter = ({
   if (variant === 'cart') {
     return (
       <Flex className={classes} gap={16}>
-        <span>{count}</span>
+        <span data-testid="count">{count}</span>
         <Flex flexDirection="column" className={styles.buttons}>
-          <button type="button" onClick={handleIncrement}>
+          <button type="button" onClick={handleIncrement} aria-label="button-plus">
             <Arrow />
           </button>
-          <button type="button" onClick={handleDecrement}>
+          <button type="button" onClick={handleDecrement} aria-label="button-minus">
             <Arrow />
           </button>
         </Flex>
@@ -54,11 +48,11 @@ export const Counter = ({
 
   return (
     <Flex className={styles.counter} alignItems="center" justifyContent="space-between">
-      <button className={styles.button} onClick={handleDecrement}>
+      <button className={styles.button} onClick={handleDecrement} aria-label="button-minus">
         <MinusIcon />
       </button>
-      <span>{count}</span>
-      <button className={styles.activeButton} onClick={handleIncrement}>
+      <span data-testid="count">{count}</span>
+      <button className={styles.activeButton} onClick={handleIncrement} aria-label="button-plus">
         <PlusIcon />
       </button>
     </Flex>

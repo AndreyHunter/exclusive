@@ -1,31 +1,44 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { clsx } from 'clsx';
 
 import styles from './formInput.module.scss';
 
-export const FormInput = ({ className, required, placeholder, ...props }) => {
+interface FormInputProps extends React.HTMLAttributes<HTMLDivElement> {
+  required: boolean;
+  placeholder: string;
+  className: string;
+}
+
+export const FormInput = ({
+  required,
+  placeholder,
+  className,
+  ...props
+}: Partial<FormInputProps>) => {
   const [hasFocus, setHasFocus] = useState(false);
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+  const classes = clsx(styles.root, className);
 
   const handleFocus = () => {
     setHasFocus(true);
   };
 
-  const handleBlur = (e) => (e.target.value ? setHasFocus(true) : setHasFocus(false));
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) =>
+    e.target.value ? setHasFocus(true) : setHasFocus(false);
 
-  if (!placeholder) {
+  if (placeholder) {
     return (
-      <div className={combinedClasses} {...props}>
-        <input type="text" />
+      <div {...props} className={classes}>
+        <div className={clsx(styles.placeholder, hasFocus && styles.focused)}>
+          {placeholder} {required && <span>*</span>}
+        </div>
+        <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
       </div>
     );
   }
 
   return (
-    <div className={combinedClasses} {...props}>
-      <div className={`${styles.placeholder} ${hasFocus ? styles.focused : ''}`}>
-        {placeholder} {required && <span>*</span>}
-      </div>
-      <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
+    <div {...props} className={classes}>
+      <input type="text" />
     </div>
   );
 };

@@ -1,25 +1,22 @@
+import { clsx } from 'clsx';
+
 import { useCountDown } from '@hooks/useCountDown';
 
 import styles from './countdown.module.scss';
 
-export const Countdown = ({
-  endDate = new Date('2025-02-30T08:52:00'),
-  variant = 'black',
-  className,
-  ...props
-}) => {
-  const additionalClass = className || '';
-  const defaultClass = `${styles.wrapper} ${additionalClass}`.trim();
-  const transparentClass = `${styles.transparent} ${additionalClass}`.trim();
+interface CountdownProps extends React.HTMLAttributes<HTMLDivElement> {
+  endDate: Date;
+  variant?: 'black' | 'white' | 'transparent';
+  className?: string;
+}
 
-  const combinedItemClasses = [
-    styles.item,
-    variant === 'black' && styles.black,
-    variant === 'white' && styles.white,
-    variant === 'transparent' && styles.transparent,
-  ]
-    .filter(Boolean)
-    .join(' ');
+export const Countdown = ({ variant = 'black', endDate, className, ...props }: CountdownProps) => {
+  const transparentClasses = clsx(styles.transparent, className);
+  const defaultClasses = clsx(styles.wrapper, className);
+  const combinedItemClasses = clsx(styles.item, {
+    [styles.black]: variant === 'black',
+    [styles.white]: variant === 'white',
+  });
 
   const { days, hours, minutes, seconds, finished } = useCountDown(endDate, 1000);
 
@@ -29,7 +26,7 @@ export const Countdown = ({
 
   if (variant === 'transparent') {
     return (
-      <div className={transparentClass} {...props}>
+      <div {...props} className={transparentClasses}>
         <div className={styles.transparent_item}>
           <span>days</span>
           <div>{days}</div>
@@ -51,7 +48,7 @@ export const Countdown = ({
   }
 
   return (
-    <div className={defaultClass} {...props}>
+    <div {...props} className={defaultClasses}>
       <div className={combinedItemClasses}>
         <div>{days}</div>
         <span>Days</span>

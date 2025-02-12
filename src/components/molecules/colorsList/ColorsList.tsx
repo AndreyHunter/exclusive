@@ -1,3 +1,5 @@
+import { clsx } from 'clsx';
+
 import { Flex } from '@components/helpers/flex/Flex';
 
 import styles from './colorsList.module.scss';
@@ -22,11 +24,12 @@ export const ColorsList = ({ colors, checked, onChange }: ColorsListProps) => {
             tagElement="label"
             justifyContent="center"
             alignItems="center"
-            className={`${styles.radio} ${checked === color.name ? styles.checked : ''}`}
+            className={clsx(styles.radio, checked === color.name && styles.checked)}
             style={{ background: color.color }}>
             <input
               type="radio"
-              name={checked}
+              name={color.name}
+              aria-label={color.name}
               checked={checked === color.name}
               onChange={() => onChange(color.name)}
             />
