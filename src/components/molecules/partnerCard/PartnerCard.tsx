@@ -1,10 +1,14 @@
-import InstagramIcon from '@assets/icons/instagram.svg?react';
-import LinkedinIcon from '@assets/icons/linkedin.svg?react';
-import TwitterIcon from '@assets/icons/twitter.svg?react';
+import { clsx } from 'clsx';
+
+import type { TypePartnerCard } from 'types/static';
 
 import styles from './partnerCard.module.scss';
 
-export const PartnerCard = ({ partner }) => {
+interface PartnerCardProps {
+  partner: TypePartnerCard;
+}
+
+export const PartnerCard = ({ partner }: PartnerCardProps) => {
   return (
     <div className={styles.slide}>
       <div className={styles.wrapper}>
@@ -16,27 +20,21 @@ export const PartnerCard = ({ partner }) => {
           <p>{partner.position}</p>
         </div>
         <ul className={styles.list}>
-          {partner.links.twitter && (
-            <li>
-              <a href={`${partner.links.twitter}`} target="_blank">
-                <TwitterIcon className={styles.icon} />
-              </a>
-            </li>
-          )}
-          {partner.links.instagram && (
-            <li>
-              <a href={`${partner.links.instagram}`} target="_blank">
-                <InstagramIcon className={styles.instagram} />
-              </a>
-            </li>
-          )}
-          {partner.links.linkedin && (
-            <li>
-              <a href={`${partner.links.linkedin}`} target="_blank">
-                <LinkedinIcon className={styles.icon} />
-              </a>
-            </li>
-          )}
+          {partner.links &&
+            partner.links.map((link, index) => {
+              const classes = clsx({
+                [styles.icon]: link.name !== 'instagram',
+                [styles.stroke]: link.name === 'instagram',
+              });
+              const Icon = link.icon;
+              return (
+                <li key={`${index}${link.name}`} className={classes}>
+                  <a href={link.path} target="_black">
+                    <Icon />
+                  </a>
+                </li>
+              );
+            })}
         </ul>
       </div>
     </div>

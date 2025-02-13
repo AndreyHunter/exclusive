@@ -10,8 +10,9 @@ export const OurStatisticList = ({ className }) => {
   return (
     <Container>
       <ul className={combinedClasses}>
-        {statisticCards &&
-          statisticCards.map((card) => <OurStatisticItem key={card.id} card={card} />)}
+        {statisticCards.map((card) => (
+          <OurStatisticItem key={card.id} {...card} />
+        ))}
       </ul>
     </Container>
   );
