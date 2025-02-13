@@ -1,22 +1,39 @@
-import AppleIcon from '@assets/icons/apple.svg?react';
+import { clsx } from 'clsx';
+
 import GooglePlayIcon from '@assets/icons/google-play.svg?react';
+import AppleIcon from '@assets/icons/apple.svg?react';
 
 import styles from './mobileAppLink.module.scss';
 
-export const MobileAppLink = ({ variant, className, ...props }) => {
-  const google = variant === 'google';
-  const apple = variant === 'apple';
+interface MobileAppLinkProps {
+  variant: 'google' | 'apple';
+  className?: string;
+}
 
-  const title = google ? 'Google play' : apple ? 'App store' : null;
-  const message = google ? 'GET IT ON' : apple ? 'Download in the' : null;
+export const MobileAppLink = ({ variant, className }: MobileAppLinkProps) => {
+  const classes = clsx(styles.root, className);
+  const config = {
+    google: {
+      Icon: GooglePlayIcon,
+      message: 'GET IT ON',
+      title: 'Google play',
+    },
+    apple: {
+      Icon: AppleIcon,
+      message: 'Download in the',
+      title: 'App store',
+    },
+  };
 
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+  const { Icon, message, title } = config[variant];
+  const testId = variant === 'google' ? 'google' : variant === 'apple' ? 'apple' : '';
 
   return (
-    <div className={combinedClasses} {...props}>
+    <div className={classes}>
       <div className={styles.content}>
-        {google && <GooglePlayIcon />}
-        {apple && <AppleIcon />}
+        <span data-testid={testId}>
+          <Icon />
+        </span>
         <div className={styles.block}>
           <div className={styles.message}>{message}</div>
           <div className={styles.title}>{title}</div>

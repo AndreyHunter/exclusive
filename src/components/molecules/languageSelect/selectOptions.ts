@@ -1,4 +1,6 @@
-export const options = [
+export type OptionType = { value: string; label: string };
+
+export const options: OptionType[] = [
   {
     value: 'en',
     label: 'English',

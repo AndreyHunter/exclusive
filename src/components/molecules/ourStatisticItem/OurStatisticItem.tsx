@@ -1,20 +1,28 @@
+import { clsx } from 'clsx';
+
 import { CircleContainerIcon } from '@components/atoms/circleContainerIcon/CircleContainerIcon';
+import type { OurStatisticCard } from 'types/static';
 
 import styles from './ourStatisticItem.module.scss';
 
-export const OurStatisticItem = ({ card, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
-  const Icon = card.icon;
-
-  const hoverClass = card.changeOnHover === 'fill' ? styles.fill : styles.stroke;
-  const circleClass = `${styles.icon} ${hoverClass}`;
+export const OurStatisticItem = ({
+  amount,
+  desc,
+  icon,
+  changeOnHover,
+}: Omit<OurStatisticCard, 'id'>) => {
+  const Icon = icon;
+  const circleClasses = clsx(styles.icon, {
+    [styles.fill]: changeOnHover === 'fill',
+    [styles.stroke]: changeOnHover === 'stroke',
+  });
 
   return (
-    <li className={combinedClasses}>
-      <CircleContainerIcon className={circleClass}>{<Icon />}</CircleContainerIcon>
+    <li className={styles.root}>
+      <CircleContainerIcon className={circleClasses}>{<Icon />}</CircleContainerIcon>
       <div className={styles.block}>
-        <div>{card.amount}k</div>
-        <p>{card.desc}</p>
+        <div>{amount}k</div>
+        <p>{desc}</p>
       </div>
     </li>
   );

@@ -18,16 +18,7 @@ export const PartnersSlider = ({ className }) => {
   return (
     <section className={combinedClasses}>
       <Container>
-        {partners.length > 3 ? (
-          <Swiper {...settings} className="partner-slider">
-            {partners &&
-              partners.map((partner) => (
-                <SwiperSlide key={partner.id}>
-                  <PartnerCard partner={partner} />
-                </SwiperSlide>
-              ))}
-          </Swiper>
-        ) : isSmall ? (
+        {partners.length > 3 || isSmall ? (
           <Swiper {...settings} className="partner-slider">
             {partners &&
               partners.map((partner) => (
