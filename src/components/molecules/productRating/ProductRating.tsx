@@ -4,7 +4,13 @@ import RatingIcon from '@assets/icons/star.svg?react';
 
 import styles from './productRating.module.scss';
 
-export const ProductRating = ({ rating, setRating, reviewsCount }) => {
+interface ProductRatingProps {
+  rating: number;
+  reviewsCount: number;
+  setRating: (rating: number) => void;
+}
+
+export const ProductRating = ({ rating, setRating, reviewsCount }: ProductRatingProps) => {
   const [hover, setHover] = useState(0);
 
   return (
@@ -16,6 +22,7 @@ export const ProductRating = ({ rating, setRating, reviewsCount }) => {
             <button
               type="button"
               key={index}
+              aria-label="rating-btn"
               className={index <= (hover || rating) ? styles.on : styles.off}
               onClick={() => setRating(index)}
               onMouseEnter={() => setHover(index)}

@@ -1,27 +1,40 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import FavoriteIcon from '@assets/icons/heart.svg?react';
 import CompareIcon from '@assets/icons/compare.svg?react';
-import { Numbers, Strings } from '@utils/index';
-import { AddToCartButton } from '@/components/atoms/addToCartButton/AddToCartButton';
+import { Strings } from '@utils/index';
+import { AddToCartButton } from '@/components/molecules/addToCartButton/AddToCartButton';
 import { CardActionButton } from '@components/atoms/cardActionButton/CardActionButton';
 import { DiscountLabel } from '@components/atoms/discountLabel/DiscountLabel';
 import { ProductPrice } from '@components/atoms/productPrice/ProductPrice';
 import { Flex } from '@components/helpers/flex/Flex';
 import { ProductRating } from '@components/molecules/productRating/ProductRating';
+import type { Product } from 'types/index';
+import { ROUTES } from '@routes/routes';
 
 import styles from './productsCard.module.scss';
 
-export const ProductCard = ({ product, handleAddToCart, loading, showAddedMessage }) => {
-  const [rating, setRating] = useState(product.rating);
-  const [reviewsCount, setReviewsCount] = useState(product.reviewsCount);
+interface ProductCardProps {
+  product: Product;
+  discount: number;
+  loading: boolean;
+  showAddedMessage: boolean;
+  rating: number;
+  reviewsCount: number;
+  onAddToCart: () => void;
+  onSetRating: (rating: number) => void;
+}
 
-  const handleSetRating = (rating) => {
-    setRating(rating);
-    setReviewsCount((prev) => prev + 1);
-  };
-
+export const ProductCard = ({
+  product,
+  discount,
+  loading,
+  showAddedMessage,
+  rating,
+  reviewsCount,
+  onAddToCart,
+  onSetRating,
+}: ProductCardProps) => {
   return (
     <li className={styles.card}>
       <Flex
@@ -29,15 +42,10 @@ export const ProductCard = ({ product, handleAddToCart, loading, showAddedMessag
         flexDirection="column"
         justifyContent="center"
         alignItems="center">
-        <Link>
-          <img src={product.images[0]} alt={product?.name} className={styles.image} />
+        <Link to={`${ROUTES.PRODUCT}/${product._id}`}>
+          <img src={product.images[0]} alt={product.name} className={styles.image} />
         </Link>
-        <DiscountLabel
-          discount={
-            product.discountedPrice && Numbers.calcDiscount(product.price, product.discountedPrice)
-          }
-          className={styles.label}
-        />
+        {product.discountedPrice && <DiscountLabel discount={discount} className={styles.label} />}
         <div className={styles.buttons}>
           <CardActionButton>
             <FavoriteIcon />
@@ -47,16 +55,18 @@ export const ProductCard = ({ product, handleAddToCart, loading, showAddedMessag
           </CardActionButton>
         </div>
         <AddToCartButton
-          className={styles.button}
-          onClick={handleAddToCart}
+          onClick={onAddToCart}
           loading={loading}
           showAddedMessage={showAddedMessage}
+          className={styles.button}
         />
       </Flex>
       <Flex gap={8} flexDirection="column" className={styles.info}>
-        <Link className={styles.title}>{Strings.sliceString(product.name, 25, true)}</Link>
+        <Link to={`${ROUTES.PRODUCT}/${product._id}`} className={styles.title}>
+          {Strings.sliceString(product.name, 25, true)}
+        </Link>
         <ProductPrice price={product.price} discountedPrice={product.discountedPrice} />
-        <ProductRating rating={rating} setRating={handleSetRating} reviewsCount={reviewsCount} />
+        <ProductRating rating={rating} reviewsCount={reviewsCount} setRating={onSetRating} />
       </Flex>
     </li>
   );

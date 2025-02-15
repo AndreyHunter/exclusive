@@ -20,7 +20,13 @@ export const AddToCartButton: React.FC<AddToCartButtonProps> = ({
   const classes = clsx(styles.root, className);
 
   return (
-    <button {...props} type="button" className={classes} onClick={onClick} disabled={loading}>
+    <button
+      {...props}
+      type="button"
+      className={classes}
+      onClick={onClick}
+      disabled={loading}
+      aria-label="add-to-cart-btn">
       {loading ? (
         <Loader small data-testid="loader" />
       ) : showAddedMessage ? (

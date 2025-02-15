@@ -1,12 +1,19 @@
+import { clsx } from 'clsx';
+
 import { ProductCardContainer as ProductCard } from '@components/molecules/productCard/ProductCardContainer';
+import type { Product } from 'types/index';
 
 import styles from './productList.module.scss';
 
-export const ProductsList = ({ products, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface ProductsListProps {
+  products: Product[];
+  className?: string;
+}
 
+export const ProductsList = ({ products, className }: ProductsListProps) => {
+  const classes = clsx(styles.root, className);
   return (
-    <ul className={combinedClasses}>
+    <ul className={classes}>
       {products && products.map((product) => <ProductCard key={product._id} product={product} />)}
     </ul>
   );

@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as useMediaQueryMock from '@hooks/useMediaQuery';
+import { mockProduct } from '@tests/__fixtures__/index';
 
-import { mockProduct } from './CartItem.fixtures';
 import { CartItem } from './CartItem';
 
 jest.mock('@components/molecules/orderItem/OrderItem', () => ({
