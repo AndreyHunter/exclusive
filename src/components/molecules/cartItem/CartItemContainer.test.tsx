@@ -2,8 +2,9 @@ import { render } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
+import { mockProduct } from '@tests/__fixtures__/index';
+
 import { CartItemContainer } from './CartItemContainer';
-import { mockProduct } from './CartItem.fixtures';
 import { CartItem } from './CartItem';
 
 jest.mock('./CartItem', () => ({
