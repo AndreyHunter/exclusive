@@ -10,11 +10,9 @@ export const CategoriesSection = ({ className }) => {
   return (
     <section className={combinedClasses}>
       <Container>
-        <SectionLabelWithTitle
-          label="Categories"
-          title="Browse By Category"
-          className={styles.block}
-        />
+        <div className={styles.block}>
+          <SectionLabelWithTitle label="Categories" title="Browse By Category" />
+        </div>
         <CategorySlider />
       </Container>
     </section>

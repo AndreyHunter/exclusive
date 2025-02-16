@@ -9,44 +9,38 @@ import CartIcon from '@assets/icons/cart.svg?react';
 import WishListIcon from '@assets/icons/heart.svg?react';
 import UserIcon from '@assets/icons/user.svg?react';
 
-import type { UserActionsContainerProps } from './UserActionsContainer';
 import styles from './userActions.module.scss';
+import type { UserActionsContainerProps } from './UserActionsContainer';
 
 interface UserActionsProps extends UserActionsContainerProps {
-  ref: React.RefObject<HTMLDivElement | null>;
-  isOpen: boolean;
   isAuth: boolean;
   productsQuantity: number;
-  onToggleMenu: () => void;
   onCloseMobileMenu: () => void;
+  onToggleMenu: () => void;
 }
 
-export const UserActions: React.FC<UserActionsProps> = ({
-  ref,
-  isOpen,
+export const UserActions = ({
   isAuth,
   color,
-  className,
   productsQuantity,
-  onToggleMenu,
+  className,
   onCloseMobileMenu,
-}) => {
-  const classes = clsx(styles.root, className);
+  onToggleMenu,
+}: UserActionsProps) => {
   const colorWhite = clsx(color === 'white' && styles.white);
+  const classes = clsx(styles.icon, colorWhite);
 
   return (
-    <div className={classes}>
-      <Link to={ROUTES.WISHLIST}>
-        <WishListIcon className={`${styles.icon} ${colorWhite}`} onClick={onCloseMobileMenu} />
+    <div className={clsx(styles.root, className)}>
+      <Link to={ROUTES.WISHLIST} onClick={onCloseMobileMenu}>
+        <WishListIcon className={classes} />
       </Link>
-      <Link to={ROUTES.CART} className={styles.cart}>
-        <CartIcon className={`${styles.icon} ${colorWhite}`} onClick={onCloseMobileMenu} />
+      <Link to={ROUTES.CART} className={styles.cart} onClick={onCloseMobileMenu}>
+        <CartIcon className={classes} />
         <CircleCount quantity={productsQuantity || 0} className={styles.quantity} />
       </Link>
       {!isAuth ? (
-        <Link
-          to={isAuth ? ROUTES.PROFILE : `${ROUTES.AUTH}/${ROUTES.SIGNUP}`}
-          onClick={onCloseMobileMenu}>
+        <Link to={`${ROUTES.AUTH}/${ROUTES.SIGNUP}`}>
           <UserIcon className={colorWhite} />
         </Link>
       ) : (
@@ -58,9 +52,7 @@ export const UserActions: React.FC<UserActionsProps> = ({
           <UserIcon />
         </Button>
       )}
-      <div ref={ref} className={`${styles.menu} ${isOpen && styles.open}`}>
-        <UserMenu closeMobileMenu={onCloseMobileMenu} />
-      </div>
+      <UserMenu className={styles.menu} onCloseMobileMenu={onCloseMobileMenu} />
     </div>
   );
 };

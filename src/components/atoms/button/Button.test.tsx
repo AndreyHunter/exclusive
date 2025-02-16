@@ -1,47 +1,39 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 import { Button } from './Button';
+import type { PartialButtonProps } from './Button';
 
-jest.mock('react-router-dom', () => ({
-  Link: ({ children, to, ...props }: { children: React.ReactNode; to: string }) => (
-    <a {...props} href={to}>
-      {children}
-    </a>
-  ),
-}));
-
-describe('Button component', () => {
-  const buttonId = 'button-testid';
-
-  it('checks render like link', () => {
+describe('Button', () => {
+  const renderComponent = (props: PartialButtonProps) => {
     render(
-      <Button data-testid={buttonId} tagElement="link" to="about">
-        Link
-      </Button>,
+      <MemoryRouter>
+        <Button {...props}>{props.children}</Button>
+      </MemoryRouter>,
     );
+  };
 
-    const buttonLink = screen.getByTestId(buttonId);
+  it('renders like link', () => {
+    renderComponent({ tagElement: 'link', to: '/about', children: 'Link' });
+
+    const buttonLink = screen.getByRole('link');
 
     expect(buttonLink.tagName).toBe('A');
     expect(buttonLink).toHaveTextContent('Link');
-    expect(buttonLink).toHaveAttribute('href', 'about');
+    expect(buttonLink).toHaveAttribute('href', '/about');
   });
 
-  it('checks render like usual button', () => {
-    render(
-      <Button data-testid={buttonId} tagElement="button">
-        Click
-      </Button>,
-    );
+  it('renders like button', () => {
+    renderComponent({ tagElement: 'button', children: 'Click' });
 
-    const button = screen.getByTestId(buttonId);
+    const button = screen.getByRole('button');
 
     expect(button.tagName).toBe('BUTTON');
     expect(button).toHaveTextContent('Click');
   });
 
   it('checks if there is loader', () => {
-    render(<Button tagElement="button" loading={true}></Button>);
+    renderComponent({ tagElement: 'button', loading: true });
     const loader = screen.getByTestId('button-loader');
     expect(loader).toBeInTheDocument();
   });

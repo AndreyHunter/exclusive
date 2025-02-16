@@ -6,7 +6,7 @@ import type { Product } from 'types/index';
 import styles from './productList.module.scss';
 
 interface ProductsListProps {
-  products: Product[];
+  products: Product[] | undefined;
   className?: string;
 }
 

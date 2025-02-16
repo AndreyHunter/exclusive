@@ -19,9 +19,10 @@ interface ButtonProps {
   activeClass: boolean;
   className?: string;
   children?: React.ReactNode;
+  onClick: () => void;
 }
 
-type PartialButtonProps = Partial<ButtonProps>;
+export type PartialButtonProps = Partial<ButtonProps>;
 
 export const Button: React.FC<PartialButtonProps> = ({
   tagElement = 'button',
@@ -35,7 +36,7 @@ export const Button: React.FC<PartialButtonProps> = ({
   disabled,
   loading,
   children,
-  ...props
+  onClick,
 }) => {
   const classes = clsx(styles.root, className, {
     [styles.default]: variant === 'default',
@@ -45,7 +46,7 @@ export const Button: React.FC<PartialButtonProps> = ({
 
   if (tagElement === 'link' && to) {
     return (
-      <Link {...props} to={to} className={classes}>
+      <Link onClick={onClick} to={to} className={classes}>
         {icon && icon === 'google' && <GoogleIcon />}
         {title && !children ? title : !title && !children ? 'Link' : ''}
         {children && !title && children}
@@ -54,7 +55,7 @@ export const Button: React.FC<PartialButtonProps> = ({
   }
 
   return (
-    <button {...props} type={type} disabled={disabled} className={classes}>
+    <button onClick={onClick} type={type} disabled={disabled} className={classes}>
       {icon && icon === 'google' && <GoogleIcon />}
       {loading && <Loader data-testid="button-loader" small />}
       {title && !loading && title}

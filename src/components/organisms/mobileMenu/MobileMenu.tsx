@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { clsx } from 'clsx';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { ROUTES } from '@routes/routes';
@@ -39,11 +40,13 @@ export const MobileMenu = () => {
   };
 
   return (
-    <section className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
+    <section className={clsx(styles.root, isOpen && styles.open)}>
       <Flex flexDirection="column" gap={30} className={styles.content}>
         <Flex alignItems="center" justifyContent="space-between">
-          <Logo color="white" className={styles.logo} />
-          <UserActions className={styles.actions} color="white" />
+          <Link to={ROUTES.INDEX} onClick={handleCloseMenu}>
+            <Logo color="white" className={styles.logo} />
+          </Link>
+          <UserActions className={styles.actions} color="white" mobile />
         </Flex>
         <div className={styles.grid}>
           <Flex tagElement="ul" flexDirection="column" gap={20} className={styles.list}>

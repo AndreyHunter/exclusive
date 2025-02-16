@@ -7,10 +7,10 @@ import styles from './productRating.module.scss';
 interface ProductRatingProps {
   rating: number;
   reviewsCount: number;
-  setRating: (rating: number) => void;
+  onSetRating: (rating: number) => void;
 }
 
-export const ProductRating = ({ rating, setRating, reviewsCount }: ProductRatingProps) => {
+export const ProductRating = ({ rating, onSetRating, reviewsCount }: ProductRatingProps) => {
   const [hover, setHover] = useState(0);
 
   return (
@@ -24,7 +24,7 @@ export const ProductRating = ({ rating, setRating, reviewsCount }: ProductRating
               key={index}
               aria-label="rating-btn"
               className={index <= (hover || rating) ? styles.on : styles.off}
-              onClick={() => setRating(index)}
+              onClick={() => onSetRating(index)}
               onMouseEnter={() => setHover(index)}
               onMouseLeave={() => setHover(rating)}>
               <span className={styles.star}>

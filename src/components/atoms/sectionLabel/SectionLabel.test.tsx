@@ -4,6 +4,5 @@ import { SectionLabel } from './SectionLabel';
 
 it('renders correctly', () => {
   render(<SectionLabel>Label</SectionLabel>);
-  const element = screen.getByText(/Label/i);
-  expect(element).toHaveTextContent(/Label/i);
+  expect(screen.getByText(/Label/i)).toBeInTheDocument();
 });
