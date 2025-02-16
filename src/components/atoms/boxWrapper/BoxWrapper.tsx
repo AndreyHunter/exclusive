@@ -3,16 +3,12 @@ import { clsx } from 'clsx';
 
 import styles from './boxWrapper.module.scss';
 
-interface BowWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
+interface BowWrapperProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-export const BoxWrapper: React.FC<BowWrapperProps> = ({ className, children, ...props }) => {
+export const BoxWrapper = ({ className, children }: BowWrapperProps) => {
   const classes = clsx(styles.root, className);
-
-  return (
-    <div {...props} className={classes}>
-      {children}
-    </div>
-  );
+  return <div className={classes}>{children}</div>;
 };

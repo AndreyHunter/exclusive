@@ -1,12 +1,18 @@
+import { clsx } from 'clsx';
+
 import { Flex } from '@components/helpers/flex/Flex';
 
 import styles from './sizeList.module.scss';
 
-export const SizeList = ({ selectedSize, onChange, sizes, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface SizeListProps {
+  sizes: string[];
+  selectedSize: string;
+  onChange: (size: string) => void;
+}
 
+export const SizeList = ({ sizes, selectedSize, onChange }: SizeListProps) => {
   return (
-    <Flex tagElement="ul" gap={16} className={combinedClasses}>
+    <Flex tagElement="ul" gap={16} className={styles.root}>
       {sizes &&
         sizes.map((size, index) => (
           <li key={index}>
@@ -14,7 +20,7 @@ export const SizeList = ({ selectedSize, onChange, sizes, className }) => {
               tagElement="label"
               alignItems="center"
               justifyContent="center"
-              className={`${styles.label} ${selectedSize === size ? styles.checked : ''}`}>
+              className={clsx(styles.label, selectedSize === size && styles.checked)}>
               <input
                 type="radio"
                 name={size}

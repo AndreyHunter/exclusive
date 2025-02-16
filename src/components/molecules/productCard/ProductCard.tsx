@@ -66,7 +66,7 @@ export const ProductCard = ({
           {Strings.sliceString(product.name, 25, true)}
         </Link>
         <ProductPrice price={product.price} discountedPrice={product.discountedPrice} />
-        <ProductRating rating={rating} reviewsCount={reviewsCount} setRating={onSetRating} />
+        <ProductRating rating={rating} reviewsCount={reviewsCount} onSetRating={onSetRating} />
       </Flex>
     </li>
   );

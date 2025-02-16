@@ -5,27 +5,25 @@ import TwitterIcon from '@assets/icons/twitter.svg?react';
 
 import styles from './socialMediaList.module.scss';
 
-export const SocialMediaList = ({ className }: { className?: string }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
-
+export const SocialMediaList = () => {
   return (
-    <ul className={combinedClasses}>
-      <li className={styles.item}>
+    <ul className={styles.root}>
+      <li>
         <a href="">
           <FacebookIcon />
         </a>
       </li>
-      <li className={styles.item}>
+      <li>
         <a href="">
           <TwitterIcon />
         </a>
       </li>
-      <li className={styles.item}>
+      <li>
         <a href="">
           <InstagramIcon />
         </a>
       </li>
-      <li className={styles.item}>
+      <li>
         <a href="">
           <LinkedinIcon />
         </a>

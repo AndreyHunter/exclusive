@@ -22,11 +22,9 @@ export const OurProductsSection = ({ className }) => {
   return (
     <section className={combinedClasses}>
       <Container>
-        <SectionLabelWithTitle
-          label="Our Products"
-          title="Explore Our Products"
-          className={styles.block}
-        />
+        <div className={styles.block}>
+          <SectionLabelWithTitle label="Our Products" title="Explore Our Products" />
+        </div>
         <ul className={styles.list}>
           {products &&
             products.map((product) => <ProductCard key={product._id} product={product} />)}

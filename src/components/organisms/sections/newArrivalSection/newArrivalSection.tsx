@@ -11,7 +11,9 @@ export const NewArrivalSection = ({ className }) => {
   return (
     <section className={combinedClasses}>
       <Container>
-        <SectionLabelWithTitle label="Featured" title="New Arrival" className={styles.block} />
+        <div className={styles.block}>
+          <SectionLabelWithTitle label="Featured" title="New Arrival" />
+        </div>
         <div className={styles.grid}>
           <div className={styles.large}>
             <Flex flexDirection="column" gap={16} className={styles.large_block}>

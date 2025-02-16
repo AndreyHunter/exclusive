@@ -4,6 +4,17 @@
   padding: 20px;
   border-radius: 4px;
 
+  visibility: hidden;
+  opacity: 0;
+
+  z-index: 900;
+  transition: 0.2s ease;
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
   ul > li > * svg {
     flex-shrink: 0;
   }
