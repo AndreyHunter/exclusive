@@ -54,6 +54,9 @@ export default tseslint.config(
       // ts rules
       '@typescript-eslint/await-thenable': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/ban-ts-comment': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
       // general
       'no-console': 'warn',
       'no-debugger': 'error',

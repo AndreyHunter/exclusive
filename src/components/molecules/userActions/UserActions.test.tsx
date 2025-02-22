@@ -17,7 +17,12 @@ describe('UserActions', () => {
   it('renders links with proper paths', () => {
     render(
       <MemoryRouter>
-        <UserActions isAuth={false} productsQuantity={0} onToggleMenu={noop} />
+        <UserActions
+          isAuth={false}
+          productsQuantity={0}
+          onToggleMenu={noop}
+          onCloseMobileMenu={noop}
+        />
       </MemoryRouter>,
     );
     const links = screen.getAllByRole('link');
@@ -29,14 +34,24 @@ describe('UserActions', () => {
   it('displays different product quantities correctly', () => {
     const { rerender } = render(
       <MemoryRouter>
-        <UserActions isAuth={false} productsQuantity={0} onToggleMenu={noop} />
+        <UserActions
+          isAuth={false}
+          productsQuantity={0}
+          onToggleMenu={noop}
+          onCloseMobileMenu={noop}
+        />
       </MemoryRouter>,
     );
     expect(screen.getByText('0')).toBeInTheDocument();
 
     rerender(
       <MemoryRouter>
-        <UserActions isAuth={false} productsQuantity={1} onToggleMenu={noop} />
+        <UserActions
+          isAuth={false}
+          productsQuantity={1}
+          onToggleMenu={noop}
+          onCloseMobileMenu={noop}
+        />
       </MemoryRouter>,
     );
 
@@ -46,7 +61,12 @@ describe('UserActions', () => {
   it('renders and calls the button when user has an account', async () => {
     render(
       <MemoryRouter>
-        <UserActions isAuth={true} productsQuantity={0} onToggleMenu={handleToggleMenuMock} />
+        <UserActions
+          isAuth={true}
+          productsQuantity={0}
+          onToggleMenu={handleToggleMenuMock}
+          onCloseMobileMenu={noop}
+        />
       </MemoryRouter>,
     );
     await userEvent.click(screen.getByRole('button'));

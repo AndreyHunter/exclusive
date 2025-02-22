@@ -7,6 +7,7 @@ import styles from './wishList.module.scss';
 
 export const WishList = ({ list, className }) => {
   const combinedClasses = `${styles.root} ${className || ''}`.trim();
+  const wishList = [];
 
   return (
     <section className={combinedClasses}>
@@ -18,8 +19,8 @@ export const WishList = ({ list, className }) => {
           </Flex>
 
           <ul className={styles.grid}>
-            {true &&
-              [].map((product) => <ProductCard key={product.id} product={product} />).splice(0, 4)}
+            {wishList &&
+              [].map((product) => <ProductCard key={product._id} product={product} />).splice(0, 4)}
           </ul>
         </Flex>
       </Container>

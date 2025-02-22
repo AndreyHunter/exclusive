@@ -10,7 +10,6 @@ import type {
   ContainerProps,
   GroupBase,
 } from 'react-select';
-import { ValueContainerProps, IndicatorsContainerProps } from 'react-select';
 
 import type { OptionType } from './selectOptions';
 

@@ -1,7 +1,7 @@
 import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { ScrollToTopButton } from './ScrollToTopButton';
+import { ScrollToTopButton } from './scrollToTopButton';
 import styles from './scrollToTopButton.module.scss';
 
 describe('ScrollToTopButton', () => {

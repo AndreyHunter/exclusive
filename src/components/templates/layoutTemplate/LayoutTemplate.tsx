@@ -2,7 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import { Separator } from '@components/atoms/separator/Separator';
-import { ScrollToTopButton } from '@components/molecules/scrollToTopButton/ScrollToTopButton';
+import { ScrollToTopButton } from '@components/molecules/scrollToTopButton/scrollToTopButton';
 import { Footer } from '@components/organisms/footer/Footer';
 import { Header } from '@components/organisms/header/Header';
 import { MobileMenu } from '@components/organisms/mobileMenu/MobileMenu';
