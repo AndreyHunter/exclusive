@@ -27,25 +27,6 @@
   }
 }
 
-.nav {
-  gap: 24px;
-  flex-wrap: wrap;
-
-  @media (max-width: 968px) {
-    flex-direction: row;
-    gap: 80px;
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: row;
-    gap: 60px;
-  }
-
-  @media (max-width: 568px) {
-    gap: 30px;
-  }
-}
-
 .welcome {
   padding-top: 80px;
   font-size: 0.875rem;

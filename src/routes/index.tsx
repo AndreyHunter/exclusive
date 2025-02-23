@@ -97,6 +97,26 @@ export default createBrowserRouter([
             index: true,
             element: <ProfilePage />,
           },
+          {
+            path: ROUTES.ADDRESS_BOOK,
+            element: <div>Address book</div>,
+          },
+          {
+            path: ROUTES.PAYMENT_OPTIONS,
+            element: <div>Payment Options</div>,
+          },
+          {
+            path: ROUTES.ORDERS,
+            element: <div>Orders</div>,
+          },
+          {
+            path: ROUTES.RETURNS,
+            element: <div>Returns</div>,
+          },
+          {
+            path: ROUTES.CANCELLATIONS,
+            element: <div>Cancellations</div>,
+          },
         ],
       },
       {
