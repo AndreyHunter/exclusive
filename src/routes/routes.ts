@@ -11,9 +11,12 @@ export enum ROUTES {
   NOT_FOUND = '*',
   // PROFILE
   PROFILE = 'profile',
-  MY_ORDERS = 'my-orders',
-  MY_CANCELLATIONS = 'my-cancellations',
-  MY_REVIEWS = 'my-reviews',
+  ADDRESS_BOOK = 'address-book',
+  PAYMENT_OPTIONS = 'payment-options',
+  ORDERS = 'orders',
+  RETURNS = 'returns',
+  CANCELLATIONS = 'cancellations',
+  REVIEWS = 'reviews',
   // AUTH
   AUTH = 'auth',
   SIGNUP = 'signup',

@@ -1,55 +1,62 @@
+import type { NavLinkRenderProps } from 'react-router-dom';
 import { NavLink, useLocation } from 'react-router-dom';
+import { clsx } from 'clsx';
 
 import { Flex } from '@components/helpers/flex/Flex';
+import { ROUTES } from '@routes/routes';
 
 import styles from './accountNav.module.scss';
 
-export const AccountNav = ({ className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+export const AccountNav = () => {
   const { pathname } = useLocation();
 
-  const accountClasses = [styles.link, pathname === '/profile' ? styles.active : ''].join(' ');
-
-  const activeLinkClass = ({ isActive }) =>
-    isActive ? `${styles.link} ${styles.active}` : styles.link;
+  const activeLinkClass = ({ isActive }: NavLinkRenderProps) =>
+    isActive ? clsx(styles.link, styles.active) : styles.link;
 
   return (
-    <Flex flexDirection="column" className={combinedClasses}>
+    <Flex flexDirection="column" className={styles.root}>
       <div>
         <strong>Manage My Account</strong>
         <Flex tagElement="ul" flexDirection="column" gap={8}>
           <li>
-            <NavLink to="profile" className={accountClasses}>
+            <NavLink
+              to={`/${ROUTES.PROFILE}`}
+              className={clsx(styles.link, pathname === `/${ROUTES.PROFILE}` && styles.active)}>
               My Profile
             </NavLink>
           </li>
           <li>
-            <NavLink to="address-book" className={activeLinkClass}>
+            <NavLink to={ROUTES.ADDRESS_BOOK} className={activeLinkClass}>
               Address Book
             </NavLink>
           </li>
           <li>
-            <NavLink to="payment-options" className={activeLinkClass}>
+            <NavLink to={ROUTES.PAYMENT_OPTIONS} className={activeLinkClass}>
               My Payment Options
             </NavLink>
           </li>
           <li>
-            <NavLink to="wishlist" className={activeLinkClass}>
+            <NavLink to={`/${ROUTES.WISHLIST}`} className={activeLinkClass}>
               My WishList
             </NavLink>
           </li>
         </Flex>
       </div>
       <div>
-        <strong>My Orders</strong>
+        <strong>Orders</strong>
         <Flex tagElement="ul" flexDirection="column" gap={8}>
           <li>
-            <NavLink to="returns" className={activeLinkClass}>
+            <NavLink to={ROUTES.ORDERS} className={activeLinkClass}>
+              My Orders
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.RETURNS} className={activeLinkClass}>
               My Returns
             </NavLink>
           </li>
           <li>
-            <NavLink to="cancellations" className={activeLinkClass}>
+            <NavLink to={ROUTES.CANCELLATIONS} className={activeLinkClass}>
               My Cancellations
             </NavLink>
           </li>
