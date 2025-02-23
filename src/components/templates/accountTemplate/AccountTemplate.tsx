@@ -26,7 +26,7 @@ const AccountTemplate = () => {
       <section className={styles.section}>
         <Container>
           <div className={styles.grid}>
-            <AccountNav className={styles.nav} />
+            <AccountNav />
             <Outlet />
           </div>
         </Container>

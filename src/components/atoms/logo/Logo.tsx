@@ -9,16 +9,17 @@ import styles from './logo.module.scss';
 export interface LogoProps {
   color: 'white' | 'black';
   className?: string;
+  onClick?: () => void;
 }
 
-export const Logo: React.FC<LogoProps> = ({ color = 'black', className, ...props }) => {
+export const Logo = ({ color = 'black', className, onClick }: LogoProps) => {
   const classes = clsx(styles.root, className, {
     [styles.white]: color === 'white',
     [styles.black]: color === 'black',
   });
 
   return (
-    <Link {...props} to={ROUTES.INDEX} className={classes}>
+    <Link to={ROUTES.INDEX} className={classes} onClick={onClick}>
       Exclusive
     </Link>
   );
