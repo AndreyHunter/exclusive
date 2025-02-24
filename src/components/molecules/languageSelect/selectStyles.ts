@@ -22,7 +22,7 @@ export const customStyles: StylesConfig<OptionType, false, GroupType> = {
   ) => ({
     ...provided,
     width: 110,
-    zIndex: 110,
+    zIndex: 1100,
   }),
   control: (provided: CSSObjectWithLabel, props: ControlProps<OptionType, false, GroupType>) => ({
     ...provided,
