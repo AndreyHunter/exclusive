@@ -1,23 +1,84 @@
-.block {
-  padding-top: 40px;
+.root {
   padding-right: 16px;
 }
 
 .list {
   display: inline-flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 .item {
+  display: inline;
+  padding-block: 8px;
+  transition: var(--main-transition);
+
+  > a {
+    color: black;
+
+    &:hover {
+      color: var(--accentColor);
+    }
+  }
+}
+
+.categoryItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   gap: 50px;
+  padding-block: 8px;
+  cursor: pointer;
+  transition: var(--main-transition);
+
+  > a {
+    color: black;
+  }
+
+  &:hover > a {
+    color: var(--accentColor);
+  }
 }
 
 .link {
-  color: black;
   font-size: 1rem;
   line-height: 150%;
+  text-decoration: none;
+}
+
+.subList {
+  display: none;
+  width: 200px;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  right: -170px;
+  z-index: 100;
+
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  cursor: default;
+
+  &.active {
+    display: block;
+  }
+}
+
+.categoryItem:hover .subList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subLink {
+  color: black;
+  font-size: 0.875rem;
+  line-height: 150%;
+  text-decoration: none;
+  transition: var(--main-transition);
+
+  &:hover {
+    color: var(--accentColor);
+  }
 }

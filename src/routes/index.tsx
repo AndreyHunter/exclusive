@@ -15,7 +15,7 @@ const CartPage = lazy(() => import('@pages/cartPage/CartPageContainer'));
 const CheckoutPage = lazy(() => import('@pages/checkoutPage/CheckoutPage'));
 const NotFoundPage = lazy(() => import('@pages/notFoundPage/NotFoundPage'));
 const ContactsPage = lazy(() => import('@pages/contactsPage/ContactsPage'));
-const ProductsPage = lazy(() => import('@pages/productsPage/ProductPageContainer'));
+const ProductsPage = lazy(() => import('@/pages/productsPage/ProductsPageContainer'));
 const ProductPage = lazy(() => import('@pages/productPage/ProductPage'));
 const ProfilePage = lazy(() => import('@pages/profilePage/ProfilePage'));
 
@@ -52,7 +52,23 @@ export default createBrowserRouter([
         ),
       },
       {
+        path: ROUTES.PRODUCTS,
+        element: (
+          <SuspenseWrapper>
+            <ProductsPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
         path: `${ROUTES.PRODUCTS}/:category`,
+        element: (
+          <SuspenseWrapper>
+            <ProductsPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: `${ROUTES.PRODUCTS}/:category/:subcategory`,
         element: (
           <SuspenseWrapper>
             <ProductsPage />
