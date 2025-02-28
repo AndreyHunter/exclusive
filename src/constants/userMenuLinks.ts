@@ -14,19 +14,19 @@ export const userMenuLinks = [
   {
     id: 2,
     name: 'My Orders',
-    path: ROUTES.MY_ORDERS,
+    path: ROUTES.ORDERS,
     icon: OrderIcon,
   },
   {
     id: 3,
     name: 'My Cancellations',
-    path: ROUTES.MY_CANCELLATIONS,
+    path: ROUTES.CANCELLATIONS,
     icon: CancelIcon,
   },
   {
     id: 4,
     name: 'My Reviews',
-    path: ROUTES.MY_REVIEWS,
+    path: ROUTES.REVIEWS,
     icon: ReviewIcon,
   },
 ];

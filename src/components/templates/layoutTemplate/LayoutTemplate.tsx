@@ -25,7 +25,9 @@ const LayoutTemplate = () => {
       <div className={styles.top_header}>
         <TopHeader />
       </div>
-      <Header className={styles.header} />
+      <div className={styles.header}>
+        <Header />
+      </div>
       <Separator />
       <main>
         <Outlet />

@@ -5,11 +5,9 @@ import { FormInput } from '@components/molecules/formInput/FormInput';
 
 import styles from './contactsForm.module.scss';
 
-export const ContactsForm = ({ className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
-
+export const ContactsForm = () => {
   return (
-    <BoxWrapper className={combinedClasses}>
+    <BoxWrapper className={styles.root}>
       <form className={styles.form}>
         <Flex gap={15} className={styles.inputs}>
           <FormInput placeholder="Your Name" required />
@@ -18,7 +16,7 @@ export const ContactsForm = ({ className }) => {
         </Flex>
         <FormInput placeholder="Your Massage" className={styles.message} />
         <Flex justifyContent="flex-end">
-          <Button title="Send Massage" />
+          <Button>Send Massage</Button>
         </Flex>
       </form>
     </BoxWrapper>

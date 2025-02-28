@@ -3,25 +3,26 @@ import { Logo } from '@components/atoms/logo/Logo';
 import { Container } from '@components/helpers/container/Container';
 import { Search } from '@components/molecules/search/Search';
 import { UserActionsContainer as UserActions } from '@components/molecules/userActions/UserActionsContainer';
+import { Flex } from '@components/helpers/flex/Flex';
 
 import { HeaderNav } from './headerNav/HeaderNav';
 import styles from './header.module.scss';
 
-export const Header = ({ className }) => {
-  const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
-
+export const Header = () => {
   return (
-    <header className={combinedClasses}>
+    <header className={styles.root}>
       <Container>
         <div className={styles.content}>
           <div className={styles.left}>
             <Logo />
-            <HeaderNav pages={navPages} className={styles.nav} />
+            <div className={styles.nav}>
+              <HeaderNav pages={navPages} />
+            </div>
           </div>
-          <div className={styles.wrapper}>
+          <Flex alignItems="center" gap={24}>
             <Search className={styles.search} />
             <UserActions />
-          </div>
+          </Flex>
         </div>
       </Container>
     </header>

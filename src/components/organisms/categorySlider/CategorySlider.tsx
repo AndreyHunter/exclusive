@@ -22,8 +22,16 @@ export const CategorySlider = () => {
           ))}
       </Swiper>
       <div className="categories-slider-buttons">
-        <SliderButton direction="left" className="categories-slider-button-prev" />
-        <SliderButton direction="right" className="categories-slider-button-next" />
+        <SliderButton
+          direction="left"
+          className="categories-slider-button-prev"
+          role="previous-slide"
+        />
+        <SliderButton
+          direction="right"
+          className="categories-slider-button-next"
+          role="next-slide"
+        />
       </div>
     </div>
   );
