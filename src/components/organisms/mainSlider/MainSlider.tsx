@@ -1,39 +1,49 @@
 import { Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 
 import { useAppDispatch } from '@/app/hooks';
 import { closeUserMenu } from '@features/userMenu/userMenuSlice';
+import { ROUTES } from '@routes/routes';
+import type { SlideImg } from 'types/static';
 
-import { MainSlide } from './mainSlide/MainSlide';
 import { mainSlides } from './mainSlides';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 import './mainSlider.scss';
 
-export const MainSlider = () => {
+interface MainSliderProps {
+  slides?: SlideImg[];
+}
+
+export const MainSlider = ({ slides = mainSlides }: MainSliderProps) => {
   const dispatch = useAppDispatch();
 
-  const handleMenuCLose = () => {
+  const handleMenuClose = () => {
     dispatch(closeUserMenu());
   };
 
   return (
     <Swiper
-      onClick={handleMenuCLose}
+      onClick={handleMenuClose}
       modules={[Pagination, Autoplay]}
       pagination={{ clickable: true }}
       slidesPerView={1}
-      spaceBetween={0}
+      spaceBetween={30}
       autoplay={{ delay: 6000 }}
       speed={600}>
-      {mainSlides &&
-        mainSlides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <MainSlide slide={slide} />
-          </SwiperSlide>
-        ))}
+      {slides.map((slide) => (
+        <SwiperSlide key={slide.id}>
+          <Link to={`${ROUTES.PRODUCT}/${slide.id}`}>
+            <picture>
+              <source media="(max-width: 560px)" srcSet={slide.smallImgPath} />
+              <source media="(min-width: 561px)" srcSet={slide.largeImgPath} />
+              <img src={slide.largeImgPath} alt={`Product-${slide.id}`} loading="lazy" />
+            </picture>
+          </Link>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

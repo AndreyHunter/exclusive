@@ -43,7 +43,9 @@ export const MobileMenu = () => {
     <section className={clsx(styles.root, isOpen && styles.open)}>
       <Flex flexDirection="column" gap={30} className={styles.content}>
         <Flex alignItems="center" justifyContent="space-between">
-          <Logo color="white" className={styles.logo} onClick={handleCloseMenu} />
+          <div className={styles.logo}>
+            <Logo color="white" onClick={handleCloseMenu} />
+          </div>
           <UserActions className={styles.actions} color="white" mobile />
         </Flex>
         <div className={styles.grid}>

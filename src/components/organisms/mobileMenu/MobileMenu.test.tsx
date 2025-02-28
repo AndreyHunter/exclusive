@@ -1,6 +1,7 @@
 import { render, act } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { MemoryRouter } from 'react-router-dom';
 
 import mobileMenuReducer, {
   toggleMenuOpen,
@@ -9,12 +10,6 @@ import mobileMenuReducer, {
 
 import { MobileMenu } from './MobileMenu';
 import styles from './mobileMenu.module.scss';
-
-jest.mock('react-router-dom', () => ({
-  Link: ({ children, to }: { children: React.ReactNode; to: string }) => (
-    <a href={to}>{children}</a>
-  ),
-}));
 
 jest.mock('@components/molecules/socialMediaList/SocialMediaList', () => ({
   SocialMediaList: () => <ul />,
@@ -27,7 +22,9 @@ jest.mock('@components/molecules/userActions/UserActionsContainer', () => ({
 const renderWithProvider = (store: any) => {
   render(
     <Provider store={store}>
-      <MobileMenu />
+      <MemoryRouter>
+        <MobileMenu />
+      </MemoryRouter>
     </Provider>,
   );
 };

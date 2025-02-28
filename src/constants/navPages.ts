@@ -1,6 +1,7 @@
 import { ROUTES } from '@routes/routes';
+import type { Page } from 'types/static';
 
-export const navPages = [
+export const navPages: Page[] = [
   {
     id: 1,
     name: 'Home',
@@ -19,6 +20,6 @@ export const navPages = [
   {
     id: 4,
     name: 'Sign Up',
-    path: `${ROUTES.AUTH}/signup`,
+    path: `${ROUTES.AUTH}/${ROUTES.SIGNUP}`,
   },
 ];

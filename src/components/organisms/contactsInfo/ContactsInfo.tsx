@@ -5,11 +5,9 @@ import { ContactsLabel } from '@components/molecules/contactsLabel/ContactsLabel
 
 import styles from './contactsInfo.module.scss';
 
-export const ContactsInfo = ({ className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
-
+export const ContactsInfo = () => {
   return (
-    <BoxWrapper className={combinedClasses}>
+    <BoxWrapper className={styles.root}>
       <Flex flexDirection="column" gap={30}>
         <Flex flexDirection="column" gap={24}>
           <ContactsLabel label="Call To Us" icon="phone" />
