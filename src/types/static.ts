@@ -1,9 +1,12 @@
-export interface Category {
+export interface Page {
   id: number;
   name: string;
   path: string;
+}
+
+export interface Category extends Page {
   icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  subcategories?: { id: number; name: string; path: string }[];
+  subcategories?: Page[];
 }
 
 export interface Advantage {
@@ -30,4 +33,10 @@ export interface TypePartnerCard {
     path: string;
     icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   }[];
+}
+
+export interface SlideImg {
+  id: number;
+  largeImgPath: string;
+  smallImgPath: string;
 }
