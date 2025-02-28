@@ -8,10 +8,11 @@ import {
   selectProducts,
   selectProductsError,
   selectProductsIsLoading,
+  fetchProducts,
 } from '@features/products/productsSlice';
 import { Utils } from '@utils/index';
 
-import ProductPage from './ProductsPage';
+import ProductsPage from './ProductsPage';
 
 const ProductPageContainer = () => {
   const dispatch = useAppDispatch();
@@ -24,10 +25,14 @@ const ProductPageContainer = () => {
   const fullPath = pathname.replace('/products', '');
 
   const categoryName = Utils.getCategoryName(fullPath);
-  const breadCrumbs = Utils.generateBreadcrumbs(fullPath);
+  const breadCrumbs = Utils.generateBreadcrumbs(pathname);
 
   useEffect(() => {
-    dispatch(fetchProductsByCategories({ limit, category: fullPath }));
+    if (fullPath) {
+      dispatch(fetchProductsByCategories({ limit, category: fullPath }));
+    } else {
+      dispatch(fetchProducts({ limit }));
+    }
 
     return () => {
       dispatch(clearProducts());
@@ -35,7 +40,7 @@ const ProductPageContainer = () => {
   }, [dispatch, limit, fullPath]);
 
   return (
-    <ProductPage
+    <ProductsPage
       products={products}
       error={error}
       loading={loading}

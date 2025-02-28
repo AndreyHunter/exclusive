@@ -6,11 +6,9 @@ import { FormInput } from '@components/molecules/formInput/FormInput';
 
 import styles from './editProfileForm.module.scss';
 
-export const EditProfileForm = ({ className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
-
+export const EditProfileForm = () => {
   return (
-    <BoxWrapper className={combinedClasses}>
+    <BoxWrapper className={styles.root}>
       <form className={styles.form}>
         <div className={styles.grid}>
           <Flex flexDirection="column" gap={8}>

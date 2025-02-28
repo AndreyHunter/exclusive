@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { clsx } from 'clsx';
 
 import { useAppSelector } from '@/app/hooks';
 import { FooterInfoTitle } from '@components/atoms/footerInfoTitle/FooterInfoTitle';
@@ -16,12 +17,16 @@ import { selectIsAuth } from '@features/auth/authSlice';
 
 import styles from './footer.module.scss';
 
-export const Footer = ({ className }) => {
+interface FooterProps {
+  className?: string;
+}
+
+export const Footer = ({ className }: FooterProps) => {
   const isAuth = useAppSelector(selectIsAuth);
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+  const classes = clsx(styles.root, className);
 
   return (
-    <footer className={combinedClasses}>
+    <footer className={classes}>
       <Container>
         <div className={styles.grid}>
           <div className={styles.column}>
@@ -31,7 +36,7 @@ export const Footer = ({ className }) => {
                 <FooterInfoTitle title="Subscribe" />
                 <p>Get 10% off your first order</p>
               </Flex>
-              <SendEmailForm />
+              <SendEmailForm onSubmit={() => {}} />
             </Flex>
           </div>
           <div className={styles.column}>
@@ -73,7 +78,7 @@ export const Footer = ({ className }) => {
                   </Link>
                 </li>
                 <li className={styles.item}>
-                  <Link to={ROUTES.CATALOG} className={styles.link}>
+                  <Link to={ROUTES.PRODUCTS} className={styles.link}>
                     Shop
                   </Link>
                 </li>

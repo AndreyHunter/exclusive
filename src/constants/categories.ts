@@ -8,18 +8,18 @@ export const categories: Category[] = [
     subcategories: [
       {
         id: 1,
-        name: 'jackets',
-        path: 'womans-fashion/jackets',
+        name: 'Jackets',
+        path: 'jackets',
       },
       {
         id: 2,
-        name: 'jackets',
-        path: 'womans-fashion/shoos',
+        name: 'Shoes',
+        path: 'shoes',
       },
       {
         id: 3,
-        name: 'jackets',
-        path: 'womans-fashion/trousers',
+        name: 'Trousers',
+        path: 'trousers',
       },
     ],
   },
@@ -30,18 +30,18 @@ export const categories: Category[] = [
     subcategories: [
       {
         id: 1,
-        name: 'jackets',
-        path: 'mens-fashion/jackets',
+        name: 'Jackets',
+        path: 'jackets',
       },
       {
         id: 2,
-        name: 'jackets',
-        path: 'mens-fashion/shoos',
+        name: 'Shoes',
+        path: 'shoes',
       },
       {
         id: 3,
-        name: 'jackets',
-        path: 'mens-fashion/trousers',
+        name: 'Trousers',
+        path: 'trousers',
       },
     ],
   },
@@ -53,27 +53,27 @@ export const categories: Category[] = [
       {
         id: 1,
         name: 'Computers',
-        path: 'electronics/computers',
+        path: 'computers',
       },
       {
         id: 2,
         name: 'SmartWatch',
-        path: 'electronics/smartwatch',
+        path: 'smartwatch',
       },
       {
         id: 3,
         name: 'Cameras',
-        path: 'electronics/cameras',
+        path: 'cameras',
       },
       {
         id: 4,
         name: 'HeadPhones',
-        path: 'electronics/headphones',
+        path: 'headphones',
       },
       {
         id: 5,
         name: 'Gaming',
-        path: 'electronics/gaming',
+        path: 'gaming',
       },
     ],
   },

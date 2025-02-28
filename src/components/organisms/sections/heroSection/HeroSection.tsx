@@ -2,6 +2,7 @@ import { Container } from '@components/helpers/container/Container';
 import { Flex } from '@components/helpers/flex/Flex';
 import { CategoryNav } from '@components/organisms/categoryNav/CategoryNav';
 import { MainSlider } from '@components/organisms/mainSlider/MainSlider';
+import { categories } from '@constants/categories';
 
 import styles from './heroSection.module.scss';
 
@@ -14,7 +15,7 @@ export const HeroSection = ({ className }) => {
         <Flex>
           <Flex className={styles.wrapper} justifyContent="space-between">
             <div className={styles.block}>
-              <CategoryNav />
+              <CategoryNav categories={categories} />
             </div>
             <div className={styles.line} />
           </Flex>
