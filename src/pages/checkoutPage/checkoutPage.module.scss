@@ -25,10 +25,6 @@
   margin-bottom: 48px;
 }
 
-.form {
-  width: 50%;
-}
-
 .info {
   flex-shrink: 0;
 }
@@ -60,10 +56,6 @@
 @media (max-width: 586px) {
   .flex {
     flex-wrap: wrap;
-  }
-
-  .form {
-    width: 100%;
   }
 
   .info {

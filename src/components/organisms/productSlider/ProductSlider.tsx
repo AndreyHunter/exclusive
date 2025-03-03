@@ -1,22 +1,33 @@
 import { useEffect, useRef } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import type { SwiperRef } from 'swiper/react';
 
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import { SliderButton } from '@components/atoms/sliderButton/SliderButton';
 import { ProductCardContainer as ProductCard } from '@components/molecules/productCard/ProductCardContainer';
+import type { Product } from 'types/index';
 
 import { settings } from './settings';
 
 import 'swiper/css';
-
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import './productSlider.scss';
 
-export const ProductSlider = ({ products, sliderId, buttonsPosition = 'default' }) => {
-  const swiperRef = useRef(null);
+interface ProductSliderProps {
+  products: Product[];
+  sliderId: string;
+  buttonsPosition?: 'default' | 'top';
+}
+
+export const ProductSlider = ({
+  products,
+  sliderId,
+  buttonsPosition = 'default',
+}: ProductSliderProps) => {
+  const swiperRef = useRef<SwiperRef | null>(null);
 
   const isMobile = useMediaQuery('(max-width: 468px)');
   const isTop = buttonsPosition === 'top';
@@ -27,14 +38,18 @@ export const ProductSlider = ({ products, sliderId, buttonsPosition = 'default' 
       swiperInstance.navigation.init();
       swiperInstance.navigation.update();
     }
-  }, [swiperRef.current]);
+  }, []);
 
   const handlePrevClick = () => {
-    swiperRef.current?.swiper.slidePrev();
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
   };
 
   const handleNextClick = () => {
-    swiperRef.current?.swiper.slideNext();
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
   };
 
   return (

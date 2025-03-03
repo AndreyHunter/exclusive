@@ -27,7 +27,7 @@ export const FlashSalesSection = ({ className }) => {
       <Container>
         <Flex className={styles.flex} alignItems="flex-end" flexWrap="wrap">
           <SectionLabelWithTitle label="Today’s" title="Flash Sales" />
-          <Countdown variant="transparent" endDate={new Date('2025-02-30T08:52:00')} />
+          <Countdown variant="transparent" endDate={new Date('2025-03-30T08:52:00')} />
         </Flex>
 
         <ProductSlider products={products} sliderId="flash-sales" buttonsPosition="top" />

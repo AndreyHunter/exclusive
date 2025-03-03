@@ -4,11 +4,14 @@ import { FormInput } from '@components/molecules/formInput/FormInput';
 
 import styles from './orderForm.module.scss';
 
-export const OrderForm = ({ checked, handleSetChecked, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface OrderFormProps {
+  checked: boolean;
+  handleSetChecked: () => void;
+}
 
+export const OrderForm = ({ checked, handleSetChecked }: OrderFormProps) => {
   return (
-    <form className={combinedClasses}>
+    <form className={styles.root}>
       <Flex flexDirection="column" className={styles.inputs}>
         <Flex flexDirection="column">
           <label>

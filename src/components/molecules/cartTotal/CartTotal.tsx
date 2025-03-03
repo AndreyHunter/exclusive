@@ -19,7 +19,7 @@ export const CartTotal = ({ className, subTotal, total, delivery }: CartTotalPro
   return (
     <div className={classes}>
       <strong className={styles.title}>Cart Total</strong>
-      <OrderInfo total={total} subTotal={subTotal} delivery={delivery} className={styles.info} />
+      <OrderInfo total={total} subTotal={subTotal} delivery={delivery} />
       <Flex justifyContent="center">
         <Button tagElement="link" to="/checkout" className={styles.button}>
           Process to checkout
