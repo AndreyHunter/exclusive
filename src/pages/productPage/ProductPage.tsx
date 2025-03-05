@@ -5,7 +5,7 @@ import { Container } from '@components/helpers/container/Container';
 import { BreadCrumbs } from '@components/molecules/breadCrumbs/BreadCrumbs';
 import { ProductInfo } from '@components/organisms/productInfo/ProductInfo';
 import { ProductInfoSlider } from '@components/organisms/productInfoSlider/ProductInfoSlider';
-import { SuggestedProductsSection } from '@components/organisms/sections/suggestedProductsSection/SuggestedProductsSection';
+import { SuggestedProductsSectionContainer as SuggestedProductsSection } from '@components/organisms/sections/suggestedProductsSection/SuggestedProductsSectionContainer';
 import type { ProductWithInfo } from 'types/index';
 import { Flex } from '@components/helpers/flex/Flex';
 
@@ -55,7 +55,7 @@ const ProductPage = () => {
           </Flex>
         </Container>
       </section>
-      <SuggestedProductsSection sectionTitle="Related Item" className={styles.section} />
+      <SuggestedProductsSection sectionTitle="Related Items" className={styles.section} />
     </>
   );
 };

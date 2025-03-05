@@ -9,6 +9,10 @@ import {
   selectProductsError,
   selectProductsIsLoading,
   fetchProducts,
+  selectBestSellers,
+  fetchBestSellers,
+  fetchFlashSales,
+  selectFlashSales,
 } from '@features/products/productsSlice';
 import { Utils } from '@utils/index';
 
@@ -17,6 +21,8 @@ import ProductsPage from './ProductsPage';
 const ProductPageContainer = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector(selectProducts);
+  const bestSellers = useAppSelector(selectBestSellers);
+  const flashSales = useAppSelector(selectFlashSales);
   const loading = useAppSelector(selectProductsIsLoading);
   const error = useAppSelector(selectProductsError);
   const [limit, setLimit] = useState(20);
@@ -28,20 +34,24 @@ const ProductPageContainer = () => {
   const breadCrumbs = Utils.generateBreadcrumbs(pathname);
 
   useEffect(() => {
-    if (fullPath) {
-      dispatch(fetchProductsByCategories({ limit, category: fullPath }));
-    } else {
+    if (pathname === '/products') {
       dispatch(fetchProducts({ limit }));
+    } else if (fullPath === '/best-sellers') {
+      dispatch(fetchBestSellers({ limit }));
+    } else if (fullPath === '/flash-sales') {
+      dispatch(fetchFlashSales({ limit }));
+    } else {
+      dispatch(fetchProductsByCategories({ limit, category: fullPath }));
     }
 
     return () => {
       dispatch(clearProducts());
     };
-  }, [dispatch, limit, fullPath]);
+  }, [dispatch, limit, fullPath, pathname]);
 
   return (
     <ProductsPage
-      products={products}
+      products={bestSellers.length ? bestSellers : flashSales.length ? flashSales : products}
       error={error}
       loading={loading}
       breadCrumbs={breadCrumbs}

@@ -17,7 +17,10 @@ const productsSlice = createSlice({
   reducers: {
     clearProducts: (state) => {
       state.products = [];
+      state.bestSellers = [];
+      state.flashSales = [];
       state.error = null;
+      state.loading = false;
     },
   },
   extraReducers: (builder) => {
@@ -76,7 +79,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const fetchProducts = createAsyncThunk(
+export const fetchProducts = createAsyncThunk<undefined, { limit: number; sort?: string }>(
   'products/fetchProducts',
   async ({ limit, sort }, { rejectWithValue }) => {
     try {
@@ -111,7 +114,7 @@ export const fetchProductsByCategories = createAsyncThunk(
   },
 );
 
-export const fetchFlashSales = createAsyncThunk(
+export const fetchFlashSales = createAsyncThunk<undefined, { limit: number; sort?: string }>(
   'products/fetchFlashSales',
   async ({ limit, sort }, { rejectWithValue }) => {
     try {
@@ -129,7 +132,7 @@ export const fetchFlashSales = createAsyncThunk(
   },
 );
 
-export const fetchBestSellers = createAsyncThunk(
+export const fetchBestSellers = createAsyncThunk<undefined, { limit: number; sort?: string }>(
   'products/fetchBestSellers',
   async ({ limit, sort }, { rejectWithValue }) => {
     try {

@@ -1,14 +1,20 @@
+import { clsx } from 'clsx';
+
 import { Container } from '@components/helpers/container/Container';
 import { Flex } from '@components/helpers/flex/Flex';
 import aboutImage from '@assets/images/about/two-african-females.png';
 
 import styles from './ourStorySection.module.scss';
 
-export const OurStorySection = ({ className }) => {
-  const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
+interface OurStorySectionProps {
+  className?: string;
+}
+
+export const OurStorySection = ({ className }: OurStorySectionProps) => {
+  const classes = clsx(styles.root, className);
 
   return (
-    <section className={combinedClasses}>
+    <section className={classes}>
       <Container>
         <div className={styles.grid}>
           <Flex flexDirection="column" className={styles.info}>

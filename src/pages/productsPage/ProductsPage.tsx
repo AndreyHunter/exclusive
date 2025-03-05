@@ -10,7 +10,7 @@ const ProductsPage = ({ products, error, loading, breadCrumbs, categoryName }) =
     <>
       <Container>
         <BreadCrumbs elements={breadCrumbs} />
-        <SectionTitle title={categoryName} className={styles.title} />
+        <SectionTitle className={styles.title}>{categoryName}</SectionTitle>
         <div className={styles.content}>
           <div>
             <ul>
