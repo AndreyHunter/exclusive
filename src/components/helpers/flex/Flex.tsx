@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 
 import styles from './flex.module.scss';
 
-interface FlexProps {
+interface FlexProps extends React.HTMLAttributes<HTMLDivElement> {
   tagElement?: React.ElementType;
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   justifyContent?:

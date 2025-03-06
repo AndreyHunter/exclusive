@@ -1,16 +1,26 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { AxiosError } from 'axios';
 
+import { useAppDispatch } from '@/app/hooks';
 import { setUser } from '@features/auth/authSlice';
 import { updateCartQuantityAfterAuth } from '@features/cart/cartSlice';
 import axios from '@services/axiosConfig';
 
+export type FormSigninData = {
+  contact: string;
+  password: string;
+};
+
+export type FormSignupData = FormSigninData & {
+  name: string;
+};
+
 export const useAuth = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const dispatch = useDispatch();
+  const [error, setError] = useState<null | string>(null);
+  const dispatch = useAppDispatch();
 
-  const handleSignup = async (body) => {
+  const handleSignup = async (body: FormSignupData): Promise<boolean> => {
     setLoading(true);
     try {
       const res = await axios.post('/auth/signup', body);
@@ -18,14 +28,19 @@ export const useAuth = () => {
       dispatch(updateCartQuantityAfterAuth(res.data));
       return true;
     } catch (err) {
-      setError(err.response?.data?.message || err.message);
+      const error = err as Error;
+      if (err instanceof AxiosError) {
+        setError(err?.response?.data?.message || error.message);
+      } else {
+        setError(error.message);
+      }
       return false;
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSignin = async (body) => {
+  const handleSignin = async (body: FormSigninData): Promise<boolean> => {
     setLoading(true);
     try {
       const res = await axios.post('/auth/signin', body);
@@ -33,7 +48,12 @@ export const useAuth = () => {
       dispatch(updateCartQuantityAfterAuth(res.data));
       return true;
     } catch (err) {
-      setError(err.response?.data?.message || err.message);
+      const error = err as Error;
+      if (err instanceof AxiosError) {
+        setError(err?.response?.data?.message || error.message);
+      } else {
+        setError(error.message);
+      }
       return false;
     } finally {
       setLoading(false);
