@@ -3,10 +3,8 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { TopHeader } from './TopHeader';
 
-const useMediaQueryMock = jest.fn();
-
 jest.mock('@hooks/useMediaQuery', () => ({
-  useMediaQuery: useMediaQueryMock,
+  useMediaQuery: jest.fn(),
 }));
 
 jest.mock('@components/molecules/languageSelect/LanguageSelect', () => ({
@@ -18,7 +16,7 @@ jest.mock('@components/atoms/burgerButton/BurgerButton', () => ({
 }));
 
 jest.mock('@/app/hooks', () => ({
-  useAppSelector: jest.fn(() => false),
+  useAppSelector: () => jest.fn(),
   useAppDispatch: jest.fn(),
 }));
 
@@ -29,14 +27,25 @@ describe('TopHeader', () => {
         <TopHeader />
       </MemoryRouter>,
     );
-    screen.debug();
     expect(screen.getByText(/Summer Sale For /i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /ShopNow/i })).toBeInTheDocument();
     expect(screen.getByTestId('language-select')).toBeInTheDocument();
   });
 
-  it('renders BurgerButton component on small sizes', () => {
-    useMediaQueryMock.mockReturnValue(true);
+  it("doesn't render BurgerButton on large sizes", () => {
+    const useMediaQuery = jest.requireMock('@hooks/useMediaQuery').useMediaQuery;
+    useMediaQuery.mockReturnValue(false);
+    render(
+      <MemoryRouter>
+        <TopHeader />
+      </MemoryRouter>,
+    );
+    expect(screen.queryByTestId('burger-button')).not.toBeInTheDocument();
+  });
+
+  it('renders BurgerButton on small sizes', () => {
+    const useMediaQuery = jest.requireMock('@hooks/useMediaQuery').useMediaQuery;
+    useMediaQuery.mockReturnValue(true);
     render(
       <MemoryRouter>
         <TopHeader />
