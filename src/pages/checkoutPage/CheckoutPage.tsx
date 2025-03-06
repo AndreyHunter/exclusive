@@ -40,11 +40,7 @@ const CheckoutPage = () => {
         <Container>
           <h2 className={styles.title}>Billing Details</h2>
           <Flex justifyContent="space-between" gap={30} className={styles.flex}>
-            <OrderForm
-              className={styles.form}
-              handleSetChecked={handleSetChecked}
-              checked={checked}
-            />
+            <OrderForm handleSetChecked={handleSetChecked} checked={checked} />
             <div className={styles.info}>
               <Flex flexDirection="column" className={styles.block}>
                 <OrderSummary products={checkout} />

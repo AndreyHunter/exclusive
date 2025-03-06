@@ -25,6 +25,7 @@ const AddressBookPage = () => <div data-testid="address-book-page">Address Book 
 const PaymentOptionsPage = () => <div data-testid="payment-options-page">Payment Options Page</div>;
 const OrdersPage = () => <div data-testid="orders-page">Orders Page</div>;
 const ReturnsPage = () => <div data-testid="returns-page">Returns Page</div>;
+const ReviewsPage = () => <div data-testid="reviews-page">Reviews Page</div>;
 const CancellationsPage = () => <div data-testid="cancellations-page">Cancellations Page</div>;
 
 const ProfileTemplate = ({ children }: { children?: React.ReactNode }) => (
@@ -83,6 +84,7 @@ export const renderMockPages = (children: React.ReactNode, options: RenderOption
         <Route path={ROUTES.PAYMENT_OPTIONS} element={<PaymentOptionsPage />} />
         <Route path={ROUTES.ORDERS} element={<OrdersPage />} />
         <Route path={ROUTES.RETURNS} element={<ReturnsPage />} />
+        <Route path={ROUTES.REVIEWS} element={<ReviewsPage />} />
         <Route path={ROUTES.CANCELLATIONS} element={<CancellationsPage />} />
       </Route>
     </Routes>

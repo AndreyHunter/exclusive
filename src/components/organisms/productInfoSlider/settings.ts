@@ -1,8 +1,14 @@
 import { Thumbs, Navigation } from 'swiper/modules';
+import type { SwiperOptions } from 'swiper/types';
 
 import styles from './productInfoSlider.module.scss';
 
-export const settings = {
+interface SliderSettings {
+  thumbs: SwiperOptions;
+  main: SwiperOptions;
+}
+
+export const settings: SliderSettings = {
   thumbs: {
     modules: [Thumbs],
     slidesPerView: 4,

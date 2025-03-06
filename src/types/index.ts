@@ -7,10 +7,19 @@ export interface Product {
   _id: string;
   name: string;
   price: number;
-  discountedPrice: number;
+  discountedPrice?: number;
   inStock: boolean;
   category: string;
   images: string[];
   rating: number;
   reviewsCount: number;
+}
+
+export interface ProductWithInfo extends Product {
+  description?: string;
+  image?: string;
+  flashSales?: boolean;
+  bestSelling?: boolean;
+  colors?: { name: string; color: string }[];
+  sizes?: string[];
 }

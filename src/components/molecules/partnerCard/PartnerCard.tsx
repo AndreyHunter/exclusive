@@ -6,11 +6,14 @@ import styles from './partnerCard.module.scss';
 
 interface PartnerCardProps {
   partner: TypePartnerCard;
+  renderIn?: 'slider' | 'list';
 }
 
-export const PartnerCard = ({ partner }: PartnerCardProps) => {
+export const PartnerCard = ({ partner, renderIn = 'list' }: PartnerCardProps) => {
+  const Component = renderIn === 'slider' ? 'div' : 'li';
+
   return (
-    <div className={styles.slide}>
+    <Component className={styles.slide}>
       <div className={styles.wrapper}>
         <img src={partner.image} alt={partner.name} className={styles.image} />
       </div>
@@ -37,6 +40,6 @@ export const PartnerCard = ({ partner }: PartnerCardProps) => {
             })}
         </ul>
       </div>
-    </div>
+    </Component>
   );
 };

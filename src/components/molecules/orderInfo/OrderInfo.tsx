@@ -1,5 +1,3 @@
-import { clsx } from 'clsx';
-
 import { Separator } from '@components/atoms/separator/Separator';
 import { Flex } from '@components/helpers/flex/Flex';
 
@@ -9,14 +7,11 @@ interface OrderInfoProps {
   total: number;
   subTotal: number;
   delivery?: number;
-  className?: string;
 }
 
-export const OrderInfo = ({ subTotal, total, delivery, className }: OrderInfoProps) => {
-  const classes = clsx(styles.root, className);
-
+export const OrderInfo = ({ subTotal, total, delivery }: OrderInfoProps) => {
   return (
-    <Flex flexDirection="column" gap={16} className={classes}>
+    <Flex flexDirection="column" gap={16} className={styles.root}>
       <Flex justifyContent="space-between" alignItems="center">
         <span>Subtotal:</span>
         <span>${subTotal}</span>

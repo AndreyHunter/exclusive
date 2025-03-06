@@ -1,29 +1,27 @@
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import { clsx } from 'clsx';
 
 import { logout } from '@features/auth/authSlice';
 import { clearCart } from '@features/cart/cartSlice';
-import { closeMobileMenu } from '@features/mobileMenu/mobileMenuSlice';
 import { closeUserMenu, selectIsUserMenuOpen } from '@features/userMenu/userMenuSlice';
 import { Flex } from '@components/helpers/flex/Flex';
 import { ROUTES } from '@routes/routes';
 import { userMenuLinks } from '@constants/userMenuLinks';
 import LogoutIcon from '@assets/icons/logout.svg?react';
-import { useAppSelector } from '@/app/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 
 import styles from './userMenu.module.scss';
 
 interface UserMenuProps {
-  className?: string;
   onCloseMobileMenu?: () => void;
+  className?: string;
 }
 
 export const UserMenu = ({ onCloseMobileMenu, className }: UserMenuProps) => {
   const isOpen = useAppSelector(selectIsUserMenuOpen);
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

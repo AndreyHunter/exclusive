@@ -27,7 +27,6 @@ export const ProductCardContainer = ({ product }: ProductCardContainerProps) => 
     setLoading(true);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
       // @ts-ignore
       await dispatch(addToCart({ productId, quantity }));
       setShowAddedMessage(true);
@@ -47,7 +46,7 @@ export const ProductCardContainer = ({ product }: ProductCardContainerProps) => 
   return (
     <ProductCard
       product={product}
-      discount={Numbers.calcDiscount(product.price, product.discountedPrice)}
+      discount={Numbers.calcDiscount(product.price, product.discountedPrice || 0)}
       showAddedMessage={showAddedMessage}
       loading={loading}
       rating={rating}

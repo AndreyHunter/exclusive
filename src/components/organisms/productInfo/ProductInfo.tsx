@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { clsx } from 'clsx';
 
 import { useCounter } from '@hooks/useCounter';
 import { Button } from '@components/atoms/button/Button';
@@ -10,53 +11,65 @@ import { DeliveryInfo } from '@components/molecules/deliveryInfo/DeliveryInfo';
 import { ProductRating } from '@components/molecules/productRating/ProductRating';
 import { SizeList } from '@components/molecules/sizeList/SizeList';
 import HeartIcon from '@assets/icons/heart.svg?react';
+import type { ProductWithInfo } from 'types/index';
 
 import styles from './productInfo.module.scss';
 
-export const ProductInfo = ({ product, className }) => {
-  const [selectedSize, setSelectedSize] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(null);
-  const { count, handleIncrement, handleDecrement } = useCounter(1);
+interface ProductInfoProps {
+  product: ProductWithInfo;
+  className?: string;
+}
 
-  const handleSetSize = (size) => {
+export const ProductInfo = ({ product, className }: ProductInfoProps) => {
+  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
+  const { count, increment, decrement } = useCounter(1);
+  const classes = clsx(styles.root, className);
+
+  const handleSetSize = (size: string) => {
     setSelectedSize(size);
   };
 
-  const handleSetColor = (color) => {
+  const handleSetColor = (color: string) => {
     setSelectedColor(color);
   };
 
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
   return (
-    <Flex
-      flexDirection="column"
-      gap={30}
-      justifyContent="space-between"
-      className={combinedClasses}>
+    <Flex flexDirection="column" gap={30} justifyContent="space-between" className={classes}>
       <div>
         <div className={styles.title}>{product.name}</div>
         <Flex className={styles.reviews} gap={16} alignItems="center">
-          <ProductRating rating={product.rating} reviewsCount={product.reviewsCount} />
-          <span>In Stock</span>
+          <ProductRating
+            rating={product.rating}
+            reviewsCount={product.reviewsCount}
+            onSetRating={() => {}}
+          />
+          {product.inStock && <span>In Stock</span>}
         </Flex>
-        <div className={styles.price}>$192.00</div>
-        <p className={styles.desc}>
-          PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble
-          free install & mess free removal Pressure sensitive.
-        </p>
+        <div className={styles.price}>${product.price}</div>
+        <p className={styles.desc}>{product.description}</p>
         <Separator className={styles.separator} />
 
-        <Flex gap={25} className={styles.colors}>
-          <label>Colors:</label>
-          <ColorsList colors={product.colors} checked={selectedColor} onChange={handleSetColor} />
-        </Flex>
-        <Flex gap={25} alignItems="center" className={styles.sizes}>
-          <label>Size:</label>
-          <SizeList sizes={product.sizes} selectedSize={selectedSize} onChange={handleSetSize} />
-        </Flex>
+        {product.colors && (
+          <Flex gap={25} className={styles.colors}>
+            <label>Colors:</label>
+            <ColorsList
+              colors={product.colors!}
+              checked={selectedColor}
+              onChange={handleSetColor}
+            />
+          </Flex>
+        )}
+        {product.sizes && (
+          <Flex gap={25} className={styles.sizes}>
+            <label>Sizes:</label>
+            <SizeList sizes={product.sizes!} selectedSize={selectedSize} onChange={handleSetSize} />
+          </Flex>
+        )}
+
         <Flex gap={16} className={styles.add} alignItems="center">
-          <Counter count={count} decrement={handleDecrement} increment={handleIncrement} />
-          <Button title="Buy Now" />
+          <Counter count={count} increment={increment} decrement={decrement} />
+          <Button>Buy Now</Button>
           <Flex alignItems="center" justifyContent="center" className={styles.wish}>
             <HeartIcon />
           </Flex>

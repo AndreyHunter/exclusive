@@ -4,6 +4,7 @@ import { OurStatisticList } from '@components/organisms/ourStatisticList/OurStat
 import { PartnersSlider } from '@components/organisms/partnersSlider/PartnersSlider';
 import { AdvantagesSection } from '@components/organisms/sections/advantagesSection/AdvantagesSection';
 import { OurStorySection } from '@components/organisms/sections/ourStorySection/OurStorySection';
+import { partners } from '@constants/partners';
 
 import styles from './aboutPage.module.scss';
 
@@ -15,7 +16,7 @@ const AboutPage = () => {
       </Container>
       <OurStorySection className={`${styles.section} ${styles.ourStory}`} />
       <OurStatisticList className={styles.section} />
-      <PartnersSlider className={styles.section} />
+      <PartnersSlider className={styles.section} partners={partners} />
       <AdvantagesSection className={styles.section} />
     </>
   );

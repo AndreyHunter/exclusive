@@ -1,19 +1,25 @@
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import type { Swiper as SwiperType } from 'swiper';
+import { clsx } from 'clsx';
 
 import { SliderButton } from '@components/atoms/sliderButton/SliderButton';
 
 import { settings } from './settings';
-
+import styles from './productInfoSlider.module.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import styles from './productInfoSlider.module.scss';
 
-export const ProductInfoSlider = ({ images, className }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState();
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
+interface ProductInfoSliderProps {
+  images: string[];
+  className?: string;
+}
+
+export const ProductInfoSlider = ({ images, className }: ProductInfoSliderProps) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | undefined>(undefined);
+  const classes = clsx(styles.root, className);
   return (
-    <div className={combinedClasses}>
+    <div className={classes}>
       <Swiper {...settings.thumbs} onSwiper={setThumbsSwiper} className={styles.thumbs}>
         {images.map((image, index) => (
           <SwiperSlide key={index}>
@@ -26,8 +32,7 @@ export const ProductInfoSlider = ({ images, className }) => {
 
       <Swiper
         {...settings.main}
-        thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-        className={styles.main}>
+        thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}>
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <div className={styles.slide}>

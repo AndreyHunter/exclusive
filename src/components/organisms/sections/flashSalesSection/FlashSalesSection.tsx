@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { clsx } from 'clsx';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { fetchFlashSales, selectFlashSales } from '@features/products/productsSlice';
@@ -8,10 +9,15 @@ import { Flex } from '@components/helpers/flex/Flex';
 import { Countdown } from '@components/molecules/countdown/Countdown';
 import { SectionLabelWithTitle } from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
 import { ProductSlider } from '@components/organisms/productSlider/ProductSlider';
+import { ROUTES } from '@/routes/routes';
 
 import styles from './flashSalesSection.module.scss';
 
-export const FlashSalesSection = ({ className }) => {
+interface FlashSalesSectionProps {
+  className?: string;
+}
+
+export const FlashSalesSection = ({ className }: FlashSalesSectionProps) => {
   const dispatch = useAppDispatch();
   const products = useAppSelector(selectFlashSales);
   const [limit, setLimit] = useState(20);
@@ -20,19 +26,20 @@ export const FlashSalesSection = ({ className }) => {
     dispatch(fetchFlashSales({ limit }));
   }, [dispatch, limit]);
 
-  const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
-
+  const classes = clsx(styles.root, className);
   return (
-    <section className={combinedClasses}>
+    <section className={classes}>
       <Container>
         <Flex className={styles.flex} alignItems="flex-end" flexWrap="wrap">
           <SectionLabelWithTitle label="Today’s" title="Flash Sales" />
-          <Countdown variant="transparent" endDate={new Date('2025-02-30T08:52:00')} />
+          <Countdown variant="transparent" endDate={new Date('2025-03-30T08:52:00')} />
         </Flex>
 
         <ProductSlider products={products} sliderId="flash-sales" buttonsPosition="top" />
         <Flex justifyContent="center" className={styles.button}>
-          <Button title="View All Products" />
+          <Button tagElement="link" to={`/${ROUTES.PRODUCTS}/flash-sales`}>
+            View All Products
+          </Button>
         </Flex>
       </Container>
     </section>
