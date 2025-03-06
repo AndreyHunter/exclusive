@@ -16,7 +16,7 @@ import styles from './productsCard.module.scss';
 
 interface ProductCardProps {
   product: Product;
-  discount: number;
+  discount?: number;
   loading: boolean;
   showAddedMessage: boolean;
   rating: number;
@@ -42,10 +42,12 @@ export const ProductCard = ({
         flexDirection="column"
         justifyContent="center"
         alignItems="center">
-        <Link to={`${ROUTES.PRODUCT}/${product._id}`}>
+        <Link to={`/${ROUTES.PRODUCT}/${product._id}`}>
           <img src={product.images[0]} alt={product.name} className={styles.image} />
         </Link>
-        {product.discountedPrice && <DiscountLabel discount={discount} className={styles.label} />}
+        {product.discountedPrice && (
+          <DiscountLabel discount={discount || 0} className={styles.label} />
+        )}
         <div className={styles.buttons}>
           <CardActionButton>
             <FavoriteIcon />
@@ -62,7 +64,7 @@ export const ProductCard = ({
         />
       </Flex>
       <Flex gap={8} flexDirection="column" className={styles.info}>
-        <Link to={`${ROUTES.PRODUCT}/${product._id}`} className={styles.title}>
+        <Link to={`/${ROUTES.PRODUCT}/${product._id}`} className={styles.title}>
           {Strings.sliceString(product.name, 25, true)}
         </Link>
         <ProductPrice price={product.price} discountedPrice={product.discountedPrice} />

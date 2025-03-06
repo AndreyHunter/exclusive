@@ -12,6 +12,7 @@ import { ROUTES } from './routes';
 const HomePage = lazy(() => import('@pages/homePage/HomePage'));
 const AboutPage = lazy(() => import('@pages/aboutPage/AboutPage'));
 const CartPage = lazy(() => import('@pages/cartPage/CartPageContainer'));
+const WishListPage = lazy(() => import('@pages/wishListPage/WishListPage'));
 const CheckoutPage = lazy(() => import('@pages/checkoutPage/CheckoutPage'));
 const NotFoundPage = lazy(() => import('@pages/notFoundPage/NotFoundPage'));
 const ContactsPage = lazy(() => import('@pages/contactsPage/ContactsPage'));
@@ -88,6 +89,14 @@ export default createBrowserRouter([
         element: (
           <SuspenseWrapper>
             <CartPage />
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: ROUTES.WISHLIST,
+        element: (
+          <SuspenseWrapper>
+            <WishListPage />
           </SuspenseWrapper>
         ),
       },

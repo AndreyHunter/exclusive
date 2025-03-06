@@ -78,6 +78,7 @@ export default tseslint.config(
       'import/newline-after-import': 'warn',
       'import/imports-first': 'off', // deprecated
       'import/first': 'warn', // instead of import/imports-first
+      'import/exports-last': 'off',
     },
   },
   eslintPluginPrettierRecommended,

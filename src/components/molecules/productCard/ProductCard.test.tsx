@@ -21,7 +21,7 @@ describe('ProductCard', () => {
       <MemoryRouter>
         <ProductCard
           product={mockProduct}
-          discount={Numbers.calcDiscount(mockProduct.price, mockProduct.discountedPrice)}
+          discount={Numbers.calcDiscount(mockProduct.price, mockProduct.discountedPrice!)}
           loading={false}
           showAddedMessage={false}
           rating={4}

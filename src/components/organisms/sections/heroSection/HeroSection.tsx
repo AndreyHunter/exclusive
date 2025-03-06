@@ -1,3 +1,5 @@
+import { clsx } from 'clsx';
+
 import { Container } from '@components/helpers/container/Container';
 import { Flex } from '@components/helpers/flex/Flex';
 import { CategoryNav } from '@components/organisms/categoryNav/CategoryNav';
@@ -6,11 +8,15 @@ import { categories } from '@constants/categories';
 
 import styles from './heroSection.module.scss';
 
-export const HeroSection = ({ className }) => {
-  const combinedClasses = `${styles.root || ''} ${className || ''}`.trim();
+interface HeroSectionProps {
+  className?: string;
+}
+
+export const HeroSection = ({ className }: HeroSectionProps) => {
+  const classes = clsx(styles.root, className);
 
   return (
-    <section className={combinedClasses}>
+    <section className={classes}>
       <Container>
         <Flex>
           <Flex className={styles.wrapper} justifyContent="space-between">

@@ -1,26 +1,27 @@
+import { ProductCardContainer as ProductCard } from '@components/molecules/productCard/ProductCardContainer';
 import { Button } from '@components/atoms/button/Button';
 import { Container } from '@components/helpers/container/Container';
 import { Flex } from '@components/helpers/flex/Flex';
-import { ProductCard } from '@components/molecules/productCard/ProductCard';
+import type { Product } from 'types/index';
 
 import styles from './wishList.module.scss';
 
-export const WishList = ({ list, className }) => {
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
-  const wishList = [];
+interface WishListProps {
+  products: Product[];
+}
 
+export const WishList = ({ products }: WishListProps) => {
   return (
-    <section className={combinedClasses}>
+    <section className={styles.root}>
       <Container>
         <Flex flexDirection="column" className={styles.content}>
           <Flex alignItems="center" justifyContent="space-between" className={styles.block}>
-            <div className={styles.title}>Wishlist {`(${list?.length || 0})`}</div>
-            <Button variant="transparent" title="Move All To Bag" />
+            <div className={styles.title}>Wishlist {`(${products?.length || 0})`}</div>
+            <Button variant="transparent">Move All To Bag</Button>
           </Flex>
-
           <ul className={styles.grid}>
-            {wishList &&
-              [].map((product) => <ProductCard key={product._id} product={product} />).splice(0, 4)}
+            {products.length &&
+              products.map((product) => <ProductCard key={product._id} product={product} />)}
           </ul>
         </Flex>
       </Container>

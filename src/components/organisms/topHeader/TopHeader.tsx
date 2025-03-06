@@ -10,7 +10,7 @@ import { LanguageSelect } from '@components/molecules/languageSelect/LanguageSel
 
 import styles from './topHeader.module.scss';
 
-export const TopHeader = ({ className }) => {
+export const TopHeader = () => {
   const isOpen = useAppSelector(selectIsMobileMenuOpen);
   const dispatch = useAppDispatch();
 
@@ -19,17 +19,18 @@ export const TopHeader = ({ className }) => {
   };
 
   const isMobile = useMediaQuery('(max-width: 986px)');
-  const combinedClasses = `${styles.root} ${className || ''}`.trim();
 
   return (
-    <section className={combinedClasses}>
+    <section className={styles.root}>
       <Container>
         <div className={styles.content}>
           <div className={styles.message}>
             <div className={styles.message_text}>
               Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
             </div>
-            <Link className={styles.link}>ShopNow</Link>
+            <Link to={'/'} className={styles.link}>
+              ShopNow
+            </Link>
           </div>
 
           <Flex className={styles.flex} alignItems="center" gap={30}>
