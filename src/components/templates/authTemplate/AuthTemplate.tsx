@@ -7,7 +7,7 @@ import styles from './authTemplate.module.scss';
 const AuthTemplate = () => {
   return (
     <section className={styles.section}>
-      <img src={Image} alt="" className={styles.image} />
+      <img src={Image} alt="auth-image" className={styles.image} />
       <div className={styles.content}>
         <Outlet />
       </div>
