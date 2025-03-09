@@ -2,7 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { RootState } from '@/app/store';
 
-const initialState = {
+interface UserMenuState {
+  isOpen: boolean;
+}
+
+const initialState: UserMenuState = {
   isOpen: false,
 };
 

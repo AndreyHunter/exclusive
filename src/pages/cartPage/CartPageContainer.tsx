@@ -17,8 +17,8 @@ const CartPageContainer = () => {
   const loading = useAppSelector(selectCartIsLoading);
 
   useEffect(() => {
-    dispatch(fetchUserCart({ details: true }));
-  }, []);
+    dispatch(fetchUserCart(true));
+  }, [dispatch]);
 
   const cartTotal = products?.reduce((prev, product) => {
     const actualPrice = product.product.discountedPrice || product.product.price;
@@ -30,11 +30,11 @@ const CartPageContainer = () => {
   }, 0);
 
   const handleUpdateCart = () => {
-    dispatch(updateCartItemsQuantity({ products }));
+    dispatch(updateCartItemsQuantity(products));
   };
 
-  const handleDeleteProduct = ({ productId }) => {
-    dispatch(deleteCartItem({ productId }));
+  const handleDeleteProduct = (productId: string) => {
+    dispatch(deleteCartItem(productId));
   };
 
   return (

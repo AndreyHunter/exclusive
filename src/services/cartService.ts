@@ -1,8 +1,10 @@
+import type { Cart } from 'types/index';
+
 import axios from './axiosConfig';
 
-export const addToCart = async ({ userId, productId, quantity }) => {
+export const addToCart = async (productId: string, quantity: number): Promise<number> => {
   try {
-    const { data } = await axios.post('/cart', { userId, productId, quantity });
+    const { data } = await axios.post('/cart', { productId, quantity });
 
     if (!data) {
       throw new Error('Can"t add product to cart');
@@ -10,34 +12,31 @@ export const addToCart = async ({ userId, productId, quantity }) => {
 
     return data;
   } catch (err) {
-    console.error(`Service error: ${err.message}`);
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.error(`Service error: ${errorMessage}`);
     throw err;
   }
 };
 
-export const getUserCart = async ({ userId, details }) => {
+export const getUserCart = async (details?: boolean): Promise<Cart | number> => {
   try {
-    const { data } = await axios.get('/cart', {
+    const { data } = await axios.get<Cart | number>('/cart', {
       params: {
-        userId,
         details,
       },
     });
 
-    if (!data) {
-      throw new Error('Cart wasn"t found');
-    }
-
     return data;
   } catch (err) {
-    console.error(`Service error: ${err.message}`);
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.error(`Service error: ${errorMessage}`);
     throw err;
   }
 };
 
-export const updateCartItemsQuantity = async ({ userId, products }) => {
+export const updateCartItemsQuantity = async (products: Cart): Promise<Cart> => {
   try {
-    const { data } = await axios.put('/cart', { userId, products });
+    const { data } = await axios.put<Cart>('/cart', { products });
 
     if (!data) {
       throw new Error('Cart wasn"t update');
@@ -45,15 +44,16 @@ export const updateCartItemsQuantity = async ({ userId, products }) => {
 
     return data;
   } catch (err) {
-    console.error(`Service error: ${err.message}`);
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.error(`Service error: ${errorMessage}`);
     throw err;
   }
 };
 
-export const deleteCartItem = async ({ userId, productId }) => {
+export const deleteCartItem = async (productId: string): Promise<Cart> => {
   try {
-    const { data } = await axios.delete('/cart', {
-      params: { userId, productId },
+    const { data } = await axios.delete<Cart>('/cart', {
+      params: { productId },
     });
 
     if (!data) {
@@ -62,7 +62,8 @@ export const deleteCartItem = async ({ userId, productId }) => {
 
     return data;
   } catch (err) {
-    console.error(`Service error: ${err.message}`);
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.error(`Service error: ${errorMessage}`);
     throw err;
   }
 };

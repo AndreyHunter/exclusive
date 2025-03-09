@@ -41,7 +41,7 @@ export const CartItem = ({
           className={styles.box}
           id={product._id}
         />
-        <div className={styles.price}>${totalPrice}</div>
+        <div className={styles.price}>${totalPrice.toFixed(2)}</div>
         <DeleteIcon
           data-testid="delete-icon-button"
           className={styles.deleteIcon}
@@ -55,7 +55,7 @@ export const CartItem = ({
           increment={onIncrementProduct}
           decrement={onDecrementProduct}
         />
-        {!isSmallMobile && <div className={styles.price}>${subTotalPrice}</div>}
+        {!isSmallMobile && <div className={styles.price}>${subTotalPrice.toFixed(2)}</div>}
       </Flex>
     </Flex>
   );

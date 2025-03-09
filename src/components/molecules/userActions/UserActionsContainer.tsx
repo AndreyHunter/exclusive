@@ -33,7 +33,7 @@ export const UserActionsContainer = ({ color, mobile, className }: UserActionsCo
       onCloseMobileMenu={handleCloseMobileMenu}
       color={color}
       className={className}
-      productsQuantity={productsQuantity.length}
+      productsQuantity={productsQuantity}
       onToggleMenu={handleToggleMenu}
     />
   );
