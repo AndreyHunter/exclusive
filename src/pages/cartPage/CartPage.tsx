@@ -29,11 +29,7 @@ const CartPage = ({ products, loading, onUpdateCart, onDeleteProduct, subTotal, 
                       key={product.product._id}
                       product={product.product}
                       quantity={product.quantity}
-                      onDeleteProduct={() =>
-                        onDeleteProduct({
-                          productId: product.product._id,
-                        })
-                      }
+                      onDeleteProduct={() => onDeleteProduct(product.product._id)}
                     />
                   );
                 })}

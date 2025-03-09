@@ -14,7 +14,7 @@ export const OrderInfo = ({ subTotal, total, delivery }: OrderInfoProps) => {
     <Flex flexDirection="column" gap={16} className={styles.root}>
       <Flex justifyContent="space-between" alignItems="center">
         <span>Subtotal:</span>
-        <span>${subTotal}</span>
+        <span>${subTotal.toFixed(2)}</span>
       </Flex>
       <Separator />
       <Flex justifyContent="space-between" alignItems="center">
@@ -24,7 +24,7 @@ export const OrderInfo = ({ subTotal, total, delivery }: OrderInfoProps) => {
       <Separator />
       <Flex justifyContent="space-between" alignItems="center">
         <span>Total:</span>
-        <span>${total}</span>
+        <span>${total.toFixed(2)}</span>
       </Flex>
     </Flex>
   );

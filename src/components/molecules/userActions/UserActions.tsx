@@ -37,7 +37,7 @@ export const UserActions = ({
       </Link>
       <Link to={ROUTES.CART} className={styles.cart} onClick={onCloseMobileMenu}>
         <CartIcon className={classes} />
-        <CircleCount quantity={productsQuantity || 0} className={styles.quantity} />
+        <CircleCount quantity={productsQuantity} className={styles.quantity} />
       </Link>
       {!isAuth ? (
         <Link to={`${ROUTES.AUTH}/${ROUTES.SIGNUP}`}>

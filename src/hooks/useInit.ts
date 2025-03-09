@@ -1,13 +1,12 @@
-import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
+import { useAppDispatch } from '@/app/hooks';
 import { fetchUserCart } from '@features/cart/cartSlice';
 
 export const useInit = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
-    dispatch(fetchUserCart({ userId }));
+    dispatch(fetchUserCart());
   }, [dispatch]);
 };

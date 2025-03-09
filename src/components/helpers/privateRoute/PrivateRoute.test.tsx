@@ -34,7 +34,7 @@ describe('PrivateRoute component', () => {
   };
 
   it('renders children if user is authenticated', () => {
-    store.dispatch(setUser({ user: { token: 'test-token', _id: 'test-id' } }));
+    store.dispatch(setUser({ user: { token: 'test-token', _id: 'test-id', name: 'Alex' } }));
 
     renderWithProviders(
       <PrivateRoute>

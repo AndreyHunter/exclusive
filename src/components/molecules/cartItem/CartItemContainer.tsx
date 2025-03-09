@@ -23,7 +23,6 @@ export const CartItemContainer = ({
   const dispatch = useAppDispatch();
   const itemQuantity = useAppSelector(
     (state) =>
-      // @ts-ignore
       state.cart.products.find((item) => item.product._id === product._id)?.quantity || quantity,
   );
 

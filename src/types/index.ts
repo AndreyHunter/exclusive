@@ -23,3 +23,15 @@ export interface ProductWithInfo extends Product {
   colors?: { name: string; color: string }[];
   sizes?: string[];
 }
+
+export interface User {
+  _id: string;
+  token: string;
+  name: string;
+}
+
+export type RejectValueType = {
+  rejectValue: string;
+};
+
+export type Cart = { product: Product; quantity: number }[];
