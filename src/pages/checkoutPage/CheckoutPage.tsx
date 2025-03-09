@@ -43,7 +43,7 @@ const CheckoutPage = () => {
             <OrderForm handleSetChecked={handleSetChecked} checked={checked} />
             <div className={styles.info}>
               <Flex flexDirection="column" className={styles.block}>
-                <OrderSummary products={checkout} />
+                <OrderSummary products={checkout} total={100} subtotal={120} />
                 <CouponCodeItem className={styles.coupon} />
                 <Flex justifyContent="space-between" className={styles.banks}>
                   <Flex alignItems="center" gap={12}>

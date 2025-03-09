@@ -1,9 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+import { handleAxiosError } from '@utils/others/index';
 import type { RootState } from '@/app/store';
-import axios from '@services/axiosConfig';
+import type { Product, RejectValueType } from 'types/index';
+import { ProductService } from '@services/index';
 
-const initialState = {
+interface ProductsState {
+  products: Product[];
+  flashSales: Product[];
+  bestSellers: Product[];
+  error: string | null | undefined;
+  loading: boolean;
+}
+
+const initialState: ProductsState = {
   products: [],
   flashSales: [],
   bestSellers: [],
@@ -79,75 +89,61 @@ const productsSlice = createSlice({
   },
 });
 
-export const fetchProducts = createAsyncThunk<undefined, { limit: number; sort?: string }>(
-  'products/fetchProducts',
-  async ({ limit, sort }, { rejectWithValue }) => {
-    try {
-      const res = await axios.get('/products', {
-        params: {
-          limit,
-          sort,
-        },
-      });
-      return res.data.products;
-    } catch (err) {
-      return rejectWithValue(err.response.data.message);
-    }
-  },
-);
+export const fetchProducts = createAsyncThunk<
+  Product[],
+  { limit: number; sort?: string },
+  RejectValueType
+>('products/fetchProducts', async ({ limit, sort }, { rejectWithValue }) => {
+  try {
+    const res = await ProductService.getProducts({ limit, sort });
+    return res;
+  } catch (err) {
+    const error = handleAxiosError(err);
+    return rejectWithValue(error);
+  }
+});
 
-export const fetchProductsByCategories = createAsyncThunk(
-  'products/fetchProductsByCategories',
-  async ({ category, limit, sort }, { rejectWithValue }) => {
-    try {
-      const res = await axios.get(`/products/category${category}`, {
-        params: {
-          limit,
-          sort,
-        },
-      });
+export const fetchProductsByCategories = createAsyncThunk<
+  Product[],
+  { category: string; limit: number; sort?: string },
+  RejectValueType
+>('products/fetchProductsByCategories', async ({ category, limit, sort }, { rejectWithValue }) => {
+  try {
+    const res = await ProductService.getProductsByCategories({ category, limit, sort });
+    return res;
+  } catch (err) {
+    const error = handleAxiosError(err);
+    return rejectWithValue(error);
+  }
+});
 
-      return res.data.products;
-    } catch (err) {
-      return rejectWithValue(err.response.data.message);
-    }
-  },
-);
+export const fetchFlashSales = createAsyncThunk<
+  Product[],
+  { limit: number; sort?: string },
+  RejectValueType
+>('products/fetchFlashSales', async ({ limit, sort }, { rejectWithValue }) => {
+  try {
+    const res = await ProductService.getFlashSales({ limit, sort });
+    return res;
+  } catch (err) {
+    const error = handleAxiosError(err);
+    return rejectWithValue(error);
+  }
+});
 
-export const fetchFlashSales = createAsyncThunk<undefined, { limit: number; sort?: string }>(
-  'products/fetchFlashSales',
-  async ({ limit, sort }, { rejectWithValue }) => {
-    try {
-      const res = await axios.get('/products/flash-sales', {
-        params: {
-          limit,
-          sort,
-        },
-      });
-
-      return res.data.products;
-    } catch (err) {
-      return rejectWithValue(err.response.data.message);
-    }
-  },
-);
-
-export const fetchBestSellers = createAsyncThunk<undefined, { limit: number; sort?: string }>(
-  'products/fetchBestSellers',
-  async ({ limit, sort }, { rejectWithValue }) => {
-    try {
-      const res = await axios.get('/products/best-sellers', {
-        params: {
-          limit,
-          sort,
-        },
-      });
-      return res.data.products;
-    } catch (err) {
-      return rejectWithValue(err.response.data.message);
-    }
-  },
-);
+export const fetchBestSellers = createAsyncThunk<
+  Product[],
+  { limit: number; sort?: string },
+  RejectValueType
+>('products/fetchBestSellers', async ({ limit, sort }, { rejectWithValue }) => {
+  try {
+    const res = await ProductService.getBestSellers({ limit, sort });
+    return res;
+  } catch (err) {
+    const error = handleAxiosError(err);
+    return rejectWithValue(error);
+  }
+});
 
 export const { clearProducts } = productsSlice.actions;
 export default productsSlice.reducer;

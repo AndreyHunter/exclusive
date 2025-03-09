@@ -2,7 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { RootState } from '@/app/store';
 
-const initialState = {
+interface MobileMenuState {
+  isOpen: boolean;
+}
+
+const initialState: MobileMenuState = {
   isOpen: false,
 };
 

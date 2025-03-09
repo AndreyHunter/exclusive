@@ -6,8 +6,8 @@ describe('OrderInfo component', () => {
   it('renders OrderInfo component and checks content', () => {
     render(<OrderInfo subTotal={120} total={100} delivery={20} />);
 
-    expect(screen.getByText('$120')).toBeInTheDocument();
-    expect(screen.getByText('$100')).toBeInTheDocument();
+    expect(screen.getByText('$120.00')).toBeInTheDocument();
+    expect(screen.getByText('$100.00')).toBeInTheDocument();
     expect(screen.getByText('$20')).toBeInTheDocument();
   });
 

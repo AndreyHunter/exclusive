@@ -32,12 +32,12 @@ describe('CartItem component', () => {
     const mock = jest.spyOn(useMediaQueryMock, 'useMediaQuery');
     mock.mockReturnValue(false);
     render(<CartItem {...mockProps} />);
-    expect(screen.getByText('$120')).toBeInTheDocument();
+    expect(screen.getByText('$120.00')).toBeInTheDocument();
   });
   it("doesn't render subTotalPrice on small screen", () => {
     jest.spyOn(useMediaQueryMock, 'useMediaQuery').mockReturnValue(true);
     render(<CartItem {...mockProps} />);
-    expect(screen.queryByText('$120')).not.toBeInTheDocument();
+    expect(screen.queryByText('$120.00')).not.toBeInTheDocument();
   });
   it('calls onDeleteProduct correctly', async () => {
     render(<CartItem {...mockProps} />);
