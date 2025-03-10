@@ -8,10 +8,27 @@ import { CartItemContainer as CartItem } from '@components/molecules/cartItem/Ca
 import { CartTotal } from '@components/molecules/cartTotal/CartTotal';
 import { CouponCodeItem } from '@components/molecules/couponCodeItem/CouponCodeItem';
 import { ROUTES } from '@routes/routes';
+import type { Cart } from 'types/index';
 
 import styles from './cartPage.module.scss';
 
-const CartPage = ({ products, loading, onUpdateCart, onDeleteProduct, subTotal, cartTotal }) => {
+interface CartPageProps {
+  products: Cart;
+  loading: boolean;
+  subTotal: number;
+  cartTotal: number;
+  onUpdateCart: () => void;
+  onDeleteProduct: (id: string) => void;
+}
+
+const CartPage = ({
+  products,
+  loading,
+  subTotal,
+  cartTotal,
+  onUpdateCart,
+  onDeleteProduct,
+}: CartPageProps) => {
   const isSmallMobile = useMediaQuery('(max-width: 360px)');
 
   return (
@@ -35,20 +52,17 @@ const CartPage = ({ products, loading, onUpdateCart, onDeleteProduct, subTotal, 
                 })}
             </Flex>
             <Flex justifyContent="space-between" className={styles.buttons}>
+              <Button tagElement="link" to={`/${ROUTES.PRODUCTS}`} variant="transparent">
+                Return To Shop
+              </Button>
               <Button
-                tagElement="link"
-                to={`/${ROUTES.CATALOG}`}
-                title="Return To Shop"
-                variant="transparent"
-              />
-              <Button
-                title="Update Cart"
                 variant="transparent"
                 onClick={onUpdateCart}
                 loading={loading}
                 disabled={!products.length}
-                className={styles.updateButton}
-              />
+                className={styles.updateButton}>
+                Update Cart
+              </Button>
             </Flex>
             <div className={styles.block}>
               <CouponCodeItem className={styles.coupon} />
