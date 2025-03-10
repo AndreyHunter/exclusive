@@ -2,6 +2,7 @@ import { Button } from '@components/atoms/button/Button';
 import { Container } from '@components/helpers/container/Container';
 import { Flex } from '@components/helpers/flex/Flex';
 import { BreadCrumbs } from '@components/molecules/breadCrumbs/BreadCrumbs';
+import { ROUTES } from '@routes/routes';
 
 import styles from './notFoundPage.module.scss';
 
@@ -17,7 +18,9 @@ const NotFoundPage = () => {
           <p className={styles.message}>Your visited page not found. You may go home page.</p>
         </Flex>
         <Flex justifyContent="center">
-          <Button tagElement="link" to="/" title="Back to home page" className={styles.button} />
+          <Button tagElement="link" to={ROUTES.INDEX} className={styles.button}>
+            Back to home page
+          </Button>
         </Flex>
       </section>
     </>

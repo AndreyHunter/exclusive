@@ -2,10 +2,26 @@ import { SectionTitle } from '@components/atoms/sectionTitle/SectionTitle';
 import { Container } from '@components/helpers/container/Container';
 import { BreadCrumbs } from '@components/molecules/breadCrumbs/BreadCrumbs';
 import { ProductsList } from '@components/molecules/productList/ProductList';
+import type { Product, BreadCrumbsType } from 'types/index';
+import { Loader } from '@components/atoms/loader/Loader';
 
 import styles from './productsPage.module.scss';
 
-const ProductsPage = ({ products, error, loading, breadCrumbs, categoryName }) => {
+interface ProductsPageProps {
+  products: Product[];
+  error: string | null;
+  loading: boolean;
+  breadCrumbs: BreadCrumbsType[];
+  categoryName: string;
+}
+
+const ProductsPage = ({
+  products,
+  error,
+  loading,
+  breadCrumbs,
+  categoryName,
+}: ProductsPageProps) => {
   return (
     <>
       <Container>
@@ -21,7 +37,7 @@ const ProductsPage = ({ products, error, loading, breadCrumbs, categoryName }) =
             </ul>
           </div>
           {loading ? (
-            <p>Loading...</p>
+            <Loader />
           ) : error ? (
             <p>Error: {error}</p>
           ) : (

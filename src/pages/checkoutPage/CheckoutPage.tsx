@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { Button } from '@components/atoms/button/Button';
 import { RadioButton } from '@components/atoms/radioButton/RadioButton';
 import { Container } from '@components/helpers/container/Container';
@@ -9,19 +10,25 @@ import { BreadCrumbs } from '@components/molecules/breadCrumbs/BreadCrumbs';
 import { CouponCodeItem } from '@components/molecules/couponCodeItem/CouponCodeItem';
 import { OrderSummary } from '@components/organisms/orderSummary/OrderSummary';
 import { OrderForm } from '@components/organisms/orderForm/OrderForm';
+import { fetchUserCart, selectProductsInCart } from '@features/cart/cartSlice';
 
 import styles from './checkoutPage.module.scss';
 
 const CheckoutPage = () => {
   const [radioButtons, setRadioButtons] = useState({ bank: false, cashOrDelivery: false });
   const [checked, setChecked] = useState(true);
-  const checkout = [];
+  const dispatch = useAppDispatch();
+  const products = useAppSelector(selectProductsInCart);
+
+  useEffect(() => {
+    dispatch(fetchUserCart(true));
+  }, [dispatch]);
 
   const handleSetChecked = () => {
     setChecked(!checked);
   };
 
-  const handleRadioButton = (e) => {
+  const handleRadioButton = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target;
 
     setRadioButtons((prev) => ({
@@ -30,6 +37,8 @@ const CheckoutPage = () => {
       [name]: true,
     }));
   };
+
+  const checkoutProducts = products.map((product) => product.product);
 
   return (
     <>
@@ -43,7 +52,7 @@ const CheckoutPage = () => {
             <OrderForm handleSetChecked={handleSetChecked} checked={checked} />
             <div className={styles.info}>
               <Flex flexDirection="column" className={styles.block}>
-                <OrderSummary products={checkout} total={100} subtotal={120} />
+                <OrderSummary products={checkoutProducts} total={100} subtotal={120} />
                 <CouponCodeItem className={styles.coupon} />
                 <Flex justifyContent="space-between" className={styles.banks}>
                   <Flex alignItems="center" gap={12}>
@@ -67,7 +76,7 @@ const CheckoutPage = () => {
                   </Flex>
                 </Flex>
               </Flex>
-              <Button title="Place Order" className={styles.button} />
+              <Button className={styles.button}>Place Order</Button>
             </div>
           </Flex>
         </Container>

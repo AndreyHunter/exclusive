@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import styles from './loader.module.scss';
 
 interface LoaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  small: boolean;
+  small?: boolean;
 }
 
 export const Loader: React.FC<LoaderProps> = ({ small, ...props }) => {
