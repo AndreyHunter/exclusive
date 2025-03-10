@@ -34,6 +34,7 @@ const ProductPageContainer = () => {
   const breadCrumbs = Utils.generateBreadcrumbs(pathname);
 
   useEffect(() => {
+    dispatch(clearProducts());
     if (pathname === '/products') {
       dispatch(fetchProducts({ limit }));
     } else if (fullPath === '/best-sellers') {
@@ -43,10 +44,6 @@ const ProductPageContainer = () => {
     } else {
       dispatch(fetchProductsByCategories({ limit, category: fullPath }));
     }
-
-    return () => {
-      dispatch(clearProducts());
-    };
   }, [dispatch, limit, fullPath, pathname]);
 
   return (

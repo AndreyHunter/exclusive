@@ -9,7 +9,7 @@ import styles from './productsPage.module.scss';
 
 interface ProductsPageProps {
   products: Product[];
-  error: string | null;
+  error: string | null | undefined;
   loading: boolean;
   breadCrumbs: BreadCrumbsType[];
   categoryName: string;
