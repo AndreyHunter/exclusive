@@ -5,14 +5,14 @@ import { Checkbox } from './Checkbox';
 
 describe('CheckBox component', () => {
   it('checks if component renders and has checked === false', () => {
-    render(<Checkbox onChange={() => {}} />);
+    render(<Checkbox onChange={() => {}} checked={false} label="test" />);
     const input = screen.getByRole('checkbox') as HTMLInputElement;
     expect(input.checked).toBe(false);
   });
 
   it('checks if component has checked === true', async () => {
     const onChange = jest.fn();
-    render(<Checkbox checked={true} onChange={onChange} />);
+    render(<Checkbox checked={true} onChange={onChange} label="test" />);
     const input = screen.getByRole('checkbox') as HTMLInputElement;
     await userEvent.click(input);
     expect(onChange).toHaveBeenCalledTimes(1);

@@ -4,16 +4,19 @@ import axios from './axiosConfig';
 
 export const getProducts = async ({
   limit,
-  sort,
+  page,
+  queryFilters,
 }: {
   limit: number;
-  sort?: string;
+  page: number;
+  queryFilters?: object;
 }): Promise<Product[]> => {
   try {
     const { data } = await axios.get<{ products: Product[] }>('/products', {
       params: {
         limit,
-        sort,
+        page,
+        ...queryFilters,
       },
     });
 
@@ -30,19 +33,22 @@ export const getProducts = async ({
 };
 
 export const getProductsByCategories = async ({
-  category,
   limit,
-  sort,
+  page,
+  queryFilters,
+  category,
 }: {
-  category: string;
   limit: number;
-  sort?: string;
+  page: number;
+  queryFilters?: object;
+  category: string;
 }): Promise<Product[]> => {
   try {
     const { data } = await axios.get<{ products: Product[] }>(`/products/category${category}`, {
       params: {
         limit,
-        sort,
+        page,
+        ...queryFilters,
       },
     });
 
@@ -60,16 +66,19 @@ export const getProductsByCategories = async ({
 
 export const getFlashSales = async ({
   limit,
-  sort,
+  page,
+  queryFilters,
 }: {
   limit: number;
-  sort?: string;
+  page: number;
+  queryFilters?: object;
 }): Promise<Product[]> => {
   try {
     const { data } = await axios.get<{ products: Product[] }>('/products/flash-sales', {
       params: {
         limit,
-        sort,
+        page,
+        ...queryFilters,
       },
     });
 
@@ -87,16 +96,19 @@ export const getFlashSales = async ({
 
 export const getBestSellers = async ({
   limit,
-  sort,
+  page,
+  queryFilters,
 }: {
   limit: number;
-  sort?: string;
+  page: number;
+  queryFilters?: object;
 }): Promise<Product[]> => {
   try {
     const { data } = await axios.get<{ products: Product[] }>('/products/best-sellers', {
       params: {
         limit,
-        sort,
+        page,
+        ...queryFilters,
       },
     });
 

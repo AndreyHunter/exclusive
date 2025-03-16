@@ -4,8 +4,11 @@ import { handleAxiosError } from '@utils/others/index';
 import type { RootState } from '@/app/store';
 import type { Product, RejectValueType } from 'types/index';
 import { ProductService } from '@services/index';
+import { Utils } from '@utils/index';
 
-interface ProductsState {
+import type { FiltersState } from '../productFilters/productFiltersSlice';
+
+export interface ProductsState {
   products: Product[];
   flashSales: Product[];
   bestSellers: Product[];
@@ -91,11 +94,17 @@ const productsSlice = createSlice({
 
 export const fetchProducts = createAsyncThunk<
   Product[],
-  { limit: number; sort?: string },
+  { limit: number; page: number; filters?: FiltersState },
   RejectValueType
->('products/fetchProducts', async ({ limit, sort }, { rejectWithValue }) => {
+>('products/fetchProducts', async ({ limit, page, filters }, { rejectWithValue }) => {
+  let queryFilters: object = {};
+
+  if (filters) {
+    queryFilters = Utils.createFlatObjectFromFilters(filters);
+  }
+
   try {
-    const res = await ProductService.getProducts({ limit, sort });
+    const res = await ProductService.getProducts({ limit, page, queryFilters });
     return res;
   } catch (err) {
     const error = handleAxiosError(err);
@@ -105,25 +114,45 @@ export const fetchProducts = createAsyncThunk<
 
 export const fetchProductsByCategories = createAsyncThunk<
   Product[],
-  { category: string; limit: number; sort?: string },
+  { limit: number; page: number; filters?: FiltersState; category: string },
   RejectValueType
->('products/fetchProductsByCategories', async ({ category, limit, sort }, { rejectWithValue }) => {
-  try {
-    const res = await ProductService.getProductsByCategories({ category, limit, sort });
-    return res;
-  } catch (err) {
-    const error = handleAxiosError(err);
-    return rejectWithValue(error);
-  }
-});
+>(
+  'products/fetchProductsByCategories',
+  async ({ limit, page, filters, category }, { rejectWithValue }) => {
+    let queryFilters: object = {};
+
+    if (filters) {
+      queryFilters = Utils.createFlatObjectFromFilters(filters);
+    }
+
+    try {
+      const res = await ProductService.getProductsByCategories({
+        limit,
+        page,
+        queryFilters,
+        category,
+      });
+      return res;
+    } catch (err) {
+      const error = handleAxiosError(err);
+      return rejectWithValue(error);
+    }
+  },
+);
 
 export const fetchFlashSales = createAsyncThunk<
   Product[],
-  { limit: number; sort?: string },
+  { limit: number; page: number; filters?: FiltersState },
   RejectValueType
->('products/fetchFlashSales', async ({ limit, sort }, { rejectWithValue }) => {
+>('products/fetchFlashSales', async ({ limit, page, filters }, { rejectWithValue }) => {
+  let queryFilters: object = {};
+
+  if (filters) {
+    queryFilters = Utils.createFlatObjectFromFilters(filters);
+  }
+
   try {
-    const res = await ProductService.getFlashSales({ limit, sort });
+    const res = await ProductService.getFlashSales({ limit, page, queryFilters });
     return res;
   } catch (err) {
     const error = handleAxiosError(err);
@@ -133,11 +162,17 @@ export const fetchFlashSales = createAsyncThunk<
 
 export const fetchBestSellers = createAsyncThunk<
   Product[],
-  { limit: number; sort?: string },
+  { limit: number; page: number; filters?: FiltersState },
   RejectValueType
->('products/fetchBestSellers', async ({ limit, sort }, { rejectWithValue }) => {
+>('products/fetchBestSellers', async ({ limit, page, filters }, { rejectWithValue }) => {
+  let queryFilters: object = {};
+
+  if (filters) {
+    queryFilters = Utils.createFlatObjectFromFilters(filters);
+  }
+
   try {
-    const res = await ProductService.getBestSellers({ limit, sort });
+    const res = await ProductService.getBestSellers({ limit, page, queryFilters });
     return res;
   } catch (err) {
     const error = handleAxiosError(err);

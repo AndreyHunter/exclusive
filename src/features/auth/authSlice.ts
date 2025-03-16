@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { User } from 'types/index';
 import type { RootState } from '@/app/store';
 
-interface AuthState {
+export interface AuthState {
   token: string | null;
   userId: string | null;
   userName: string | null;

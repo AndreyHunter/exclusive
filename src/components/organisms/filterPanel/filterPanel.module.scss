@@ -1,0 +1,25 @@
+.root {
+  width: 240px;
+}
+
+.top {
+  padding: 10px;
+  background-color: var(--accentColor);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.filters {
+  padding-top: 10px;
+}
+
+.filter {
+  padding-block: 20px;
+}

@@ -14,6 +14,7 @@ import {
   fetchFlashSales,
   selectFlashSales,
 } from '@features/products/productsSlice';
+import { selectAllFilters } from '@features/productFilters/productFiltersSlice';
 import { Utils } from '@utils/index';
 
 import ProductsPage from './ProductsPage';
@@ -23,9 +24,13 @@ const ProductPageContainer = () => {
   const products = useAppSelector(selectProducts);
   const bestSellers = useAppSelector(selectBestSellers);
   const flashSales = useAppSelector(selectFlashSales);
+  const filters = useAppSelector(selectAllFilters);
+
   const loading = useAppSelector(selectProductsIsLoading);
   const error = useAppSelector(selectProductsError);
+
   const [limit, setLimit] = useState(20);
+  const [page, setPage] = useState(1);
 
   const { pathname } = useLocation();
   const fullPath = pathname.replace('/products', '');
@@ -36,15 +41,15 @@ const ProductPageContainer = () => {
   useEffect(() => {
     dispatch(clearProducts());
     if (pathname === '/products') {
-      dispatch(fetchProducts({ limit }));
+      dispatch(fetchProducts({ limit, page, filters }));
     } else if (fullPath === '/best-sellers') {
-      dispatch(fetchBestSellers({ limit }));
+      dispatch(fetchBestSellers({ limit, page, filters }));
     } else if (fullPath === '/flash-sales') {
-      dispatch(fetchFlashSales({ limit }));
+      dispatch(fetchFlashSales({ limit, page, filters }));
     } else {
-      dispatch(fetchProductsByCategories({ limit, category: fullPath }));
+      dispatch(fetchProductsByCategories({ limit, page, filters, category: fullPath }));
     }
-  }, [dispatch, limit, fullPath, pathname]);
+  }, [dispatch, limit, page, filters, fullPath, pathname]);
 
   return (
     <ProductsPage

@@ -8,12 +8,16 @@ jest.mock('@components/molecules/breadCrumbs/BreadCrumbs', () => ({
   BreadCrumbs: () => <div data-testid="breadcrumbs"></div>,
 }));
 
-jest.mock('@components/molecules/productList/ProductList', () => ({
-  ProductsList: () => <div data-testid="products-list"></div>,
+jest.mock('@components/molecules/productList/ProductList.tsx', () => ({
+  ProductsList: () => <ul data-testid="products-list"></ul>,
 }));
 
 jest.mock('@components/atoms/loader/Loader', () => ({
   Loader: () => <div data-testid="loader"></div>,
+}));
+
+jest.mock('@components/organisms/filterPanel/FilterPanel', () => ({
+  FilterPanel: () => <div data-testid="filter-panel"></div>,
 }));
 
 describe('ProductsPage', () => {
@@ -29,11 +33,11 @@ describe('ProductsPage', () => {
     render(<ProductsPage {...props} />);
 
     expect(screen.getByTestId('breadcrumbs')).toBeInTheDocument();
-    expect(screen.getByRole('list')).toBeInTheDocument();
 
     expect(screen.queryByTestId('loader')).not.toBeInTheDocument();
     expect(screen.queryByText(/Error:/)).not.toBeInTheDocument();
     expect(screen.getByTestId('products-list')).toBeInTheDocument();
+    expect(screen.getByTestId('filter-panel')).toBeInTheDocument();
   });
 
   it('renders loader when loading is true', () => {

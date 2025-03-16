@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { RootState } from '@/app/store';
 
-interface UserMenuState {
+export interface UserMenuState {
   isOpen: boolean;
 }
 
