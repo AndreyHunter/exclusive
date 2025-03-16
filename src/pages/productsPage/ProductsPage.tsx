@@ -4,6 +4,7 @@ import { BreadCrumbs } from '@components/molecules/breadCrumbs/BreadCrumbs';
 import { ProductsList } from '@components/molecules/productList/ProductList';
 import type { Product, BreadCrumbsType } from 'types/index';
 import { Loader } from '@components/atoms/loader/Loader';
+import { FilterPanel } from '@components/organisms/filterPanel/FilterPanel';
 
 import styles from './productsPage.module.scss';
 
@@ -28,14 +29,7 @@ const ProductsPage = ({
         <BreadCrumbs elements={breadCrumbs} />
         <SectionTitle className={styles.title}>{categoryName}</SectionTitle>
         <div className={styles.content}>
-          <div>
-            <ul>
-              <li>filters</li>
-              <li>filters</li>
-              <li>filters</li>
-              <li>filters</li>
-            </ul>
-          </div>
+          <FilterPanel />
           {loading ? (
             <Loader />
           ) : error ? (

@@ -23,7 +23,7 @@ export const FlashSalesSection = ({ className }: FlashSalesSectionProps) => {
   const [limit, setLimit] = useState(20);
 
   useEffect(() => {
-    dispatch(fetchFlashSales({ limit }));
+    dispatch(fetchFlashSales({ limit, page: 1 }));
   }, [dispatch, limit]);
 
   const classes = clsx(styles.root, className);

@@ -17,12 +17,12 @@ interface OurProductsSectionProps {
 
 export const OurProductsSection = ({ className }: OurProductsSectionProps) => {
   const dispatch = useAppDispatch();
-  const products = useAppSelector(selectProducts) as any[];
+  const products = useAppSelector(selectProducts);
   const [limit, setLimit] = useState(8);
   const classes = clsx(styles.root, className);
 
   useEffect(() => {
-    dispatch(fetchProducts({ limit }));
+    dispatch(fetchProducts({ limit, page: 1 }));
   }, [dispatch, limit]);
 
   return (

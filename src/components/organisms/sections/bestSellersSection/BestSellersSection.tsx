@@ -23,7 +23,7 @@ export const BestSellersSection = ({ className }: BestSellersSectionProps) => {
   const [limit, setLimit] = useState(20);
 
   useEffect(() => {
-    dispatch(fetchBestSellers({ limit }));
+    dispatch(fetchBestSellers({ limit, page: 1 }));
   }, [limit, dispatch]);
 
   const classes = clsx(styles.root, className);

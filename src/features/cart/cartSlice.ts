@@ -5,7 +5,7 @@ import type { RootState } from '@/app/store';
 import { CartService } from '@services/index';
 import type { RejectValueType, Cart } from 'types/index';
 
-interface CartState {
+export interface CartState {
   products: Cart;
   productsQuantity: number;
   loading: boolean;
