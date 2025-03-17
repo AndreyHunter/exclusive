@@ -3,9 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { RootState } from '@/app/store';
 
+export type SortBy = 'price_asc' | 'price_desc' | 'newest' | 'rating' | 'popularity';
+
 export interface FiltersState {
   priceRange: [number, number];
-  sortBy: 'price_asc' | 'price_desc' | 'newest' | 'rating' | 'popularity';
+  sortBy: SortBy;
   specificFilters: { [key: string]: any };
 }
 

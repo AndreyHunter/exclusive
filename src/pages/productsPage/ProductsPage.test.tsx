@@ -20,6 +20,10 @@ jest.mock('@components/organisms/filterPanel/FilterPanel', () => ({
   FilterPanel: () => <div data-testid="filter-panel"></div>,
 }));
 
+jest.mock('@components/molecules/sortSelect/SortSelect', () => ({
+  SortSelect: () => <div data-testid="sort-select"></div>,
+}));
+
 describe('ProductsPage', () => {
   const props = {
     products: mockProducts,
@@ -38,6 +42,7 @@ describe('ProductsPage', () => {
     expect(screen.queryByText(/Error:/)).not.toBeInTheDocument();
     expect(screen.getByTestId('products-list')).toBeInTheDocument();
     expect(screen.getByTestId('filter-panel')).toBeInTheDocument();
+    expect(screen.getByTestId('sort-select')).toBeInTheDocument();
   });
 
   it('renders loader when loading is true', () => {

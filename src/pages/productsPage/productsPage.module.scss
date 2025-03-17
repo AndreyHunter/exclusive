@@ -9,3 +9,12 @@
   grid-template-columns: 0.2fr 1fr;
   gap: 30px;
 }
+
+.panel {
+  padding-block: 20px;
+
+  > span {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.302);
+  }
+}
