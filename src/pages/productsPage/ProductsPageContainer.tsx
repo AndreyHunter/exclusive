@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 
@@ -15,10 +15,13 @@ import {
   fetchFlashSales,
   selectFlashSales,
 } from '@features/products/productsSlice';
+import type { SortBy } from '@features/productFilters/productFiltersSlice';
 import {
   selectAllFilters,
   setPriceRange,
+  setSortBy,
   setSpecificFilter,
+  resetFilters,
 } from '@features/productFilters/productFiltersSlice';
 import { Utils } from '@utils/index';
 
@@ -41,36 +44,55 @@ const ProductPageContainer = () => {
   const fullPath = pathname.replace('/products', '');
   const navigate = useNavigate();
   const [isFiltersLoaded, setIsFiltersLoaded] = useState(false);
+  const prevPathname = useRef(pathname);
 
   const categoryName = Utils.getCategoryName(fullPath);
   const breadCrumbs = Utils.generateBreadcrumbs(pathname);
 
   useEffect(() => {
-    const params = queryString.parse(search, { arrayFormat: 'bracket' });
-    if (params.minPrice && params.maxPrice) {
-      dispatch(setPriceRange([Number(params.minPrice), Number(params.maxPrice)]));
+    if (prevPathname.current !== pathname) {
+      dispatch(resetFilters());
+      setIsFiltersLoaded(false);
+      prevPathname.current = pathname;
+
+      navigate({ search: '' }, { replace: true });
     }
-
-    Object.entries(params).forEach(([key, value]) => {
-      if (key !== 'minPrice' && key !== 'maxPrice') {
-        dispatch(setSpecificFilter({ key, value }));
-      }
-    });
-
-    setIsFiltersLoaded(true);
-  }, [dispatch, search]);
+  }, [pathname, dispatch, navigate]);
 
   useEffect(() => {
-    const query = {
-      minPrice: filters.priceRange[0],
-      maxPrice: filters.priceRange[1],
-      ...filters.specificFilters,
-    };
+    if (!isFiltersLoaded) {
+      const params = queryString.parse(search, { arrayFormat: 'bracket' });
+      if (params.minPrice && params.maxPrice) {
+        dispatch(setPriceRange([Number(params.minPrice), Number(params.maxPrice)]));
+      }
 
-    const newSearch = queryString.stringify(query, { arrayFormat: 'bracket' });
+      if (params.sortBy) {
+        dispatch(setSortBy(params.sortBy as SortBy));
+      }
 
-    navigate({ search: newSearch }, { replace: true });
-  }, [filters, navigate]);
+      Object.entries(params).forEach(([key, value]) => {
+        if (key !== 'minPrice' && key !== 'maxPrice' && key !== 'sortBy') {
+          dispatch(setSpecificFilter({ key, value }));
+        }
+      });
+
+      setIsFiltersLoaded(true);
+    }
+  }, [dispatch, search, isFiltersLoaded]);
+
+  useEffect(() => {
+    if (isFiltersLoaded) {
+      const query = {
+        minPrice: filters.priceRange[0],
+        maxPrice: filters.priceRange[1],
+        sortBy: filters.sortBy,
+        ...filters.specificFilters,
+      };
+
+      const newSearch = queryString.stringify(query, { arrayFormat: 'bracket' });
+      navigate({ search: newSearch }, { replace: true });
+    }
+  }, [filters, navigate, isFiltersLoaded]);
 
   useEffect(() => {
     if (isFiltersLoaded) {
