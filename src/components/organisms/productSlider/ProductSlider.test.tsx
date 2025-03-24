@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { mockProducts } from '@tests/__fixtures__';
 import type { Product } from 'types/index';
 
+import type { ProductSliderProps } from './ProductSlider';
 import { ProductSlider } from './ProductSlider';
 
 jest.mock('swiper/react', () => ({
@@ -40,8 +41,10 @@ jest.mock('@hooks/useMediaQuery', () => ({
 }));
 
 describe('ProductSlider', () => {
-  const defaultProps = {
+  const defaultProps: ProductSliderProps = {
     products: mockProducts,
+    loading: false,
+    error: null,
     sliderId: 'test-slider',
     buttonsPosition: 'default' as const,
   };

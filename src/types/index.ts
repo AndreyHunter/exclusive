@@ -35,3 +35,8 @@ export type RejectValueType = {
 };
 
 export type Cart = { product: Product; quantity: number }[];
+
+export type ProductsResponse = {
+  products: Product[];
+  hasMore: boolean;
+};

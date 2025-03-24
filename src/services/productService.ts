@@ -1,4 +1,4 @@
-import type { Product } from 'types/index';
+import type { Product, ProductsResponse } from 'types/index';
 
 import axios from './axiosConfig';
 
@@ -10,9 +10,9 @@ export const getProducts = async ({
   limit: number;
   page: number;
   queryFilters?: object;
-}): Promise<Product[]> => {
+}): Promise<ProductsResponse> => {
   try {
-    const { data } = await axios.get<{ products: Product[] }>('/products', {
+    const { data } = await axios.get<{ products: Product[]; hasMore: boolean }>('/products', {
       params: {
         limit,
         page,
@@ -24,7 +24,7 @@ export const getProducts = async ({
       throw new Error('Products not found');
     }
 
-    return data.products;
+    return data;
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     console.error(`Service error: ${errorMessage}`);
@@ -41,10 +41,10 @@ export const getProductsByCategories = async ({
   limit: number;
   page: number;
   queryFilters?: object;
-  category: string;
-}): Promise<Product[]> => {
+  category?: string;
+}): Promise<ProductsResponse> => {
   try {
-    const { data } = await axios.get<{ products: Product[] }>(`/products/category${category}`, {
+    const { data } = await axios.get<ProductsResponse>(`/products/category${category}`, {
       params: {
         limit,
         page,
@@ -56,7 +56,7 @@ export const getProductsByCategories = async ({
       throw new Error('Products not found for this category');
     }
 
-    return data.products;
+    return data;
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     console.error(`Service error: ${errorMessage}`);
@@ -72,9 +72,9 @@ export const getFlashSales = async ({
   limit: number;
   page: number;
   queryFilters?: object;
-}): Promise<Product[]> => {
+}): Promise<ProductsResponse> => {
   try {
-    const { data } = await axios.get<{ products: Product[] }>('/products/flash-sales', {
+    const { data } = await axios.get<ProductsResponse>('/products/flash-sales', {
       params: {
         limit,
         page,
@@ -86,7 +86,7 @@ export const getFlashSales = async ({
       throw new Error('Flash sales products not found');
     }
 
-    return data.products;
+    return data;
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     console.error(`Service error: ${errorMessage}`);
@@ -102,9 +102,9 @@ export const getBestSellers = async ({
   limit: number;
   page: number;
   queryFilters?: object;
-}): Promise<Product[]> => {
+}): Promise<ProductsResponse> => {
   try {
-    const { data } = await axios.get<{ products: Product[] }>('/products/best-sellers', {
+    const { data } = await axios.get<ProductsResponse>('/products/best-sellers', {
       params: {
         limit,
         page,
@@ -116,7 +116,7 @@ export const getBestSellers = async ({
       throw new Error('Best sellers products not found');
     }
 
-    return data.products;
+    return data;
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     console.error(`Service error: ${errorMessage}`);

@@ -21,6 +21,7 @@ interface ProductCardProps {
   showAddedMessage: boolean;
   rating: number;
   reviewsCount: number;
+  ref?: React.RefObject<HTMLLIElement | null> | null;
   onAddToCart: () => void;
   onSetRating: (rating: number) => void;
 }
@@ -32,11 +33,12 @@ export const ProductCard = ({
   showAddedMessage,
   rating,
   reviewsCount,
+  ref,
   onAddToCart,
   onSetRating,
 }: ProductCardProps) => {
   return (
-    <li className={styles.card}>
+    <li className={styles.card} ref={ref}>
       <Flex
         className={styles.header}
         flexDirection="column"

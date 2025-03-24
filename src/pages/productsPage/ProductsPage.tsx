@@ -5,9 +5,8 @@ import { Container } from '@components/helpers/container/Container';
 import { BreadCrumbs } from '@components/molecules/breadCrumbs/BreadCrumbs';
 import { ProductsList } from '@components/molecules/productList/ProductList';
 import type { Product, BreadCrumbsType } from 'types/index';
-import { Loader } from '@components/atoms/loader/Loader';
 import { FilterPanel } from '@components/organisms/filterPanel/FilterPanel';
-import { Flex } from '@/components/helpers/flex/Flex';
+import { Flex } from '@components/helpers/flex/Flex';
 import { SortSelect } from '@components/molecules/sortSelect/SortSelect';
 
 import styles from './productsPage.module.scss';
@@ -18,6 +17,7 @@ interface ProductsPageProps {
   loading: boolean;
   breadCrumbs: BreadCrumbsType[];
   categoryName: string;
+  ref?: React.RefObject<HTMLLIElement | null>;
 }
 
 const ProductsPage = ({
@@ -26,6 +26,7 @@ const ProductsPage = ({
   loading,
   breadCrumbs,
   categoryName,
+  ref,
 }: ProductsPageProps) => {
   const [prevProducts, setPrevProducts] = useState(products);
 
@@ -50,13 +51,7 @@ const ProductsPage = ({
         </Flex>
         <div className={styles.content}>
           <FilterPanel />
-          {loading ? (
-            <Loader />
-          ) : error ? (
-            <p>Error: {error}</p>
-          ) : (
-            <ProductsList products={products} />
-          )}
+          <ProductsList products={products} loading={loading} error={error} ref={ref} />
         </div>
       </Container>
     </>

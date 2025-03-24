@@ -28,6 +28,8 @@ export const SuggestedProductsSection = ({
           <SectionLabel>{sectionTitle}</SectionLabel>
         </Flex>
         <ProductSlider
+          loading={false}
+          error={null}
           products={products}
           buttonsPosition="default"
           sliderId="suggested-products"

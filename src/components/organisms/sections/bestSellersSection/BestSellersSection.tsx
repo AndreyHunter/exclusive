@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react';
 import { clsx } from 'clsx';
 
-import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { useMediaQuery } from '@hooks/useMediaQuery';
+import { useProducts } from '@hooks/useProducts';
 import { Button } from '@components/atoms/button/Button';
 import { Container } from '@components/helpers/container/Container';
 import { Flex } from '@components/helpers/flex/Flex';
 import { SectionLabelWithTitle } from '@components/molecules/sectionLabelWithTitle/SectionLabelWithTitle';
 import { ProductSlider } from '@components/organisms/productSlider/ProductSlider';
-import { fetchBestSellers, selectBestSellers } from '@features/products/productsSlice';
 import { ROUTES } from '@routes/routes';
 
 import styles from './bestSellersSection.module.scss';
@@ -18,14 +16,11 @@ interface BestSellersSectionProps {
 }
 
 export const BestSellersSection = ({ className }: BestSellersSectionProps) => {
-  const dispatch = useAppDispatch();
-  const products = useAppSelector(selectBestSellers);
-  const [limit, setLimit] = useState(20);
-
-  useEffect(() => {
-    dispatch(fetchBestSellers({ limit, page: 1 }));
-  }, [limit, dispatch]);
-
+  const { products, loading, error } = useProducts({
+    productType: 'best-sellers',
+    page: 1,
+    limit: 8,
+  });
   const classes = clsx(styles.root, className);
   const isMobile = useMediaQuery('(max-width: 668px)');
 
@@ -40,7 +35,12 @@ export const BestSellersSection = ({ className }: BestSellersSectionProps) => {
             </Button>
           )}
         </div>
-        <ProductSlider products={products} sliderId="best-sellers" />
+        <ProductSlider
+          products={products}
+          loading={loading}
+          error={error}
+          sliderId="best-sellers"
+        />
         {isMobile && (
           <Flex justifyContent="center" className={styles.button}>
             <Button tagElement="link" to={`${ROUTES.PRODUCTS}/best-sellers`}>
