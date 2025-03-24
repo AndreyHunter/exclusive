@@ -30,6 +30,7 @@ export const FilterPanel = () => {
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const categoryPath = pathname.replace('/products', '').replace(/^\//, '');
+  const isSubcategory = categoryPath.split('/').length > 1;
 
   const filters = useAppSelector(selectAllFilters);
   const [specificFilters, setSpecificFilters] = useState<Filter[]>([]);
@@ -37,7 +38,7 @@ export const FilterPanel = () => {
   useEffect(() => {
     const getFilters = async () => {
       try {
-        if (categoryPath) {
+        if (categoryPath && isSubcategory) {
           const response = await axios.get('/products/filters', { params: { categoryPath } });
           const filtersData = response.data;
 
@@ -60,7 +61,7 @@ export const FilterPanel = () => {
     return () => {
       setSpecificFilters([]);
     };
-  }, [categoryPath]);
+  }, [categoryPath, isSubcategory]);
 
   const handlePriceRangeChange = (min: number, max: number) => {
     dispatch(setPriceRange([min, max]));

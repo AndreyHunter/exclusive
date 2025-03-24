@@ -48,6 +48,10 @@ const customStyles: StylesConfig<SortOption, false> = {
     '&:hover': {
       backgroundColor: state.isSelected ? '#db4444' : '#f5f5f5',
     },
+    '&:active': {
+      backgroundColor: '#db4444',
+      color: 'white',
+    },
   }),
 };
 

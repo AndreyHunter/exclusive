@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactSlider from 'react-slider';
 
 import { Flex } from '@components/helpers/flex/Flex';
 
@@ -29,22 +30,9 @@ export const CostRangeForm = ({ minPrice, maxPrice, onPriceRangeChange }: CostRa
     setLocalMax(value >= localMin ? value : localMin);
   };
 
-  const handleMinSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(e.target.value);
-    if (value <= localMax) {
-      setLocalMin(value);
-    } else {
-      setLocalMin(localMax);
-    }
-  };
-
-  const handleMaxSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(e.target.value);
-    if (value >= localMin) {
-      setLocalMax(value);
-    } else {
-      setLocalMax(localMin);
-    }
+  const handleSliderChange = (values: number[]) => {
+    setLocalMin(values[0]);
+    setLocalMax(values[1]);
   };
 
   const applyChanges = () => {
@@ -53,19 +41,6 @@ export const CostRangeForm = ({ minPrice, maxPrice, onPriceRangeChange }: CostRa
 
   const min = 0;
   const max = 50000;
-  const leftPercent = ((localMin - min) / (max - min)) * 100;
-  const rightPercent = 100 - ((localMax - min) / (max - min)) * 100;
-  const rangeStyle = {
-    background: `linear-gradient(
-      to right,
-      #f5f5f5 0%,
-      #f5f5f5 ${leftPercent}%,
-      #db4444 ${leftPercent}%,
-      #db4444 ${100 - rightPercent}%,
-      #f5f5f5 ${100 - rightPercent}%,
-      #f5f5f5 100%
-    )`,
-  };
 
   return (
     <div className={styles.filterSection}>
@@ -95,22 +70,16 @@ export const CostRangeForm = ({ minPrice, maxPrice, onPriceRangeChange }: CostRa
       </Flex>
 
       <div className={styles.sliderContainer}>
-        <div className={styles.sliderTrack} style={rangeStyle}></div>
-        <input
-          type="range"
+        <ReactSlider
+          className={styles.slider}
+          thumbClassName={styles.thumb}
+          trackClassName={styles.track}
           min={min}
           max={max}
-          value={localMin}
-          onChange={handleMinSliderChange}
-          className={`${styles.slider} ${styles.sliderMin}`}
-        />
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={localMax}
-          onChange={handleMaxSliderChange}
-          className={`${styles.slider} ${styles.sliderMax}`}
+          value={[localMin, localMax]}
+          onChange={handleSliderChange}
+          pearling
+          minDistance={0}
         />
       </div>
     </div>
