@@ -7,6 +7,7 @@ import { useMediaQuery } from '@hooks/useMediaQuery';
 import { SliderButton } from '@components/atoms/sliderButton/SliderButton';
 import { ProductCardContainer as ProductCard } from '@components/molecules/productCard/ProductCardContainer';
 import type { Product } from 'types/index';
+import { Loader } from '@/components/atoms/loader/Loader';
 
 import { settings } from './settings';
 
@@ -16,14 +17,18 @@ import 'swiper/css/pagination';
 
 import './productSlider.scss';
 
-interface ProductSliderProps {
+export interface ProductSliderProps {
   products: Product[];
+  loading: boolean;
+  error: string | null;
   sliderId: string;
   buttonsPosition?: 'default' | 'top';
 }
 
 export const ProductSlider = ({
   products,
+  loading,
+  error,
   sliderId,
   buttonsPosition = 'default',
 }: ProductSliderProps) => {
@@ -62,12 +67,17 @@ export const ProductSlider = ({
           nextEl: `#${sliderId}-next`,
         }}
         ref={swiperRef}>
-        {products &&
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          error
+        ) : (
           products.map((product) => (
             <SwiperSlide key={product._id}>
               <ProductCard product={product} />
             </SwiperSlide>
-          ))}
+          ))
+        )}
       </Swiper>
 
       {isTop && !isMobile ? (

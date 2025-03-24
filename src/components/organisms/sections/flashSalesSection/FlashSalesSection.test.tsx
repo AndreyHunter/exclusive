@@ -10,9 +10,8 @@ jest.mock('@/app/hooks', () => ({
   useAppSelector: jest.fn(),
 }));
 
-jest.mock('@features/products/productsSlice', () => ({
-  fetchFlashSales: jest.fn(),
-  selectFlashSales: jest.fn(),
+jest.mock('@hooks/useProducts', () => ({
+  useProducts: () => jest.fn(),
 }));
 
 jest.mock('@components/organisms/productSlider/ProductSlider', () => ({

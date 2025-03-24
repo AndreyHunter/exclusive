@@ -9,6 +9,7 @@ import { ProductCard } from './ProductCard';
 
 interface ProductCardContainerProps {
   product: Product;
+  ref?: React.RefObject<HTMLLIElement | null> | null;
 }
 
 type AddToCartParams = {
@@ -16,7 +17,7 @@ type AddToCartParams = {
   quantity: number;
 };
 
-export const ProductCardContainer = ({ product }: ProductCardContainerProps) => {
+export const ProductCardContainer = ({ product, ref }: ProductCardContainerProps) => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const [showAddedMessage, setShowAddedMessage] = useState(false);
@@ -27,7 +28,6 @@ export const ProductCardContainer = ({ product }: ProductCardContainerProps) => 
     setLoading(true);
 
     try {
-      // @ts-ignore
       await dispatch(addToCart({ productId, quantity }));
       setShowAddedMessage(true);
     } finally {
@@ -58,6 +58,7 @@ export const ProductCardContainer = ({ product }: ProductCardContainerProps) => 
         })
       }
       onSetRating={handleSetRating}
+      ref={ref}
     />
   );
 };

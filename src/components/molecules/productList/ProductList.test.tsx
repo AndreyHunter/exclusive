@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import type { Product } from 'types/index';
 
 import { ProductsList } from './ProductList';
+import type { ProductsListProps } from './ProductList';
 
 jest.mock('@components/molecules/productCard/ProductCardContainer', () => ({
   ProductCardContainer: ({ product }: { product: Product }) => (
@@ -36,8 +37,14 @@ const mockProducts: Product[] = [
 ];
 
 describe('ProductsList', () => {
+  const defaultProps: ProductsListProps = {
+    products: mockProducts,
+    loading: false,
+    error: null,
+  };
+
   it('renders list of products correctly', () => {
-    render(<ProductsList products={mockProducts} />);
+    render(<ProductsList {...defaultProps} />);
 
     const productCards = screen.getAllByTestId('product-card');
     expect(productCards).toHaveLength(2);
@@ -46,13 +53,13 @@ describe('ProductsList', () => {
   });
 
   it('handles empty products array', () => {
-    render(<ProductsList products={[]} />);
+    render(<ProductsList {...defaultProps} products={[]} />);
     const productCards = screen.queryAllByTestId('product-card');
     expect(productCards).toHaveLength(0);
   });
 
   it('renders correctly with undefined products', () => {
-    render(<ProductsList products={undefined} />);
+    render(<ProductsList {...defaultProps} products={undefined} />);
     const productCards = screen.queryAllByTestId('product-card');
     expect(productCards).toHaveLength(0);
   });

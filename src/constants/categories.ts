@@ -8,13 +8,13 @@ export const categories: Category[] = [
     subcategories: [
       {
         id: 1,
-        name: 'Jackets',
-        path: 'jackets',
+        name: 'Headgear',
+        path: 'headgear',
       },
       {
         id: 2,
-        name: 'Shoes',
-        path: 'shoes',
+        name: 'Jackets',
+        path: 'jackets',
       },
       {
         id: 3,
@@ -30,13 +30,13 @@ export const categories: Category[] = [
     subcategories: [
       {
         id: 1,
-        name: 'Jackets',
-        path: 'jackets',
+        name: 'Headgear',
+        path: 'headgear',
       },
       {
         id: 2,
-        name: 'Shoes',
-        path: 'shoes',
+        name: 'Jackets',
+        path: 'jackets',
       },
       {
         id: 3,
@@ -57,23 +57,28 @@ export const categories: Category[] = [
       },
       {
         id: 2,
+        name: 'Phones',
+        path: 'phones',
+      },
+      {
+        id: 3,
         name: 'SmartWatch',
         path: 'smartwatch',
       },
       {
-        id: 3,
+        id: 4,
+        name: 'Gaming',
+        path: 'gaming',
+      },
+      {
+        id: 5,
         name: 'Cameras',
         path: 'cameras',
       },
       {
-        id: 4,
+        id: 6,
         name: 'HeadPhones',
         path: 'headphones',
-      },
-      {
-        id: 5,
-        name: 'Gaming',
-        path: 'gaming',
       },
     ],
   },
