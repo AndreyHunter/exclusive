@@ -1,4 +1,4 @@
-import type { Product, ProductsResponse } from 'types/index';
+import type { Product, ProductWithInfo, ProductsResponse } from 'types/index';
 
 import axios from './axiosConfig';
 
@@ -114,6 +114,22 @@ export const getBestSellers = async ({
 
     if (!data || !data.products) {
       throw new Error('Best sellers products not found');
+    }
+
+    return data;
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    console.error(`Service error: ${errorMessage}`);
+    throw err;
+  }
+};
+
+export const getProduct = async (id: string): Promise<ProductWithInfo> => {
+  try {
+    const { data } = await axios.get<ProductWithInfo>(`products/${id}`);
+
+    if (!data) {
+      throw new Error('Product not found');
     }
 
     return data;

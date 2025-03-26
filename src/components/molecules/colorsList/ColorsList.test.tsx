@@ -1,30 +1,30 @@
 import { render, screen } from '@testing-library/react';
-import { useState } from 'react';
-import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
+
+import { ROUTES } from '@routes/routes';
 
 import { ColorsList } from './ColorsList';
+import type { Color } from './ColorsList';
 
-const mockColors = [
+const mockColors: Color[] = [
   {
-    name: 'green',
+    productId: '1',
     color: 'green',
   },
   {
-    name: 'yellow',
+    productId: '2',
     color: 'yellow',
   },
 ];
 
-const WrapperComponent = () => {
-  const [color, setColor] = useState('');
-  return <ColorsList colors={mockColors} checked={color} onChange={setColor} />;
-};
-
-describe('ColorsList component', () => {
-  it('changes selected color when clicked', async () => {
-    render(<WrapperComponent />);
-    const element = screen.getByRole('radio', { name: /green/i });
-    await userEvent.click(element);
-    expect(element).toBeChecked();
+describe('ColorsList', () => {
+  it('navigates to another product', () => {
+    render(
+      <MemoryRouter>
+        <ColorsList colors={mockColors} />
+      </MemoryRouter>,
+    );
+    const element = screen.getAllByRole('link')[0];
+    expect(element).toHaveAttribute('href', `/${ROUTES.PRODUCT}/${mockColors[0].productId}`);
   });
 });

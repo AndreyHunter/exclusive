@@ -6,16 +6,16 @@ import { clsx } from 'clsx';
 import { SliderButton } from '@components/atoms/sliderButton/SliderButton';
 
 import { settings } from './settings';
-import styles from './productInfoSlider.module.scss';
+import styles from './productImagesSlider.module.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-interface ProductInfoSliderProps {
+interface ProductImagesSliderProps {
   images: string[];
   className?: string;
 }
 
-export const ProductInfoSlider = ({ images, className }: ProductInfoSliderProps) => {
+export const ProductImagesSlider = ({ images, className }: ProductImagesSliderProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | undefined>(undefined);
   const classes = clsx(styles.root, className);
   return (

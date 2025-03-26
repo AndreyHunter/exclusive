@@ -4,6 +4,14 @@ import type { ProductWithInfo } from 'types/index';
 
 import { ProductInfo } from './ProductInfo';
 
+jest.mock('@/app/hooks', () => ({
+  useAppDispatch: () => jest.fn(),
+}));
+
+jest.mock('@features/cart/cartSlice', () => ({
+  addToCart: () => jest.fn(),
+}));
+
 jest.mock('@components/molecules/productRating/ProductRating', () => ({
   ProductRating: () => <div data-testid="product-rating">Rating</div>,
 }));
@@ -48,13 +56,11 @@ export const mockProductWithInfo: ProductWithInfo = {
   reviewsCount: 170,
   description: 'product-description',
   image: 'image1.jpg',
-  flashSales: false,
-  bestSelling: true,
   colors: [
-    { name: 'Red', color: '#FF0000' },
-    { name: 'Blue', color: '#0000FF' },
+    { productId: '1', color: '#FF0000' },
+    { productId: '2', color: '#0000FF' },
   ],
-  sizes: ['S', 'M', 'L'],
+  sizes: ['s', 'm', 'l'],
 };
 
 describe('ProductInfo', () => {

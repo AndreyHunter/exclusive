@@ -7,7 +7,7 @@ import {
   updateCartItemsQuantity,
   selectCartIsLoading,
   selectProductsInCart,
-} from '@/features/cart/cartSlice';
+} from '@features/cart/cartSlice';
 
 import CartPage from './CartPage';
 

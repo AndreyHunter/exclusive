@@ -18,10 +18,9 @@ export interface Product {
 export interface ProductWithInfo extends Product {
   description?: string;
   image?: string;
-  flashSales?: boolean;
-  bestSelling?: boolean;
-  colors?: { name: string; color: string }[];
+  colors?: { productId: string; color: string }[];
   sizes?: string[];
+  characteristics?: string[];
 }
 
 export interface User {

@@ -4,7 +4,7 @@ import CheckoutPage from './checkoutPage/CheckoutPage';
 import ContactsPage from './contactsPage/ContactsPage';
 import HomePage from './homePage/HomePage';
 import NotFoundPage from './notFoundPage/NotFoundPage';
-import ProductPage from './productPage/ProductPage';
+import ProductPage from './productPage/ProductPageContainer';
 import ProductsPage from './productsPage/ProductsPageContainer';
 import ProfilePage from './profilePage/ProfilePage';
 import WishListPage from './wishListPage/WishListPage';
