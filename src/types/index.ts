@@ -3,26 +3,6 @@ export interface BreadCrumbsType {
   name: string;
 }
 
-export interface Product {
-  _id: string;
-  name: string;
-  price: number;
-  discountedPrice?: number;
-  inStock: boolean;
-  category: string;
-  images: string[];
-  rating: number;
-  reviewsCount: number;
-}
-
-export interface ProductWithInfo extends Product {
-  description?: string;
-  image?: string;
-  colors?: { productId: string; color: string }[];
-  sizes?: string[];
-  characteristics?: string[];
-}
-
 export interface User {
   _id: string;
   token: string;
@@ -33,9 +13,4 @@ export type RejectValueType = {
   rejectValue: string;
 };
 
-export type Cart = { product: Product; quantity: number }[];
-
-export type ProductsResponse = {
-  products: Product[];
-  hasMore: boolean;
-};
+export type { Product, ProductsResponse, ProductPageData, Cart } from './product';

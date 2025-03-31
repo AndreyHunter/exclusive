@@ -1,4 +1,4 @@
-import type { Product, ProductWithInfo, ProductsResponse } from 'types/index';
+import type { Product, ProductPageData, ProductsResponse } from 'types/index';
 
 import axios from './axiosConfig';
 
@@ -124,9 +124,9 @@ export const getBestSellers = async ({
   }
 };
 
-export const getProduct = async (id: string): Promise<ProductWithInfo> => {
+export const getProduct = async (id: string): Promise<ProductPageData> => {
   try {
-    const { data } = await axios.get<ProductWithInfo>(`products/${id}`);
+    const { data } = await axios.get<ProductPageData>(`variations/${id}`);
 
     if (!data) {
       throw new Error('Product not found');

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-import { mockProduct } from '@tests/__fixtures__';
+import { mockProductInfo } from '@tests/__fixtures__';
 
 import ProductPage from './ProductPage';
 
@@ -34,7 +34,7 @@ describe('ProductPage', () => {
   it('renders components correctly', () => {
     render(
       <MemoryRouter>
-        <ProductPage product={mockProduct} />
+        <ProductPage product={mockProductInfo} />
       </MemoryRouter>,
     );
     expect(screen.getByTestId('breadcrumbs')).toBeInTheDocument();

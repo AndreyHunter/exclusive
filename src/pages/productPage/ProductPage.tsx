@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 
-import type { ProductWithInfo, BreadCrumbsType } from 'types/index';
+import type { ProductPageData, BreadCrumbsType } from 'types/index';
 import { Container } from '@components/helpers/container/Container';
 import { BreadCrumbs } from '@components/molecules/breadCrumbs/BreadCrumbs';
 import { ProductInfo } from '@components/organisms/productInfo/ProductInfo';
@@ -11,7 +11,7 @@ import { Flex } from '@components/helpers/flex/Flex';
 import styles from './productPage.module.scss';
 
 interface ProductPageProps {
-  product: ProductWithInfo | null;
+  product: ProductPageData | null;
   breadCrumbs?: BreadCrumbsType[];
 }
 
@@ -24,8 +24,12 @@ const ProductPage = ({ product, breadCrumbs }: ProductPageProps) => {
         </Container>
         <section className={clsx(styles.section, styles.padding)}>
           <Flex className={styles.flex}>
-            {product && <ProductImagesSlider images={product.images} className={styles.slider} />}
-            {product && <ProductInfo product={product} className={styles.info} />}
+            {product?.variation.images && (
+              <ProductImagesSlider images={product.variation.images} className={styles.slider} />
+            )}
+            {product && (
+              <ProductInfo key={product.variation._id} product={product} className={styles.info} />
+            )}
           </Flex>
         </section>
         <SuggestedProductsSection sectionTitle="Related Items" className={styles.section} />
