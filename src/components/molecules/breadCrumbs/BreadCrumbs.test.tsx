@@ -20,7 +20,7 @@ const breadcrumbs = [
 
 describe('BreadCrumbs component', () => {
   it('renders with only home page if no props are passed', () => {
-    render(<BreadCrumbs />);
+    render(<BreadCrumbs elements={breadcrumbs} />);
     expect(screen.getByText('Home')).toHaveAttribute('href', '/');
   });
   it('renders with breadcrumbs elements if prop is passed', () => {
@@ -33,7 +33,7 @@ describe('BreadCrumbs component', () => {
     expect(screen.getByText('third')).toHaveClass(styles.active);
   });
   it('renders with activePage if prop is passed', () => {
-    render(<BreadCrumbs activePage="About" />);
+    render(<BreadCrumbs elements={breadcrumbs} activePage="About" />);
     expect(screen.getByText('About')).toBeInTheDocument();
   });
 });

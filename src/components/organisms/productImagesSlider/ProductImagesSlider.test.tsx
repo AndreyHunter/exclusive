@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { ProductInfoSlider } from './ProductInfoSlider';
+import { ProductImagesSlider } from './ProductImagesSlider';
 
 jest.mock('swiper/react', () => ({
   Swiper: ({ children, className }: { children: React.ReactNode; className?: string }) => (
@@ -36,21 +36,21 @@ describe('ProductInfoSlider', () => {
   const mockImages: string[] = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg'];
 
   it('renders both Swiper components', () => {
-    render(<ProductInfoSlider images={mockImages} />);
+    render(<ProductImagesSlider images={mockImages} />);
 
     const swipers = screen.getAllByTestId('swiper');
     expect(swipers).toHaveLength(2);
   });
 
   it('renders correct number of slides for both swipers', () => {
-    render(<ProductInfoSlider images={mockImages} />);
+    render(<ProductImagesSlider images={mockImages} />);
 
     const slides = screen.getAllByTestId('swiper-slide');
     expect(slides).toHaveLength(mockImages.length * 2);
   });
 
   it('renders all images correctly', () => {
-    render(<ProductInfoSlider images={mockImages} />);
+    render(<ProductImagesSlider images={mockImages} />);
 
     const images = screen.getAllByRole('img');
     expect(images).toHaveLength(mockImages.length * 2);
@@ -63,7 +63,7 @@ describe('ProductInfoSlider', () => {
   });
 
   it('renders navigation buttons', () => {
-    render(<ProductInfoSlider images={mockImages} />);
+    render(<ProductImagesSlider images={mockImages} />);
 
     expect(screen.getByTestId('slider-button-left')).toBeInTheDocument();
     expect(screen.getByTestId('slider-button-right')).toBeInTheDocument();

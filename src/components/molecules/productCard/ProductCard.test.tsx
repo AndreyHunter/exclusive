@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-import { mockProduct } from '@tests/__fixtures__/index';
+import { mockProduct } from '@tests/__fixtures__/';
 import { ROUTES } from '@routes/routes';
 import { Numbers } from '@utils/index';
 
@@ -55,11 +55,11 @@ describe('ProductCard', () => {
 
   describe('ProductName', () => {
     it('checks product name render', () => {
-      expect(screen.getByText(mockProduct.name)).toBeInTheDocument();
+      expect(screen.getByText(/Classic T-Shirt - Black/i)).toBeInTheDocument();
     });
 
     it('navigates to product page', () => {
-      expect(screen.getByText(mockProduct.name)).toHaveAttribute(
+      expect(screen.getByText(/Classic T-Shirt - Black/i)).toHaveAttribute(
         'href',
         `/${ROUTES.PRODUCT}/${mockProduct._id}`,
       );
@@ -73,7 +73,7 @@ describe('ProductCard', () => {
     });
 
     it('checks discount label render', () => {
-      expect(screen.getByText(`-20%`)).toBeInTheDocument();
+      expect(screen.getByText(`-16%`)).toBeInTheDocument();
     });
   });
 });

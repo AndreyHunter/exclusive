@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { lazy } from 'react';
 
-import { SuspenseWrapper } from '@/components/atoms/suspenseWrapper/SuspenseWrapper';
-import { SigninForm } from '@/components/organisms/signinForm/SigninForm';
-import { SignupForm } from '@/components/organisms/signupForm/SignupForm';
+import { SuspenseWrapper } from '@components/atoms/suspenseWrapper/SuspenseWrapper';
+import { SigninForm } from '@components/organisms/signinForm/SigninForm';
+import { SignupForm } from '@components/organisms/signupForm/SignupForm';
 import { LayoutTemplate } from '@components/templates/';
-import { PrivateRoute } from '@/components/helpers/privateRoute/PrivateRoute';
+import { PrivateRoute } from '@components/helpers/privateRoute/PrivateRoute';
 
 import { ROUTES } from './routes';
 
@@ -16,8 +16,8 @@ const WishListPage = lazy(() => import('@pages/wishListPage/WishListPage'));
 const CheckoutPage = lazy(() => import('@pages/checkoutPage/CheckoutPage'));
 const NotFoundPage = lazy(() => import('@pages/notFoundPage/NotFoundPage'));
 const ContactsPage = lazy(() => import('@pages/contactsPage/ContactsPage'));
-const ProductsPage = lazy(() => import('@/pages/productsPage/ProductsPageContainer'));
-const ProductPage = lazy(() => import('@pages/productPage/ProductPage'));
+const ProductsPage = lazy(() => import('@pages/productsPage/ProductsPageContainer'));
+const ProductPage = lazy(() => import('@pages/productPage/ProductPageContainer'));
 const ProfilePage = lazy(() => import('@pages/profilePage/ProfilePage'));
 
 const AuthTemplate = lazy(() => import('@components/templates/authTemplate/AuthTemplate'));
