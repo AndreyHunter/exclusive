@@ -1,8 +1,17 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
-import type { ProductWithInfo } from 'types/index';
+import { mockProductInfo } from '@tests/__fixtures__';
 
 import { ProductInfo } from './ProductInfo';
+
+jest.mock('@/app/hooks', () => ({
+  useAppDispatch: () => jest.fn(),
+}));
+
+jest.mock('@features/cart/cartSlice', () => ({
+  addToCart: () => jest.fn(),
+}));
 
 jest.mock('@components/molecules/productRating/ProductRating', () => ({
   ProductRating: () => <div data-testid="product-rating">Rating</div>,
@@ -36,34 +45,17 @@ jest.mock('@hooks/useCounter', () => ({
   }),
 }));
 
-export const mockProductWithInfo: ProductWithInfo = {
-  _id: '1',
-  name: 'product-name',
-  price: 100,
-  discountedPrice: 80,
-  inStock: true,
-  category: 'test-category',
-  images: ['cat.jpg', 'dog.png'],
-  rating: 4,
-  reviewsCount: 170,
-  description: 'product-description',
-  image: 'image1.jpg',
-  flashSales: false,
-  bestSelling: true,
-  colors: [
-    { name: 'Red', color: '#FF0000' },
-    { name: 'Blue', color: '#0000FF' },
-  ],
-  sizes: ['S', 'M', 'L'],
-};
-
 describe('ProductInfo', () => {
   it('renders basic product information and mocked components', () => {
-    render(<ProductInfo product={mockProductWithInfo} />);
+    render(
+      <MemoryRouter>
+        <ProductInfo product={mockProductInfo} />
+      </MemoryRouter>,
+    );
 
-    expect(screen.getByText(/product-name/i)).toBeInTheDocument();
-    expect(screen.getByText(/product-description/i)).toBeInTheDocument();
-    expect(screen.getByText('$100')).toBeInTheDocument();
+    expect(screen.getByText(/Classic T-Shirt/i)).toBeInTheDocument();
+    expect(screen.getByText(/A comfortable black cotton T-shirt/i)).toBeInTheDocument();
+    expect(screen.getByText('$29.99')).toBeInTheDocument();
 
     expect(screen.getByTestId('product-rating')).toBeInTheDocument();
     expect(screen.getByTestId('colors-list')).toBeInTheDocument();

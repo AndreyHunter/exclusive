@@ -5,7 +5,7 @@ import styles from './productPrice.module.scss';
 
 interface ProductPriceProps {
   price: number;
-  discountedPrice?: number;
+  discountedPrice?: number | null;
   className?: string;
 }
 

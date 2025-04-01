@@ -1,7 +1,7 @@
 import { Thumbs, Navigation } from 'swiper/modules';
 import type { SwiperOptions } from 'swiper/types';
 
-import styles from './productInfoSlider.module.scss';
+import styles from './productImagesSlider.module.scss';
 
 interface SliderSettings {
   thumbs: SwiperOptions;
