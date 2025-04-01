@@ -14,13 +14,17 @@ const sizeOrder = ['xs', 's', 'm', 'l', 'xl', 'xxl'];
 
 const sortSizes = (sizes: string[]) => {
   return sizes.slice().sort((a, b) => {
-    const indexA = sizeOrder.indexOf(a);
-    const indexB = sizeOrder.indexOf(b);
+    const indexA = sizeOrder.indexOf(a.toLowerCase());
+    const indexB = sizeOrder.indexOf(b.toLowerCase());
     if (indexA === -1 && indexB === -1) return a.localeCompare(b);
     if (indexA === -1) return 1;
     if (indexB === -1) return -1;
     return indexA - indexB;
   });
+};
+
+const isStandardSize = (size: string) => {
+  return sizeOrder.includes(size.toLowerCase());
 };
 
 export const SizeList = ({ sizes, selectedSize, onChange }: SizeListProps) => {
@@ -30,13 +34,19 @@ export const SizeList = ({ sizes, selectedSize, onChange }: SizeListProps) => {
     <Flex tagElement="ul" gap={16} className={styles.root}>
       {sortedSized.map((size) => {
         const displaySize = size.toUpperCase();
+        const isStandard = isStandardSize(size);
+
         return (
           <li key={size}>
             <Flex
               tagElement="label"
               alignItems="center"
               justifyContent="center"
-              className={clsx(styles.label, selectedSize === size && styles.checked)}>
+              className={clsx(
+                styles.label,
+                selectedSize === size && styles.checked,
+                !isStandard && styles.custom,
+              )}>
               <input
                 type="radio"
                 name="size"

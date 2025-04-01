@@ -9,10 +9,17 @@
   margin-bottom: 16px;
 
   > span {
-    color: #0f6;
     font-size: 0.875rem;
     opacity: 0.6;
   }
+}
+
+.inStock {
+  color: #0f6;
+}
+
+.soldOut {
+  color: orange;
 }
 
 .price {

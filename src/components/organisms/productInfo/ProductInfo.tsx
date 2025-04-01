@@ -52,6 +52,8 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
   };
 
   const handleAddToCart = async () => {
+    if (!product.variation.inStock) return;
+
     setLoading(true);
 
     try {
@@ -75,7 +77,11 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
             reviewsCount={product.baseProduct.reviewsCount}
             onSetRating={() => {}}
           />
-          {product.variation.inStock && <span>In Stock</span>}
+          {product.variation.inStock ? (
+            <span className={styles.inStock}>In stock</span>
+          ) : (
+            <span className={styles.soldOut}>Sold out</span>
+          )}
         </Flex>
         <div className={styles.price}>${product.variation.price}</div>
         <p className={styles.desc}>
@@ -106,7 +112,10 @@ export const ProductInfo = ({ product, className }: ProductInfoProps) => {
 
         <Flex gap={16} className={styles.add} alignItems="center">
           <Counter count={count} increment={increment} decrement={decrement} />
-          <Button className={styles.btn} onClick={handleAddToCart} disabled={loading}>
+          <Button
+            className={styles.btn}
+            onClick={handleAddToCart}
+            disabled={loading && !product.variation.inStock}>
             {showAddedMessage ? 'In cart' : 'By now'}
           </Button>
           <Flex alignItems="center" justifyContent="center" className={styles.wish}>
